@@ -1,0 +1,31 @@
+{
+  "cSpell.words": ["My Project", "my-project"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "npm.packageManager": "pnpm",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "json",
+    "jsonc"
+  ],
+  "vite.devCommand": "pnpm run dev -- --"
+}
