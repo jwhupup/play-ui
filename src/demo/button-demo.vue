@@ -83,7 +83,7 @@
 </template>
 
 <script lang="ts" setup>
-import '@play/components/button/style'
-import '@play/components/button-group/style'
+import '@play/components/button/button.less'
+import '@play/components/button-group/button-group.less'
 import { PlButton, PlButtonGroup } from '@play/components'
 </script>

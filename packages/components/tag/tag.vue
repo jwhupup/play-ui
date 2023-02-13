@@ -1,8 +1,10 @@
 <template>
-  <div class="pl-tag" :class="genClass($props)">
-    <span :class="{ 'pl-tag--indicator': indicator }">
-      <slot />
-    </span>
+  <div
+    class="pl-tag"
+    :class="[`pl-tag--${type}`, `pl-tag--${shape}`, `pl-tag--${color}`]"
+  >
+    <i v-if="indicator" class="pl-tag--indicator" />
+    <slot />
     <i v-if="closable" class="pl-tag--close">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
         <path
@@ -15,10 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { createNamespace } from '../utils'
 import { tagProps } from './options'
 
 defineProps(tagProps)
-
-const { genClass } = createNamespace('tag')
 </script>

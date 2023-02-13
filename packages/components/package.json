@@ -1,9 +1,5 @@
 {
   "name": "@play/components",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.ts",
-  "devDependencies": {
-    "less": "^4.1.3"
-  }
+  "main": "index.ts"
 }

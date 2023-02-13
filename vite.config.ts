@@ -17,17 +17,4 @@ export default defineConfig({
       },
     ],
   },
-  build: {
-    lib: {
-      entry: resolve(__dirname, 'index.ts'),
-      name: '@vvv/components',
-    },
-    rollupOptions: {
-      external: ['vue'],
-      input: './packages/components/index.ts',
-      output: {
-        dir: './packages/components/dist',
-      },
-    },
-  },
 })
