@@ -1,7 +1,7 @@
 {
   "name": "play-ui",
   "version": "1.0.3",
-  "description": "A library for vue project",
+  "description": "A Component Library for Vue 3",
   "license": "MIT",
   "author": "jwhupup",
   "files": [

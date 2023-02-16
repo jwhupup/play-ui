@@ -1,2 +1,3 @@
-# play-ui
-A components library based on Vue3.
+# play-vue
+
+A library for vue project.
