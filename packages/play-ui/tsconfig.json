@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "emitDeclarationOnly": true
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "**/test/**/*",
+    "**/dist",
+    "**/gulpfile.ts",
+    "**/*.md"
+  ]
+}
