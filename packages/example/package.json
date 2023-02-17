@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "main": "main.ts",
+  "module": "main.ts",
+  "scripts": {
+    "dev": "vue-tsc --noEmit && vite"
+  },
+  "dependencies": {
+    "pinia": "^2.0.28",
+    "play-ui": "workspace:*",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "play-ui",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Component Library for Vue 3",
   "license": "MIT",
   "author": "jwhupup",
@@ -28,8 +28,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": [
+    "dist/**/*.css"
+  ],
   "scripts": {
-    "build": "vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts",
-    "clean": "rimraf dist"
+    "build": "rimraf dist && vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts"
   }
 }

@@ -1,8 +1,0 @@
-{
-  "name": "example",
-  "main": "main.ts",
-  "module": "main.ts",
-  "scripts": {
-    "dev": "vue-tsc --noEmit && vite"
-  }
-}
