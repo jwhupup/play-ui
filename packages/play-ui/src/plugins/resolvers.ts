@@ -25,7 +25,10 @@ function getSideEffects(
 ): SideEffectsInfo | undefined {
   const { importStyle = true } = options
   if (!importStyle || isSSR) return
-  return ['play-ui/dist/style/base', `play-ui/dist/style/components/${dirName}`]
+  return [
+    'play-ui/dist/style/base.css',
+    `play-ui/dist/style/components/${dirName}.css`,
+  ]
 }
 
 export function PlayUiResolver(
