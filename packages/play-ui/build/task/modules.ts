@@ -5,14 +5,14 @@ import vue from '@vitejs/plugin-vue'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild'
 import consola from 'consola'
-import { excludeFiles, pathResolve } from '../utils'
+import { excludeFiles } from '../utils'
 import { modulesOutputConfig } from '../config'
 
 export async function buildModules() {
   consola.info('Start building modules...')
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
-      cwd: pathResolve('src'),
+      cwd: 'src',
       absolute: true,
       onlyFiles: true,
     })

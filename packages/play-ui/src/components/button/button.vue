@@ -16,8 +16,8 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { GROUP_BUTTON_KEY } from '../button-group/options'
-import { buttonProps } from './options'
+import { GROUP_BUTTON_KEY } from '../button-group/button-group'
+import { buttonProps } from './button'
 
 defineProps(buttonProps)
 

@@ -1,9 +1,9 @@
-import _PlTag from './tag.vue'
+import Tag from './tag.vue'
 import type { App } from 'vue'
 
-_PlTag.install = (app: App) => {
-  app.component('PlTag', _PlTag)
+Tag.install = (app: App) => {
+  app.component('PlTag', Tag)
 }
 
-export const PlTag = _PlTag
+export const PlTag = Tag
 export default PlTag

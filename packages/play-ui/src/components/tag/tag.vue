@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { tagProps } from './options'
+import { tagProps } from './tag'
 
 defineProps(tagProps)
 </script>

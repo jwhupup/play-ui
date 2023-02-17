@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { provide } from 'vue'
-import { GROUP_BUTTON_KEY, buttonGroupProps } from './options'
+import { GROUP_BUTTON_KEY, buttonGroupProps } from './button-group'
 
 const props = defineProps(buttonGroupProps)
 
