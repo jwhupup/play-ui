@@ -1,5 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
+import Components from 'unplugin-vue-components/vite'
+import { PlayUiResolver } from 'play-ui/dist/lib/plugins/resolvers'
 import vue from '@vitejs/plugin-vue'
 
 function pathResolve(dir: string) {
@@ -7,7 +9,13 @@ function pathResolve(dir: string) {
 }
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [PlayUiResolver()],
+      dts: false,
+    }),
+  ],
   resolve: {
     alias: [
       // @/xxxx => src/xxxx

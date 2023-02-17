@@ -14,12 +14,16 @@
   </button>
 </template>
 
-<script setup lang="ts">
-import { inject } from 'vue'
+<script lang="ts">
+import { defineComponent, inject } from 'vue'
 import { GROUP_BUTTON_KEY } from '../button-group/button-group'
 import { buttonProps } from './button'
-
-defineProps(buttonProps)
-
-const parent = inject(GROUP_BUTTON_KEY, null)
+export default defineComponent({
+  name: 'PlButton',
+  props: buttonProps,
+  setup() {
+    const parent = inject(GROUP_BUTTON_KEY, null)
+    return { parent }
+  },
+})
 </script>

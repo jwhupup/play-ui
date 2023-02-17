@@ -19,8 +19,6 @@ export function kebabCase(key: string) {
   return result.split(' ').join('-').toLowerCase()
 }
 
-const moduleType = isSSR ? 'lib' : 'es'
-
 function getSideEffects(
   dirName: string,
   options: PlayUiResolverOptions
@@ -39,8 +37,8 @@ export function PlayUiResolver(
       if (name.startsWith('Pl')) {
         const partialName = name.slice(2)
         return {
-          name: partialName,
-          from: `play-ui/dist/${moduleType}`,
+          name,
+          from: `play-ui`,
           sideEffects: getSideEffects(kebabCase(partialName), options),
         }
       }
