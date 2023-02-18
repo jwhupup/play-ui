@@ -14,6 +14,9 @@
       border-radius: 0;
     }
     &--solid {
+      &:not(:first-child) {
+        margin-left: 0px;
+      }
       &:first-child {
         border-right: 1px solid rgba(255, 255, 255, 0.5);
       }

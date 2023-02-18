@@ -4,7 +4,7 @@ import type {
 } from 'unplugin-vue-components'
 
 export interface PlayUiResolverOptions {
-  importStyle?: boolean
+  importStyle?: boolean | 'less'
 }
 
 export const isSSR = Boolean(
@@ -24,7 +24,16 @@ function getSideEffects(
   options: PlayUiResolverOptions
 ): SideEffectsInfo | undefined {
   const { importStyle = true } = options
+
   if (!importStyle || isSSR) return
+
+  if (importStyle === 'less') {
+    return [
+      'play-ui/src/style/base.less',
+      `play-ui/src/style/components/${dirName}.less`,
+    ]
+  }
+
   return [
     'play-ui/dist/style/base.css',
     `play-ui/dist/style/components/${dirName}.css`,
@@ -41,7 +50,7 @@ export function PlayUiResolver(
         const partialName = name.slice(2)
         return {
           name,
-          from: `play-ui`,
+          from: 'play-ui',
           sideEffects: getSideEffects(kebabCase(partialName), options),
         }
       }

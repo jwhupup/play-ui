@@ -23,7 +23,8 @@
     "./dist/es/*": "./dist/es/*.mjs",
     "./dist/lib/*.js": "./dist/lib/*.js",
     "./dist/lib/*": "./dist/lib/*.js",
-    "./dist/*": "./dist/*"
+    "./dist/*": "./dist/*",
+    "./src/*": "./src/*"
   },
   "publishConfig": {
     "access": "public"

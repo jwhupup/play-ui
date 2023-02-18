@@ -1,21 +1,23 @@
+import path from 'node:path'
+import { buildOutput, sourceRoot } from './path'
 import type { OutputOptions } from 'rollup'
 
 export const modulesOutputConfig: OutputOptions[] = [
   {
     format: 'esm',
-    dir: 'dist/es',
+    dir: path.resolve(buildOutput, 'es'),
     exports: undefined,
     preserveModules: true,
-    preserveModulesRoot: 'src',
+    preserveModulesRoot: sourceRoot,
     sourcemap: true,
     entryFileNames: '[name].mjs',
   },
   {
     format: 'cjs',
-    dir: 'dist/lib',
+    dir: path.resolve(buildOutput, 'lib'),
     exports: 'named',
     preserveModules: true,
-    preserveModulesRoot: 'src',
+    preserveModulesRoot: sourceRoot,
     sourcemap: true,
     entryFileNames: '[name].js',
   },
@@ -24,7 +26,7 @@ export const modulesOutputConfig: OutputOptions[] = [
 export const browserOutputConfig: OutputOptions[] = [
   {
     format: 'umd',
-    file: 'dist/browser/index.min.js',
+    file: path.resolve(buildOutput, 'browser', 'index.min.js'),
     exports: 'named',
     name: 'PlayUi',
     globals: {
@@ -34,7 +36,7 @@ export const browserOutputConfig: OutputOptions[] = [
   },
   {
     format: 'esm',
-    file: 'dist/browser/index.min.mjs',
+    file: path.resolve(buildOutput, 'browser', 'index.min.mjs'),
     sourcemap: true,
   },
 ]

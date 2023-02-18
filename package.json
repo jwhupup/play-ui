@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "pnpm run -C packages/example dev",
+    "dev:play-ui": "pnpm run -C examples/play-ui dev",
     "build:play-ui": "pnpm run -C packages/play-ui build",
     "preview": "vite preview",
     "prepare": "husky install"

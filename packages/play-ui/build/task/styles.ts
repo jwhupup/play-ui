@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { dest, src } from 'gulp'
 import consola from 'consola'
 import chalk from 'chalk'
@@ -5,9 +6,10 @@ import gulpLess from 'gulp-less'
 import gulpImportLess from 'gulp-import-less'
 import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
+import { buildOutput, stylesRoot } from '../path'
 
 export async function buildStyles() {
-  return src('src/style/**/*.less')
+  return src(path.resolve(stylesRoot, '**/*.less'))
     .pipe(gulpImportLess())
     .pipe(gulpLess())
     .pipe(autoprefixer({ cascade: false }))
@@ -20,5 +22,5 @@ export async function buildStyles() {
         )
       })
     )
-    .pipe(dest('dist/style'))
+    .pipe(dest(path.resolve(buildOutput, 'style')))
 }
