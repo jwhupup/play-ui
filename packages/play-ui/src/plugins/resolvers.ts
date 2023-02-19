@@ -29,14 +29,14 @@ function getSideEffects(
 
   if (importStyle === 'less') {
     return [
-      'play-ui/src/style/base.less',
-      `play-ui/src/style/components/${dirName}.less`,
+      'play-ui/src/styles/base.less',
+      `play-ui/src/styles/components/${dirName}.less`,
     ]
   }
 
   return [
-    'play-ui/dist/style/base.css',
-    `play-ui/dist/style/components/${dirName}.css`,
+    'play-ui/dist/styles/base.css',
+    `play-ui/dist/styles/components/${dirName}.css`,
   ]
 }
 
