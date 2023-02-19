@@ -29,14 +29,14 @@ function getSideEffects(
 
   if (importStyle === 'less') {
     return [
-      'play-ui/src/styles/base.less',
-      `play-ui/src/styles/components/${dirName}.less`,
+      'play-vue/src/styles/base.less',
+      `play-vue/src/styles/components/${dirName}.less`,
     ]
   }
 
   return [
-    'play-ui/dist/styles/base.css',
-    `play-ui/dist/styles/components/${dirName}.css`,
+    'play-vue/dist/styles/base.css',
+    `play-vue/dist/styles/components/${dirName}.css`,
   ]
 }
 
@@ -50,7 +50,7 @@ export function PlayUiResolver(
         const partialName = name.slice(2)
         return {
           name,
-          from: 'play-ui',
+          from: 'play-vue',
           sideEffects: getSideEffects(kebabCase(partialName), options),
         }
       }

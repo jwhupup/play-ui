@@ -5,6 +5,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: '/',
+      redirect: '/hello',
+    },
+    {
       path: '/hello',
       component: () => import('../components/HelloWorld.vue'),
     },

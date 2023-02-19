@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.28",
-    "play-ui": "workspace:*",
+    "play-vue": "workspace:*",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },

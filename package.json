@@ -5,7 +5,7 @@
   "packageManager": "pnpm@7.5.2",
   "scripts": {
     "dev": "pnpm run build && pnpm run -C examples dev",
-    "build": "pnpm run -C packages/play-ui build",
+    "build": "pnpm run -C packages/play-vue build",
     "test": "vitest",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
     "prepare": "husky install"
