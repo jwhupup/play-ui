@@ -34,5 +34,8 @@
   ],
   "scripts": {
     "build": "rimraf dist && vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
   }
 }
