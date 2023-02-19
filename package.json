@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@7.5.2",
   "scripts": {
-    "dev": "pnpm run -C examples dev",
+    "dev": "pnpm run build && pnpm run -C examples dev",
     "build": "pnpm run -C packages/play-ui build",
     "test": "vitest",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
