@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  lint:
+  CI:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -39,30 +39,6 @@ jobs:
 
       - name: Lint
         run: pnpm run lint
-
-      - name: Test
-        run: pnpm run test
-
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-
-      - name: Set node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: pnpm
-
-      - name: Install
-        run: pnpm install --no-frozen-lockfile
-
-      - name: Build
-        run: pnpm run build
 
       - name: Test
         run: pnpm run test
