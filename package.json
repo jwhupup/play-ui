@@ -2,6 +2,7 @@
   "name": "play-vue",
   "version": "0.0.0",
   "private": true,
+  "packageManager": "pnpm@7.5.2",
   "scripts": {
     "dev:play-ui": "pnpm run -C examples/play-ui dev",
     "build:play-ui": "pnpm run -C packages/play-ui build",
