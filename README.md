@@ -1,3 +1,3 @@
 # play-vue
 
-A library for vue project.
+A Component Library for Vue 3
