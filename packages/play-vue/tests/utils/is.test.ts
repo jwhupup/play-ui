@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { isArray, isString } from '../../utils'
+import { isArray, isString } from '../../src/utils'
 
 describe('utils of is', () => {
   it('Is it a string?', () => {
