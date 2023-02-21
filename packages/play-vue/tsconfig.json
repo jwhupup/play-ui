@@ -7,6 +7,13 @@
     "declarationDir": "dist/types",
     "emitDeclarationOnly": true
   },
-  "include": ["src", "tests"],
-  "exclude": ["node_modules", "dist", "gulpfile.ts", "**/style/**/*", "**/*.md"]
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "tests",
+    "gulpfile.ts",
+    "**/style/**/*",
+    "**/*.md"
+  ]
 }

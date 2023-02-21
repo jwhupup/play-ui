@@ -1,8 +1,6 @@
+import { withInstall } from '../../utils/install'
 import ButtonGroup from './button-group.vue'
-import type { App } from 'vue'
 
-ButtonGroup.install = (app: App) => {
-  app.component('PlButtonGroup', ButtonGroup)
-}
-export const PlButtonGroup = ButtonGroup
+export const PlButtonGroup = withInstall(ButtonGroup, 'PlButtonGroup')
 export default PlButtonGroup
+export type { ButtonGroupProps } from './button-group'

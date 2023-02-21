@@ -1,29 +1,39 @@
-import type { PropType } from 'vue'
+import type { ComponentColor } from '../../types/components'
+import type { ExtractPropTypes, PropType } from 'vue'
+
+export type ButtonNativeType = 'button' | 'reset' | 'submit'
+export type ButtonShape = 'rounded' | 'pilled' | 'circle'
+export type ButtonSize = 'small' | 'medium' | 'large'
+export type ButtonType =
+  | 'solid'
+  | 'outline'
+  | 'ghost'
+  | 'soft'
+  | 'white'
+  | 'link'
 
 export const buttonProps = {
   type: {
-    type: String as PropType<
-      'solid' | 'outline' | 'ghost' | 'soft' | 'white' | 'link'
-    >,
+    type: String as PropType<ButtonType>,
     default: 'white',
   },
   nativeType: {
-    type: String as PropType<'button' | 'reset' | 'submit'>,
+    type: String as PropType<ButtonNativeType>,
     default: 'button',
   },
   shape: {
-    type: String as PropType<'rounded' | 'pilled' | 'circle'>,
+    type: String as PropType<ButtonShape>,
     default: 'rounded',
   },
   size: {
-    type: String as PropType<'small' | 'medium' | 'large'>,
+    type: String as PropType<ButtonSize>,
     default: 'medium',
   },
   color: {
-    type: String as PropType<
-      'blue' | 'teal' | 'red' | 'yellow' | 'gray' | 'deepGray'
-    >,
+    type: String as PropType<ComponentColor>,
     default: 'blue',
   },
   disabled: Boolean,
 }
+
+export type ButtonProps = ExtractPropTypes<typeof buttonProps>

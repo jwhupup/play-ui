@@ -1,18 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { App } from 'vue'
+import routes from '~pages'
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: '/',
-      redirect: '/hello',
-    },
-    {
-      path: '/hello',
-      component: () => import('../components/HelloWorld.vue'),
-    },
-  ],
+  routes,
 })
 
 export function setupRouter(app: App) {

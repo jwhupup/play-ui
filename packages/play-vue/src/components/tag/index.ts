@@ -1,9 +1,6 @@
+import { withInstall } from '../../utils/install'
 import Tag from './tag.vue'
-import type { App } from 'vue'
 
-Tag.install = (app: App) => {
-  app.component('PlTag', Tag)
-}
-
-export const PlTag = Tag
+export const PlTag = withInstall(Tag, 'PlTag')
 export default PlTag
+export type { TagProps } from './tag'
