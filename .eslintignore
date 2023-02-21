@@ -2,5 +2,5 @@ node_modules
 dist
 pnpm-lock.yaml
 CHANGELOG.en-US.md
-packages/components.d.ts
+examples/components.d.ts
 !.*

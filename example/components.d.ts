@@ -9,6 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DemoBlock: typeof import('./src/components/demo-block.vue')['default']
     PlButton: typeof import('play-vue')['PlButton']
     PlButtonGroup: typeof import('play-vue')['PlButtonGroup']
     RouterLink: typeof import('vue-router')['RouterLink']
