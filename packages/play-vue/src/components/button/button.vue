@@ -9,21 +9,24 @@
       `pl-button--${parent?.color || color}`,
       { 'is-disabled': parent?.disabled || disabled },
     ]"
+    @click="handleClick"
   >
     <slot />
   </button>
 </template>
 
-<script lang="ts">
-import { defineComponent, inject } from 'vue'
+<script setup lang="ts">
+import { inject } from 'vue'
 import { GROUP_BUTTON_KEY } from '../button-group/button-group'
 import { buttonProps } from './button'
-export default defineComponent({
-  name: 'PlButton',
-  props: buttonProps,
-  setup() {
-    const parent = inject(GROUP_BUTTON_KEY, null)
-    return { parent }
-  },
-})
+
+defineProps(buttonProps)
+
+const parent = inject(GROUP_BUTTON_KEY, null)
+
+const emits = defineEmits(['click'])
+
+const handleClick = (evt: MouseEvent) => {
+  emits('click', evt)
+}
 </script>

@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     DemoBlock: typeof import('./src/components/demo-block.vue')['default']
     PlButton: typeof import('play-vue')['PlButton']
     PlButtonGroup: typeof import('play-vue')['PlButtonGroup']
+    PlIcon: typeof import('play-vue')['PlIcon']
+    PlTag: typeof import('play-vue')['PlTag']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

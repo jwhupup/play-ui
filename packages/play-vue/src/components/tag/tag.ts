@@ -19,7 +19,6 @@ export const tagProps = {
   },
   closable: Boolean,
   indicator: Boolean,
-  customColor: String,
 }
 
 export type TagProps = ExtractPropTypes<typeof tagProps>

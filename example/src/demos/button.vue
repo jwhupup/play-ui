@@ -1,6 +1,6 @@
 <template>
   <DemoBlock title="Button type">
-    <pl-button type="white">white</pl-button>
+    <pl-button type="white" @click="handleClick">white</pl-button>
     <pl-button type="solid">solid</pl-button>
     <pl-button type="outline">outline</pl-button>
     <pl-button type="ghost">ghost</pl-button>
@@ -41,8 +41,8 @@
   </DemoBlock>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
+<script setup lang="ts">
+const handleClick = () => {
+  console.log('///button click///')
 }
-</style>
+</script>
