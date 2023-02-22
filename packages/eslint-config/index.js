@@ -34,7 +34,7 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ['**/__tests__/**'],
+      files: ['**/__tests__/**', '**/tests/**', 'example/**'],
       rules: {
         'no-console': 'off',
         'vue/one-component-per-file': 'off',
@@ -171,9 +171,7 @@ module.exports = defineConfig({
     'no-multi-str': 'error',
     'no-with': 'error',
     'no-void': 'error',
-    'max-len': {
-      code: 120,
-    },
+    'max-len': 'off',
 
     'sort-imports': [
       'warn',
