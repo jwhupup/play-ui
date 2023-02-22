@@ -22,5 +22,5 @@ export async function buildStyles() {
         )
       })
     )
-    .pipe(dest(path.resolve(buildOutput, 'style')))
+    .pipe(dest(path.resolve(buildOutput, 'styles')))
 }
