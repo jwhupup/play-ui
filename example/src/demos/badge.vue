@@ -11,7 +11,7 @@
   <demo-block title="color">
     <PlBadge value="99" dot>badge</PlBadge>
     <br /><br />
-    <PlBadge color="red" dot>badge</PlBadge>
+    <PlBadge color="red" dot>dot</PlBadge>
   </demo-block>
 </template>
 
