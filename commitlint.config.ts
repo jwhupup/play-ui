@@ -14,6 +14,7 @@ const Configuration: UserConfig = {
         'optimize',
         'style',
         'docs',
+        'test',
         'chore',
       ],
     ],
