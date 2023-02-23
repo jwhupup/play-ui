@@ -1,18 +1,13 @@
 {
   "name": "@play-vue/eslint-config",
   "version": "0.0.1",
+  "private": "true",
   "description": "ESLint Config",
   "license": "MIT",
   "files": [
     "index.js"
   ],
   "main": "index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "peerDependencies": {
-    "eslint": "^8.0.0"
-  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",
