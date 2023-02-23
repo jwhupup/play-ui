@@ -8,7 +8,7 @@
     "build": "pnpm run -C packages/play-vue build",
     "test": "vitest",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
-    "release": "bumpp package.json packages/**/package.json",
+    "release": "bumpp packages/paly-vue/package.json",
     "prepare": "husky install"
   },
   "dependencies": {
