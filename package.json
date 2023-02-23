@@ -8,6 +8,7 @@
     "build": "pnpm run -C packages/play-vue build",
     "test": "vitest",
     "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "release": "bumpp package.json packages/**/package.json",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "@vitejs/plugin-vue": "^2.3.3",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/test-utils": "^2.2.10",
+    "bumpp": "^8.2.1",
     "chalk": "^5.2.0",
     "consola": "^2.15.3",
     "eslint": "^8.18.0",
