@@ -3,4 +3,5 @@ dist
 pnpm-lock.yaml
 CHANGELOG.en-US.md
 example/components.d.ts
+docs/components.d.ts
 !.*

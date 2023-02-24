@@ -21,11 +21,11 @@ Every significant change is documented in the changelog file.
 
 ## Reporting Issues
 
-We use [Github issues](https://github.com/onu-ui/onu-ui/issues) for bug reports and feature requests. Before reporting an issue, please make sure you have searched for similar [issues](https://github.com/onu-ui/onu-ui/issues) as they may have been already answered or being fixed. For bug reporting, please include the minimum code that can be used to reproduce the problem. For feature request,
+We use [Github issues](https://github.com/jwhupup/play-vue/issues) for bug reports and feature requests. Before reporting an issue, please make sure you have searched for similar [issues](https://github.com/jwhupup/play-vue/issues) as they may have been already answered or being fixed. For bug reporting, please include the minimum code that can be used to reproduce the problem. For feature request,
 
 ## Sending a pull request
 
-1. Fork [the repository](https://github.com/onu-ui/onu-ui)，and create your branch from `main`. For new feature, please submit your changes directly to the `feature` branch. Other changes should go against `main` branch.
+1. Fork [the repository](https://github.com/jwhupup/play-vue)，and create your branch from `main`. For new feature, please submit your changes directly to the `feature` branch. Other changes should go against `main` branch.
 2. Use `pnpm install` install the dependencies
 3. Use `pnpm run dev` start project,RUN `pnpm run play` start the `playground`,RUN `pnpm run docs` to write docs。
 4. Make changes to the codebase. Please add tests if applicable.
@@ -60,17 +60,6 @@ The following is a list of commit types:
 - perf: Improve performance.
 - test: Add missing or correct existing tests.
 - chore: Other commits that don’t modify src or test files.
-
-## OnuUI Repository Structure
-
-This repository is managed by `pnpm` and includes the following packages：
-
-1. `onu-ui`: UI component main
-2. `docs`: Component documentation site
-3. `@onu-ui/components`: UI component library
-4. `@onu-ui/preset`: UI component preset
-5. `@onu-ui/utils`: UI component utility
-6. `@onu-ui/cli`: UI component CLI
 
 ## License
 
