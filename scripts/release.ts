@@ -1,3 +1,5 @@
+/** changelog power by https://github.com/antfu/changelogithub */
+
 import consola from 'consola'
 import chalk from 'chalk'
 import { execCommand, getCurrentGitBranch, hasGitTag } from './git'
