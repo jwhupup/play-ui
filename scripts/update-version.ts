@@ -5,18 +5,17 @@ import chalk from 'chalk'
 import pkg from '../packages/play-vue/package.json'
 
 const pkgPath = resolve(process.cwd(), 'packages/play-vue/package.json')
-const newVersion = process.argv[2].slice(1)
 
-if (newVersion === pkg.version) {
-  consola.info(`${chalk.yellow('The version number is the latest!')}`)
-} else {
+export const updatePkgVersion = (version: string) => {
   consola.info(`${chalk.cyan('Updating version...')}`)
+
   consola.info(
     `${chalk.green(pkg.name)} version from ${chalk.green(
       pkg.version
-    )} to ${chalk.green(newVersion)}`
+    )} to ${chalk.green(version)}`
   )
-  pkg.version = newVersion
+
+  pkg.version = version
 
   writeFile(pkgPath, JSON.stringify(pkg, undefined, 2), 'utf-8')
     .then(() => consola.success(`${pkg.name} version updated!`))
