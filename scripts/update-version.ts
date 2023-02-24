@@ -6,7 +6,7 @@ import pkg from '../packages/play-vue/package.json'
 
 const pkgPath = resolve(process.cwd(), 'packages/play-vue/package.json')
 
-export const updatePkgVersion = (version: string) => {
+export async function updatePkgVersion(version: string) {
   consola.info(`${chalk.cyan('Updating version...')}`)
 
   consola.info(
@@ -17,7 +17,7 @@ export const updatePkgVersion = (version: string) => {
 
   pkg.version = version
 
-  writeFile(pkgPath, JSON.stringify(pkg, undefined, 2), 'utf-8')
-    .then(() => consola.success(`${pkg.name} version updated!`))
-    .catch((err) => consola.error(err))
+  await writeFile(pkgPath, JSON.stringify(pkg, undefined, 2), 'utf-8')
+
+  consola.success(`${pkg.name} version updated!`)
 }
