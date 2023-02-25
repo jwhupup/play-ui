@@ -15,7 +15,7 @@ export async function updatePkgVersion(version: string) {
     )} to ${chalk.green(version)}`
   )
 
-  pkg.version = version
+  pkg.version = version.slice(1)
 
   await writeFile(pkgPath, JSON.stringify(pkg, undefined, 2), 'utf-8')
 
