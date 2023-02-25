@@ -4,7 +4,7 @@ import type { ExtractPropTypes, PropType } from 'vue'
 export const badgeProps = {
   color: {
     type: String as PropType<ComponentColor>,
-    default: 'blue',
+    default: 'teal',
   },
   max: {
     type: Number,

@@ -4,8 +4,11 @@
     <div
       class="pl-badge"
       :class="[
-        dot && 'pl-badge--dot',
-        hidden && 'is-hidden',
+        {
+          'pl-badge--dot': !value || dot,
+          'pl-badge--position': $slots.default,
+          'is-hidden': hidden,
+        },
         `pl-badge--${color}`,
       ]"
     >

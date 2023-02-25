@@ -1,19 +1,16 @@
-.pl-badge-container {
-  display: inline-block;
-  position: relative;
-}
 
 .pl-badge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
   padding: 2px 4px;
   font-size: 12px;
+  line-height: 12px;
   border-radius: 999px;
-  border: 2px solid white;
+  border: 1px solid white;
   box-sizing: border-box;
   color: white;
+  &-container {
+    display: inline-block;
+    position: relative;
+  }
   &--dot {
     width: 14px;
     height: 14px;
@@ -41,8 +38,13 @@
     background-color: var(--pl-badge-bg-gray);
   }
   &--deepGray {
-    --pl-badge-bg-deepGray: var(--pl-deepGray-500);
+    --pl-badge-bg-deepGray: var(--pl-gray-800);
     background-color: var(--pl-badge-bg-deepGray);
   }
-
+  &--position {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
 }

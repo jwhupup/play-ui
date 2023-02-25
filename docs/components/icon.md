@@ -5,39 +5,20 @@ lang: en-US
 
 # Icon
 
-Icon are used to any icons with Pure CSS for OnuUI.
+Icon uses iconfont of [Bootstrap Icons](https://icons.getbootstrap.com/).Icon names can be found in their website.
 
-Use **any** icons with Pure CSS for OnuUI.
+::: tip TODO
+Due to the limitation of iconfont, Will use a more comprehensive and easy way to reconstruct later.
+:::
 
-For more icon information view [@unocss/preset-icons](https://github.com/unocss/unocss/tree/main/packages/preset-icons)
+## Name
 
-## Basic usage
+Use the name attribute to define icon. And you can adjust the size of the icon by adjusting the font.
 
-Use the `name` attribute to define Icon. In addition,the `o` attribute can be used to set the color theme of the icon.
-
-```html
-<o-icon o-primary name="i-[icon-name]"></o-icon>
-```
-
-<demo src="../example/icon/basic.vue"></demo>
-
-## Icon Collection
-
-Get all icons, try on [icones](https://icones.js.org/)
-
-![](https://raw.githubusercontent.com/antfu/icones/main/screenshots/2.png)
-![](https://raw.githubusercontent.com/antfu/icones/main/screenshots/6.png)
+<demo src="../example/icon/name.vue"></demo>
 
 ## Icon Props
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| name | `string` | `undefined` | Icon's name. |
-| o | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'error' \| 'info'` | `undefined` | Inherit from color. |
-
-
-## Icon Slots
-
-| Name | Parameters | Description | 
-| --- | --- | --- |
-| default | `()` | Customize default content |
+| Name | Type     | Default | Description    |
+| ---- | -------- | ------- | -------------- |
+| name | `string` | ''      | Set icon name. |

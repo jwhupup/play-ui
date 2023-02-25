@@ -13,90 +13,43 @@ The most commonly used button styles.
 
 <demo src="../example/button/types.vue"></demo>
 
-<!-- ## Disabled Button
-
-The `disabled` attribute determines if the button is disabled.
-
-Use `disabled` attribute to determine whether a button is disabled. It accepts a `Boolean` value.
-
-<demo src="../example/button/disable.vue"></demo>
-
-## Rounded Button
-
-Use `rounded-full` or `rounded="full"` attribute to define a rounded Button
-
-<demo src="../example/button/round.vue"></demo>
-
-## Dashed Button
-
-Use `dashed` attribute to define a dashed style Button
-
-<demo src="../example/button/dashed.vue"></demo>
-
-## Link Button
-
-Use `to` attribute to specify the jump link.
-
-<demo src="../example/button/link.vue"></demo>
-
-## Text Button
-
-Use `text` to define Button's text style. Buttons without border and background.
-
-<demo src="../example/button/text.vue"></demo>
-
-
-## Shadow Button
-
-Use `shadow` to show Button's shadow.
-
-<demo src="../example/button/shadow.vue"></demo>
-
-## Icon Button
-
-Use icons to add more meaning to Button. You can use icon alone to save some space, or use it with text.
-
-Use the `icon` slots to add icon.
-
-<demo src="../example/button/icon.vue"></demo>
-
-## Button Group
-
-TODO
-
-## Loading Button
-
-Click the button to load data, then the button displays a loading state.
-
-Set `loading` attribute to `true` to display loading state.
-
-<demo src="../example/button/loading.vue"></demo>
-
 ## Sizes
 
-Besides default size, Button component provides three additional sizes for you to choose among different scenarios.
+Buttons stacked small to large sizes.
 
-Use attribute `size` to set additional sizes with `xs`, `sm`,`md`,`lg`.
+<demo src="../example/button/sizes.vue"></demo>
 
-<demo src="../example/button/size.vue"></demo> -->
+## Colors
+
+Predefined button color.
+
+<demo src="../example/button/colors.vue"></demo>
+
+## Shapes
+
+Predefined the shape of the button.
+
+<demo src="../example/button/shapes.vue"></demo>
+
+## Disabled
+
+You can use the disabled attribute to define whether the button is disabled.
+
+<demo src="../example/button/disabled.vue"></demo>
 
 ## Button Props
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| type | `'primary' \| 'secondary' \| 'success' \| 'warning' \| 'error' \| 'info'` | `'primary'` | Button type. |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Button size.  |
-| light | `boolean` | `false` |  Determine whether it's a light button.  |
-| text | `boolean` | `false` | Determine whether it's a text button. |
-| to | `string` | `undefined` | Determine whether it's a link button. |
-| rounded | `boolean` | `false` | Determine whether it's a round button. |
-| loading | `boolean` | `false` | Determine whether it's loading.  |
-| disabled | `boolean` | `false` | Disable the button. |
 
-
+| Name        | Type                                                           | Default   | Description                |
+| ----------- | -------------------------------------------------------------- | --------- | -------------------------- |
+| type        | `white` \| `solid` \| `outline` \| `ghost` \| `soft` \| `link` | `white`   | Set custom type attribute. |
+| native-type | `button` \| `reset` \| `submit`                                | `button`  | Set native type attribute. |
+| shape       | `rounded` \| `pilled` \| `circle`                              | `rounded` | Set button shape.          |
+| size        | `small` \| `medium` \| `large`                                 | `medium`  | Set button size.           |
+| color       | `blue` \| `teal` \| `red` \| `yellow` \| `gray` \| `deepGray`  | `teal`    | Set button color.          |
+| disabled    | `boolean`                                                      | `false`   | Disable the button.        |
 
 ## Button Slots
 
-| Name | Parameters | Description | 
-| --- | --- | --- |
-| default | `()` | Customize default content. |
-| icon | `()` | Customize icon component. |
+| Name    | Parameters | Description                |
+| ------- | ---------- | -------------------------- |
+| default | `()`       | Customize default content. |

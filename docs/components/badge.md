@@ -3,46 +3,46 @@ title: Badge
 lang: en-US
 ---
 
-# Badge <update-badge/>
+# Badge
 
-Badges are used to inform the user of the status of specific data.
+A visual indicator for a value or status descriptor for UI elements.
 
-## Basic usage
-`Badge` use `error` theme color by default. You only need to set the `value` attribute to display the corresponding badge.
+## Value
 
-<demo src="../example/badge/basic.vue"></demo>
+Badge can be used to display text and numbers.
 
-## Custom color
-We have `o` variant to handle contextual colors.
+<demo src="../example/badge/value.vue"></demo>
 
-`Badge` can also be used as a dot. You can set `dot` attribute to display a dot. And it has the highest priority.
+## Colors
 
-<demo src="../example/badge/customColor.vue"></demo>
+You can define different colors.
 
-## Values
-`Badge` can display a number or a string. If the value is greater than 99, it will be displayed as 99+.
-Or you can set `max` attribute to change the maximum value.
+<demo src="../example/badge/colors.vue"></demo>
 
-<demo src="../example/badge/values.vue"></demo>
+## Max
 
-If the value is 0, it will not be displayed. You can set `showZero` attribute to display 0.
+You can customize the max value.The default max value is 99, which supports number and string.
 
-<demo src="../example/badge/showZero.vue"></demo>
+<demo src="../example/badge/max.vue"></demo>
+
+## Dot
+
+Use a dot to mark content that needs to be noticed.You can use it by setting the dot attribute or not setting the value
+
+<demo src="../example/badge/dot.vue"></demo>
 
 ## Badge Props
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| value | `string` \| `number`  | `undefined` | Display badge content. |
-| max | `number` | `99` | Greater than `${max}`, display `${max}+`. |
-| dot | `boolean` | `false` | Only a dot style. |
-| showZero | `boolean` | `false` | Whether to display the number 0. |
-
+| Name   | Type                                                          | Default     | Description                               |
+| ------ | ------------------------------------------------------------- | ----------- | ----------------------------------------- |
+| value  | `string` \| `number`                                          | `undefined` | Display badge content.                    |
+| color  | `blue` \| `teal` \| `red` \| `yellow` \| `gray` \| `deepGray` | `teal`      | Set badge color.                          |
+| max    | `string` \| `number`                                          | `99`        | Greater than `${max}`, display `${max}+`. |
+| dot    | `boolean`                                                     | `false`     | Only a dot style.                         |
+| hidden | `boolean`                                                     | `false`     | Whether to display the number 0.          |
 
 ## Badge Slots
 
-| Name | Parameters | Description | 
-| --- | --- | --- |
-| default | `()` | Badge's content. |
-
-
+| Name    | Parameters | Description      |
+| ------- | ---------- | ---------------- |
+| default | `()`       | Badge's content. |

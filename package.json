@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@7.5.2",
   "scripts": {
-    "docs": "pnpm -C docs run dev",
+    "docs": "pnpm run build && pnpm -C docs run dev",
     "docs:build": "pnpm -C docs run build",
     "dev": "pnpm run build && pnpm run -C example dev",
     "build": "pnpm run -C packages/play-vue build",

@@ -15,7 +15,7 @@ export const tagProps = {
   },
   color: {
     type: String as PropType<ComponentColor>,
-    default: 'blue',
+    default: 'teal',
   },
   closable: Boolean,
   indicator: Boolean,

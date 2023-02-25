@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { version } from '../../package.json'
+import { version } from '../../packages/play-vue/package.json'
 import { applyPlugins } from './plugins/code'
 
 const guides = [
@@ -61,11 +61,11 @@ const sidebar = {
 }
 
 export default defineConfig({
-  title: 'Play Vue',
+  title: 'Play UI',
   description:
     'A Vue.js prebuilt component library based on Preline design draft',
   head: [
-    ['meta', { property: 'og:title', content: 'Play Vue' }],
+    ['meta', { property: 'og:title', content: 'Play UI' }],
     [
       'meta',
       {
@@ -107,13 +107,13 @@ export default defineConfig({
     ],
     sidebar,
     algolia: {
-      appId: '8GNC2KD46U',
-      apiKey: '275bb9c86a18563cdd9ede0a8de82b29',
-      indexName: 'zyob',
+      appId: '',
+      apiKey: '',
+      indexName: '',
     },
     footer: {
       message: 'MIT Licensed',
-      copyright: 'Copyright © 2023-present jwhupup & Play Vue Contributors',
+      copyright: 'Copyright © 2023-present jwhupup & Play UI Contributors',
     },
   },
   markdown: {

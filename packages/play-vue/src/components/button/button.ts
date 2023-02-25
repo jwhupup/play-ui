@@ -31,7 +31,7 @@ export const buttonProps = {
   },
   color: {
     type: String as PropType<ComponentColor>,
-    default: 'blue',
+    default: 'teal',
   },
   disabled: Boolean,
 }

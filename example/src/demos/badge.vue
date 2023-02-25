@@ -1,6 +1,6 @@
 <template>
   <demo-block title="value">
-    <PlBadge :value="88">
+    <PlBadge :value="6">
       <pl-button>button</pl-button>
     </PlBadge>
     <br /><br />

@@ -1,6 +1,6 @@
 # Installation
 
-This section explains how to properly install and use an Play Vue.
+This section explains how to properly install and use an Play UI.
 
 <!-- ## Full Import
 
@@ -25,6 +25,7 @@ You need to use an additional plugin to import components you used. First you ne
 ```shell
 npm install -D unplugin-vue-components
 ```
+
 <!-- unplugin-auto-import -->
 
 Then add the code below into your Vite config file.
