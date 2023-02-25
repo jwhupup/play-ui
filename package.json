@@ -6,6 +6,7 @@
   "scripts": {
     "docs": "pnpm run build && pnpm -C docs run dev",
     "docs:build": "pnpm -C docs run build",
+    "deploy": "pnpm run build && pnpm run docs:build",
     "dev": "pnpm run build && pnpm run -C example dev",
     "build": "pnpm run -C packages/play-vue build",
     "test": "vitest",
