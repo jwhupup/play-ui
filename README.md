@@ -12,7 +12,14 @@
 
 ## Why
 
-The starting point of this project is for personal learning. I will also start other interesting projects in the future. If you like, welcome to join us. Let's explore various interesting technologies together.
+The starting point of this project is personal learning, but not limited to it. I will also start other interesting projects in the future. If you like, welcome to join us. Let's explore various interesting technologies together.
+
+## TODO
+
+- Chinese documents
+- New components
+- CDN
+- Playground
 
 ## Features
 
