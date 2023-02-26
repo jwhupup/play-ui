@@ -10,6 +10,10 @@
   <p align="center">
 </p>
 
+## Why
+
+The starting point of this project is for personal learning. I will also start other interesting projects in the future. If you like, welcome to join us. Let's explore various interesting technologies together.
+
 ## Features
 
 - 🌈 Components Design - Play UI provides neat & beautiful crafted UI components.
