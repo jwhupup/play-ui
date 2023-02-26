@@ -1,13 +1,13 @@
 <p align="center">
 <img src="./docs/public/logo.svg" style="width:100px;" />
-<h1 align="center">Play UI<sup>WIP</sup></h1>
+<h1 align="center">Play UI<sup style="font-size: 12px;">WIP</sup></h1>
 <p align="center">A Vue.js prebuilt component library based on <a herf="https://github.com/htmlstreamofficial/preline">Preline</a> design draft that allows you to make beautiful websites.</p>
 </p>
 <p align="center">
-<a href="https://www.npmjs.com/package/play-vue"><img src="https://img.shields.io/npm/v/play-vue" alt="NPM version"></a></p>
-<a href="./LICENSE"><img src="https://img.shields.io/github/license/jwhupup/play-vue" alt="license"></a></p>
-<a href="https://vuejs.org/"><img src="https://img.shields.io/npm/dependency-version/play-vue/peer/vue" alt="peer dependency"></a></p>
-<p align="center">
+  <a href="https://www.npmjs.com/package/play-vue"><img src="https://img.shields.io/npm/v/play-vue" alt="NPM version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/github/license/jwhupup/play-vue" alt="license"></a>
+  <a href="https://vuejs.org/"><img src="https://img.shields.io/npm/dependency-version/play-vue/peer/vue" alt="peer dependency"></a>
+  <p align="center">
 </p>
 
 ## Why
