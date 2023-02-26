@@ -21,6 +21,7 @@ The starting point of this project is personal learning, but not limited to it. 
 - CDN
 - Playground
 - 3D logo
+- Find partners, Excited! 🤪
 
 ## Features
 
