@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayUiResolver } from 'play-vue/dist/lib/plugins/resolvers'
+import { PlayResolver } from 'play-vue/dist/lib/plugins/resolvers'
 import vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
 
@@ -17,7 +17,7 @@ export default defineConfig({
     }),
     Components({
       resolvers: [
-        PlayUiResolver({
+        PlayResolver({
           importStyle: 'less',
         }),
       ],

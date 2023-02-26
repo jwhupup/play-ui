@@ -18,7 +18,7 @@
 
 ## Usage
 
-👉 [Here!](https://playui.netlify.app/guide/install.html).
+👉 [Here!](https://playui.netlify.app/guide/install.html)
 
 ## Contributing
 

@@ -3,7 +3,7 @@ import type {
   SideEffectsInfo,
 } from 'unplugin-vue-components'
 
-export interface PlayUiResolverOptions {
+export interface PlayResolverOptions {
   importStyle?: boolean | 'less'
 }
 
@@ -21,7 +21,7 @@ export function kebabCase(key: string) {
 
 function getSideEffects(
   dirName: string,
-  options: PlayUiResolverOptions
+  options: PlayResolverOptions
 ): SideEffectsInfo | undefined {
   const { importStyle = true } = options
 
@@ -40,8 +40,8 @@ function getSideEffects(
   ]
 }
 
-export function PlayUiResolver(
-  options: PlayUiResolverOptions = {}
+export function PlayResolver(
+  options: PlayResolverOptions = {}
 ): ComponentResolver {
   return {
     type: 'component',
