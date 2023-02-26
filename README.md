@@ -14,12 +14,13 @@
 
 The starting point of this project is personal learning, but not limited to it. I will also start other interesting projects in the future. If you like, welcome to join us. Let's explore various interesting technologies together.
 
-## TODO
+## Todo
 
 - Chinese documents
 - New components
 - CDN
 - Playground
+- 3D logo
 
 ## Features
 
