@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./docs/public/logo.svg" style="width:100px;" />
+<img src="https://playui.netlify.app/logo.png" style="width:100px;" />
 <h1 align="center">Play UI</h1>
 <p align="center">A Vue.js prebuilt component library based on <a herf="https://github.com/htmlstreamofficial/preline">Preline</a> design draft that allows you to make beautiful websites.</p>
 </p>
