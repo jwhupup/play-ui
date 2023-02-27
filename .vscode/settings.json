@@ -2,6 +2,7 @@
   "cSpell.words": ["Play UI", "Play Vue", "play-ui", "play-vue"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "npm.packageManager": "pnpm",
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
