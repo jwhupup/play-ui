@@ -19,11 +19,9 @@ async function main() {
       return consola.error(`Version ${version} already exists!`)
     }
 
-    await buildRelease(version, notes)
+    await excuteRelease(version, notes)
 
     await updatePkgVersion(version)
-
-    await pushRelease(version, notes)
 
     consola.success(chalk.green('release success!'))
   } catch (error) {
@@ -32,15 +30,9 @@ async function main() {
   }
 }
 
-async function buildRelease(version: string, notes: string) {
+async function excuteRelease(version: string, notes: string) {
   await execCommand('git', ['tag', '-a', version, '-m', notes])
-}
-
-async function pushRelease(version: string, notes: string) {
   await execCommand('git', ['push', 'origin', version])
-  await execCommand('git', ['add', '.'])
-  await execCommand('git', ['commit', '-m', notes])
-  await execCommand('git', ['push'])
 }
 
 main()
