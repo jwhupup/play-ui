@@ -116,9 +116,9 @@ export default defineConfig({
     ],
     sidebar,
     algolia: {
-      appId: '',
-      apiKey: '',
-      indexName: '',
+      appId: '8MY90XETI9',
+      apiKey: '636f709b1d37514bd8893154430045c0',
+      indexName: 'playui',
     },
     footer: {
       message: 'MIT Licensed',
