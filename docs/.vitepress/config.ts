@@ -34,6 +34,15 @@ const components = [
       },
     ],
   },
+  {
+    text: 'Feedback',
+    items: [
+      {
+        text: 'Alert',
+        link: '/components/alert',
+      },
+    ],
+  },
 ]
 
 const nav = [

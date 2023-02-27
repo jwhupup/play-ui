@@ -15,7 +15,7 @@
         {{ description }}
       </div>
     </div>
-    <pl-icon name="x-lg" @click="handleClose" />
+    <pl-icon v-if="closable" name="x-lg" @click="handleClose" />
   </div>
 </template>
 
