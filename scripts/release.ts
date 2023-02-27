@@ -37,10 +37,10 @@ async function buildRelease(version: string, notes: string) {
 }
 
 async function pushRelease(version: string, notes: string) {
+  await execCommand('git', ['push', 'origin', version])
   await execCommand('git', ['add', '.'])
   await execCommand('git', ['commit', '-m', notes])
   await execCommand('git', ['push'])
-  await execCommand('git', ['push', 'origin', version])
 }
 
 main()
