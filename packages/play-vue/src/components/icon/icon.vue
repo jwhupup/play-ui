@@ -1,5 +1,5 @@
 <template>
-  <i :class="[name]" />
+  <i :class="['bi', `bi-${name}`]" />
 </template>
 
 <script setup lang="ts">

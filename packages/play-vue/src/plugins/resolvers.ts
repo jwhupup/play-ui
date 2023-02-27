@@ -5,6 +5,7 @@ import type {
 
 export interface PlayResolverOptions {
   importStyle?: boolean | 'less'
+  dev?: boolean
 }
 
 export const isSSR = Boolean(
@@ -50,7 +51,7 @@ export function PlayResolver(
         const partialName = name.slice(2)
         return {
           name,
-          from: 'play-vue',
+          from: options.dev ? 'play-vue/src/index.ts' : 'play-vue',
           sideEffects: getSideEffects(kebabCase(partialName), options),
         }
       }

@@ -19,6 +19,7 @@ export default defineConfig({
       resolvers: [
         PlayResolver({
           importStyle: 'less',
+          dev: true,
         }),
       ],
     }),
