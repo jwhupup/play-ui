@@ -34,8 +34,6 @@ const overlayEl = ref<HTMLDivElement>()
 const closeEl = ref<HTMLDivElement>()
 
 const handleClose = (evt: MouseEvent) => {
-  console.log(closeEl.value)
-
   if (evt.target === overlayEl.value || evt.target === closeEl.value) {
     emits('update:modelValue', false)
   }
