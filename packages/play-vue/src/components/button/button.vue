@@ -1,5 +1,6 @@
 <template>
   <button
+    ref="buttonEl"
     :type="nativeType"
     class="pl-button"
     :class="[
@@ -16,11 +17,13 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { GROUP_BUTTON_KEY } from '../button-group/button-group'
 import { buttonProps } from './button'
 
 defineProps(buttonProps)
+
+const buttonEl = ref<HTMLDivElement>()
 
 const parent = inject(GROUP_BUTTON_KEY, null)
 
@@ -29,4 +32,8 @@ const emits = defineEmits(['click'])
 const handleClick = (evt: MouseEvent) => {
   emits('click', evt)
 }
+
+defineExpose({
+  buttonEl,
+})
 </script>

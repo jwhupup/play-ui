@@ -41,6 +41,10 @@ const components = [
         text: 'Alert',
         link: '/components/alert',
       },
+      {
+        text: 'Modal',
+        link: '/components/modal',
+      },
     ],
   },
 ]
