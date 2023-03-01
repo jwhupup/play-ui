@@ -34,7 +34,7 @@ module.exports = defineConfig({
       },
     },
     {
-      files: ['**/__tests__/**', '**/tests/**', 'example/**'],
+      files: ['**/__tests__/**', '**/tests/**', 'docs/**'],
       rules: {
         'no-console': 'off',
         'vue/one-component-per-file': 'off',
