@@ -16,8 +16,10 @@ export function onClickOutside(
   // }
 
   // window.addEventListener('click', listener, { passive: true }),
-  const container = document.querySelector('.pl-modal--overlay')
-  container?.addEventListener(
+
+  let shouldListen = false
+
+  window.addEventListener(
     'pointerdown',
     (evt) => {
       if (
@@ -28,7 +30,15 @@ export function onClickOutside(
         return
       }
 
-      handler(evt as MouseEvent)
+      if (!shouldListen && evt.detail === 0) {
+        shouldListen = true
+        return
+      }
+
+      if (shouldListen) {
+        handler(evt as MouseEvent)
+        shouldListen = false
+      }
     },
     { passive: true }
   )

@@ -20,10 +20,12 @@ import { ref } from 'vue'
 const visible = ref(false)
 
 const handleCancel = () => {
+  // eslint-disable-next-line no-console
   console.log('handleCancel')
 }
 
 const handleConfirm = () => {
+  // eslint-disable-next-line no-console
   console.log('handleConfirm')
   visible.value = false
 }
