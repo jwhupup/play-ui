@@ -1,25 +1,24 @@
 <template>
-  <div
-    v-show="modelValue"
-    ref="overlayEl"
-    class="pl-modal--overlay"
-    @click.stop="handleClose"
-  >
-    <div class="pl-modal">
-      <header>
-        <h3>Modal title</h3>
-      </header>
-      <section>
-        <span>
-          This is a wider card with supporting text below as a natural lead-into
-          additional content.
-        </span>
-      </section>
-      <footer>
-        <pl-button ref="closeEl" @click="handleClose">Close</pl-button>
-        <pl-button type="solid">Sure</pl-button>
-      </footer>
-    </div>
+  <div v-show="visible" ref="overlayEl" class="pl-modal--overlay">
+    <pl-on-click-outside @trigger="handleCancel">
+      <div ref="modalEl" class="pl-modal">
+        <header>
+          <slot name="header" />
+          <h3 v-if="!$slots.header">{{ title }}</h3>
+          <pl-icon name="x-lg" @click="handleCancel" />
+        </header>
+        <section>
+          <slot />
+        </section>
+        <footer>
+          <slot name="footer" />
+          <div v-if="!$slots.footer">
+            <pl-button ref="cancelEl" @click="handleCancel">Cancel</pl-button>
+            <pl-button type="solid" @click="handleConfirm">Confirm</pl-button>
+          </div>
+        </footer>
+      </div>
+    </pl-on-click-outside>
   </div>
 </template>
 
@@ -28,14 +27,18 @@ import { ref } from 'vue'
 import { modalProps } from './modal'
 
 defineProps(modalProps)
-const emits = defineEmits(['update:modelValue'])
+const emits = defineEmits(['update:visible', 'cancel', 'confirm'])
 
+const modalEl = ref<HTMLDivElement>()
 const overlayEl = ref<HTMLDivElement>()
-const closeEl = ref<HTMLDivElement>()
+const cancelEl = ref<HTMLButtonElement>()
 
-const handleClose = (evt: MouseEvent) => {
-  if (evt.target === overlayEl.value || evt.target === closeEl.value) {
-    emits('update:modelValue', false)
-  }
+const handleCancel = (evt: MouseEvent) => {
+  emits('update:visible', false)
+  emits('cancel', evt)
+}
+
+const handleConfirm = () => {
+  emits('confirm')
 }
 </script>

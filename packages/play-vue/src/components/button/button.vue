@@ -23,7 +23,7 @@ import { buttonProps } from './button'
 
 defineProps(buttonProps)
 
-const buttonEl = ref<HTMLDivElement>()
+const buttonEl = ref<HTMLButtonElement>()
 
 const parent = inject(GROUP_BUTTON_KEY, null)
 
@@ -34,6 +34,6 @@ const handleClick = (evt: MouseEvent) => {
 }
 
 defineExpose({
-  buttonEl,
+  el: buttonEl,
 })
 </script>
