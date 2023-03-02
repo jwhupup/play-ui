@@ -1,27 +1,17 @@
+import { isSupportedEvent } from '../../utils/client'
+
 export type Fn = () => void
-export type EventHandler<T> = (evt: T) => void
+export type TriggerHandler<T> = (evt: T) => void
 
 export function onClickOutside(
   target: HTMLElement,
-  handler: EventHandler<MouseEvent>
+  handler: TriggerHandler<MouseEvent | PointerEvent>
 ) {
-  // const listener = (evt: MouseEvent) => {
-  //   const el = target
-
-  //   console.log(evt.composedPath().includes(el), 'listener')
-
-  //   if (!el || el === evt.target || evt.composedPath().includes(el)) return
-
-  //   handler(evt)
-  // }
-
-  // window.addEventListener('click', listener, { passive: true }),
-
   let shouldListen = false
 
   window.addEventListener(
-    'pointerdown',
-    (evt) => {
+    isSupportedEvent('onpointerdown') ? 'pointerdown' : 'click',
+    (evt: any) => {
       if (
         !target ||
         target === evt.target ||
@@ -36,7 +26,7 @@ export function onClickOutside(
       }
 
       if (shouldListen) {
-        handler(evt as MouseEvent)
+        handler(evt)
         shouldListen = false
       }
     },

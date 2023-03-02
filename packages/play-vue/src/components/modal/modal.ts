@@ -4,7 +4,15 @@ export const modalProps = {
   visible: Boolean,
   title: {
     type: String,
-    default: 'Modal title',
+    default: '',
+  },
+  mask: {
+    type: Boolean,
+    default: true,
+  },
+  showClose: {
+    type: Boolean,
+    default: true,
   },
 }
 

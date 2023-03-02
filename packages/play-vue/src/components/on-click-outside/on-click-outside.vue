@@ -1,5 +1,5 @@
 <template>
-  <component :is="is" ref="onClickOutsideEl">
+  <component :is="is" ref="onClickOutsideEl" class="pl-on-click-outside">
     <slot />
   </component>
 </template>
@@ -15,6 +15,6 @@ const emits = defineEmits(['trigger'])
 const onClickOutsideEl = ref<HTMLElement>()
 
 onMounted(() =>
-  onClickOutside(onClickOutsideEl.value!, (evt: Event) => emits('trigger', evt))
+  onClickOutside(onClickOutsideEl.value!, (evt) => emits('trigger', evt))
 )
 </script>
