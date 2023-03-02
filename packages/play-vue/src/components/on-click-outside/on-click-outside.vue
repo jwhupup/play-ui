@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { onClickOutside } from './on-click-outside'
+import { onClickOutside } from '@vueuse/core'
 
 withDefaults(defineProps<{ is?: string }>(), { is: 'div' })
 
@@ -15,6 +15,6 @@ const emits = defineEmits(['trigger'])
 const onClickOutsideEl = ref<HTMLElement>()
 
 onMounted(() =>
-  onClickOutside(onClickOutsideEl.value!, (evt) => emits('trigger', evt))
+  onClickOutside(onClickOutsideEl.value, (evt) => emits('trigger', evt))
 )
 </script>

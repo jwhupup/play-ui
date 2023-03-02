@@ -5,7 +5,6 @@
       @cancel="handleCancel"
       @confirm="handleConfirm"
     >
-      <!-- <template #header>213123</template> -->
       <span>
         This is a wider card with supporting text below as a natural lead-into
         additional content.

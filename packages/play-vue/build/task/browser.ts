@@ -34,7 +34,7 @@ export async function buildBrowser() {
   const bundle = await rollup({
     input: path.resolve(sourceRoot, 'index.ts'),
     plugins,
-    external: ['vue'],
+    external: ['vue', /\.less/],
     treeshake: true,
   })
   await Promise.all(browserOutputConfig.map((option) => bundle.write(option)))

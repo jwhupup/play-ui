@@ -15,7 +15,6 @@
     "serve": "vitepress serve"
   },
   "dependencies": {
-    "@vueuse/core": "^9.1.1",
     "markdown-it": "^13.0.1"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .pl-mask {
   display: flex;
   justify-content: center;
