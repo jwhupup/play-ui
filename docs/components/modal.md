@@ -3,7 +3,7 @@ title: Modal
 lang: en-US
 ---
 
-# Modal <NewBadge />
+# Modal <sup><NewBadge /></sup>
 
 A modal dialog displays content that requires user interaction, in a layer above the page.
 
