@@ -34,7 +34,7 @@ function genStyleEntry(cssInfo: CssInfo) {
   if (cssInfo.path.includes(componentsRoot)) {
     const noStyleComps = ['on-click-outside']
 
-    const compName = cssInfo.name.split('\\')[1]
+    const compName = cssInfo.name.split(/\\|\//)[1]
 
     const importReg = /import .* from '(.*).vue'/g
 
