@@ -8,6 +8,6 @@ import {
 
 export default parallel(
   buildBrowser,
-  series(buildStyles),
+  buildStyles,
   series(buildModules, buildTypes)
 )

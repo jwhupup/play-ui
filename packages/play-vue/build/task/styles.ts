@@ -6,21 +6,26 @@ import gulpLess from 'gulp-less'
 import gulpImportLess from 'gulp-import-less'
 import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
-import { buildOutput, stylesRoot } from '../path'
+import { buildOutput, componentsRoot, stylesRoot } from '../path'
 
 export async function buildStyles() {
-  return src(path.resolve(stylesRoot, '**/*.less'))
+  const stylePath = path.resolve(buildOutput, 'styles')
+
+  return src([
+    path.resolve(stylesRoot, '**/*.less'),
+    path.resolve(componentsRoot, '**/*.less'),
+  ])
     .pipe(gulpImportLess())
     .pipe(gulpLess())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       cleanCSS({}, (details) => {
         consola.success(
-          `${chalk.cyan(details.name)}: ${chalk.yellow(
+          `${chalk.cyan(details.compName)}: ${chalk.yellow(
             details.stats.originalSize / 1000
           )} KB -> ${chalk.green(details.stats.minifiedSize / 1000)} KB`
         )
       })
     )
-    .pipe(dest(path.resolve(buildOutput, 'styles')))
+    .pipe(dest(stylePath))
 }

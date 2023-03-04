@@ -1,0 +1,32 @@
+import type { ButtonSize } from '../../button/src/button'
+import type { ComponentColor } from '../../type'
+import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
+
+export type ButtonGroupType = 'solid' | 'outline' | 'white'
+export type ButtonGroupShape = 'rounded' | 'pilled'
+
+export const buttonGroupProps = {
+  type: {
+    type: String as PropType<ButtonGroupType>,
+    default: 'white',
+  },
+  shape: {
+    type: String as PropType<ButtonGroupShape>,
+    default: 'rounded',
+  },
+  size: {
+    type: String as PropType<ButtonSize>,
+    default: 'medium',
+  },
+  color: {
+    type: String as PropType<ComponentColor>,
+    default: 'blue',
+  },
+  vertical: Boolean,
+  disabled: Boolean,
+}
+
+export type ButtonGroupProps = ExtractPropTypes<typeof buttonGroupProps>
+
+export const GROUP_BUTTON_KEY: InjectionKey<ButtonGroupProps> =
+  Symbol('pl-button-group')

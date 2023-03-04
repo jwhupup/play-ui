@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 import consola from 'consola'
 import { browserOutputConfig } from '../config'
-import { sourceRoot } from '../path'
+import { componentsRoot } from '../path'
 import type { Plugin } from 'rollup'
 
 export async function buildBrowser() {
@@ -32,7 +32,7 @@ export async function buildBrowser() {
     }),
   ]
   const bundle = await rollup({
-    input: path.resolve(sourceRoot, 'index.ts'),
+    input: path.resolve(componentsRoot, 'index.ts'),
     plugins,
     external: ['vue', /\.less/],
     treeshake: true,

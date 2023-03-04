@@ -5,33 +5,18 @@
   "license": "MIT",
   "author": "jwhupup",
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
   "main": "dist/lib/index.js",
   "module": "dist/es/index.mjs",
   "types": "dist/es/index.d.ts",
-  "style": "dist/style/index.css",
-  "exports": {
-    ".": {
-      "types": "./dist/es/index.d.ts",
-      "import": "./dist/es/index.mjs",
-      "require": "./dist/lib/index.js"
-    },
-    "./dist/es": "./dist/es/index.mjs",
-    "./dist/lib": "./dist/lib/index.js",
-    "./dist/es/*.mjs": "./dist/es/*.mjs",
-    "./dist/es/*": "./dist/es/*.mjs",
-    "./dist/lib/*.js": "./dist/lib/*.js",
-    "./dist/lib/*": "./dist/lib/*.js",
-    "./dist/*": "./dist/*",
-    "./src/*": "./src/*"
-  },
+  "style": "dist/styles/index.css",
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": [
-    "dist/**/*.css"
+    "dist/**/*.css",
+    "*.css"
   ],
   "scripts": {
     "build": "rimraf dist && vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts"

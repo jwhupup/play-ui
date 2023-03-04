@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { buildOutput, sourceRoot } from './path'
+import { buildOutput, componentsRoot } from './path'
 import type { OutputOptions } from 'rollup'
 
 export const modulesOutputConfig: OutputOptions[] = [
@@ -8,7 +8,7 @@ export const modulesOutputConfig: OutputOptions[] = [
     dir: path.resolve(buildOutput, 'es'),
     exports: undefined,
     preserveModules: true,
-    preserveModulesRoot: sourceRoot,
+    preserveModulesRoot: componentsRoot,
     sourcemap: true,
     entryFileNames: '[name].mjs',
   },
@@ -17,7 +17,7 @@ export const modulesOutputConfig: OutputOptions[] = [
     dir: path.resolve(buildOutput, 'lib'),
     exports: 'named',
     preserveModules: true,
-    preserveModulesRoot: sourceRoot,
+    preserveModulesRoot: componentsRoot,
     sourcemap: true,
     entryFileNames: '[name].js',
   },

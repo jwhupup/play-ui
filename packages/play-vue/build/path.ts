@@ -2,10 +2,9 @@ import { resolve } from 'node:path'
 
 export const projectRoot = resolve(__dirname, '..')
 
-export const sourceRoot = resolve(projectRoot, 'src')
-export const componentsRoot = resolve(sourceRoot, 'components')
-export const pluginsRoot = resolve(sourceRoot, 'plugins')
-export const stylesRoot = resolve(sourceRoot, 'styles')
-export const utilsRoot = resolve(sourceRoot, 'utils')
+export const componentsRoot = resolve(projectRoot, 'components')
+export const pluginsRoot = resolve(projectRoot, 'plugins')
+export const stylesRoot = resolve(projectRoot, 'styles')
+export const utilsRoot = resolve(projectRoot, 'utils')
 
 export const buildOutput = resolve(projectRoot, 'dist')
