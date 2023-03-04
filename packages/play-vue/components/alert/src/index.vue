@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { alertProps } from './alert'
+
+defineProps(alertProps)
+
+const emits = defineEmits(['close'])
+
+const alertEl = ref<HTMLDivElement>()
+
+const handleClose = (evt: MouseEvent) => {
+  alertEl.value?.parentElement?.removeChild(alertEl.value)
+  emits('close', evt)
+}
+</script>
+
 <template>
   <div
     ref="alertEl"
@@ -18,19 +34,3 @@
     <pl-icon v-if="closable" name="x-lg" @click="handleClose" />
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { alertProps } from './alert'
-
-defineProps(alertProps)
-
-const emits = defineEmits(['close'])
-
-const alertEl = ref<HTMLDivElement>()
-
-const handleClose = (evt: MouseEvent) => {
-  alertEl.value?.parentElement?.removeChild(alertEl.value)
-  emits('close', evt)
-}
-</script>

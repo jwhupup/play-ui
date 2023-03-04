@@ -4,7 +4,7 @@ export async function hasGitTag(tag: string) {
     'tag',
     '-l',
     '--sort=creatordate',
-  ]).then((r) => r.split('\n'))
+  ]).then(r => r.split('\n'))
   return tags.includes(tag)
 }
 

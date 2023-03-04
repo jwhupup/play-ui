@@ -16,7 +16,7 @@ export async function buildModules() {
       cwd: componentsRoot,
       absolute: true,
       onlyFiles: true,
-    })
+    }),
   )
   const bundle = await rollup({
     input,
@@ -39,7 +39,7 @@ export async function buildModules() {
     external: ['vue', /\.less/],
     treeshake: false,
   })
-  await Promise.all(modulesOutputConfig.map((option) => bundle.write(option)))
+  await Promise.all(modulesOutputConfig.map(option => bundle.write(option)))
   await bundle.close()
   consola.success('modules built!')
 }

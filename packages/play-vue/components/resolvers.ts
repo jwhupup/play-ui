@@ -9,10 +9,10 @@ export interface PlayResolverOptions {
 }
 
 export const isSSR = Boolean(
-  process.env.SSR ||
-    process.env.SSG ||
-    process.env.VITE_SSR ||
-    process.env.VITE_SSG
+  process.env.SSR
+    || process.env.SSG
+    || process.env.VITE_SSR
+    || process.env.VITE_SSG,
 )
 
 export function kebabCase(key: string) {
@@ -22,11 +22,12 @@ export function kebabCase(key: string) {
 
 function getSideEffects(
   dirName: string,
-  options: PlayResolverOptions
+  options: PlayResolverOptions,
 ): SideEffectsInfo | undefined {
   const { importStyle = true } = options
 
-  if (!importStyle || isSSR) return
+  if (!importStyle || isSSR)
+    return
 
   if (importStyle === 'less') {
     return [
@@ -42,7 +43,7 @@ function getSideEffects(
 }
 
 export function PlayResolver(
-  options: PlayResolverOptions = {}
+  options: PlayResolverOptions = {},
 ): ComponentResolver {
   return {
     type: 'component',

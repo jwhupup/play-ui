@@ -1,4 +1,0 @@
-{
-  "root": true,
-  "extends": ["@play-vue/eslint-config"]
-}

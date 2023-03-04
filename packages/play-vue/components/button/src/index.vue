@@ -1,3 +1,25 @@
+<script setup lang="ts">
+import { inject, ref } from 'vue'
+import { GROUP_BUTTON_KEY } from '../../button-group'
+import { buttonProps } from '../src/button'
+
+defineProps(buttonProps)
+
+const emits = defineEmits(['click'])
+
+const buttonEl = ref<HTMLButtonElement>()
+
+const parent = inject(GROUP_BUTTON_KEY, null)
+
+const handleClick = (evt: MouseEvent) => {
+  emits('click', evt)
+}
+
+defineExpose({
+  el: buttonEl,
+})
+</script>
+
 <template>
   <button
     ref="buttonEl"
@@ -15,25 +37,3 @@
     <slot />
   </button>
 </template>
-
-<script setup lang="ts">
-import { inject, ref } from 'vue'
-import { GROUP_BUTTON_KEY } from '../../button-group'
-import { buttonProps } from '../src/button'
-
-defineProps(buttonProps)
-
-const buttonEl = ref<HTMLButtonElement>()
-
-const parent = inject(GROUP_BUTTON_KEY, null)
-
-const emits = defineEmits(['click'])
-
-const handleClick = (evt: MouseEvent) => {
-  emits('click', evt)
-}
-
-defineExpose({
-  el: buttonEl,
-})
-</script>

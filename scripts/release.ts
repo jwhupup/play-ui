@@ -11,20 +11,19 @@ async function main() {
     const currentBranch = await getCurrentGitBranch()
     const hasVersion = await hasGitTag(version)
 
-    if (currentBranch !== 'main') {
+    if (currentBranch !== 'main')
       return consola.error(`Branch ${currentBranch} can not release!`)
-    }
 
-    if (hasVersion) {
+    if (hasVersion)
       return consola.error(`Version ${version} already exists!`)
-    }
 
     await excuteRelease(version, notes)
 
     await updatePkgVersion(version)
 
     consola.success(chalk.green('release success!'))
-  } catch (error) {
+  }
+  catch (error) {
     consola.error(error)
     process.exit(1)
   }

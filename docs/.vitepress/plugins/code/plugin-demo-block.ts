@@ -1,10 +1,10 @@
 import { dirname, resolve } from 'path'
 import { baseParse } from '@vue/compiler-core'
 import fsExtra from 'fs-extra'
-import { DemoTag } from './constants'
-import { getDemoComponent } from './utils'
 import type { AttributeNode, ElementNode } from '@vue/compiler-core'
 import type { MarkdownRenderer } from 'vitepress'
+import { DemoTag } from './constants'
+import { getDemoComponent } from './utils'
 
 function getPropsMap(attrs: AttributeNode[]) {
   const map: Record<string, string | undefined> = {}
@@ -37,7 +37,8 @@ export function demoBlockPlugin(md: MarkdownRenderer) {
 
       const props = parseProps(content)
 
-      if (!props.src) return defaultRender!(tokens, idx, options, env, self)
+      if (!props.src)
+        return defaultRender!(tokens, idx, options, env, self)
 
       const frontmatter = env.frontmatter
 

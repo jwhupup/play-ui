@@ -4,10 +4,10 @@
   "private": "true",
   "description": "ESLint Config",
   "license": "MIT",
+  "main": "index.js",
   "files": [
     "index.js"
   ],
-  "main": "index.js",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.30.0",
     "@typescript-eslint/parser": "^5.30.0",

@@ -9,5 +9,5 @@ import {
 export default parallel(
   buildBrowser,
   buildStyles,
-  series(buildModules, buildTypes)
+  series(buildModules, buildTypes),
 )

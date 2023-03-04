@@ -135,7 +135,7 @@ module.exports = defineConfig({
   ],
   rules: {
     // js/ts
-    camelcase: ['error', { properties: 'never' }],
+    'camelcase': ['error', { properties: 'never' }],
     'no-console': ['warn', { allow: ['error'] }],
     'no-debugger': 'warn',
     'no-constant-condition': ['error', { checkLoops: false }],

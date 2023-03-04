@@ -15,8 +15,10 @@ export default {
   ...theme,
   enhanceApp({ app }) {
     for (const name of Object.keys(components)) {
-      if (name.startsWith('Pl')) app.component(name, components[name])
+      if (name.startsWith('Pl'))
+        app.component(name, components[name])
     }
+
     app.component('Demo', DemoBlock)
     app.component('Overview', Overview)
     app.component('WarnBadge', WarnBadge)

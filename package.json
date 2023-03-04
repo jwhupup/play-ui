@@ -10,7 +10,8 @@
     "dev": "pnpm run build && pnpm run -C example dev",
     "build": "pnpm run -C packages/play-vue build",
     "test": "vitest",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx,.md,.json --max-warnings 0 --cache",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "release": "npx esno ./scripts/release.ts",
     "prepare": "husky install"
   },
@@ -20,12 +21,12 @@
     "vue": "^3.2.45"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.35.3",
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@commitlint/types": "^17.4.4",
     "@ctrl/tinycolor": "^3.5.0",
     "@esbuild-kit/cjs-loader": "^2.4.2",
-    "@play-vue/eslint-config": "workspace:*",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/fs-extra": "^9.0.13",
@@ -37,7 +38,6 @@
     "chalk": "^5.2.0",
     "consola": "^2.15.3",
     "eslint": "^8.18.0",
-    "eslint-define-config": "^1.5.1",
     "esno": "^0.16.3",
     "execa": "^6.1.0",
     "fast-glob": "^3.2.12",

@@ -1,3 +1,19 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { tagProps } from './tag'
+
+defineProps(tagProps)
+
+const emits = defineEmits(['close'])
+
+const tagEl = ref<HTMLDivElement>()
+
+const handleClose = (evt: MouseEvent) => {
+  tagEl.value?.parentNode?.removeChild(tagEl.value)
+  emits('close', evt)
+}
+</script>
+
 <template>
   <div
     ref="tagEl"
@@ -14,19 +30,3 @@
     />
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
-import { tagProps } from './tag'
-
-defineProps(tagProps)
-
-const emits = defineEmits(['close'])
-
-const tagEl = ref<HTMLDivElement>()
-
-const handleClose = (evt: MouseEvent) => {
-  tagEl.value?.parentNode?.removeChild(tagEl.value)
-  emits('close', evt)
-}
-</script>

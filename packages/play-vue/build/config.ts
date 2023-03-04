@@ -1,6 +1,6 @@
 import path from 'node:path'
-import { buildOutput, componentsRoot } from './path'
 import type { OutputOptions } from 'rollup'
+import { buildOutput, componentsRoot } from './path'
 
 export const modulesOutputConfig: OutputOptions[] = [
   {

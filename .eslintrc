@@ -1,0 +1,21 @@
+{
+    "root": true,
+    "extends": ["@antfu"],
+    "rules": {
+      "react/display-name": "off",
+      "react-hooks/rules-of-hooks": "off",
+      "no-sequences": "off",
+      "no-alert": "off",
+      "no-console": ["error", { "allow": ["error"] }],
+      "vue/component-tags-order": "off"
+    },
+    "overrides": [
+      {
+        "files": ["**/test/**", "docs/**"],
+        "rules": {
+          "no-console": "off"
+        },
+      }
+    ]
+  }
+  

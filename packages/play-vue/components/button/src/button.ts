@@ -1,5 +1,5 @@
-import type { ComponentColor } from '../../type'
 import type { ExtractPropTypes, PropType } from 'vue'
+import type { ComponentColor } from '../../type'
 
 export type ButtonNativeType = 'button' | 'reset' | 'submit'
 export type ButtonShape = 'rounded' | 'pilled' | 'circle'

@@ -12,7 +12,7 @@ defineProps({
   <a :href="component?.link" class="o-overview_card_wrapper">
     <div>
       <div v-if="component?.icon" class="o-overview_cover">
-        <img :src="withBase(component.icon)" alt="" />
+        <img :src="withBase(component.icon)" alt="">
       </div>
       <div class="o-overview_body">
         <div class="overview_body_title">

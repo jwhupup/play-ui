@@ -5,9 +5,9 @@ import vue from '@vitejs/plugin-vue'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 import consola from 'consola'
+import type { Plugin } from 'rollup'
 import { browserOutputConfig } from '../config'
 import { componentsRoot } from '../path'
-import type { Plugin } from 'rollup'
 
 export async function buildBrowser() {
   consola.info('Start building browser...')
@@ -37,7 +37,7 @@ export async function buildBrowser() {
     external: ['vue', /\.less/],
     treeshake: true,
   })
-  await Promise.all(browserOutputConfig.map((option) => bundle.write(option)))
+  await Promise.all(browserOutputConfig.map(option => bundle.write(option)))
   await bundle.close()
   consola.success('browser built!')
 }

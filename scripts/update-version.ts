@@ -11,8 +11,8 @@ export async function updatePkgVersion(version: string) {
 
   consola.info(
     `${chalk.green(pkg.name)} version from ${chalk.green(
-      pkg.version
-    )} to ${chalk.green(version)}`
+      pkg.version,
+    )} to ${chalk.green(version)}`,
   )
 
   pkg.version = version.slice(1)

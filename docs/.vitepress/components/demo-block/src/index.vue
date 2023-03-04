@@ -6,7 +6,7 @@ import { demoProps } from './index'
 const props = defineProps(demoProps)
 
 const decodedHighlightedCode = computed(() =>
-  decodeURIComponent(props.highlightedCode)
+  decodeURIComponent(props.highlightedCode),
 )
 const { copy, copied } = useClipboard({
   source: decodeURIComponent(props.code),

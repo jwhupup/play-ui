@@ -1,7 +1,7 @@
 import { dirname, join, sep } from 'path'
 import fsExtra from 'fs-extra'
-import { DemoTag } from './constants'
 import type { MarkdownRenderer } from 'vitepress'
+import { DemoTag } from './constants'
 import type { DemoInfos } from './types'
 
 const scriptRE = /<\/script>/
@@ -13,7 +13,7 @@ let index = 1
 export function getDemoComponent(
   md: MarkdownRenderer,
   env: any,
-  { title, desc, path, code, ...props }: DemoInfos
+  { title, desc, path, code, ...props }: DemoInfos,
 ) {
   const componentName = `DemoComponent${index++}`
   path = normalizePath(path)
@@ -44,7 +44,7 @@ export function genDemoByCode(
   md: MarkdownRenderer,
   env: any,
   path: string,
-  code: string
+  code: string,
 ) {
   let demoName = ''
   let demoPath = ''
@@ -52,7 +52,8 @@ export function genDemoByCode(
   while (true) {
     demoName = `demo-${fenceIndex++}.vue`
     demoPath = join(dirname(path), demoName)
-    if (!fsExtra.existsSync(demoPath)) break
+    if (!fsExtra.existsSync(demoPath))
+      break
   }
 
   fsExtra.createFileSync(demoPath)
@@ -69,19 +70,20 @@ function normalizePath(path: string) {
 }
 
 function injectImportStatement(env: any, componentName: string, path: string) {
-  const componentRegistStatement =
-    `import ${componentName} from '${path}'`.trim()
+  const componentRegistStatement
+    = `import ${componentName} from '${path}'`.trim()
 
-  if (!env?.sfcBlocks?.scripts) env.sfcBlocks.scripts = []
+  if (!env?.sfcBlocks?.scripts)
+    env.sfcBlocks.scripts = []
   const tags = env.sfcBlocks.scripts as { content: string }[]
 
-  const isUsingTS =
-    tags.findIndex((tag) => scriptLangTsRE.test(tag.content)) > -1
+  const isUsingTS
+    = tags.findIndex(tag => scriptLangTsRE.test(tag.content)) > -1
   const existingSetupScriptIndex = tags?.findIndex((tag) => {
     return (
-      scriptRE.test(tag.content) &&
-      scriptSetupRE.test(tag.content) &&
-      !scriptClientRE.test(tag.content)
+      scriptRE.test(tag.content)
+      && scriptSetupRE.test(tag.content)
+      && !scriptClientRE.test(tag.content)
     )
   })
 
@@ -91,9 +93,10 @@ function injectImportStatement(env: any, componentName: string, path: string) {
       scriptRE,
       `${componentRegistStatement}
 
-      </script>`
+      </script>`,
     )
-  } else {
+  }
+  else {
     tags.unshift({
       content: `
         <script ${isUsingTS ? 'lang="ts"' : ''} setup >

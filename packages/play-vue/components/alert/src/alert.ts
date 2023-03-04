@@ -1,5 +1,5 @@
-import type { ComponentColor } from '../../type'
 import type { ExtractPropTypes, PropType } from 'vue'
+import type { ComponentColor } from '../../type'
 
 export const alertProps = {
   type: {

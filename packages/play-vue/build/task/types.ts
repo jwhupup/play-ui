@@ -9,9 +9,9 @@ export async function buildTypes() {
   await copy(`${src}/components`, src, { recursive: true })
   await remove(`${src}/components`)
   Promise.all(
-    ['es', 'lib'].map((dir) =>
-      copy(src, path.resolve(buildOutput, dir), { recursive: true })
-    )
+    ['es', 'lib'].map(dir =>
+      copy(src, path.resolve(buildOutput, dir), { recursive: true }),
+    ),
   )
   consola.success('copy types complete!')
 }

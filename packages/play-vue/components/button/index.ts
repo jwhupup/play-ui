@@ -3,4 +3,4 @@ import Button from './src/index.vue'
 
 export const PlButton = withInstall(Button, 'PlButton')
 export default PlButton
-export type { ButtonProps } from './src/button'
+export * from './src/button'

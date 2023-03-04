@@ -1,5 +1,5 @@
-import type { ComponentColor } from '../../type'
 import type { ExtractPropTypes, PropType } from 'vue'
+import type { ComponentColor } from '../../type'
 
 export type TagType = 'solid' | 'outline' | 'soft'
 export type TagShape = 'rounded' | 'pilled'

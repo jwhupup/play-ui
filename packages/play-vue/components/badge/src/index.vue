@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { badgeProps } from './badge'
+
+const props = defineProps(badgeProps)
+
+const bagdeValue = computed(() => {
+  if (Number(props.value) >= props.max)
+    return `${props.max}+`
+
+  return props.value
+})
+</script>
+
 <template>
   <div class="pl-badge-container">
     <slot />
@@ -16,17 +30,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { badgeProps } from './badge'
-
-const props = defineProps(badgeProps)
-
-const bagdeValue = computed(() => {
-  if (Number(props.value) >= props.max) {
-    return `${props.max}+`
-  }
-  return props.value
-})
-</script>

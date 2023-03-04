@@ -15,8 +15,12 @@
         <slot name="footer" />
         <footer v-if="!$slots.footer">
           <div>
-            <pl-button @click="handleCancel">Cancel</pl-button>
-            <pl-button type="solid" @click="handleConfirm">Confirm</pl-button>
+            <pl-button @click="handleCancel">
+              Cancel
+            </pl-button>
+            <pl-button type="solid" @click="handleConfirm">
+              Confirm
+            </pl-button>
           </div>
         </footer>
       </div>
