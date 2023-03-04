@@ -1,18 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const visible = ref(false)
-
-const handleCancel = () => {
-  console.log('handleCancel')
-}
-
-const handleConfirm = () => {
-  console.log('handleConfirm')
-  visible.value = false
-}
-</script>
-
 <template>
   <div space-y-2 w-full>
     <pl-modal
@@ -30,3 +15,18 @@ const handleConfirm = () => {
     </pl-button>
   </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const visible = ref(false)
+
+const handleCancel = () => {
+  console.log('handleCancel')
+}
+
+const handleConfirm = () => {
+  console.log('handleConfirm')
+  visible.value = false
+}
+</script>

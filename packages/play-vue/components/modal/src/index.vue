@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <Mask v-if="mask && visible" />
+    <PlMask v-if="mask && visible" />
     <PlOnClickOutside v-if="visible" @trigger="handleCancel">
       <div class="pl-modal">
         <pl-icon v-if="showClose" name="x-lg" @click="handleCancel" />
@@ -29,7 +29,6 @@
 </template>
 
 <script setup lang="ts">
-import Mask from '../../mask'
 import { modalProps } from '../src/modal'
 
 defineProps(modalProps)

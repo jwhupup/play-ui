@@ -8,6 +8,7 @@ import CommnBadge from '../components/CommnBadge'
 import UpdateBadge from '../components/UpdateBadge'
 import NewBadge from '../components/NewBadge'
 import TeamMember from '../components/TeamMember'
+import 'play-vue/components/badge/src/index.less'
 import './main.css'
 import 'uno.css'
 

@@ -53,7 +53,6 @@ export function demoBlockPlugin(md: MarkdownRenderer) {
         code,
         ...props,
       })
-
       return demoScripts
     }
   }

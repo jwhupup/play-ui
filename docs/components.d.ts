@@ -10,9 +10,12 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     PlAlert: typeof import('play-vue/components/index.ts')['PlAlert']
+    PlBadge: typeof import('play-vue/components/index.ts')['PlBadge']
     PlButton: typeof import('play-vue/components/index.ts')['PlButton']
     PlIcon: typeof import('play-vue/components/index.ts')['PlIcon']
+    PlMask: typeof import('play-vue/components/index.ts')['PlMask']
     PlModal: typeof import('play-vue/components/index.ts')['PlModal']
     PlOnClickOutside: typeof import('play-vue/components/index.ts')['PlOnClickOutside']
+    PlTag: typeof import('play-vue/components/index.ts')['PlTag']
   }
 }

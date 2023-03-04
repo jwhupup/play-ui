@@ -1,3 +1,4 @@
 import Mask from './src/mask.vue'
 
-export default Mask
+export const PlMask = Mask
+export default PlMask
