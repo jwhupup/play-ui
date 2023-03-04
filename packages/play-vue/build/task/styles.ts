@@ -30,7 +30,7 @@ interface CssInfo {
   name: string
 }
 
-function genStyleEntry(cssInfo: CssInfo) {
+async function genStyleEntry(cssInfo: CssInfo) {
   if (cssInfo.path.includes(componentsRoot)) {
     const noStyleComps = ['on-click-outside']
 
