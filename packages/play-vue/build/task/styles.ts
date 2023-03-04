@@ -19,7 +19,22 @@ export async function buildStyles() {
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       cleanCSS({}, (details) => {
-        genStyleEntry(details)
+        if (details.path.includes(componentsRoot)) {
+          const noStyleComps = ['on-click-outside']
+
+          const compName = details.name.split('\\')[1]
+
+          const importReg = /import .* from '(.*).vue'/g
+
+          const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
+
+          const file = readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
+            .match(importReg)!.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
+
+          const importContent = file?.reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
+
+          outputFileSync(resolve(buildOutput, 'styles', `${details.name.split('.')[0].slice(1)}.js`), importContent)
+        }
       }),
     )
     .pipe(dest(stylePath))
@@ -30,7 +45,7 @@ interface CssInfo {
   name: string
 }
 
-async function genStyleEntry(cssInfo: CssInfo) {
+function genStyleEntry(cssInfo: CssInfo) {
   if (cssInfo.path.includes(componentsRoot)) {
     const noStyleComps = ['on-click-outside']
 
