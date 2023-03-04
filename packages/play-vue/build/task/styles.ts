@@ -1,11 +1,10 @@
 import path from 'node:path'
 import { dest, src } from 'gulp'
-import consola from 'consola'
-import chalk from 'chalk'
 import gulpLess from 'gulp-less'
 import gulpImportLess from 'gulp-import-less'
 import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
+import { outputFileSync, readFileSync } from 'fs-extra'
 import { buildOutput, componentsRoot, stylesRoot } from '../path'
 
 export async function buildStyles() {
@@ -20,12 +19,32 @@ export async function buildStyles() {
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       cleanCSS({}, (details) => {
-        consola.success(
-          `${chalk.cyan(details.name)}: ${chalk.yellow(
-            details.stats.originalSize / 1000,
-          )} KB -> ${chalk.green(details.stats.minifiedSize / 1000)} KB`,
-        )
+        genStyleEntry(details)
       }),
     )
     .pipe(dest(stylePath))
+}
+
+interface CssInfo {
+  path: string
+  name: string
+}
+
+function genStyleEntry(cssInfo: CssInfo) {
+  if (cssInfo.path.includes(componentsRoot)) {
+    const noStyleComps = ['on-click-outside']
+
+    const compName = cssInfo.name.split('\\')[1]
+
+    const importReg = /import .* from '(.*).vue'/g
+
+    const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
+
+    const file = readFileSync(path.resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
+      .match(importReg)?.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
+
+    const importContent = file?.reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
+
+    outputFileSync(path.resolve(buildOutput, 'styles', `${cssInfo.name.split('.')[0].slice(1)}.js`), importContent)
+  }
 }
