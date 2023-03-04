@@ -34,14 +34,10 @@ function getSideEffects(
   if (noStyleComps.includes(dirName))
     return
 
-  let res = ['play-vue/dist/styles/base.css', `play-vue/dist/styles/${dirName}/src/index.css`]
+  if (importStyle === 'less')
+    return ['play-vue/styles/base.less', `play-vue/components/${dirName}/src/index.less`]
 
-  if (importStyle === 'less') {
-    res = ['play-vue/styles/base.less', `play-vue/components/${dirName}/src/index.less`]
-    return res
-  }
-
-  return res
+  return [`play-vue/dist/styles/${dirName}/src/index.js`]
 }
 
 export function PlayResolver(
