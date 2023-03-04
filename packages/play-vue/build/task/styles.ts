@@ -19,22 +19,7 @@ export async function buildStyles() {
     .pipe(autoprefixer({ cascade: false }))
     .pipe(
       cleanCSS({}, (details) => {
-        if (details.path.includes(componentsRoot)) {
-          const noStyleComps = ['on-click-outside']
-
-          const compName = details.name.split('\\')[1]
-
-          const importReg = /import .* from '(.*).vue'/g
-
-          const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
-
-          const file = readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
-            .match(importReg)!.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
-
-          const importContent = file?.reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
-
-          outputFileSync(resolve(buildOutput, 'styles', `${details.name.split('.')[0].slice(1)}.js`), importContent)
-        }
+        genStyleEntry(details)
       }),
     )
     .pipe(dest(stylePath))
@@ -55,10 +40,9 @@ function genStyleEntry(cssInfo: CssInfo) {
 
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
-    const file = readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
-      .match(importReg)!.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
-
-    const importContent = file?.reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
+    const importSentences = (readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8').match(importReg) || [])
+      .filter(path => noStyleComps.every(comp => !path.includes(comp)))
+      .reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
 
     outputFileSync(resolve(buildOutput, 'styles', `${cssInfo.name.split('.')[0].slice(1)}.js`), importContent)
   }
