@@ -1,4 +1,4 @@
-import Mask from './src/mask.vue'
+import Mask from './src/index.vue'
 
 export const PlMask = Mask
 export default PlMask

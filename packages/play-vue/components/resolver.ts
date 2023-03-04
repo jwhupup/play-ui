@@ -54,7 +54,7 @@ export function PlayResolver(
         const partialName = name.slice(2)
         return {
           name,
-          from: options.dev ? 'play-vue/components/index.ts' : 'play-vue',
+          from: 'play-vue',
           sideEffects: getSideEffects(kebabCase(partialName), options),
         }
       }

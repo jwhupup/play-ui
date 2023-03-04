@@ -1,10 +1,9 @@
 <template>
   <Teleport to="body">
-    <PlMask v-if="mask && visible" />
-    <PlOnClickOutside v-if="visible" @trigger="handleCancel">
+    <Mask v-if="mask && visible" />
+    <OnClickOutside v-if="visible" @trigger="handleCancel">
       <div class="pl-modal">
-        <pl-icon v-if="showClose" name="x-lg" @click="handleCancel" />
-
+        <Icon v-if="showClose" name="x-lg" @click="handleCancel" />
         <slot name="header" />
         <header v-if="!$slots.header && title">
           <h3>{{ title }}</h3>
@@ -15,20 +14,24 @@
         <slot name="footer" />
         <footer v-if="!$slots.footer">
           <div>
-            <pl-button @click="handleCancel">
+            <Button @click="handleCancel">
               Cancel
-            </pl-button>
-            <pl-button type="solid" @click="handleConfirm">
+            </Button>
+            <Button type="solid" @click="handleConfirm">
               Confirm
-            </pl-button>
+            </Button>
           </div>
         </footer>
       </div>
-    </PlOnClickOutside>
+    </OnClickOutside>
   </Teleport>
 </template>
 
 <script setup lang="ts">
+import Button from '../../button/src/index.vue'
+import Icon from '../../icon/src/index.vue'
+import Mask from '../../mask/src/index.vue'
+import OnClickOutside from '../../on-click-outside/src/index.vue'
 import { modalProps } from '../src/modal'
 
 defineProps(modalProps)
