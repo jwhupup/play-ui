@@ -34,6 +34,7 @@
     "@types/node": "^18.11.18",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "@vue/compiler-core": "^3.2.47",
     "@vue/test-utils": "^2.2.10",
     "chalk": "^5.2.0",
     "consola": "^2.15.3",
