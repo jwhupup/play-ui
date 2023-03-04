@@ -41,7 +41,7 @@ function genStyleEntry(cssInfo: CssInfo) {
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
     const file = readFileSync(path.resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
-      .match(importReg)?.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
+      .match(importReg)!.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
 
     const importContent = file?.reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
 
