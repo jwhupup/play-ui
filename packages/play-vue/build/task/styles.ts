@@ -1,4 +1,4 @@
-import path from 'node:path'
+import { resolve } from 'node:path'
 import { dest, src } from 'gulp'
 import gulpLess from 'gulp-less'
 import gulpImportLess from 'gulp-import-less'
@@ -8,11 +8,11 @@ import { outputFileSync, readFileSync } from 'fs-extra'
 import { buildOutput, componentsRoot, stylesRoot } from '../path'
 
 export async function buildStyles() {
-  const stylePath = path.resolve(buildOutput, 'styles')
+  const stylePath = resolve(buildOutput, 'styles')
 
   return src([
-    path.resolve(stylesRoot, '**/*.less'),
-    path.resolve(componentsRoot, '**/*.less'),
+    resolve(stylesRoot, '**/*.less'),
+    resolve(componentsRoot, '**/*.less'),
   ])
     .pipe(gulpImportLess())
     .pipe(gulpLess())
@@ -40,11 +40,11 @@ function genStyleEntry(cssInfo: CssInfo) {
 
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
-    const file = readFileSync(path.resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
+    const file = readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8')
       .match(importReg)!.filter(path => noStyleComps.every(comp => !path.includes(comp))) || []
 
     const importContent = file?.reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
 
-    outputFileSync(path.resolve(buildOutput, 'styles', `${cssInfo.name.split('.')[0].slice(1)}.js`), importContent)
+    outputFileSync(resolve(buildOutput, 'styles', `${cssInfo.name.split('.')[0].slice(1)}.js`), importContent)
   }
 }
