@@ -9,7 +9,7 @@ import type { Plugin } from 'rollup'
 import { browserOutputConfig } from '../config'
 import { componentsRoot } from '../path'
 
-export async function buildBrowser() {
+export async function buildBundled() {
   consola.info('Start building browser...')
   const plugins: Plugin[] = [
     vue(),

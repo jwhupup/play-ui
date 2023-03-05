@@ -13,7 +13,6 @@
     <pl-button @click="visible = true">
       open modal
     </pl-button>
-    <pl-badge value="100" />
   </div>
 </template>
 

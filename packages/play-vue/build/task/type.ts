@@ -3,7 +3,7 @@ import { copy, remove } from 'fs-extra'
 import consola from 'consola'
 import { buildOutput } from '../path'
 
-export async function buildTypes() {
+export async function buildType() {
   consola.info('Start copy types...')
   const src = path.resolve(buildOutput, 'types')
   await copy(`${src}/components`, src, { recursive: true })

@@ -7,7 +7,7 @@ import cleanCSS from 'gulp-clean-css'
 import { outputFileSync, readFileSync } from 'fs-extra'
 import { buildOutput, componentsRoot, stylesRoot } from '../path'
 
-export async function buildStyles() {
+export async function buildStyle() {
   const stylePath = resolve(buildOutput, 'styles')
 
   return src([

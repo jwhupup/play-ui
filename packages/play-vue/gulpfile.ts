@@ -1,13 +1,13 @@
 import { parallel, series } from 'gulp'
 import {
-  buildBrowser,
-  buildModules,
-  buildStyles,
-  buildTypes,
+  buildBundled,
+  buildModule,
+  buildStyle,
+  buildType,
 } from './build/task'
 
 export default parallel(
-  buildBrowser,
-  buildStyles,
-  series(buildModules, buildTypes),
+  buildBundled,
+  buildStyle,
+  series(buildModule, buildType),
 )

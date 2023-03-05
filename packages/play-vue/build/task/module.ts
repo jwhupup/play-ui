@@ -9,7 +9,7 @@ import { excludeFiles } from '../utils'
 import { modulesOutputConfig } from '../config'
 import { componentsRoot } from '../path'
 
-export async function buildModules() {
+export async function buildModule() {
   consola.info('Start building modules...')
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
