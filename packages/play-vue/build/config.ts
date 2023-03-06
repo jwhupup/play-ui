@@ -26,7 +26,7 @@ export const modulesOutputConfig: OutputOptions[] = [
 export const browserOutputConfig: OutputOptions[] = [
   {
     format: 'umd',
-    file: path.resolve(buildOutput, 'browser', 'index.min.js'),
+    file: path.resolve(buildOutput, 'bundle', 'index.min.js'),
     exports: 'named',
     name: 'PlayUi',
     globals: {
@@ -36,7 +36,7 @@ export const browserOutputConfig: OutputOptions[] = [
   },
   {
     format: 'esm',
-    file: path.resolve(buildOutput, 'browser', 'index.min.mjs'),
+    file: path.resolve(buildOutput, 'bundle', 'index.min.mjs'),
     sourcemap: true,
   },
 ]

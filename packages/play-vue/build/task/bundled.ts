@@ -10,7 +10,7 @@ import { browserOutputConfig } from '../config'
 import { componentsRoot } from '../path'
 
 export async function buildBundled() {
-  consola.info('Start building browser...')
+  consola.info('Start building bundle...')
   const plugins: Plugin[] = [
     vue(),
     nodeResolve({
@@ -39,5 +39,5 @@ export async function buildBundled() {
   })
   await Promise.all(browserOutputConfig.map(option => bundle.write(option)))
   await bundle.close()
-  consola.success('browser built!')
+  consola.success('bundle built!')
 }
