@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 import consola from 'consola'
 import type { Plugin } from 'rollup'
-import { browserOutputConfig } from '../config'
+import { bundleOutputConfig } from '../config'
 import { componentsRoot } from '../path'
 
 export async function buildBundled() {
@@ -37,7 +37,7 @@ export async function buildBundled() {
     external: ['vue', /\.less/],
     treeshake: true,
   })
-  await Promise.all(browserOutputConfig.map(option => bundle.write(option)))
+  await Promise.all(bundleOutputConfig.map(option => bundle.write(option)))
   await bundle.close()
   consola.success('bundle built!')
 }

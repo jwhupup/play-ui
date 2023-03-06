@@ -23,7 +23,7 @@ export const modulesOutputConfig: OutputOptions[] = [
   },
 ]
 
-export const browserOutputConfig: OutputOptions[] = [
+export const bundleOutputConfig: OutputOptions[] = [
   {
     format: 'umd',
     file: path.resolve(buildOutput, 'bundle', 'index.min.js'),
