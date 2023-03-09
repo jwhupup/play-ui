@@ -8,7 +8,7 @@ export type ButtonGroupShape = 'rounded' | 'pilled'
 export const buttonGroupProps = {
   type: {
     type: String as PropType<ButtonGroupType>,
-    default: 'white',
+    default: 'solid',
   },
   state: {
     type: String as PropType<ButtonState>,

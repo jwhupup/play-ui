@@ -27,6 +27,19 @@ export default {
     app.component('UpdateBadge', UpdateBadge)
     app.component('NewBadge', NewBadge)
     app.component('TeamMember', TeamMember)
+
+    const root = document.querySelector('html')
+    const theme = localStorage.getItem('vitepress-theme-appearance') as string
+    root?.setAttribute('data-theme', theme === 'auto' ? 'light' : theme)
+
+    const timer = setInterval(() => {
+      document?.querySelector('.VPSwitch')?.addEventListener('click', () => {
+        clearInterval(timer)
+        if (root?.getAttribute('data-theme') === 'dark')
+          return root?.setAttribute('data-theme', 'light')
+        return root?.setAttribute('data-theme', 'dark')
+      })
+    }, 1000)
   },
   Layout() {
     return h(theme.Layout, null, {

@@ -7,35 +7,29 @@ lang: en-US
 
 Common operation buttons.
 
-## Types
-
-The most commonly used button styles.
-
-<demo src="../example/button/types.vue"></demo>
-
 ## Sizes
 
 Buttons stacked small to large sizes.
 
-<demo src="../example/button/sizes.vue"></demo>
+<demo src="../example/button-group/sizes.vue"></demo>
 
 ## States
 
-Predefined button state.
+Predefined button-group state.
 
-<demo src="../example/button/states.vue"></demo>
+<demo src="../example/button-group/states.vue"></demo>
 
 ## Shapes
 
-Predefined the shape of the button.
+Predefined the shape of the button-group.
 
-<demo src="../example/button/shapes.vue"></demo>
+<demo src="../example/button-group/shapes.vue"></demo>
 
 ## Disabled
 
-You can use the disabled attribute to define whether the button is disabled.
+You can use the disabled attribute to define whether the button-group is disabled.
 
-<demo src="../example/button/disabled.vue"></demo>
+<demo src="../example/button-group/disabled.vue"></demo>
 
 ## Button Props
 

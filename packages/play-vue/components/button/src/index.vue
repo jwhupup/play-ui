@@ -8,6 +8,7 @@
       `__${parent?.state || state}`,
       `__${parent?.shape || shape}`,
       `__${parent?.size || size}`,
+      disabled && 'is-disabled',
     ]"
     @click="$emit('click')"
   >

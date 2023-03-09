@@ -21,6 +21,10 @@ const components = [
         link: '/components/button',
       },
       {
+        text: 'Button Group',
+        link: '/components/button-group',
+      },
+      {
         text: 'Badge',
         link: '/components/badge',
       },

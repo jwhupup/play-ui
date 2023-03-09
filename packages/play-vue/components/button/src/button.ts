@@ -14,7 +14,7 @@ export type ButtonType =
 export const buttonProps = {
   type: {
     type: String as PropType<ButtonType>,
-    default: 'white',
+    default: 'solid',
   },
   nativeType: {
     type: String as PropType<ButtonNativeType>,

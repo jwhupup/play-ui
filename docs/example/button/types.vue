@@ -1,19 +1,19 @@
 <template>
   <div space-y-2>
     <div fscw gap-2>
-      <pl-button type="solid" state="info" @click="changeTheme">
+      <pl-button type="solid" @click="changeTheme">
         solid
       </pl-button>
-      <pl-button type="outline" state="success">
+      <pl-button type="outline">
         outline
       </pl-button>
-      <pl-button type="ghost" state="success">
+      <pl-button type="ghost">
         ghost
       </pl-button>
-      <pl-button type="link" state="success">
+      <pl-button type="link">
         link
       </pl-button>
-      <pl-button type="white" state="success">
+      <pl-button type="white">
         white
       </pl-button>
     </div>
@@ -22,6 +22,8 @@
 
 <script setup lang="ts">
 const changeTheme = () => {
+  console.log(document.querySelector('.VPSwitchAppearance'))
+
   const root = document.querySelector('html')
   if (root.getAttribute('data-theme') === 'dark') {
     root.className = ''
