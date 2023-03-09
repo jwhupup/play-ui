@@ -17,5 +17,7 @@ declare module '@vue/runtime-core' {
     PlModal: typeof import('play-vue')['PlModal']
     PlOnClickOutside: typeof import('play-vue/components/index.ts')['PlOnClickOutside']
     PlTag: typeof import('play-vue/components/index.ts')['PlTag']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

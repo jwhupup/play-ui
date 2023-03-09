@@ -4,13 +4,12 @@
     :type="nativeType"
     class="pl-button"
     :class="[
-      `pl-button--${parent?.type || type}`,
-      `pl-button--${parent?.size || size}`,
-      `pl-button--${parent?.shape || shape}`,
-      `pl-button--${parent?.color || color}`,
-      { 'is-disabled': parent?.disabled || disabled },
+      `__${parent?.type || type}`,
+      `__${parent?.state || state}`,
+      `__${parent?.shape || shape}`,
+      `__${parent?.size || size}`,
     ]"
-    @click="handleClick"
+    @click="$emit('click')"
   >
     <slot />
   </button>
@@ -23,15 +22,11 @@ import { buttonProps } from '../src/button'
 
 defineProps(buttonProps)
 
-const emits = defineEmits(['click'])
+defineEmits(['click'])
 
 const buttonEl = ref<HTMLButtonElement>()
 
 const parent = inject(GROUP_BUTTON_KEY, null)
-
-const handleClick = (evt: MouseEvent) => {
-  emits('click', evt)
-}
 
 defineExpose({
   el: buttonEl,

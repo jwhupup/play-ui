@@ -9,7 +9,7 @@ export default defineConfig({
     Components({
       resolvers: [
         PlayResolver({
-          // importStyle: 'less',
+          importStyle: 'less',
         }),
       ],
     }),
