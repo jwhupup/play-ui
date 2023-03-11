@@ -3,7 +3,7 @@ import type { ButtonState } from '../../type'
 
 export type ButtonNativeType = 'button' | 'reset' | 'submit'
 export type ButtonShape = 'rounded' | 'pilled' | 'circle' | 'plain'
-export type ButtonSize = 'small' | 'medium' | 'large'
+export type ButtonSize = 'mini' | 'small' | 'medium' | 'large'
 export type ButtonType =
   | 'solid'
   | 'outline'

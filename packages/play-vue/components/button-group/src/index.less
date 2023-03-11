@@ -1,4 +1,7 @@
 .pl-button-group {
+  --pl-button-group-border-color: 1px solid rgba(255, 255, 255, 0.5);
+}
+.pl-button-group {
   display: inline-flex;
 
   & > .pl-button {
@@ -18,46 +21,40 @@
       border-radius: 0;
     }
 
-    &.__solid {
-      &:not(:first-child) {
-        margin-left: -1px;
-      }
-      
-      &:not(:first-child):not(:last-child) {
-        border-left: 1px solid rgba(255, 255, 255, 0.5);
-        border-right: 1px solid rgba(255, 255, 255, 0.5);
-      }
-    }
-
-    &.__white {
-      &:not(:first-child) {
-        margin-left: -1px;
-      }
-    }
-
+    &.__solid,
+    &.__white,
     &.__outline {
       &:not(:first-child) {
         margin-left: -1px;
       }
     }
+
+    &.__solid {
+      &:last-child {
+        margin-left: -1px;
+        border-left: var(--pl-button-group-border-color);
+      }
+
+      &:not(:first-child):not(:last-child) {
+        border-left: var(--pl-button-group-border-color);
+        border-right: var(--pl-button-group-border-color);
+      }
+    }
   }
 }
 
-.pl-button-group--vertical  {
-  display: inline-flex;
+.__vertical {
   flex-direction: column;
 
   & > .pl-button {
-    margin-left: 0;
-
     &:first-child {
       border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+      border-top-right-radius: var(--pl-border-radius);
     }
 
     &:last-child {
-      border-top-left-radius: 0;
       border-top-right-radius: 0;
+      border-bottom-left-radius: var(--pl-border-radius);
     }
 
     &:not(:first-child):not(:last-child) {
@@ -66,23 +63,27 @@
 
     &.__solid {
       &:first-child {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom: var(--pl-button-group-border-color);
+      }
+
+      &:last-child {
+        margin-left: 0;
+        border-left: none;
       }
 
       &:not(:first-child):not(:last-child) {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        margin-left: 0;
+        border-left: none;
+        border-right: none;
+        border-bottom: var(--pl-button-group-border-color);
       }
     }
 
-    &.__white {
-      &:not(:first-child) {
-        margin-top: -1px;
-      }
-    }
-    
+    &.__white,
     &.__outline {
       &:not(:first-child) {
         margin-top: -1px;
+        margin-left: 0;
       }
     }
   }

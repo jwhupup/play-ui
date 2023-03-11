@@ -1,6 +1,9 @@
 <template>
   <div space-y-2>
     <div fscw gap-2>
+      <pl-button type="solid" size="mini">
+        mini
+      </pl-button>
       <pl-button type="solid" size="small">
         small
       </pl-button>

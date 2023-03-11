@@ -9,16 +9,12 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    PlAlert: typeof import('play-vue/components/index.ts')['PlAlert']
+    PlAlert: typeof import('play-vue')['PlAlert']
     PlBadge: typeof import('play-vue')['PlBadge']
-    PlButton: typeof import('play-vue')['PlButton']
+    PlButton: typeof import('play-vue/components/index')['PlButton']
     PlButtonGroup: typeof import('play-vue')['PlButtonGroup']
-    PlIcon: typeof import('play-vue')['PlIcon']
-    PlMask: typeof import('play-vue/components/index.ts')['PlMask']
-    PlModal: typeof import('play-vue')['PlModal']
-    PlOnClickOutside: typeof import('play-vue/components/index.ts')['PlOnClickOutside']
-    PlTag: typeof import('play-vue/components/index.ts')['PlTag']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
+    PlIcon: typeof import('play-vue/components/index')['PlIcon']
+    PlModal: typeof import('play-vue/components/index')['PlModal']
+    PlTag: typeof import('play-vue')['PlTag']
   }
 }

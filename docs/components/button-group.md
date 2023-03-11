@@ -1,48 +1,62 @@
 ---
-title: Button
+title: Button Group
 lang: en-US
 ---
 
-# Button
+# Button Group
 
-Common operation buttons.
+Displayed as a button group, can be used to group a series of similar operations.
 
-## Sizes
+## Usage
 
-Buttons stacked small to large sizes.
+### Types
 
-<demo src="../example/button-group/sizes.vue"></demo>
+Button group type, which overrides the type of button. The default is `solid`.
 
-## States
+<demo src="../example/button-group/types.vue"></demo>
 
-Predefined button-group state.
+### States
+
+Button group state, which overrides the state of button. The default is `info`.
 
 <demo src="../example/button-group/states.vue"></demo>
 
-## Shapes
+### Shapes
 
-Predefined the shape of the button-group.
+Button group shape, which overrides the shape of button. The default is `rounded`.
 
 <demo src="../example/button-group/shapes.vue"></demo>
 
-## Disabled
+### Sizes
+
+Button group size, which overrides the size of button. The default is `medium`.
+
+<demo src="../example/button-group/sizes.vue"></demo>
+
+### Vertical
+
+You can use the vertical attribute to define whether the button-group is vertical.
+
+<demo src="../example/button-group/vertical.vue"></demo>
+
+### Disabled
 
 You can use the disabled attribute to define whether the button-group is disabled.
 
 <demo src="../example/button-group/disabled.vue"></demo>
 
-## Button Props
+## Props
 
-| Name        | Type                                                 | Default   | Description                |
-| ----------- | ---------------------------------------------------- | --------- | -------------------------- |
-| type        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | Set custom type attribute. |
-| native-type | `button` \| `reset` \| `submit`                      | `button`  | Set native type attribute. |
-| shape       | `rounded` \| `pilled` \| `circle` \| `plain`         | `rounded` | Set button shape.          |
-| size        | `small` \| `medium` \| `large`                       | `medium`  | Set button size.           |
-| state       | `info` \| `success` \| `warning` \| `danger`         | `info`    | Set button state.          |
-| disabled    | `boolean`                                            | `false`   | Disable the button.        |
+| Name     | Type                                         | Default   | Description                |
+| -------- | -------------------------------------------- | --------- | -------------------------- |
+| type     | `solid` \| `white` \| `outline`              | `solid`   | Set custom type attribute. |
+| shape    | `rounded` \| `pilled` \| `plain`             | `rounded` | Set button group shape.    |
+| size     | `mini` \| `small` \| `medium` \| `large`     | `medium`  | Set button group size.     |
+| state    | `info` \| `success` \| `warning` \| `danger` | `info`    | Set button group state.    |
+| vertical | `boolean`                                    | `false`   | Set native type attribute. |
+| disabled | `boolean`                                    | `false`   | Disable the button group.  |
 
-## Button Slots
+## Slots
 
 | Name    | Parameters | Description                |
 | ------- | ---------- | -------------------------- |

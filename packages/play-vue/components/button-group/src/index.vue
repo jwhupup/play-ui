@@ -1,5 +1,5 @@
 <template>
-  <div :class="[vertical ? 'pl-button-group--vertical' : 'pl-button-group']">
+  <div class="pl-button-group" :class="{ __vertical: vertical }">
     <slot />
   </div>
 </template>

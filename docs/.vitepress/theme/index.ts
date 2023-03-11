@@ -1,5 +1,4 @@
-import { h } from 'vue'
-import * as components from 'play-vue'
+import { h, onMounted } from 'vue'
 import theme from 'vitepress/theme'
 import DemoBlock from '../components/demo-block'
 import Overview from '../components/overview'
@@ -8,18 +7,26 @@ import CommnBadge from '../components/CommnBadge'
 import UpdateBadge from '../components/UpdateBadge'
 import NewBadge from '../components/NewBadge'
 import TeamMember from '../components/TeamMember'
-import 'play-vue/components/badge/src/index.less'
 import './main.css'
 import 'uno.css'
 
 export default {
   ...theme,
-  enhanceApp({ app }) {
-    for (const name of Object.keys(components)) {
-      if (name.startsWith('Pl'))
-        app.component(name, components[name])
-    }
+  setup() {
+    onMounted(() => {
+      const theme = localStorage.getItem('vitepress-theme-appearance')
+      const htmlEl = document.querySelector('html') as HTMLHtmlElement
 
+      htmlEl.setAttribute('data-theme', theme === 'auto' ? 'light' : 'dark')
+
+      document.querySelector('.VPSwitch')?.addEventListener('click', () => {
+        if (htmlEl.getAttribute('data-theme') === 'dark')
+          return htmlEl.setAttribute('data-theme', 'light')
+        return htmlEl.setAttribute('data-theme', 'dark')
+      })
+    })
+  },
+  enhanceApp({ app }) {
     app.component('Demo', DemoBlock)
     app.component('Overview', Overview)
     app.component('WarnBadge', WarnBadge)
@@ -27,19 +34,6 @@ export default {
     app.component('UpdateBadge', UpdateBadge)
     app.component('NewBadge', NewBadge)
     app.component('TeamMember', TeamMember)
-
-    const root = document.querySelector('html')
-    const theme = localStorage.getItem('vitepress-theme-appearance') as string
-    root?.setAttribute('data-theme', theme === 'auto' ? 'light' : theme)
-
-    const timer = setInterval(() => {
-      document?.querySelector('.VPSwitch')?.addEventListener('click', () => {
-        clearInterval(timer)
-        if (root?.getAttribute('data-theme') === 'dark')
-          return root?.setAttribute('data-theme', 'light')
-        return root?.setAttribute('data-theme', 'dark')
-      })
-    }, 1000)
   },
   Layout() {
     return h(theme.Layout, null, {

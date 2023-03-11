@@ -142,4 +142,19 @@ export default defineConfig({
       dark: 'vitesse-dark',
     },
   },
+  lastUpdated: true,
+  locales: {
+    root: {
+      label: 'English',
+      lang: 'en',
+    },
+    zh: {
+      label: 'Chinese',
+      lang: 'zh',
+    },
+    es: {
+      label: 'Es',
+      lang: 'es',
+    },
+  },
 })

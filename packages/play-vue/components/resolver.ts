@@ -5,7 +5,7 @@ import type {
 
 export interface PlayResolverOptions {
   importStyle?: boolean | 'less'
-  dev?: boolean
+  from?: string
 }
 
 export const isSSR = Boolean(
@@ -43,6 +43,7 @@ function getSideEffects(
 export function PlayResolver(
   options: PlayResolverOptions = {},
 ): ComponentResolver {
+  const { from = 'play-vue' } = options
   return {
     type: 'component',
     resolve: (name: string) => {
@@ -50,7 +51,7 @@ export function PlayResolver(
         const partialName = name.slice(2)
         return {
           name,
-          from: 'play-vue',
+          from,
           sideEffects: getSideEffects(kebabCase(partialName), options),
         }
       }

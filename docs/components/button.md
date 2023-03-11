@@ -7,37 +7,39 @@ lang: en-US
 
 Common operation buttons.
 
-## Types
+## Usage
+
+### Types
 
 The most commonly used button styles.
 
 <demo src="../example/button/types.vue"></demo>
 
-## Sizes
+### Sizes
 
 Buttons stacked small to large sizes.
 
 <demo src="../example/button/sizes.vue"></demo>
 
-## States
+### States
 
 Predefined button state.
 
 <demo src="../example/button/states.vue"></demo>
 
-## Shapes
+### Shapes
 
 Predefined the shape of the button.
 
 <demo src="../example/button/shapes.vue"></demo>
 
-## Disabled
+### Disabled
 
 You can use the disabled attribute to define whether the button is disabled.
 
 <demo src="../example/button/disabled.vue"></demo>
 
-## Button Props
+## Props
 
 | Name        | Type                                                 | Default   | Description                |
 | ----------- | ---------------------------------------------------- | --------- | -------------------------- |
@@ -48,7 +50,7 @@ You can use the disabled attribute to define whether the button is disabled.
 | state       | `info` \| `success` \| `warning` \| `danger`         | `info`    | Set button state.          |
 | disabled    | `boolean`                                            | `false`   | Disable the button.        |
 
-## Button Slots
+## Slots
 
 | Name    | Parameters | Description                |
 | ------- | ---------- | -------------------------- |
