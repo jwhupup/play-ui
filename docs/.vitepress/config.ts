@@ -5,11 +5,11 @@ import { applyPlugins } from './plugins/code'
 const guides = [
   { text: 'Quick Start', link: '/guide/quick-start' },
   { text: 'Installation', link: '/guide/install' },
-  // { text: 'Overview', link: '/guide/overview' },
-  // { text: 'i18n', link: '/guide/i18n' },
-  // { text: 'Theming', link: '/guide/theme' },
-  // { text: 'Dark Mode', link: '/guide/dark' },
-  // { text: 'Changelog', link: '/guide/changelog' },
+]
+
+const zhGuides = [
+  { text: 'Quick Start', link: '/locales/guide/quick-start' },
+  { text: 'Installation', link: '/locales/guide/install' },
 ]
 
 const components = [
@@ -53,8 +53,50 @@ const components = [
   },
 ]
 
+const zhComponents = [
+  {
+    text: 'Basic',
+    items: [
+      {
+        text: 'Button',
+        link: '/locales/zh/components/button',
+      },
+      {
+        text: 'Button Group',
+        link: '/locales/zh/components/button-group',
+      },
+      {
+        text: 'Badge',
+        link: '/locales/zh/components/badge',
+      },
+      {
+        text: 'Tag',
+        link: '/locales/zh/components/tag',
+      },
+      {
+        text: 'Icon',
+        link: '/locales/zh/components/icon',
+      },
+    ],
+  },
+  {
+    text: 'Feedback',
+    items: [
+      {
+        text: 'Alert',
+        link: '/locales/zh/components/alert',
+      },
+      {
+        text: 'Modal',
+        link: '/locales/zh/components/modal',
+      },
+    ],
+  },
+]
+
 const nav = [
   { text: 'Guide', items: guides },
+  { text: '导航', items: guides },
   { text: 'Components', items: components },
   {
     text: `v${version}`,
@@ -68,6 +110,18 @@ const nav = [
 ]
 
 const sidebar = {
+  '/locales/zh/guide': [
+    {
+      text: 'Developer Guide',
+      items: zhGuides,
+    },
+  ],
+  '/locales/zh/components': [
+    {
+      text: 'Developer Guide',
+      items: zhComponents,
+    },
+  ],
   '/guide': [
     {
       text: 'Developer Guide',
@@ -143,18 +197,4 @@ export default defineConfig({
     },
   },
   lastUpdated: true,
-  locales: {
-    root: {
-      label: 'English',
-      lang: 'en',
-    },
-    zh: {
-      label: 'Chinese',
-      lang: 'zh',
-    },
-    es: {
-      label: 'Es',
-      lang: 'es',
-    },
-  },
 })

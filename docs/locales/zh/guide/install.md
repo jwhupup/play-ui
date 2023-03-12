@@ -1,4 +1,4 @@
-# Installation
+# 安装
 
 This section explains how to properly install and use an Play UI.
 

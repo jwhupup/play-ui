@@ -7,7 +7,7 @@ titleTemplate: Beautiful, Easy To Use
 
 hero:
   name: Play UI
-  text: 漂亮,Popular and Easy To Use
+  text: Beautiful,Popular and Easy To Use
   tagline: A Vue.js prebuilt component library based on Preline design draft that allows you to make beautiful websites
   image:
     src: /logo.svg
