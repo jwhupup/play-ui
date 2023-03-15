@@ -13,4 +13,4 @@ A modal dialog displays content that requires user interaction, in a layer above
 
 ## Other Usage
 
-Document WIP... 😪
+Document WIP 😪

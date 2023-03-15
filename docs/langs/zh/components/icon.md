@@ -1,6 +1,6 @@
 ---
 title: Icon
-lang: en-US
+lang: zh
 ---
 
 # Icon

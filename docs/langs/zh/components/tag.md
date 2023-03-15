@@ -1,6 +1,6 @@
 ---
 title: Tag
-lang: en-US
+lang: zh
 ---
 
 # Tag
@@ -11,31 +11,31 @@ Used for marking and selection.
 
 Use the type attribute to define Tag's type.
 
-<demo src="../example/tag/types.vue"></demo>
+<demo src="../../../example/tag/types.vue"></demo>
 
 ## Colors
 
 You can define different colors.
 
-<demo src="../example/tag/colors.vue"></demo>
+<demo src="../../../example/tag/colors.vue"></demo>
 
 ## Shapes
 
 Predefined the shape of the Tag.
 
-<demo src="../example/tag/shapes.vue"></demo>
+<demo src="../../../example/tag/shapes.vue"></demo>
 
 ## Closable
 
 Use the closable attribute to define a removable tag.
 
-<demo src="../example/tag/closable.vue"></demo>
+<demo src="../../../example/tag/closable.vue"></demo>
 
 ## Indicator
 
 Use an indicator appearance to show indication.
 
-<demo src="../example/tag/indicator.vue"></demo>
+<demo src="../../../example/tag/indicator.vue"></demo>
 
 ## Badge Props
 

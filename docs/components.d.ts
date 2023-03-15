@@ -16,5 +16,7 @@ declare module '@vue/runtime-core' {
     PlIcon: typeof import('play-vue/components/index')['PlIcon']
     PlModal: typeof import('play-vue/components/index')['PlModal']
     PlTag: typeof import('play-vue')['PlTag']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }

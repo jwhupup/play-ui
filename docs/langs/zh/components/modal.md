@@ -1,6 +1,6 @@
 ---
 title: Modal
-lang: en-US
+lang: zh
 ---
 
 # Modal <sup><PlBadge value="New" /></sup>
@@ -9,8 +9,8 @@ A modal dialog displays content that requires user interaction, in a layer above
 
 ## Usage
 
-<demo src="../example/modal/dev.vue"></demo>
+<demo src="../../../example/modal/dev.vue"></demo>
 
 ## Other Usage
 
-Document WIP... 😪
+Document WIP../../... 😪

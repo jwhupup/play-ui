@@ -3,13 +3,13 @@ import { version } from '../../packages/play-vue/package.json'
 import { applyPlugins } from './plugins/code'
 
 const guides = [
-  { text: 'Quick Start', link: '/guide/quick-start' },
-  { text: 'Installation', link: '/guide/install' },
+  { text: 'Quick Start', link: '/langs/en/guide/quick-start' },
+  { text: 'Installation', link: '/langs/en/guide/install' },
 ]
 
 const zhGuides = [
-  { text: 'Quick Start', link: '/locales/guide/quick-start' },
-  { text: 'Installation', link: '/locales/guide/install' },
+  { text: 'Quick Start', link: '/langs/zh/guide/quick-start' },
+  { text: 'Installation', link: '/langs/zh/guide/install' },
 ]
 
 const components = [
@@ -18,23 +18,23 @@ const components = [
     items: [
       {
         text: 'Button',
-        link: '/components/button',
+        link: '/langs/en/components/button',
       },
       {
         text: 'Button Group',
-        link: '/components/button-group',
+        link: '/langs/en/components/button-group',
       },
       {
         text: 'Badge',
-        link: '/components/badge',
+        link: '/langs/en/components/badge',
       },
       {
         text: 'Tag',
-        link: '/components/tag',
+        link: '/langs/en/components/tag',
       },
       {
         text: 'Icon',
-        link: '/components/icon',
+        link: '/langs/en/components/icon',
       },
     ],
   },
@@ -43,11 +43,11 @@ const components = [
     items: [
       {
         text: 'Alert',
-        link: '/components/alert',
+        link: '/langs/en/components/alert',
       },
       {
         text: 'Modal',
-        link: '/components/modal',
+        link: '/langs/en/components/modal',
       },
     ],
   },
@@ -55,40 +55,40 @@ const components = [
 
 const zhComponents = [
   {
-    text: 'Basic',
+    text: '基础组件',
     items: [
       {
         text: 'Button',
-        link: '/locales/zh/components/button',
+        link: '/langs/zh/components/button',
       },
       {
         text: 'Button Group',
-        link: '/locales/zh/components/button-group',
+        link: '/langs/zh/components/button-group',
       },
       {
         text: 'Badge',
-        link: '/locales/zh/components/badge',
+        link: '/langs/zh/components/badge',
       },
       {
         text: 'Tag',
-        link: '/locales/zh/components/tag',
+        link: '/langs/zh/components/tag',
       },
       {
         text: 'Icon',
-        link: '/locales/zh/components/icon',
+        link: '/langs/zh/components/icon',
       },
     ],
   },
   {
-    text: 'Feedback',
+    text: '反馈组件',
     items: [
       {
         text: 'Alert',
-        link: '/locales/zh/components/alert',
+        link: '/langs/zh/components/alert',
       },
       {
         text: 'Modal',
-        link: '/locales/zh/components/modal',
+        link: '/langs/zh/components/modal',
       },
     ],
   },
@@ -96,7 +96,6 @@ const zhComponents = [
 
 const nav = [
   { text: 'Guide', items: guides },
-  { text: '导航', items: guides },
   { text: 'Components', items: components },
   {
     text: `v${version}`,
@@ -110,25 +109,20 @@ const nav = [
 ]
 
 const sidebar = {
-  '/locales/zh/guide': [
+  '/langs/zh/guide': [
     {
-      text: 'Developer Guide',
+      text: '开发者指南',
       items: zhGuides,
     },
   ],
-  '/locales/zh/components': [
-    {
-      text: 'Developer Guide',
-      items: zhComponents,
-    },
-  ],
-  '/guide': [
+  '/langs/zh/components': zhComponents,
+  '/langs/en/guide': [
     {
       text: 'Developer Guide',
       items: guides,
     },
   ],
-  '/components': components,
+  '/langs/en/components': components,
 }
 
 export default defineConfig({
@@ -194,6 +188,18 @@ export default defineConfig({
     theme: {
       light: 'vitesse-light',
       dark: 'vitesse-dark',
+    },
+  },
+  locales: {
+    root: {
+      label: 'English',
+      lang: 'en',
+      link: '/langs/en/',
+    },
+    zh: {
+      label: '中文',
+      lang: 'zh',
+      link: '/langs/zh/',
     },
   },
   lastUpdated: true,

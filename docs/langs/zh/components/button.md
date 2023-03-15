@@ -1,6 +1,6 @@
 ---
 title: Button
-lang: en-US
+lang: zh
 ---
 
 # Button
@@ -13,31 +13,31 @@ Common operation buttons.
 
 The most commonly used button styles.
 
-<demo src="../example/button/types.vue"></demo>
+<demo src="../../../example/button/types.vue"></demo>
 
 ### Sizes
 
 Buttons stacked small to large sizes.
 
-<demo src="../example/button/sizes.vue"></demo>
+<demo src="../../../example/button/sizes.vue"></demo>
 
 ### States
 
 Predefined button state.
 
-<demo src="../example/button/states.vue"></demo>
+<demo src="../../../example/button/states.vue"></demo>
 
 ### Shapes
 
 Predefined the shape of the button.
 
-<demo src="../example/button/shapes.vue"></demo>
+<demo src="../../../example/button/shapes.vue"></demo>
 
 ### Disabled
 
 You can use the disabled attribute to define whether the button is disabled.
 
-<demo src="../example/button/disabled.vue"></demo>
+<demo src="../../../example/button/disabled.vue"></demo>
 
 ## Props
 
