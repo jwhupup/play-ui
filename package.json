@@ -1,11 +1,10 @@
 {
-  "name": "play-vue",
-  "version": "1.1.1",
+  "name": "play-ui",
   "private": true,
   "packageManager": "pnpm@7.5.2",
   "scripts": {
     "dev": "pnpm -C docs run dev",
-    "build": "pnpm run -C packages/play-vue build",
+    "build": "pnpm run -C packages/play-ui build",
     "docs:build": "pnpm run build && pnpm -C docs run build",
     "deploy": "pnpm run docs:build",
     "test": "vitest",
@@ -16,7 +15,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.1.1",
-    "play-vue": "workspace:*",
+    "play-ui": "workspace:*",
     "vue": "^3.2.45"
   },
   "devDependencies": {

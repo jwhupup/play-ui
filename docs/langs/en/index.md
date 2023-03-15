@@ -24,7 +24,7 @@ hero:
 
     - theme: alt
       text: View on GitHub
-      link: https://github.com/jwhupup/play-vue
+      link: https://github.com/jwhupup/play-ui
 
 features:
   - icon: 🌈

@@ -1,11 +1,11 @@
 {
-  "name": "@play-vue/docs",
+  "name": "@play-ui/docs",
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "play-vue docs",
+  "description": "play-ui docs",
   "keywords": [
-    "play-vue",
+    "play-ui",
     "components",
     "ui",
     "preline"
@@ -19,7 +19,7 @@
     "markdown-it": "^13.0.1"
   },
   "devDependencies": {
-    "@play-vue/docs": "workspace:*",
+    "@play-ui/docs": "workspace:*",
     "@types/markdown-it": "^12.2.3"
   }
 }

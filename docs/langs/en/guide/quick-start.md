@@ -24,23 +24,23 @@ All components supported in modern browsers, support of neerly two or three vers
 
 ## Latest Version
 
-[![release version](https://img.shields.io/github/v/release/jwhupup/play-vue?display_name=tag)](https://www.npmjs.com/package/play-vue)
+[![release version](https://img.shields.io/github/v/release/jwhupup/play-ui?display_name=tag)](https://www.npmjs.com/package/play-ui)
 
-You can subscribe to this feed for new version notifications: https://github.com/jwhupup/play-vue/releases
+You can subscribe to this feed for new version notifications: https://github.com/jwhupup/play-ui/releases
 
 ## Issue
 
-If you find a bug, I hope you open an [issue](https://github.com/jwhupup/play-vue/issues), Thanks.
+If you find a bug, I hope you open an [issue](https://github.com/jwhupup/play-ui/issues), Thanks.
 
 ## Join
 
 If you are interested in this project, welcome to join us.
 
-- [Code of Conduct](https://github.com/jwhupup/play-vue/blob/main/CODE_OF_CONDUCT.md)
-- [Contributing Guide](https://github.com/jwhupup/play-vue/blob/main/CONTRIBUTING.md).
+- [Code of Conduct](https://github.com/jwhupup/play-ui/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing Guide](https://github.com/jwhupup/play-ui/blob/main/CONTRIBUTING.md).
 
 ## Contributors
 
-<a href="https://github.com/jwhupup/play-vue/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=jwhupup/play-vue" />
+<a href="https://github.com/jwhupup/play-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jwhupup/play-ui" />
 </a>

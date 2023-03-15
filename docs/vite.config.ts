@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-vue/dist/lib/resolver'
+import { PlayResolver } from 'play-ui/dist/lib/resolver'
 
 let resolverOptions = {}
 
 if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === undefined) {
   resolverOptions = {
     importStyle: 'less',
-    from: 'play-vue/components/index',
+    from: 'play-ui/components/index',
   }
 }
 

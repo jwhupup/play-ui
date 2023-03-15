@@ -6,13 +6,13 @@
 
 ```shell
 # npm
-npm i play-vue
+npm i play-ui
 
 # yarn
-yarn add play-vue
+yarn add play-ui
 
 # pnpm
-pnpm add play-vue
+pnpm add play-ui
 ```
 
 ## 按需引入
@@ -29,7 +29,7 @@ npm install -D unplugin-vue-components
 // vite.config.ts
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-vue/dist/lib/resolver'
+import { PlayResolver } from 'play-ui/dist/lib/resolver'
 
 export default defineConfig({
   // ...

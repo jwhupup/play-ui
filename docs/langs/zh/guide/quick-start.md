@@ -24,23 +24,23 @@ Play UI 是一个 Vue3 预构建组件库，基于 Preline UI 设计稿，允许
 
 ## 最新版本
 
-[![release version](https://img.shields.io/github/v/release/jwhupup/play-vue?display_name=tag)](https://www.npmjs.com/package/play-vue)
+[![release version](https://img.shields.io/github/v/release/jwhupup/play-ui?display_name=tag)](https://www.npmjs.com/package/play-ui)
 
-您可以订阅此提要以获取新版本通知: https://github.com/jwhupup/play-vue/releases
+您可以订阅此提要以获取新版本通知: https://github.com/jwhupup/play-ui/releases
 
 ## 问题
 
-如果你发现了 bug, 希望您能打开一个 [issue](https://github.com/jwhupup/play-vue/issues), 谢谢。
+如果你发现了 bug, 希望您能打开一个 [issue](https://github.com/jwhupup/play-ui/issues), 谢谢。
 
 ## 一起来玩！
 
 如果你对这个项目感兴趣，欢迎加入。
 
-- [Code of Conduct](https://github.com/jwhupup/play-vue/blob/main/CODE_OF_CONDUCT.md)
-- [Contributing Guide](https://github.com/jwhupup/play-vue/blob/main/CONTRIBUTING.md).
+- [Code of Conduct](https://github.com/jwhupup/play-ui/blob/main/CODE_OF_CONDUCT.md)
+- [Contributing Guide](https://github.com/jwhupup/play-ui/blob/main/CONTRIBUTING.md).
 
 ## 贡献者
 
-<a href="https://github.com/jwhupup/play-vue/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=jwhupup/play-vue" />
+<a href="https://github.com/jwhupup/play-ui/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jwhupup/play-ui" />
 </a>

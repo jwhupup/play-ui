@@ -35,15 +35,15 @@ function getSideEffects(
     return
 
   if (importStyle === 'less')
-    return ['play-vue/styles/base.less', `play-vue/components/${dirName}/src/index.less`]
+    return ['play-ui/styles/base.less', `play-ui/components/${dirName}/src/index.less`]
 
-  return [`play-vue/dist/styles/${dirName}/src/index.js`]
+  return [`play-ui/dist/styles/${dirName}/src/index.js`]
 }
 
 export function PlayResolver(
   options: PlayResolverOptions = {},
 ): ComponentResolver {
-  const { from = 'play-vue' } = options
+  const { from = 'play-ui' } = options
   return {
     type: 'component',
     resolve: (name: string) => {

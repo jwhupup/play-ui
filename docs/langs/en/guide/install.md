@@ -6,13 +6,13 @@ This section explains how to properly install and use an Play UI.
 
 ```shell
 # npm
-npm i play-vue
+npm i play-ui
 
 # yarn
-yarn add play-vue
+yarn add play-ui
 
 # pnpm
-pnpm add play-vue
+pnpm add play-ui
 ```
 
 ## On-demand Import
@@ -31,7 +31,7 @@ Then add the code below into your Vite config file.
 // vite.config.ts
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-vue/dist/lib/resolver'
+import { PlayResolver } from 'play-ui/dist/lib/resolver'
 
 export default defineConfig({
   // ...

@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import type { UserConfig } from 'vitepress'
 import { defineConfig } from 'vitepress'
-import { version } from '../../packages/play-vue/package.json'
+import { version } from '../../packages/play-ui/package.json'
 import { applyPlugins } from './plugins/code'
 
 const enGuides = [
@@ -105,7 +105,7 @@ const nav = {
       items: [
         {
           text: 'Release Notes',
-          link: 'https://github.com/jwhupup/play-vue/releases',
+          link: 'https://github.com/jwhupup/play-ui/releases',
         },
       ],
     },
@@ -118,7 +118,7 @@ const nav = {
       items: [
         {
           text: '发布说明',
-          link: 'https://github.com/jwhupup/play-vue/releases',
+          link: 'https://github.com/jwhupup/play-ui/releases',
         },
       ],
     },
@@ -158,7 +158,7 @@ export default defineConfig({
     ],
     [
       'meta',
-      { property: 'og:url', content: 'https://github.com/jwhupup/play-vue' },
+      { property: 'og:url', content: 'https://github.com/jwhupup/play-ui' },
     ],
     ['meta', { name: 'referrer', content: 'no-referrer' }],
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
@@ -180,12 +180,12 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.png',
     editLink: {
-      pattern: 'https://github.com/jwhupup/play-vue/edit/main/docs/:path',
+      pattern: 'https://github.com/jwhupup/play-ui/edit/main/docs/:path',
       text: 'Suggest changes to this page',
     },
     nav,
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/jwhupup/play-vue' },
+      { icon: 'github', link: 'https://github.com/jwhupup/play-ui' },
     ],
     sidebar,
     algolia: {
