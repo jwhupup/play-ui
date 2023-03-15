@@ -2,21 +2,18 @@
 
 This section explains how to properly install and use an Play UI.
 
-<!-- ## Full Import
+## Install Package
 
-```bash
-npm i onu-ui && npm i unocss -D
+```shell
+# npm
+npm i play-vue
+
+# yarn
+yarn add play-vue
+
+# pnpm
+pnpm add play-vue
 ```
-Add `onu-ui` in your main entry file.
-
-```ts
-// main.ts
-import OnuUI from 'onu-ui'
-import 'uno.css'
-import 'onu-ui/dist/style.css'
-
-createApp(App).use(OnuUI).mount('#app')
-``` -->
 
 ## On-demand Import
 
@@ -34,7 +31,7 @@ Then add the code below into your Vite config file.
 // vite.config.ts
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-vue/plugins'
+import { PlayResolver } from 'play-vue/dist/lib/resolver'
 
 export default defineConfig({
   // ...

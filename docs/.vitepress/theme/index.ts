@@ -28,7 +28,6 @@ export default {
   Layout() {
     return h(theme.Layout, null, {
       'home-features-after': () => h(TeamMember),
-      // 'nav-bar-content-after': () => h(Translation),
     })
   },
 }

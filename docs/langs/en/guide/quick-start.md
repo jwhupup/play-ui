@@ -1,9 +1,5 @@
 # Play UI
 
-::: warning NOTICE !
-[Play UI](https://github.com/jwhupup/play-vue) is currently in WIP. It is not yet ready for production use.
-:::
-
 ## Introduction
 
 Play UI is a Vue.js prebuilt component library based on Preline design draft that allows you to make beautiful websites.
@@ -13,7 +9,8 @@ Play UI is a Vue.js prebuilt component library based on Preline design draft tha
 - 🌈 Components Design - Provides neat & beautiful crafted UI components.
 - 🔥 Introduce on demand - Provide resolver to automatically import only used components.
 - 🎉 TS Supported - Support TypeScript & type checked & type inference.
-- 🍬 CSS Preset - Has UnoCSS preset package to use, rendered UI easily.
+- 🍬 Multiple Topic - Prefabricate rich and beautiful theme style.
+- 🤪 ... - WIP.
   <!-- - 💡 Cli Build - Easy to create repo with Play Cli. -->
   <!-- - ⚙️ Theme Config - Support theme config to customize theme. -->
 
@@ -30,16 +27,6 @@ All components supported in modern browsers, support of neerly two or three vers
 [![release version](https://img.shields.io/github/v/release/jwhupup/play-vue?display_name=tag)](https://www.npmjs.com/package/play-vue)
 
 You can subscribe to this feed for new version notifications: https://github.com/jwhupup/play-vue/releases
-
-## Install
-
-```shell
-# npm
-npm i play-vue
-
-# pnpm
-pnpm add play-vue
-```
 
 ## Issue
 

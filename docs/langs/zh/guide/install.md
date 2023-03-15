@@ -1,40 +1,35 @@
-# Installation
+# 安装
 
-This section explains how to properly install and use an Play UI.
+本节解释如何正确安装和使用 PlayUI。
 
-<!-- ## Full Import
+## 获取安装包
 
-```bash
-npm i onu-ui && npm i unocss -D
+```shell
+# npm
+npm i play-vue
+
+# yarn
+yarn add play-vue
+
+# pnpm
+pnpm add play-vue
 ```
-Add `onu-ui` in your main entry file.
 
-```ts
-// main.ts
-import OnuUI from 'onu-ui'
-import 'uno.css'
-import 'onu-ui/dist/style.css'
+## 按需引入
 
-createApp(App).use(OnuUI).mount('#app')
-``` -->
-
-## On-demand Import
-
-You need to use an additional plugin to import components you used. First you need to install [unplugin-vue-components](https://www.npmjs.com/package/unplugin-vue-components) and [unplugin-auto-import](https://www.npmjs.com/package/unplugin-auto-import).
+您需要使用一个额外的插件来导入您使用的组件。首先你需要安装 [unplugin-vue-components](https://www.npmjs.com/package/unplugin-vue-components)。
 
 ```shell
 npm install -D unplugin-vue-components
 ```
 
-<!-- unplugin-auto-import -->
-
-Then add the code below into your Vite config file.
+然后将下面的代码添加到你的 Vite 配置文件。
 
 ```ts
 // vite.config.ts
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-vue/plugins'
+import { PlayResolver } from 'play-vue/dist/lib/resolver'
 
 export default defineConfig({
   // ...

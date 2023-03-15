@@ -5,53 +5,53 @@ lang: zh
 
 # Button
 
-Common operation buttons.
+常见的操作按钮。
 
-## Usage
+## 用法
 
-### Types
+### type
 
-The most commonly used button styles.
+设置按钮的类型。
 
 <demo src="../../../example/button/types.vue"></demo>
 
-### Sizes
+### size
 
-Buttons stacked small to large sizes.
+设置按钮的尺寸。
 
 <demo src="../../../example/button/sizes.vue"></demo>
 
-### States
+### state
 
-Predefined button state.
+设置按钮的状态。
 
 <demo src="../../../example/button/states.vue"></demo>
 
-### Shapes
+### shape
 
-Predefined the shape of the button.
+设置按钮的形状。
 
 <demo src="../../../example/button/shapes.vue"></demo>
 
-### Disabled
+### disabled
 
-You can use the disabled attribute to define whether the button is disabled.
+可以使用禁用属性定义是否禁用按钮。
 
 <demo src="../../../example/button/disabled.vue"></demo>
 
-## Props
+## 属性
 
-| Name        | Type                                                 | Default   | Description                |
-| ----------- | ---------------------------------------------------- | --------- | -------------------------- |
-| type        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | Set custom type attribute. |
-| native-type | `button` \| `reset` \| `submit`                      | `button`  | Set native type attribute. |
-| shape       | `rounded` \| `pilled` \| `circle` \| `plain`         | `rounded` | Set button shape.          |
-| size        | `small` \| `medium` \| `large`                       | `medium`  | Set button size.           |
-| state       | `info` \| `success` \| `warning` \| `danger`         | `info`    | Set button state.          |
-| disabled    | `boolean`                                            | `false`   | Disable the button.        |
+| 属性名      | 可选值                                               | 默认值    | 描述             |
+| ----------- | ---------------------------------------------------- | --------- | ---------------- |
+| type        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | 设置按钮类型     |
+| native-type | `button` \| `reset` \| `submit`                      | `button`  | 设置按钮原生类型 |
+| shape       | `rounded` \| `pilled` \| `circle` \| `plain`         | `rounded` | 设置按钮形状     |
+| size        | `small` \| `medium` \| `large`                       | `medium`  | 设置按钮尺寸     |
+| state       | `info` \| `success` \| `warning` \| `danger`         | `info`    | 设置按钮状态     |
+| disabled    | `boolean`                                            | `false`   | 设置按钮禁用状态 |
 
-## Slots
+## 插槽
 
-| Name    | Parameters | Description                |
-| ------- | ---------- | -------------------------- |
-| default | `()`       | Customize default content. |
+| 插槽名  | 参数 | 描述           |
+| ------- | ---- | -------------- |
+| default | `()` | 自定义默认内容 |

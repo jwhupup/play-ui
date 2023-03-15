@@ -5,7 +5,7 @@ const teamMembers = [
   {
     avatar: 'https://www.github.com/jwhupup.png',
     name: 'jwhupup',
-    title: 'Author, Core team member of PlayUI',
+    title: 'Author of PlayUI',
     links: [{ icon: 'github', link: 'https://github.com/jwhupup' }],
   },
 ]

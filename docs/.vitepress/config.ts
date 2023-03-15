@@ -1,18 +1,20 @@
+import { fileURLToPath } from 'node:url'
+import type { UserConfig } from 'vitepress'
 import { defineConfig } from 'vitepress'
 import { version } from '../../packages/play-vue/package.json'
 import { applyPlugins } from './plugins/code'
 
-const guides = [
+const enGuides = [
   { text: 'Quick Start', link: '/langs/en/guide/quick-start' },
   { text: 'Installation', link: '/langs/en/guide/install' },
 ]
 
 const zhGuides = [
-  { text: 'Quick Start', link: '/langs/zh/guide/quick-start' },
-  { text: 'Installation', link: '/langs/zh/guide/install' },
+  { text: '快速开始', link: '/langs/zh/guide/quick-start' },
+  { text: '安装', link: '/langs/zh/guide/install' },
 ]
 
-const components = [
+const enComponents = [
   {
     text: 'Basic',
     items: [
@@ -94,19 +96,34 @@ const zhComponents = [
   },
 ]
 
-const nav = [
-  { text: 'Guide', items: guides },
-  { text: 'Components', items: components },
-  {
-    text: `v${version}`,
-    items: [
-      {
-        text: 'Release Notes',
-        link: 'https://github.com/jwhupup/play-vue/releases',
-      },
-    ],
-  },
-]
+const nav = {
+  en: [
+    { text: 'Guide', items: enGuides },
+    { text: 'Components', items: enComponents },
+    {
+      text: `v${version}`,
+      items: [
+        {
+          text: 'Release Notes',
+          link: 'https://github.com/jwhupup/play-vue/releases',
+        },
+      ],
+    },
+  ],
+  zh: [
+    { text: '指南', items: zhGuides },
+    { text: '组件', items: zhComponents },
+    {
+      text: `v${version}`,
+      items: [
+        {
+          text: '发布说明',
+          link: 'https://github.com/jwhupup/play-vue/releases',
+        },
+      ],
+    },
+  ],
+}
 
 const sidebar = {
   '/langs/zh/guide': [
@@ -119,10 +136,10 @@ const sidebar = {
   '/langs/en/guide': [
     {
       text: 'Developer Guide',
-      items: guides,
+      items: enGuides,
     },
   ],
-  '/langs/en/components': components,
+  '/langs/en/components': enComponents,
 }
 
 export default defineConfig({
@@ -203,4 +220,16 @@ export default defineConfig({
     },
   },
   lastUpdated: true,
-})
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPNavBarMenu\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./components/nav-bar-menu/index.vue', import.meta.url),
+          ),
+        },
+      ],
+    },
+  },
+} as UserConfig)

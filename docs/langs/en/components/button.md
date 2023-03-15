@@ -9,31 +9,31 @@ Common operation buttons.
 
 ## Usage
 
-### Types
+### type
 
 The most commonly used button styles.
 
 <demo src="../../../example/button/types.vue"></demo>
 
-### Sizes
+### size
 
 Buttons stacked small to large sizes.
 
 <demo src="../../../example/button/sizes.vue"></demo>
 
-### States
+### state
 
 Predefined button state.
 
 <demo src="../../../example/button/states.vue"></demo>
 
-### Shapes
+### shape
 
 Predefined the shape of the button.
 
 <demo src="../../../example/button/shapes.vue"></demo>
 
-### Disabled
+### disabled
 
 You can use the disabled attribute to define whether the button is disabled.
 

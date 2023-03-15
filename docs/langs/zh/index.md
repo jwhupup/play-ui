@@ -8,34 +8,34 @@ titleTemplate: Beautiful, Easy To Use
 hero:
   name: Play UI
   text: Beautiful,Popular and Easy To Use
-  tagline: A Vue.js prebuilt component library based on Preline design draft that allows you to make beautiful websites
+  tagline: 一个基于Preline UI设计稿的Vue3预构建组件库，允许您创建漂亮的网站
   image:
     src: /logo.svg
     alt: Play-UI
 
   actions:
     - theme: brand
-      text: Get Started
-      link: /guide/quick-start
+      text: 快速开始
+      link: /langs/zh/guide/quick-start
 
     - theme: alt
-      text: View Components
-      link: /components/button
+      text: 组件
+      link: /langs/zh/components/button
 
     - theme: alt
-      text: View on GitHub
+      text: 源代码
       link: https://github.com/jwhupup/play-vue
 
 features:
   - icon: 🌈
-    title: Components Design
-    details: Play UI provides neat & beautiful crafted UI components.
+    title: 组件设计
+    details: Play UI 提供了整洁和美丽的 UI 组件。
   - icon: 🔥
-    title: Introduce on demand
-    details: Provide resolver to automatically import only used components.
+    title: 按需加载
+    details: 提供解析器以自动只导入使用过的组件。
   - icon: 🎉
-    title: TS Supported
-    details: Support TypeScript & type checked & type inference.
+    title: TS 支持
+    details: 支持TypeScript、类型检查和类型推断。
   # - icon: 💡
   #   title: Cli Build
   #   details: Easy to create repo with Onu Cli.

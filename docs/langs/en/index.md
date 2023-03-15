@@ -16,11 +16,11 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /guide/quick-start
+      link: /langs/en/guide/quick-start
 
     - theme: alt
       text: View Components
-      link: /components/button
+      link: /langs/en/components/button
 
     - theme: alt
       text: View on GitHub

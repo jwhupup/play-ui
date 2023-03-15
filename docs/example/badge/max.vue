@@ -13,7 +13,7 @@
       </pl-button>
       <pl-button>
         <span mr-1>button</span>
-        <pl-badge max="200" value="166" />
+        <pl-badge :max="200" value="166" />
       </pl-button>
     </div>
   </div>
