@@ -5,41 +5,43 @@ lang: zh
 
 # Tag
 
-Used for marking and selection.
+用于标记和选择。
 
-## Types
+## 用法
 
-Use the type attribute to define Tag's type.
+### type
+
+使用 type 属性定义 Tag 的类型。
 
 <demo src="../../../example/tag/types.vue"></demo>
 
-## Colors
+### state
 
-You can define different colors.
+您可以定义不同的状态。
 
-<demo src="../../../example/tag/colors.vue"></demo>
+<demo src="../../../example/tag/states.vue"></demo>
 
-## Shapes
+### shape
 
-Predefined the shape of the Tag.
+预定义标记的形状。
 
 <demo src="../../../example/tag/shapes.vue"></demo>
 
-## Closable
+### closable
 
-Use the closable attribute to define a removable tag.
+使用 `closable` 属性定义可移除标记。
 
 <demo src="../../../example/tag/closable.vue"></demo>
 
-## Indicator
+### indicator
 
-Use an indicator appearance to show indication.
+使用 `indicator` 显示标记。
 
 <demo src="../../../example/tag/indicator.vue"></demo>
 
-## Badge Props
+## 属性
 
-| Name      | Type                                                          | Default   | Description                                           |
+| 属性名    | 可选值                                                        | 默认值    | 描述                                                  |
 | --------- | ------------------------------------------------------------- | --------- | ----------------------------------------------------- |
 | type      | `solid` \| `outline` \| `soft`                                | `solid`   | Set custom type attribute.                            |
 | color     | `blue` \| `teal` \| `red` \| `yellow` \| `gray` \| `deepGray` | `teal`    | Set tag color.                                        |

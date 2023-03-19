@@ -1,7 +1,6 @@
 import type { ExtractPropTypes } from 'vue'
 
 export const modalProps = {
-  visible: Boolean,
   title: {
     type: String,
     default: '',
@@ -14,6 +13,7 @@ export const modalProps = {
     type: Boolean,
     default: true,
   },
+  visible: Boolean,
 }
 
 export type ModalProps = ExtractPropTypes<typeof modalProps>

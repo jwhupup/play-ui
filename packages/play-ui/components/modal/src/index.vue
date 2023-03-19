@@ -14,7 +14,7 @@
         <slot name="footer" />
         <footer v-if="!$slots.footer">
           <div>
-            <Button @click="handleCancel">
+            <Button type="outline" @click="handleCancel">
               Cancel
             </Button>
             <Button type="solid" @click="handleConfirm">

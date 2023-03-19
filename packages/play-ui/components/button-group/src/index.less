@@ -1,6 +1,11 @@
-.pl-button-group {
-  --pl-button-group-border-color: 1px solid rgba(255, 255, 255, 0.5);
+[data-theme='light'] .pl-button-group {
+  --pl-button-group-solid-border-color: var(--pl-bd-light-bg);
 }
+
+[data-theme='dark'] .pl-button-group {
+  --pl-button-group-solid-border-color: var(--pl-bd-dark-bg);
+}
+
 .pl-button-group {
   display: inline-flex;
 
@@ -21,29 +26,29 @@
       border-radius: 0;
     }
 
-    &.__solid,
-    &.__white,
-    &.__outline {
+    &--solid,
+    &--white,
+    &--outline {
       &:not(:first-child) {
         margin-left: -1px;
       }
     }
 
-    &.__solid {
+    &--solid {
       &:last-child {
         margin-left: -1px;
-        border-left: var(--pl-button-group-border-color);
+        border-left: 1px solid var(--pl-button-group-solid-border-color);
       }
 
       &:not(:first-child):not(:last-child) {
-        border-left: var(--pl-button-group-border-color);
-        border-right: var(--pl-button-group-border-color);
+        border-left: 1px solid var(--pl-button-group-solid-border-color);
+        border-right: 1px solid var(--pl-button-group-solid-border-color);
       }
     }
   }
 }
 
-.__vertical {
+.is-vertical {
   flex-direction: column;
 
   & > .pl-button {
@@ -61,9 +66,9 @@
       border-radius: 0;
     }
 
-    &.__solid {
+    &--solid {
       &:first-child {
-        border-bottom: var(--pl-button-group-border-color);
+        border-bottom: 1px solid var(--pl-button-group-solid-border-color);
       }
 
       &:last-child {
@@ -75,12 +80,12 @@
         margin-left: 0;
         border-left: none;
         border-right: none;
-        border-bottom: var(--pl-button-group-border-color);
+        border-bottom: 1px solid var(--pl-button-group-solid-border-color);
       }
     }
 
-    &.__white,
-    &.__outline {
+    &--white,
+    &--outline {
       &:not(:first-child) {
         margin-top: -1px;
         margin-left: 0;

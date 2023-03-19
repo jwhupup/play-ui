@@ -1,21 +1,21 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { ComponentColor } from '../../type'
+import type { ComponentState } from '../../type'
 
 export const badgeProps = {
-  color: {
-    type: String as PropType<ComponentColor>,
-    default: 'teal',
+  state: {
+    type: String as PropType<ComponentState>,
+    default: 'info',
   },
   max: {
     type: Number,
     default: 99,
   },
-  dot: Boolean,
-  hidden: Boolean,
   value: {
     type: [Number, String] as PropType<number | string>,
     default: '',
   },
+  dot: Boolean,
+  hidden: Boolean,
 }
 
 export type BadgeProps = ExtractPropTypes<typeof badgeProps>

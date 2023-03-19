@@ -4,10 +4,10 @@
     :type="nativeType"
     class="pl-button"
     :class="[
-      `__${parent?.type || type}`,
-      `__${parent?.state || state}`,
-      `__${parent?.shape || shape}`,
-      `__${parent?.size || size}`,
+      `pl-button--${parent?.type || type}`,
+      `pl-button--${parent?.state || state}`,
+      `pl-button--${parent?.shape || shape}`,
+      `pl-button--${parent?.size || size}`,
       disabled && 'is-disabled',
     ]"
     @click="$emit('click')"

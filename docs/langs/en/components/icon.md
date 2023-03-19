@@ -11,13 +11,13 @@ Icon uses iconfont of [Bootstrap Icons](https://icons.getbootstrap.com/).Icon na
 Due to the limitation of iconfont, Will use a more comprehensive and easy way to reconstruct later.
 :::
 
-## Name
+## Usage
 
-Use the name attribute to define icon. And you can adjust the size of the icon by adjusting the font.
+Use the `name` attribute to define icon. And you can adjust the size of the icon by adjusting the font.
 
 <demo src="../../../example/icon/name.vue"></demo>
 
-## Icon Props
+## Props
 
 | Name | Type     | Default | Description    |
 | ---- | -------- | ------- | -------------- |

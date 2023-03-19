@@ -1,50 +1,55 @@
 
+[data-theme="light"],
+[data-theme="light"] .pl-badge {
+  --pl-badge-border-color: var(--pl-bd-light-bg);
+}
+
+[data-theme="dark"],
+[data-theme="dark"] .pl-badge {
+  --pl-badge-border-color: var(--pl-bd-dark-bg);
+}
+
+
 .pl-badge {
   padding: 2px 4px;
   font-size: 12px;
   line-height: 12px;
   border-radius: 999px;
-  border: 1px solid white;
-  box-sizing: border-box;
+  border: 1px solid var(--pl-badge-border-color);
   color: white;
+
   &-container {
     display: inline-block;
     position: relative;
   }
-  &--dot {
-    width: 14px;
-    height: 14px;
-    padding: 0;
-    border-radius: 50%;
+
+  &--info {
+    background-color: var(--pl-blue-500);
   }
-  &--teal {
-    --pl-badge-bg-teal: var(--pl-teal-500);
-    background-color: var(--pl-badge-bg-teal);
+
+  &--success {
+    background-color: var(--pl-teal-500);
   }
-  &--blue {
-    --pl-badge-bg-blue: var(--pl-blue-500);
-    background-color: var(--pl-badge-bg-blue);
+
+  &--warning {
+    background-color: var(--pl-orange-500);
   }
-  &--red {
-    --pl-badge-bg-red: var(--pl-red-500);
-    background-color: var(--pl-badge-bg-red);
+
+  &--danger {
+    background-color: var(--pl-red-500);
   }
-  &--yellow {
-    --pl-badge-bg-yellow: var(--pl-yellow-500);
-    background-color: var(--pl-badge-bg-yellow);
-  }
-  &--gray {
-    --pl-badge-bg-gray: var(--pl-gray-500);
-    background-color: var(--pl-badge-bg-gray);
-  }
-  &--deepGray {
-    --pl-badge-bg-deepGray: var(--pl-gray-800);
-    background-color: var(--pl-badge-bg-deepGray);
-  }
-  &--position {
+
+  &.is-position {
     position: absolute;
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
+  }
+
+  &.is-dot {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    border-radius: 50%;
   }
 }

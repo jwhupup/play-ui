@@ -7,37 +7,39 @@ lang: en-US
 
 Used for marking and selection.
 
-## Types
+## Usage
+
+### type
 
 Use the type attribute to define Tag's type.
 
 <demo src="../../../example/tag/types.vue"></demo>
 
-## Colors
+### state
 
-You can define different colors.
+You can define different states.
 
-<demo src="../../../example/tag/colors.vue"></demo>
+<demo src="../../../example/tag/states.vue"></demo>
 
-## Shapes
+### shape
 
 Predefined the shape of the Tag.
 
 <demo src="../../../example/tag/shapes.vue"></demo>
 
-## Closable
+### closable
 
 Use the closable attribute to define a removable tag.
 
 <demo src="../../../example/tag/closable.vue"></demo>
 
-## Indicator
+### indicator
 
 Use an indicator appearance to show indication.
 
 <demo src="../../../example/tag/indicator.vue"></demo>
 
-## Badge Props
+## Props
 
 | Name      | Type                                                          | Default   | Description                                           |
 | --------- | ------------------------------------------------------------- | --------- | ----------------------------------------------------- |

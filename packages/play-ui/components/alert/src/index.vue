@@ -2,9 +2,9 @@
   <div
     ref="alertEl"
     class="pl-alert"
-    :class="[`pl-alert--${type}`, `pl-alert--${color}`]"
+    :class="[`pl-alert--${type}`, `pl-alert--${state}`]"
   >
-    <pl-icon v-if="icon" :name="icon" />
+    <Icon v-if="icon" :name="icon" />
     <div>
       <slot name="title" />
       <span v-if="!$slots.title && title" class="pl-alert--title">
@@ -15,12 +15,13 @@
         {{ description }}
       </div>
     </div>
-    <pl-icon v-if="closable" name="x-lg" @click="handleClose" />
+    <Icon v-if="closable" name="bi-x-lg" @click="handleClose" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import Icon from '../../icon'
 import { alertProps } from './alert'
 
 defineProps(alertProps)

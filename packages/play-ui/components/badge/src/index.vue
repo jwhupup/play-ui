@@ -5,11 +5,11 @@
       class="pl-badge"
       :class="[
         {
-          'pl-badge--dot': !value || dot,
-          'pl-badge--position': $slots.default,
+          'is-position': $slots.default,
+          'is-dot': !value || dot,
           'is-hidden': hidden,
         },
-        `pl-badge--${color}`,
+        `pl-badge--${state}`,
       ]"
     >
       {{ dot ? '' : bagdeValue }}

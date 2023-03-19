@@ -2,14 +2,14 @@
   <div
     ref="tagEl"
     class="pl-tag"
-    :class="[`pl-tag--${type}`, `pl-tag--${shape}`, `pl-tag--${color}`]"
+    :class="[`pl-tag--${type}`, `pl-tag--${shape}`, `pl-tag--${state}`]"
   >
-    <i v-if="indicator" class="pl-tag--indicator" />
+    <i v-if="indicator" class="is-indicator" />
     <slot />
-    <pl-icon
+    <Icon
       v-if="closable"
-      class="pl-tag--close"
-      name="x-lg"
+      class="is-closable"
+      name="bi-x-lg"
       @click="handleClose"
     />
   </div>
@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import Icon from '../../icon'
 import { tagProps } from './tag'
 
 defineProps(tagProps)

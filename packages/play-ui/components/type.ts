@@ -1,4 +1,4 @@
-export type ButtonState = 'info' | 'success' | 'warning' | 'danger'
+export type ComponentState = 'info' | 'success' | 'warning' | 'danger'
 
 export type ComponentColor =
   | 'blue'

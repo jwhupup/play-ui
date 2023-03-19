@@ -7,31 +7,33 @@ lang: en-US
 
 A visual indicator for a value or status descriptor for UI elements.
 
-## Value
+## Usage
+
+### value
 
 Badge can be used to display text and numbers.
 
 <demo src="../../../example/badge/value.vue"></demo>
 
-## Colors
+### state
 
-You can define different colors.
+You can define different states.
 
-<demo src="../../../example/badge/colors.vue"></demo>
+<demo src="../../../example/badge/states.vue"></demo>
 
-## Max
+### max
 
 You can customize the max value.The default max value is 99, which supports number and string.
 
 <demo src="../../../example/badge/max.vue"></demo>
 
-## Dot
+### dot
 
 Use a dot to mark content that needs to be noticed.You can use it by setting the dot attribute or not setting the value
 
 <demo src="../../../example/badge/dot.vue"></demo>
 
-## Badge Props
+## Props
 
 | Name   | Type                                                          | Default     | Description                               |
 | ------ | ------------------------------------------------------------- | ----------- | ----------------------------------------- |
@@ -41,7 +43,7 @@ Use a dot to mark content that needs to be noticed.You can use it by setting the
 | dot    | `boolean`                                                     | `false`     | Only a dot style.                         |
 | hidden | `boolean`                                                     | `false`     | Whether to display the number 0.          |
 
-## Badge Slots
+## Slots
 
 | Name    | Parameters | Description      |
 | ------- | ---------- | ---------------- |

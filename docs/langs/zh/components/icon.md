@@ -5,20 +5,20 @@ lang: zh
 
 # Icon
 
-Icon uses iconfont of [Bootstrap Icons](https://icons.getbootstrap.com/).Icon names can be found in their website.
+图标使用 [Bootstrap Icons](https://icons.getbootstrap.com/)的图标字体。图标名称可以在他们的网站上找到。
 
 ::: tip TODO
-Due to the limitation of iconfont, Will use a more comprehensive and easy way to reconstruct later.
+由于字体图标的限制，未来将使用更全面、更容易的方式进行重构。
 :::
 
-## Name
+## 用法
 
-Use the name attribute to define icon. And you can adjust the size of the icon by adjusting the font.
+使用 `name` 属性定义图标。您可以通过调整字体来调整图标的大小。
 
 <demo src="../../../example/icon/name.vue"></demo>
 
-## Icon Props
+## 属性
 
-| Name | Type     | Default | Description    |
-| ---- | -------- | ------- | -------------- |
-| name | `string` | ''      | Set icon name. |
+| 属性名 | 类型     | 默认值 | 描述           |
+| ------ | -------- | ------ | -------------- |
+| name   | `string` | ''     | 设置图标名称。 |

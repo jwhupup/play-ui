@@ -1,14 +1,14 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { ComponentColor } from '../../type'
+import type { ComponentState } from '../../type'
 
 export const alertProps = {
   type: {
-    type: String as PropType<'solid' | 'soft'>,
+    type: String as PropType<'solid' | 'soft' | 'outline'>,
     default: 'solid',
   },
-  color: {
-    type: String as PropType<ComponentColor>,
-    default: 'teal',
+  state: {
+    type: String as PropType<ComponentState>,
+    default: 'info',
   },
   title: String,
   description: String,

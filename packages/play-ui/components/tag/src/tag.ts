@@ -1,5 +1,5 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { ComponentColor } from '../../type'
+import type { ComponentState } from '../../type'
 
 export type TagType = 'solid' | 'outline' | 'soft'
 export type TagShape = 'rounded' | 'pilled'
@@ -13,9 +13,9 @@ export const tagProps = {
     type: String as PropType<TagShape>,
     default: 'rounded',
   },
-  color: {
-    type: String as PropType<ComponentColor>,
-    default: 'teal',
+  state: {
+    type: String as PropType<ComponentState>,
+    default: 'info',
   },
   closable: Boolean,
   indicator: Boolean,

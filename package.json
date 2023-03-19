@@ -3,7 +3,7 @@
   "private": true,
   "packageManager": "pnpm@7.5.2",
   "scripts": {
-    "doc:dev": "pnpm -C docs run dev",
+    "docs:dev": "pnpm -C docs run dev",
     "docs:build": "pnpm run build && pnpm -C docs run build",
     "build": "pnpm run -C packages/play-ui build",
     "test": "vitest",

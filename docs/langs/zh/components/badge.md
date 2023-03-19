@@ -15,11 +15,11 @@ lang: zh
 
 <demo src="../../../example/badge/value.vue"></demo>
 
-### color
+### state
 
 定义徽章的颜色。
 
-<demo src="../../../example/badge/colors.vue"></demo>
+<demo src="../../../example/badge/states.vue"></demo>
 
 ### max
 

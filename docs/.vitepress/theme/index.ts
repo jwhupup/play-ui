@@ -11,13 +11,14 @@ export default {
   ...theme,
   setup() {
     onMounted(() => {
-      const theme = localStorage.getItem('vitepress-theme-appearance')
+      const theme = () => localStorage.getItem('vitepress-theme-appearance')
       const htmlEl = document.querySelector('html') as HTMLHtmlElement
 
-      htmlEl.setAttribute('data-theme', theme === 'light' ? 'light' : 'dark')
+      htmlEl.setAttribute('data-theme', theme() !== 'dark' ? 'light' : 'dark')
+      console.log(document.querySelector('.VPSwitch'))
 
       document.querySelector('.VPSwitch')?.addEventListener('click', () => {
-        if (htmlEl.getAttribute('data-theme') === 'dark')
+        if (theme() !== 'dark')
           return htmlEl.setAttribute('data-theme', 'light')
         return htmlEl.setAttribute('data-theme', 'dark')
       })

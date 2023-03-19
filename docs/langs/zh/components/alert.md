@@ -7,17 +7,29 @@ lang: zh
 
 Displays important alert messages.
 
-## Description
+## type
 
-Predefined the description of the alert.
+Use the type attribute to define Alert's type.
 
-<demo src="../../../example/alert/description.vue"></demo>
+<demo src="../../../example/alert/types.vue"></demo>
 
-## Title
+## state
+
+You can define different states.
+
+<demo src="../../../example/alert/states.vue"></demo>
+
+## title
 
 Predefined the title of the alert.
 
 <demo src="../../../example/alert/title.vue"></demo>
+
+## description
+
+Predefined the description of the alert.
+
+<demo src="../../../example/alert/description.vue"></demo>
 
 ## Icon
 
@@ -31,28 +43,16 @@ Use the closable attribute to define a removable alert.
 
 <demo src="../../../example/alert/closable.vue"></demo>
 
-## Types
-
-Use the type attribute to define Alert's type.
-
-<demo src="../../../example/alert/types.vue"></demo>
-
-## Colors
-
-You can define different colors.
-
-<demo src="../../../example/alert/colors.vue"></demo>
-
 ## Alert Props
 
-| Name        | Type                                                           | Default   | Description                |
-| ----------- | -------------------------------------------------------------- | --------- | -------------------------- |
-| type        | `solid` \| `soft`                                              | `solid`   | Set custom type attribute. |
-| description | `string`                                                       | `''`      | Set alert description.     |
-| title       | `string`                                                       | `''`      | Set alert title.           |
-| icon        | `string`                                                       | `''`      | Set alert icon.            |
-| closable    | `boolean`                                                      | `false`   | Set alert closable.        |
-| color       | `blue` \| `teal` \| `red` \| `yellow` \| `gray` \| `deepGray`  | `teal`    | Set alert color.           |
+| Name        | Type                                                          | Default | Description                |
+| ----------- | ------------------------------------------------------------- | ------- | -------------------------- |
+| type        | `solid` \| `soft`                                             | `solid` | Set custom type attribute. |
+| description | `string`                                                      | `''`    | Set alert description.     |
+| title       | `string`                                                      | `''`    | Set alert title.           |
+| icon        | `string`                                                      | `''`    | Set alert icon.            |
+| closable    | `boolean`                                                     | `false` | Set alert closable.        |
+| color       | `blue` \| `teal` \| `red` \| `yellow` \| `gray` \| `deepGray` | `teal`  | Set alert color.           |
 
 ## Button Slots
 

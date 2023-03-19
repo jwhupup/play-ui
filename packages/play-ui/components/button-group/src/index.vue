@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-button-group" :class="{ __vertical: vertical }">
+  <div class="pl-button-group" :class="{ 'is-vertical': vertical }">
     <slot />
   </div>
 </template>
