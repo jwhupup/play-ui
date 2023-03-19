@@ -1,4 +1,4 @@
-import { withInstall } from '../../utils/install'
+import { withInstall } from '../install'
 import ButtonGroup from './src/index.vue'
 
 export const PlButtonGroup = withInstall(ButtonGroup, 'PlButtonGroup')

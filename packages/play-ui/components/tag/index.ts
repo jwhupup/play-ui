@@ -1,4 +1,4 @@
-import { withInstall } from '../../utils/install'
+import { withInstall } from '../install'
 import Tag from './src/index.vue'
 
 export const PlTag = withInstall(Tag, 'PlTag')
