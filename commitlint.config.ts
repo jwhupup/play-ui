@@ -6,7 +6,7 @@ const Configuration: UserConfig = {
     'type-enum': [
       2,
       'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore'],
+      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore', 'release'],
     ],
     'type-case': [0],
     'type-empty': [0],
