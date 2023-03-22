@@ -11,17 +11,22 @@ export default {
   ...theme,
   setup() {
     onMounted(() => {
-      const theme = () => localStorage.getItem('vitepress-theme-appearance')
-      const htmlEl = document.querySelector('html') as HTMLHtmlElement
+      const html = document.documentElement
+      const toggleTheme = () => {
+        if (html.classList.contains('dark'))
+          html.setAttribute('data-theme', 'dark')
+        else
+          html.setAttribute('data-theme', 'light')
+      }
 
-      htmlEl.setAttribute('data-theme', theme() !== 'dark' ? 'light' : 'dark')
-      console.log(document.querySelector('.VPSwitch'))
+      toggleTheme()
 
-      document.querySelector('.VPSwitch')?.addEventListener('click', () => {
-        if (theme() !== 'dark')
-          return htmlEl.setAttribute('data-theme', 'light')
-        return htmlEl.setAttribute('data-theme', 'dark')
+      const observer = new MutationObserver(() => {
+        toggleTheme()
+        observer.takeRecords()
       })
+
+      observer.observe(html, { attributes: true, childList: false, subtree: false })
     })
   },
   enhanceApp({ app }) {
