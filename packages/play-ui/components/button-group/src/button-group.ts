@@ -26,7 +26,7 @@ export const buttonGroupProps = {
   disabled: Boolean,
 }
 
-export type ButtonGroupProps = ExtractPropTypes<typeof buttonGroupProps>
+export type PlButtonGroupProps = ExtractPropTypes<typeof buttonGroupProps>
 
-export const GROUP_BUTTON_KEY: InjectionKey<ButtonGroupProps>
+export const GROUP_BUTTON_KEY: InjectionKey<PlButtonGroupProps>
   = Symbol('pl-button-group')

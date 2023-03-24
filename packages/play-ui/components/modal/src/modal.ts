@@ -16,4 +16,4 @@ export const modalProps = {
   visible: Boolean,
 }
 
-export type ModalProps = ExtractPropTypes<typeof modalProps>
+export type PlModalProps = ExtractPropTypes<typeof modalProps>

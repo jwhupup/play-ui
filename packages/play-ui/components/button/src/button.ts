@@ -35,4 +35,4 @@ export const buttonProps = {
   disabled: Boolean,
 }
 
-export type ButtonProps = ExtractPropTypes<typeof buttonProps>
+export type PlButtonProps = ExtractPropTypes<typeof buttonProps>

@@ -37,6 +37,15 @@ export const enComponents = [
       },
     ],
   },
+  {
+    text: 'Data',
+    items: [
+      {
+        text: 'Table',
+        link: '/langs/en/components/table',
+      },
+    ],
+  },
 ]
 
 export const zhComponents = [
@@ -75,6 +84,15 @@ export const zhComponents = [
       {
         text: 'Modal',
         link: '/langs/zh/components/modal',
+      },
+    ],
+  },
+  {
+    text: '数据组件',
+    items: [
+      {
+        text: 'Table',
+        link: '/langs/zh/components/table',
       },
     ],
   },

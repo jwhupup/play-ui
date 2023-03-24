@@ -18,4 +18,4 @@ export const badgeProps = {
   hidden: Boolean,
 }
 
-export type BadgeProps = ExtractPropTypes<typeof badgeProps>
+export type PlBadgeProps = ExtractPropTypes<typeof badgeProps>

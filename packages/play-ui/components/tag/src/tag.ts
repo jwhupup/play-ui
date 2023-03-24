@@ -21,4 +21,4 @@ export const tagProps = {
   indicator: Boolean,
 }
 
-export type TagProps = ExtractPropTypes<typeof tagProps>
+export type PlTagProps = ExtractPropTypes<typeof tagProps>

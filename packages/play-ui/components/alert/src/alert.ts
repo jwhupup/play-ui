@@ -16,4 +16,4 @@ export const alertProps = {
   closable: Boolean,
 }
 
-export type AlertProps = ExtractPropTypes<typeof alertProps>
+export type PlAlertProps = ExtractPropTypes<typeof alertProps>

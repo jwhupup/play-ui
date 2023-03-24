@@ -6,4 +6,4 @@ export const iconProps = {
   },
 }
 
-export type IconProps = ExtractPropTypes<typeof iconProps>
+export type PlIconProps = ExtractPropTypes<typeof iconProps>
