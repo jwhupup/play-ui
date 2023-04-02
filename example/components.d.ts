@@ -9,8 +9,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    PlAlert: typeof import('play-ui')['PlAlert']
+    Components: typeof import('./src/components/index.vue')['default']
     PlButton: typeof import('play-ui')['PlButton']
-    PlModal: typeof import('play-ui')['PlModal']
+    PlIcon: typeof import('play-ui')['PlIcon']
+    PlTable: typeof import('play-ui')['PlTable']
   }
 }
