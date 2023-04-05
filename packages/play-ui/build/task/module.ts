@@ -2,6 +2,7 @@ import { rollup } from 'rollup'
 import glob from 'fast-glob'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild from 'rollup-plugin-esbuild'
 import consola from 'consola'
@@ -21,9 +22,8 @@ export async function buildModule() {
   const bundle = await rollup({
     input,
     plugins: [
-      vue({
-        isProduction: false,
-      }),
+      vue(),
+      vueJsx(),
       nodeResolve({
         extensions: ['.mjs', '.js', '.json', '.ts'],
       }),
