@@ -10,8 +10,8 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
-    PlButton: typeof import('play-ui')['PlButton']
-    PlIcon: typeof import('play-ui')['PlIcon']
-    PlTable: typeof import('play-ui')['PlTable']
+    PlButton: typeof import('play-ui/components')['PlButton']
+    PlIcon: typeof import('play-ui/components')['PlIcon']
+    PlTable: typeof import('play-ui/components')['PlTable']
   }
 }

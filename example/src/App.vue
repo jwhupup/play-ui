@@ -1,27 +1,24 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watchEffect } from 'vue'
 
 const isDark = ref(false)
+const html = ref<HTMLElement>()
 
 onMounted(() => {
   isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+  html.value = document.documentElement
 })
 
-const toggleTheme = () => {
-  const html = document.documentElement
-  if (html.getAttribute('data-theme') === 'light') {
-    html.setAttribute('data-theme', 'dark')
-    isDark.value = true
-  }
-  else {
-    html.setAttribute('data-theme', 'light')
-    isDark.value = false
-  }
-}
+watchEffect(() => {
+  if (isDark.value)
+    html.value?.setAttribute('data-theme', 'dark')
+  else
+    html.value?.setAttribute('data-theme', 'light')
+})
 </script>
 
 <template>
-  <PlButton class="absolute top-3 right-3" size="mini" shape="circle" type="ghost" @click="toggleTheme">
+  <PlButton class="absolute top-3 right-3" size="mini" shape="circle" type="ghost" @click="isDark = !isDark">
     <PlIcon v-if="isDark" name="bi-sun" />
     <PlIcon v-else name="bi-moon" />
   </PlButton>
