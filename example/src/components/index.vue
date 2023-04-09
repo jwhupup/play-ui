@@ -1,6 +1,6 @@
 <template>
   <PlTable :head="tableHead" :data="tableData" />
-  <PlCheckbox v-for="item in checkboxData" :key="item.lable" v-model="item.isChecked" :lable="item.lable" type="checkbox" />
+  <!-- <PlCheckbox v-for="item in checkboxData" :key="item.lable" v-model="item.isChecked" :lable="item.lable" type="checkbox" /> -->
 </template>
 
 <script setup lang="ts">
