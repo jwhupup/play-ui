@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
     PlButton: typeof import('play-ui/components')['PlButton']
+    PlCheckbox: typeof import('play-ui/components')['PlCheckbox']
     PlIcon: typeof import('play-ui/components')['PlIcon']
     PlTable: typeof import('play-ui/components')['PlTable']
   }

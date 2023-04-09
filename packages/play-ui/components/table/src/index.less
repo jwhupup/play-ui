@@ -1,6 +1,49 @@
 .pl-table {
-    table {
-        border-collapse: collapse;
-        border-spacing: 0;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    color: white;
+    max-width: 500px;
+    max-height: 400px;
+    overflow: auto;
+
+    &-row {
+        display: flex;
+
+        & .pl-table-cell:first-child {
+            background-color: pink;
+            position: sticky;
+            left: 0;
+        }
+
+        // & .pl-table-cell:nth-child(2) {
+        //     background-color: pink;
+        //     position: sticky;
+        //     left: 90px;
+        // }
+        & .pl-table-cell:last-child {
+            background-color: blue;
+            position: sticky;
+            right: 0;
+        }
+    }
+
+    &-cell {
+        width: 90px;
+        padding: 8px;
+        border-bottom: 1px solid white;
+    }
+
+    &-head {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: fit-content;
+        background-color: red;
+    }
+
+    &-body {
+        width: fit-content;
+        background-color: rgb(88, 184, 88);
     }
 }

@@ -6,6 +6,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "json.format.enable": false,
   "eslint.probe": [
     "javascript",
     "javascriptreact",

@@ -1,48 +1,52 @@
 <template>
   <div class="pl-table">
-    <table>
-      <colgroup>
-        <col style="background-color: pink" width="100">
-        <col style="background-color: greenyellow" width="100">
-        <col width="100">
-      </colgroup>
-      <thead>
-        <tr>
-          <th v-for="(col, index) in head" :key="index">
-            {{ col.lable }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-for="(row, rowIndex) in data" :key="rowIndex">
-          <tr @click="row.__showChild = !row.__showChild">
-            <td v-for="(col, colIndex) in head" :key="colIndex">
-              <slot :name="col.prop" :cell="row[col.prop]" :row="row" :row-index="rowIndex">
-                <span>
-                  {{ row[col.prop] }}
-                </span>
-              </slot>
-            </td>
-          </tr>
-          <template v-if="row.children">
-            <tr v-for="(childRow, childRowIndex) in row.children" v-show="row.__showChild" :key="childRowIndex">
-              <td v-for="(col, colIndex) in head" :key="colIndex">
-                <slot :name="col.prop" :cell="childRow[col.prop]" :row="childRow" :row-index="rowIndex">
-                  <span>
-                    {{ childRow[col.prop] }}
-                  </span>
-                </slot>
-              </td>
-            </tr>
-          </template>
-        </template>
-      </tbody>
-    </table>
+    <div class="pl-table-head">
+      <div class="pl-table-row">
+        <div class="pl-table-cell">
+          <PlCheckbox v-model="isCheckedAll" type="checkbox" />
+        </div>
+        <div v-for="col in head" :key="col.key" class="pl-table-cell">
+          {{ col.name }}
+        </div>
+      </div>
+    </div>
+    <div class="pl-table-body">
+      <div v-for="(row, index) in data" :key="index" class="pl-table-row">
+        <div class="pl-table-cell">
+          <PlCheckbox v-model="row.isChecked" type="checkbox" />
+        </div>
+        <div v-for="col in head" :key="col.key" class="pl-table-cell">
+          {{ row[col.key] }}
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, watchEffect } from 'vue'
+import PlCheckbox from '../../checkbox'
 import { tableProps } from './table'
 
 defineProps(tableProps)
+
+const isCheckedAll = ref(false)
+
+const checkboxData = ref([
+  {
+    isChecked: false,
+    lable: 'Apple',
+  },
+  {
+    isChecked: true,
+    lable: 'Banana',
+  },
+])
+
+watchEffect(() => {
+  if (isCheckedAll.value)
+    checkboxData.value.forEach(row => row.isChecked = true)
+  else
+    checkboxData.value.forEach(row => row.isChecked = false)
+})
 </script>
