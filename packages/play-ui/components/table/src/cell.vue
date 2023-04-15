@@ -10,7 +10,7 @@
       <PlInput v-if="editable" ref="editEl" v-model="value" size="mini" @blur="handleInputBlur" />
       <span v-else :title="value">{{ value }}</span>
     </slot>
-    <div v-if="isShowContextmenu" style="padding: 6px 12px; color: white; cursor: pointer; width: max-content; background-color: red; position: absolute; top: 50%; left: 50%; z-index: 100;">
+    <div v-if="isShowContextmenu" style="padding: 6px 12px; color: white; cursor: pointer; width: max-content; background-color: red; position: absolute; top: 50%; left: 50%; z-index: 100;" @click="handleCopyClick">
       <div>复制</div>
     </div>
   </div>
@@ -51,7 +51,14 @@ const handleCellBlur = () => {
   isShowContextmenu.value = false
 }
 
-const handleContextmenu = () => {
+let copyContent: string | null = ''
+const handleContextmenu = (evt: MouseEvent) => {
+  copyContent = (evt.target as HTMLElement).textContent
   isShowContextmenu.value = true
+}
+
+const handleCopyClick = () => {
+  alert(copyContent)
+  isShowContextmenu.value = false
 }
 </script>

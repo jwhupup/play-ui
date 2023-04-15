@@ -1,6 +1,5 @@
 import type { ExtractPropTypes, InjectionKey, PropType } from 'vue'
-import type { ButtonSize } from '../../button/src/button'
-import type { ComponentState } from '../../type'
+import type { ComponentSize, ComponentState } from '../../type'
 
 export type ButtonGroupType = 'solid' | 'outline' | 'white'
 export type ButtonGroupShape = 'rounded' | 'pilled'
@@ -19,7 +18,7 @@ export const buttonGroupProps = {
     default: 'rounded',
   },
   size: {
-    type: String as PropType<ButtonSize>,
+    type: String as PropType<ComponentSize>,
     default: 'medium',
   },
   vertical: Boolean,
