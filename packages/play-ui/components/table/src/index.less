@@ -2,7 +2,6 @@
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    color: white;
     max-width: 500px;
     max-height: 400px;
     overflow: auto;
@@ -14,6 +13,7 @@
             background-color: pink;
             position: sticky;
             left: 0;
+            z-index: 100;
         }
 
         // & .pl-table-cell:nth-child(2) {
@@ -29,9 +29,22 @@
     }
 
     &-cell {
+        position: relative;
         width: 90px;
         padding: 8px;
         border-bottom: 1px solid white;
+
+        input {
+            width: 100%;
+        }
+
+        span {
+            display: inline-block;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
     }
 
     &-head {
@@ -44,6 +57,6 @@
 
     &-body {
         width: fit-content;
-        background-color: rgb(88, 184, 88);
+        // background-color: rgb(88, 184, 88);
     }
 }

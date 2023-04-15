@@ -1,10 +1,23 @@
 <template>
   <PlTable :head="tableHead" :data="tableData" />
-  <!-- <PlCheckbox v-for="item in checkboxData" :key="item.lable" v-model="item.isChecked" :lable="item.lable" type="checkbox" /> -->
+  <PlCheckbox v-for="item in checkboxData" :key="item.lable" v-model="item.isChecked" :lable="item.lable" type="checkbox" />
+  <PlInput type="default" size="mini" />
+  <!-- <PlInput type="underline" size="small" />
+  <PlInput disabled type="light" size="medium" />
+  <PlInput v-model="value" type="default" :rule="rule" native-type="email" size="large" placeholder="placeholder" @blur="handleBlur" /> -->
 </template>
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+
+// const rule = {
+//   pattern: /^[GCDZTSPKXLY1-9]\d{1,4}$/,
+//   require: true,
+// }
+
+// const value = ref('')
+
+// const handleBlur = () => console.log(12312)
 
 const checkboxData = ref([
   {

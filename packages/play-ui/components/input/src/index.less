@@ -1,0 +1,96 @@
+[data-theme='light'] .pl-input {
+    --pl-input-text-color: var(--pl-gray-500);
+    --pl-input-bd-color: var(--pl-gray-200);
+    --pl-input-bg-color: white;
+    --pl-input-ph-text-color: var(--pl-gray-400);
+}
+
+[data-theme='dark'] .pl-input {
+    --pl-input-text-color: var(--pl-gray-400);
+    --pl-input-bd-color: var(--pl-gray-700);
+    --pl-input-bg-color: var(--pl-gray-800);
+    --pl-input-ph-text-color: var(--pl-gray-500);
+}
+
+.pl-input {
+    width: 300px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 6px;
+    color: var(--pl-input-text-color);
+    background-color: transparent;
+
+    &::placeholder {
+        color: var(--pl-input-ph-text-color);
+    }
+
+    &-tip {
+        margin-top: 5px;
+        font-size: 14px;
+        color: var(--pl-red-500);
+    }
+
+    &--mini+&-tip {
+        font-size: 12px;
+    }
+
+    // type
+    &--default {
+        border-color: var(--pl-input-bd-color);
+    }
+
+    &--underline {
+        border-radius: 0 !important;
+        border: none;
+        border-bottom: 1px solid var(--pl-input-bd-color);
+
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+
+    &--light {
+        border-color: var(--pl-input-bd-color);
+        background-color: var(--pl-input-bg-color);
+    }
+
+    // size
+    &--mini {
+        border-radius: 4px;
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+
+    &--small {
+        padding: 4px 6px;
+    }
+
+    &--medium {
+        padding: 6px 8px;
+    }
+
+    &--large {
+        padding: 10px 12px;
+    }
+
+    // state
+    &:focus {
+        border-color: var(--pl-blue-500);
+        box-shadow: 0px 0px 0px 4px #3B82F640;
+    }
+
+    // &--success:focus {
+    //     border-color: var(--pl-green-500);
+    //     box-shadow: 0px 0px 0px 4px #22C55E40;
+    // }
+
+    // &--warning:focus {
+    //     border-color: var(--pl-orange-500);
+    //     box-shadow: 0px 0px 0px 4px #f9731640;
+    // }
+
+    // &--danger:focus {
+    //     border-color: var(--pl-red-500);
+    //     box-shadow: 0px 0px 0px 4px #EF444440;
+    // }
+}

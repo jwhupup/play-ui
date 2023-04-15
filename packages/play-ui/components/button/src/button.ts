@@ -1,9 +1,8 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import type { ComponentState } from '../../type'
+import type { ComponentSize, ComponentState } from '../../type'
 
 export type ButtonNativeType = 'button' | 'reset' | 'submit'
 export type ButtonShape = 'rounded' | 'pilled' | 'circle' | 'plain'
-export type ButtonSize = 'mini' | 'small' | 'medium' | 'large'
 export type ButtonType =
   | 'solid'
   | 'outline'
@@ -29,7 +28,7 @@ export const buttonProps = {
     default: 'info',
   },
   size: {
-    type: String as PropType<ButtonSize>,
+    type: String as PropType<ComponentSize>,
     default: 'medium',
   },
   disabled: Boolean,
