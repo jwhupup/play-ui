@@ -22,11 +22,11 @@ import { ref } from 'vue'
 const visible = ref(false)
 
 const handleCancel = () => {
-  console.log('handleCancel')
+  // console.log('handleCancel')
 }
 
 const handleConfirm = () => {
-  console.log('handleConfirm')
+  // console.log('handleConfirm')
   visible.value = false
 }
 </script>

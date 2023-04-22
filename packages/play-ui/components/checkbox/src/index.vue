@@ -5,7 +5,7 @@
       class="pl-checkbox-input"
       :checked="modelValue"
       type="checkbox"
-      @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)"
+      @change="handleChange"
     >
     <label :for="id">{{ lable }}</label>
   </div>
@@ -15,9 +15,15 @@
 import { nanoid } from 'nanoid'
 import { checkboxProps } from './checkbox'
 
-defineProps(checkboxProps)
+const props = defineProps(checkboxProps)
 
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'change'])
 
 const id = `pl-checkbox__${nanoid(8)}`
+
+const handleChange = (evt: Event) => {
+  const isChecked = (evt.target as HTMLInputElement).checked
+  emit('update:modelValue', isChecked)
+  emit('change', isChecked, props.value)
+}
 </script>

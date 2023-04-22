@@ -1,18 +1,15 @@
 <template>
   <div
-    tabindex="0"
     class="pl-table-cell"
-    @blur="handleCellBlur"
     @dblclick="handleDbClick"
-    @contextmenu.prevent="handleContextmenu"
   >
     <slot>
       <PlInput v-if="editable" ref="editEl" v-model="value" size="mini" @blur="handleInputBlur" />
       <span v-else :title="value">{{ value }}</span>
     </slot>
-    <div v-if="isShowContextmenu" style="padding: 6px 12px; color: white; cursor: pointer; width: max-content; background-color: red; position: absolute; top: 50%; left: 50%; z-index: 100;" @click="handleCopyClick">
+    <!-- <div v-if="isShowContextmenu" style="padding: 6px 12px; color: white; cursor: pointer; width: max-content; background-color: red; position: absolute; top: 50%; left: 50%; z-index: 100;" @click="handleCopyClick">
       <div>复制</div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -26,7 +23,6 @@ const props = defineProps<{
 
 const emit = defineEmits(['update:modelValue'])
 
-const isShowContextmenu = ref(false)
 const editable = ref(false)
 const editEl = ref<HTMLInputElement & { el: HTMLInputElement }>()
 const value = computed({
@@ -45,20 +41,5 @@ const handleDbClick = () => {
 
 const handleInputBlur = () => {
   editable.value = false
-}
-
-const handleCellBlur = () => {
-  isShowContextmenu.value = false
-}
-
-let copyContent: string | null = ''
-const handleContextmenu = (evt: MouseEvent) => {
-  copyContent = (evt.target as HTMLElement).textContent
-  isShowContextmenu.value = true
-}
-
-const handleCopyClick = () => {
-  alert(copyContent)
-  isShowContextmenu.value = false
 }
 </script>
