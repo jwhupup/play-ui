@@ -1,11 +1,6 @@
 import type { ExtractPropTypes, PropType } from 'vue'
 import { ref } from 'vue'
 
-interface RowOptions {
-  level?: number
-  selected?: boolean
-}
-
 export const isAllSelected = ref(false)
 export const indeterminate = ref(true)
 
@@ -20,15 +15,15 @@ export const tableProps = {
   },
 }
 
-export const wrapTableData = (data: any[], options: RowOptions) => {
-  const { level = 0, selected = false } = options
+export const wrapTableData = (data: any[], level: number) => {
   data.forEach((item, index) => {
-    item.__row_selected = selected
+    item.__row_selected = false
     item.__row_level = level
     item.__row_key = `${level}-${index}`
     if (item.children)
-      wrapTableData(item.children, { level: level + 1, selected })
+      wrapTableData(item.children, level + 1)
   })
+  return data
 }
 
 export type PlTableProps = ExtractPropTypes<typeof tableProps>

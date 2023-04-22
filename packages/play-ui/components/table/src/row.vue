@@ -16,7 +16,7 @@
 import { defineComponent } from 'vue'
 import PlCheckbox from '../../checkbox'
 import Cell from './cell.vue'
-import { indeterminate } from './table'
+import { useSelectable } from './useSelectable'
 
 export default defineComponent({
   name: 'Row',
@@ -25,10 +25,9 @@ export default defineComponent({
     PlCheckbox,
   },
   props: ['head', 'data'],
-  setup() {
-    const handleSelect = () => {
-      indeterminate.value = false
-    }
+  setup(props) {
+    const { handleSelect } = useSelectable(props.data)
+
     return {
       handleSelect,
     }

@@ -15,46 +15,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import PlCheckbox from '../../checkbox'
-import { indeterminate, isAllSelected, tableProps, wrapTableData } from './table'
+import { tableProps, wrapTableData } from './table'
 import Row from './row.vue'
 import Cell from './cell.vue'
+import { useSelectable } from './useSelectable'
 
 const props = defineProps(tableProps)
 
-const tableData = computed(() => {
-  wrapTableData(props.data, { level: 0 })
-  // console.log(props.data)
+const tableData = computed(() => wrapTableData(props.data, 0))
 
-  return props.data
-})
-
-const switchSelectedAllState = (data: any[]) => {
-  for (const item of data) {
-    if (item.__row_selected)
-      isAllSelected.value = true
-
-    else
-      indeterminate.value = true
-
-    if (item.children)
-      switchSelectedAllState(item.children)
-  }
-}
-
-const selectAll = (data: any[], state: boolean) => {
-  data.forEach((item) => {
-    item.__row_selected = state
-    if (item.children)
-      selectAll(item.children, state)
-  })
-}
-
-watch(props.data, () => switchSelectedAllState(props.data))
-
-const handleSelectAll = (selected: boolean) => {
-  indeterminate.value = false
-  selectAll(props.data, selected)
-}
+const { isAllSelected, indeterminate, handleSelectAll } = useSelectable(props.data)
 </script>
