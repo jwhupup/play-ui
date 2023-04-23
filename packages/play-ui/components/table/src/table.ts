@@ -1,8 +1,4 @@
 import type { ExtractPropTypes, PropType } from 'vue'
-import { ref } from 'vue'
-
-export const isAllSelected = ref(false)
-export const indeterminate = ref(true)
 
 export const tableProps = {
   head: {
@@ -15,13 +11,15 @@ export const tableProps = {
   },
 }
 
-export const wrapTableData = (data: any[], level: number) => {
+export const withMetadata = (data: any[], level = 0) => {
   data.forEach((item, index) => {
-    item.__row_selected = false
-    item.__row_level = level
-    item.__row_key = `${level}-${index}`
+    item.__metadata__ = {
+      level,
+      selected: false,
+      key: `${level}-${index}`,
+    }
     if (item.children)
-      wrapTableData(item.children, level + 1)
+      withMetadata(item.children, level + 1)
   })
   return data
 }

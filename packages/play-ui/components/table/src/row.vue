@@ -1,8 +1,8 @@
 <template>
-  <template v-for="row in data" :key="row.__row_key">
+  <template v-for="row in data" :key="row.__metadata__.key">
     <div class="pl-table-row">
       <Cell>
-        <PlCheckbox v-model="row.__row_selected" :value="row" @change="handleSelect" />
+        <PlCheckbox v-model="row.__metadata__.selected" :value="row" @change="indeterminate = false" />
       </Cell>
       <Cell v-for="col in head" :key="col.key" v-model="row[col.key]" />
     </div>
@@ -16,7 +16,8 @@
 import { defineComponent } from 'vue'
 import PlCheckbox from '../../checkbox'
 import Cell from './cell.vue'
-import { useSelectable } from './useSelectable'
+import { indeterminate } from './useSelectable'
+import { tableProps } from './table'
 
 export default defineComponent({
   name: 'Row',
@@ -24,12 +25,10 @@ export default defineComponent({
     Cell,
     PlCheckbox,
   },
-  props: ['head', 'data'],
-  setup(props) {
-    const { handleSelect } = useSelectable(props.data)
-
+  props: tableProps,
+  setup() {
     return {
-      handleSelect,
+      indeterminate,
     }
   },
 })

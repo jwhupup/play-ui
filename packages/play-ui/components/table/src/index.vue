@@ -3,7 +3,7 @@
     <div class="pl-table-head">
       <div class="pl-table-row">
         <Cell>
-          <PlCheckbox v-model="isAllSelected" :indeterminate="indeterminate" @change="handleSelectAll" />
+          <PlCheckbox v-model="isAllSelected" :indeterminate="indeterminate" @change="selected => switchAllSelected(data, selected)" />
         </Cell>
         <Cell v-for="col in head" :key="col.key" v-model="col.name" />
       </div>
@@ -15,16 +15,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import PlCheckbox from '../../checkbox'
-import { tableProps, wrapTableData } from './table'
 import Row from './row.vue'
 import Cell from './cell.vue'
-import { useSelectable } from './useSelectable'
+import { tableProps, withMetadata } from './table'
+import { indeterminate, isAllSelected, switchAllSelected, switchIndeterminate } from './useSelectable'
 
 const props = defineProps(tableProps)
 
-const tableData = computed(() => wrapTableData(props.data, 0))
+const tableData = computed(() => withMetadata(props.data))
 
-const { isAllSelected, indeterminate, handleSelectAll } = useSelectable(props.data)
+watch(props.data, () => switchIndeterminate(props.data))
 </script>

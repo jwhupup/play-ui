@@ -1,40 +1,26 @@
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
-const isAllSelected = ref(false)
-const indeterminate = ref(true)
+export const isAllSelected = ref(false)
+export const indeterminate = ref(true)
 
-export const useSelectable = (data: any) => {
-  const switchIndeterminate = (data: any[]) => {
-    for (const item of data) {
-      if (item.__row_selected)
-        isAllSelected.value = true
-      else
-        indeterminate.value = true
+export const switchIndeterminate = (data: any[]) => {
+  for (const item of data) {
+    if (item.__metadata__.selected)
+      isAllSelected.value = true
+    else
+      indeterminate.value = true
 
-      if (item.children)
-        switchIndeterminate(item.children)
-    }
+    if (item.children)
+      switchIndeterminate(item.children)
   }
+}
 
-  const switchAllSelected = (data: any[], state: boolean) => {
-    indeterminate.value = false
-    data.forEach((item) => {
-      item.__row_selected = state
-      if (item.children)
-        switchAllSelected(item.children, state)
-    })
-  }
+export const switchAllSelected = (data: any[], state: boolean) => {
+  indeterminate.value = false
+  for (const item of data) {
+    item.__metadata__.selected = state
 
-  const handleSelect = () => indeterminate.value = false
-
-  const handleSelectAll = (selected: boolean) => switchAllSelected(data, selected)
-
-  watch(data, () => switchIndeterminate(data))
-
-  return {
-    isAllSelected,
-    indeterminate,
-    handleSelect,
-    handleSelectAll,
+    if (item.children)
+      switchAllSelected(item.children, state)
   }
 }

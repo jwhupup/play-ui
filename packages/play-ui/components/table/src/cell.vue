@@ -4,12 +4,9 @@
     @dblclick="handleDbClick"
   >
     <slot>
-      <PlInput v-if="editable" ref="editEl" v-model="value" size="mini" @blur="handleInputBlur" />
+      <PlInput v-if="editable" ref="editEl" v-model="value" size="mini" @blur="editable = false" />
       <span v-else :title="value">{{ value }}</span>
     </slot>
-    <!-- <div v-if="isShowContextmenu" style="padding: 6px 12px; color: white; cursor: pointer; width: max-content; background-color: red; position: absolute; top: 50%; left: 50%; z-index: 100;" @click="handleCopyClick">
-      <div>复制</div>
-    </div> -->
   </div>
 </template>
 
@@ -37,9 +34,5 @@ const value = computed({
 const handleDbClick = () => {
   editable.value = true
   nextTick(() => editEl.value?.el.focus())
-}
-
-const handleInputBlur = () => {
-  editable.value = false
 }
 </script>

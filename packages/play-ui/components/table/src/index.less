@@ -1,60 +1,60 @@
 .pl-table {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  max-width: 500px;
+  max-height: 400px;
+  overflow: auto;
+
+  &-row {
+    display: flex;
+
+    & .pl-table-cell:first-child {
+      background-color: rgb(82, 158, 82);
+      position: sticky;
+      left: 0;
+      z-index: 100;
+    }
+
+    // & .pl-table-cell:nth-child(2) {
+    //     background-color: pink;
+    //     position: sticky;
+    //     left: 90px;
+    //     z-index: 100;
+    // }
+
+    & .pl-table-cell:last-child {
+      background-color: rgb(82, 158, 82);
+      position: sticky;
+      right: 0;
+    }
+  }
+
+  &-cell {
     position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    max-width: 500px;
-    max-height: 400px;
-    overflow: auto;
+    width: 90px;
+    padding: 8px;
+    border-bottom: 1px solid white;
 
-    &-row {
-        display: flex;
-
-        & .pl-table-cell:first-child {
-            background-color: pink;
-            position: sticky;
-            left: 0;
-            z-index: 100;
-        }
-
-        // & .pl-table-cell:nth-child(2) {
-        //     background-color: pink;
-        //     position: sticky;
-        //     left: 90px;
-        //     z-index: 100;
-        // }
-
-        & .pl-table-cell:last-child {
-            background-color: blue;
-            position: sticky;
-            right: 0;
-        }
+    span {
+      display: inline-block;
+      width: 100%;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
+  }
 
-    &-cell {
-        position: relative;
-        width: 90px;
-        padding: 8px;
-        border-bottom: 1px solid white;
+  &-head {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    width: fit-content;
+    background-color: rgb(82, 158, 82);
+  }
 
-        span {
-            display: inline-block;
-            width: 100%;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-    }
-
-    &-head {
-        position: sticky;
-        top: 0;
-        z-index: 200;
-        width: fit-content;
-        background-color: red;
-    }
-
-    &-body {
-        width: fit-content;
-        // background-color: rgb(88, 184, 88);
-    }
+  &-body {
+    width: fit-content;
+    background-color: rgb(88, 184, 88);
+  }
 }
