@@ -17,7 +17,7 @@
   "dependencies": {
     "@vueuse/core": "^9.1.1",
     "play-ui": "workspace:*",
-    "vue": "^3.3.0-beta.1"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
