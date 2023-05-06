@@ -15,5 +15,6 @@ declare module '@vue/runtime-core' {
     PlIcon: typeof import('play-ui/components')['PlIcon']
     PlInput: typeof import('play-ui/components')['PlInput']
     PlTable: typeof import('play-ui/components')['PlTable']
+    PlTables: typeof import('play-ui/components')['PlTables']
   }
 }

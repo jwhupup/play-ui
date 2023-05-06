@@ -9,15 +9,18 @@ export const tableProps = {
     type: Array as PropType<Record<string, any>[]>,
     default: () => [],
   },
+  selectable: Boolean,
+  editable: Boolean,
 }
 
-export const withMetadata = (data: any[], level = 0) => {
+export function withMetadata(data: any[], level = 0) {
   data.forEach((item, index) => {
     item.__metadata__ = {
       level,
       selected: false,
       key: `${level}-${index}`,
     }
+
     if (item.children)
       withMetadata(item.children, level + 1)
   })

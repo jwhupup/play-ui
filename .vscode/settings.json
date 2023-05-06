@@ -8,6 +8,7 @@
   },
   "json.format.enable": false,
   "typescript.format.enable": false,
+  "html.format.enable": false,
   "eslint.probe": [
     "javascript",
     "javascriptreact",
@@ -29,6 +30,5 @@
     "markdown",
     "json",
     "jsonc"
-  ],
-  "vite.devCommand": "pnpm run dev -- --"
+  ]
 }

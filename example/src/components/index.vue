@@ -1,5 +1,5 @@
 <template>
-  <PlTable :head="tableHead" :data="tableData" />
+  <PlTables :header="tableHead" :data="tableData" column-resizable fixed-header />
   <PlCheckbox
     v-for="item in checkboxData" :key="item.lable" v-model="item.isChecked" :lable="item.lable"
     type="checkbox"
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 
 // const rule = {
 //   pattern: /^[GCDZTSPKXLY1-9]\d{1,4}$/,
@@ -41,6 +41,9 @@ const mock = (colCount = 10, rowCount = 20) => {
   const data = []
   for (let i = 0; i < colCount; i++)
     head.push({ name: `column${i}`, key: `key${i}` })
+
+  head[0].group = 'aaa'
+  head[0].children = [{ name: 'aaa', key: 'key000', children: [{ name: 'c1-1', children: [{ name: 'b-1', key: 'b1' }, { name: 'b-2', key: 'b2' }], key: 'key1111', width: 120 }, { name: 'c1-2', key: 'key2222' }] }, { name: 'bbb', key: 'key111' }]
 
   for (let i = 0; i < rowCount; i++) {
     const obj: Record<string, unknown> = {}
@@ -91,11 +94,10 @@ const mock = (colCount = 10, rowCount = 20) => {
 
 const { head, data } = mock()
 
-// console.log(data)
-
-const tableHead = reactive(head)
+const tableHead = ref(head)
 const tableData = ref(data)
 
 const handleRemove = () => {
+  // console.log(tableData.value)
 }
 </script>

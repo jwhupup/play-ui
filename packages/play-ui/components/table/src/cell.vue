@@ -21,6 +21,7 @@ const props = defineProps<{
 const emit = defineEmits(['update:modelValue'])
 
 const editable = ref(false)
+
 const editEl = ref<HTMLInputElement & { el: HTMLInputElement }>()
 const value = computed({
   get() {
