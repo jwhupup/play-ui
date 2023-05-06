@@ -42,8 +42,8 @@ const mock = (colCount = 10, rowCount = 20) => {
   for (let i = 0; i < colCount; i++)
     head.push({ name: `column${i}`, key: `key${i}` })
 
-  head[0].group = 'aaa'
-  head[0].children = [{ name: 'aaa', key: 'key000', children: [{ name: 'c1-1', children: [{ name: 'b-1', key: 'b1' }, { name: 'b-2', key: 'b2' }], key: 'key1111', width: 120 }, { name: 'c1-2', key: 'key2222' }] }, { name: 'bbb', key: 'key111' }]
+  // head[0].group = 'aaa'
+  // head[0].children = [{ name: 'aaa', key: 'key000', children: [{ name: 'c1-1', children: [{ name: 'b-1', key: 'b1' }, { name: 'b-2', key: 'b2' }], key: 'key1111', width: 120 }, { name: 'c1-2', key: 'key2222' }] }, { name: 'bbb', key: 'key111' }]
 
   for (let i = 0; i < rowCount; i++) {
     const obj: Record<string, unknown> = {}
