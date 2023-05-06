@@ -12,14 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { checkboxProps } from './checkbox'
 
 const props = defineProps(checkboxProps)
 
 const emit = defineEmits(['update:modelValue', 'change'])
 
-const id = `pl-checkbox__${nanoid(8)}`
+const id = `pl-checkbox__${uuidv4()}`
 
 const handleChange = (evt: Event) => {
   const isChecked = (evt.target as HTMLInputElement).checked
