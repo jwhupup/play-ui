@@ -1,14 +1,33 @@
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import commonjs from '@rollup/plugin-commonjs'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
-import esbuild from 'rollup-plugin-esbuild'
+import { resolve } from 'node:path'
 import glob from 'fast-glob'
 import consola from 'consola'
-import { rollup } from 'rollup'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { build } from 'vite'
+import type { OutputOptions } from 'rollup'
 import { excludeFiles } from '../utils'
-import { modulesOutputConfig } from '../config'
-import { componentsRoot } from '../path'
+import { buildOutput, componentsRoot } from '../path'
+
+const output: OutputOptions[] = [
+  {
+    format: 'es',
+    dir: resolve(buildOutput, 'es'),
+    exports: undefined,
+    preserveModules: true,
+    preserveModulesRoot: componentsRoot,
+    sourcemap: true,
+    entryFileNames: '[name].mjs',
+  },
+  {
+    format: 'cjs',
+    dir: resolve(buildOutput, 'lib'),
+    exports: 'named',
+    preserveModules: true,
+    preserveModulesRoot: componentsRoot,
+    sourcemap: true,
+    entryFileNames: '[name].js',
+  },
+]
 
 export async function buildModule() {
   consola.info('Start building modules...')
@@ -20,27 +39,17 @@ export async function buildModule() {
     }),
   )
 
-  const bundle = await rollup({
-    input,
-    plugins: [
-      vue(),
-      vueJsx(),
-      nodeResolve({
-        extensions: ['.mjs', '.js', '.json', '.ts'],
-      }),
-      commonjs(),
-      esbuild({
-        sourceMap: true,
-        target: 'es2018',
-        loaders: {
-          '.vue': 'ts',
-        },
-      }),
-    ],
-    external: ['vue', /\.less/],
-    treeshake: false,
+  await build({
+    plugins: [vue(), vueJsx()],
+    build: {
+      rollupOptions: {
+        input,
+        output,
+        preserveEntrySignatures: 'allow-extension',
+        external: ['vue', /\.less/],
+      },
+      minify: false,
+    },
   })
-  await Promise.all(modulesOutputConfig.map(option => bundle.write(option)))
-  await bundle.close()
   consola.success('modules built!')
 }

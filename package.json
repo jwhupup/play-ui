@@ -31,6 +31,7 @@
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/fs-extra": "^9.0.13",
     "@types/gulp": "^4.0.10",
+    "@types/less": "^3.0.3",
     "@types/node": "^18.11.18",
     "@types/uuid": "^9.0.0",
     "@vitejs/plugin-vue": "^4.2.1",
