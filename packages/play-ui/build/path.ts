@@ -8,4 +8,3 @@ export const stylesRoot = resolve(projectRoot, 'styles')
 export const utilsRoot = resolve(projectRoot, 'utils')
 
 export const buildOutput = resolve(projectRoot, 'dist')
-export const aaaOutput = resolve(buildOutput, 'aaa')
