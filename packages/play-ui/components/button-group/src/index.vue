@@ -10,5 +10,7 @@ import { GROUP_BUTTON_KEY, buttonGroupProps } from './button-group'
 
 const props = defineProps(buttonGroupProps)
 
+defineOptions({ name: 'ButtonGroup' })
+
 provide(GROUP_BUTTON_KEY, props)
 </script>

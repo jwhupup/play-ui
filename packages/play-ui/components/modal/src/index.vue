@@ -35,8 +35,8 @@ import OnClickOutside from '../../on-click-outside/src/index.vue'
 import { modalProps } from '../src/modal'
 
 defineProps(modalProps)
-
 const emits = defineEmits(['update:visible', 'cancel', 'confirm'])
+defineOptions({ name: 'Modal' })
 
 const handleCancel = (evt: MouseEvent) => {
   emits('update:visible', false)

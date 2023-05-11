@@ -9,9 +9,9 @@
   },
   "exclude": [
     "node_modules",
-    "build",
     "dist",
     "test",
+    "build",
     "gulpfile.ts",
     "**/test/**/*",
     "**/style/**/*",

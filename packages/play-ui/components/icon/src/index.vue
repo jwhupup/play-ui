@@ -6,4 +6,6 @@
 import { iconProps } from '../src/icon'
 
 defineProps(iconProps)
+
+defineOptions({ name: 'Icon' })
 </script>

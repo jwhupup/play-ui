@@ -24,6 +24,8 @@ defineProps(tagProps)
 
 const emits = defineEmits(['close'])
 
+defineOptions({ name: 'Tag' })
+
 const tagEl = ref<HTMLDivElement>()
 
 const handleClose = (evt: MouseEvent) => {

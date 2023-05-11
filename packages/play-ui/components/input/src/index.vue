@@ -27,6 +27,7 @@ import { inputProps } from './input'
 
 const props = defineProps(inputProps)
 const emit = defineEmits(['update:modelValue', 'blur'])
+defineOptions({ name: 'Input' })
 
 const inputEl = ref<HTMLInputElement>()
 const isShowTip = ref(false)

@@ -28,6 +28,8 @@ defineProps(alertProps)
 
 const emits = defineEmits(['close'])
 
+defineOptions({ name: 'Alert' })
+
 const alertEl = ref<HTMLDivElement>()
 
 const handleClose = (evt: MouseEvent) => {

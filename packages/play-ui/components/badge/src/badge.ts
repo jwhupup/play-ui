@@ -4,7 +4,7 @@ import type { ComponentState } from '../../type'
 export const badgeProps = {
   state: {
     type: String as PropType<ComponentState>,
-    default: 'info',
+    default: 'primary',
   },
   max: {
     type: Number,

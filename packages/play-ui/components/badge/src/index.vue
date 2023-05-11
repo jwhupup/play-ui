@@ -23,6 +23,8 @@ import { badgeProps } from './badge'
 
 const props = defineProps(badgeProps)
 
+defineOptions({ name: 'Badge' })
+
 const bagdeValue = computed(() => {
   if (Number(props.value) >= props.max)
     return `${props.max}+`

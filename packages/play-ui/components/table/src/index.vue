@@ -23,6 +23,7 @@ import { tableProps, withMetadata } from './table'
 import { indeterminate, isAllSelected, switchAllSelected, switchIndeterminate } from './selectable'
 
 const props = defineProps(tableProps)
+defineOptions({ name: 'Table' })
 
 const tableData = computed(() => withMetadata(props.data))
 

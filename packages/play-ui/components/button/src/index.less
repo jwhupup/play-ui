@@ -4,6 +4,8 @@
   --pl-white-text-hover-color: #374151;
   --pl-white-border-color: #e5e7eb;
   --pl-white-hover-color: #f9fafb;
+  --pl-info-text-color: #374151;
+  --pl-info-hover-color: var(--pl-gray-100);
 }
 
 [data-theme='dark'] .pl-button,
@@ -12,27 +14,44 @@
   --pl-white-text-hover-color: white;
   --pl-white-border-color: #374151;
   --pl-white-hover-color: #1e293b;
+  --pl-info-text-color: var(--pl-gray-400);
+  --pl-info-hover-color: var(--pl-gray-700);
 }
 
 .pl-button {
-  &--info {
+  &--primary {
     --pl-button-color: var(--pl-blue-500);
     --pl-button-hover-color: var(--pl-blue-600);
+    --pl-button-ghost-color: var(--pl-blue-500);
+    --pl-button-ghost-hover-color: var(--pl-blue-100);
+  }
+
+  &--info {
+    --pl-button-color: var(--pl-gray-500);
+    --pl-button-hover-color: var(--pl-gray-600);
+    --pl-button-ghost-color: var(--pl-info-text-color);
+    --pl-button-ghost-hover-color: var(--pl-info-hover-color);
   }
 
   &--success {
     --pl-button-color: var(--pl-green-500);
     --pl-button-hover-color: var(--pl-green-600);
+    --pl-button-ghost-color: var(--pl-green-500);
+    --pl-button-ghost-hover-color: var(--pl-green-100);
   }
 
   &--warning {
     --pl-button-color: var(--pl-orange-500);
     --pl-button-hover-color: var(--pl-orange-600);
+    --pl-button-ghost-color: var(--pl-orange-500);
+    --pl-button-ghost-hover-color: var(--pl-orange-100);
   }
 
   &--danger {
     --pl-button-color: var(--pl-red-500);
     --pl-button-hover-color: var(--pl-red-600);
+    --pl-button-ghost-color: var(--pl-red-500);
+    --pl-button-ghost-hover-color: var(--pl-red-100);
   }
 
   &--mini {
@@ -92,12 +111,12 @@
   }
 
   &--ghost {
-    --pl-button-text-color: var(--pl-button-color);
-    --pl-button-text-hover-color: white;
+    --pl-button-text-color: var(--pl-button-ghost-color);
+    --pl-button-text-hover-color: var(--pl-button-ghost-color);
     --pl-button-border-color: transparent;
-    --pl-button-border-hover-color: var(--pl-button-hover-color);
+    --pl-button-border-hover-color: var(--pl-button-ghost-hover-color);
     --pl-button-bg-color: transparent;
-    --pl-button-bg-hover-color: var(--pl-button-hover-color);
+    --pl-button-bg-hover-color: var(--pl-button-ghost-hover-color);
   }
 
   &--link {
@@ -120,10 +139,11 @@
 }
 
 .pl-button {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
   border-width: 1px;
   border-style: solid;
-  margin-left: 5px;
   font-size: 16px;
   padding: var(--pl-button-size);
   border-radius: var(--pl-border-radius);
@@ -135,5 +155,15 @@
     color: var(--pl-button-text-hover-color);
     border-color: var(--pl-button-border-hover-color);
     background-color: var(--pl-button-bg-hover-color);
+  }
+
+  &-icon {
+    &--left {
+      margin-right: 10px;
+    }
+
+    &--right {
+      margin-left: 10px;
+    }
   }
 }

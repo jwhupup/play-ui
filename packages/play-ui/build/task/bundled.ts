@@ -1,14 +1,14 @@
 import path from 'node:path'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import { rollup } from 'rollup'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import commonjs from '@rollup/plugin-commonjs'
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild'
 import consola from 'consola'
 import type { Plugin } from 'rollup'
-import { bundleOutputConfig } from '../config'
+import { rollup } from 'rollup'
 import { componentsRoot } from '../path'
+import { bundleOutputConfig } from '../config'
 
 export async function buildBundled() {
   consola.info('Start building bundle...')
@@ -33,6 +33,7 @@ export async function buildBundled() {
       sourceMap: true,
     }),
   ]
+
   const bundle = await rollup({
     input: path.resolve(componentsRoot, 'index.ts'),
     plugins,

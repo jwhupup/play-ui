@@ -19,6 +19,8 @@ const props = defineProps(checkboxProps)
 
 const emit = defineEmits(['update:modelValue', 'change'])
 
+defineOptions({ name: 'Checkbox' })
+
 const id = `pl-checkbox__${uuidv4()}`
 
 const handleChange = (evt: Event) => {

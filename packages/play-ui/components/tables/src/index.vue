@@ -8,12 +8,15 @@
         <Cell v-for="column in columnConfig" :key="column.name" :content="{ row, column }" />
       </Row>
     </div>
-    <ContextMenu :position="position" :target="target" />
+    <ContextMenu :position="position" :target="target">
+      <PlButton>dropdown</PlButton>
+    </ContextMenu>
   </div>
 </template>
 
 <script setup lang="ts">
 import { provide, ref } from 'vue'
+import PlButton from '../../button'
 import { TABLE_CONFIG_KEY, columnConfig, genColumnConfig, tablesProps } from './tables'
 import HeaderCell from './header-cell.vue'
 import Cell from './cell.vue'
@@ -21,6 +24,7 @@ import Row from './row.vue'
 import ContextMenu from './context-menu.vue'
 
 const props = defineProps(tablesProps)
+defineOptions({ name: 'Tables' })
 
 genColumnConfig(props.header)
 

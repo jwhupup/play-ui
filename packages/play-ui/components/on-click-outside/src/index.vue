@@ -9,8 +9,8 @@ import { onMounted, ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 
 withDefaults(defineProps<{ is?: string }>(), { is: 'div' })
-
 const emits = defineEmits(['trigger'])
+defineOptions({ name: 'OnClickOutside' })
 
 const onClickOutsideEl = ref<HTMLElement>()
 

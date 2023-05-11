@@ -25,12 +25,14 @@ export const buttonProps = {
   },
   state: {
     type: String as PropType<ComponentState>,
-    default: 'info',
+    default: 'primary',
   },
   size: {
     type: String as PropType<ComponentSize>,
     default: 'medium',
   },
+  iconLeft: String,
+  iconRight: String,
   disabled: Boolean,
 }
 

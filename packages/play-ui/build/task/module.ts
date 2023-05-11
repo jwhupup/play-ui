@@ -1,11 +1,11 @@
-import { rollup } from 'rollup'
-import glob from 'fast-glob'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import commonjs from '@rollup/plugin-commonjs'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 import esbuild from 'rollup-plugin-esbuild'
+import glob from 'fast-glob'
 import consola from 'consola'
+import { rollup } from 'rollup'
 import { excludeFiles } from '../utils'
 import { modulesOutputConfig } from '../config'
 import { componentsRoot } from '../path'
@@ -19,6 +19,7 @@ export async function buildModule() {
       onlyFiles: true,
     }),
   )
+
   const bundle = await rollup({
     input,
     plugins: [
