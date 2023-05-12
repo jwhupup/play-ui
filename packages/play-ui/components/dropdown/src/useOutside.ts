@@ -3,8 +3,9 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 export type OutsideTrigger = 'click' | 'mouseenter' | 'contextmenu'
 
-export const useOutside = (target: Ref<HTMLElement | undefined>, trigger: OutsideTrigger) => {
+export const useOutside = (target: Ref<HTMLElement | undefined>, triggers: OutsideTrigger | OutsideTrigger[]) => {
   const isOutside = ref(false)
+  const _triggers = Array.isArray(triggers) ? triggers : [triggers]
 
   const listener = (evt: MouseEvent) => {
     evt.preventDefault()
@@ -17,11 +18,11 @@ export const useOutside = (target: Ref<HTMLElement | undefined>, trigger: Outsid
   }
 
   onMounted(() => {
-    document.addEventListener(trigger, listener)
+    _triggers.forEach(trigger => document.addEventListener(trigger, listener))
   })
 
   onUnmounted(() => {
-    document.removeEventListener(trigger, listener)
+    _triggers.forEach(trigger => document.removeEventListener(trigger, listener))
   })
 
   return isOutside

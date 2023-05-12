@@ -6,9 +6,12 @@ export type DropdownTrigger = 'mouseenter' | 'click' | 'contextmenu'
 
 export interface DropdownData {
   name: string
+  title?: string
   divider?: boolean
+  disabled?: boolean
   trigger?: DropdownTrigger
-  menuButton?: Partial<Pick<PlButtonProps, 'state' | 'type' | 'disabled' | 'iconLeft' | 'iconRight'> & { badge: Partial<PlBadgeProps> }>
+  menuButton?: Partial<Pick<PlButtonProps, 'state' | 'type' | 'iconLeft' | 'iconRight'> & { badge: Partial<PlBadgeProps> }>
+  callback?: () => void
   children?: DropdownData[]
 }
 
@@ -20,8 +23,10 @@ export const dropdownProps = {
   },
   trigger: {
     type: String as PropType<DropdownTrigger>,
-    default: 'click',
+    default: 'mouseenter',
   },
+  disabled: Boolean,
+  customPosition: Boolean,
 }
 
 export type PlDropdownProps = ExtractPropTypes<typeof dropdownProps>
