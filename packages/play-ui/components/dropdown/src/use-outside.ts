@@ -2,28 +2,39 @@ import type { Ref } from 'vue'
 import { onMounted, onUnmounted, ref } from 'vue'
 
 export type OutsideTrigger = 'click' | 'mouseenter' | 'contextmenu'
+export type OutsideCallback = (isOutside: Ref<boolean>) => void
 
-export const useOutside = (target: Ref<HTMLElement | undefined>, triggers: OutsideTrigger | OutsideTrigger[]) => {
+export const useOutside = (
+  target: Ref<HTMLElement | undefined>,
+  triggers: OutsideTrigger | OutsideTrigger[],
+  callback?: OutsideCallback,
+) => {
   const isOutside = ref(false)
   const _triggers = Array.isArray(triggers) ? triggers : [triggers]
 
   const listener = (evt: MouseEvent) => {
-    evt.preventDefault()
     if (target.value) {
       if (target.value.contains(evt.target as HTMLElement))
         isOutside.value = false
       else
         isOutside.value = true
     }
+
+    if (callback)
+      callback(isOutside)
   }
 
-  onMounted(() => {
+  const listen = () => {
     _triggers.forEach(trigger => document.addEventListener(trigger, listener))
-  })
+  }
 
-  onUnmounted(() => {
+  const clean = () => {
     _triggers.forEach(trigger => document.removeEventListener(trigger, listener))
-  })
+  }
 
-  return isOutside
+  onMounted(() => listen())
+
+  onUnmounted(() => clean())
+
+  return { isOutside, listen, clean }
 }

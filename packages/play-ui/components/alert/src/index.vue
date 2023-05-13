@@ -21,10 +21,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Icon from '../../icon'
-import { alertProps } from './alert'
+import Icon from '../../icon/src/index.vue'
+import type { AlertProps } from '../../component'
 
-defineProps(alertProps)
+withDefaults(defineProps<AlertProps>(), {
+  type: 'solid',
+  state: 'info',
+})
 
 const emits = defineEmits(['close'])
 

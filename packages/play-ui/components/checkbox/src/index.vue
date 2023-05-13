@@ -13,9 +13,9 @@
 
 <script setup lang="ts">
 import { v4 as uuidv4 } from 'uuid'
-import { checkboxProps } from './checkbox'
+import type { CheckboxProps } from '../../component'
 
-const props = defineProps(checkboxProps)
+const props = defineProps<CheckboxProps>()
 
 const emit = defineEmits(['update:modelValue', 'change'])
 

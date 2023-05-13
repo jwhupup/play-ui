@@ -1,11 +1,20 @@
 .pl-tag {
-  &--info {
+  &--primary {
     --pl-tag-solid-bg-color: var(--pl-blue-500);
     --pl-tag-outline-border-color: var(--pl-blue-500);
     --pl-tag-outline-text-color: var(--pl-blue-500);
     --pl-tag-soft-bg-color: var(--pl-blue-100);
     --pl-tag-soft-text-color: var(--pl-blue-500);
     --pl-tag-solid-close-color: var(--pl-blue-400);
+  }
+
+  &--info {
+    --pl-tag-solid-bg-color: var(--pl-gray-500);
+    --pl-tag-outline-border-color: var(--pl-gray-500);
+    --pl-tag-outline-text-color: var(--pl-gray-500);
+    --pl-tag-soft-bg-color: var(--pl-gray-100);
+    --pl-tag-soft-text-color: var(--pl-gray-500);
+    --pl-tag-solid-close-color: var(--pl-gray-400);
   }
 
   &--success {
@@ -46,7 +55,7 @@
   gap: 6px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-  & + & {
+  &+& {
     margin-left: 10px;
   }
 
@@ -95,6 +104,7 @@
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
     &:hover {
       color: white;
       background-color: var(--pl-tag-solid-bg-color);

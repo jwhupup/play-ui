@@ -23,9 +23,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { inputProps } from './input'
+import type { InputProps } from '../../component'
 
-const props = defineProps(inputProps)
+const props = withDefaults(defineProps<InputProps>(), {
+  type: 'bordered',
+  size: 'medium',
+  nativeType: 'text',
+})
 const emit = defineEmits(['update:modelValue', 'blur'])
 defineOptions({ name: 'Input' })
 

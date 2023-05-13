@@ -22,6 +22,20 @@
     </PlButton>
   </PlDropdown>
 
+  <pl-modal
+    v-model:visible="visible"
+    @cancel="handleCancel"
+    @confirm="handleConfirm"
+  >
+    <span>
+      This is a wider card with supporting text below as a natural lead-into
+      additional content.
+    </span>
+  </pl-modal>
+  <pl-button @click="handelButtonClick">
+    open modal
+  </pl-button>
+
   <!-- <PlInput type="underline" size="small" />
   <PlInput disabled type="light" size="medium" />
   <PlInput v-model="value" type="default" :rule="rule" native-type="email" size="large" placeholder="placeholder" @blur="handleBlur" /> -->
@@ -30,6 +44,22 @@
 <script setup lang="ts">
 import type { DropdownData } from 'play-ui'
 import { ref } from 'vue'
+
+const visible = ref(false)
+
+const handleCancel = () => {
+  console.log('handleCancel')
+}
+
+const handelButtonClick = () => {
+  console.log('handleConfirm')
+  visible.value = true
+}
+
+const handleConfirm = () => {
+  console.log('handleConfirm')
+  visible.value = false
+}
 
 // const rule = {
 //   pattern: /^[GCDZTSPKXLY1-9]\d{1,4}$/,

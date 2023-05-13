@@ -3,6 +3,7 @@
   "extends": [
     "@antfu"
   ],
+  "plugins": ["eslint-plugin-vue"],
   "rules": {
     "react/display-name": "off",
     "react-hooks/rules-of-hooks": "off",
@@ -12,11 +13,15 @@
       "error",
       {
         "allow": [
-          "error"
+          "error",
+          "log"
         ]
       }
     ],
-    "vue/component-tags-order": "off"
+    "vue/component-tags-order": "off",
+    "vue/define-macros-order": ["error", {
+      "order": ["defineProps", "defineEmits"]
+    }]
   },
   "overrides": [
     {

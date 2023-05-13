@@ -15,14 +15,14 @@
 
 <script setup lang="ts">
 import { provide } from 'vue'
-import type { DropdownData } from '../../dropdown'
 import PlDropdown from '../../dropdown'
-import { TABLE_CONFIG_KEY, columnConfig, genColumnConfig, tablesProps } from './tables'
+import type { DropdownData, TablesProps } from '../../component'
+import { TABLE_CONFIG_KEY, columnConfig, genColumnConfig } from './column'
 import HeaderCell from './header-cell.vue'
 import Cell from './cell.vue'
 import Row from './row.vue'
 
-const props = defineProps(tablesProps)
+const props = defineProps<TablesProps>()
 
 defineOptions({ name: 'Tables' })
 

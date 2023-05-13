@@ -3,9 +3,9 @@
 </template>
 
 <script setup lang="ts">
-import { iconProps } from '../src/icon'
+import type { IconProps } from '../../component'
 
-defineProps(iconProps)
+defineProps<IconProps>()
 
 defineOptions({ name: 'Icon' })
 </script>

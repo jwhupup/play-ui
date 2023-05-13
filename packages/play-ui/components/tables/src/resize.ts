@@ -1,7 +1,7 @@
 import { computed, onMounted } from 'vue'
-import type { PlTableColumnConfig } from './tables'
+import type { TableColumnConfig } from '../../component'
 
-export const useResizeColumnWidth = (config: PlTableColumnConfig) => {
+export const useResizeColumnWidth = (config: TableColumnConfig) => {
   let mouseStart = 0
   let mouseEnd = 0
   let originWidth = 0

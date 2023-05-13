@@ -14,7 +14,8 @@
 
 <script lang="ts">
 import { defineComponent, inject } from 'vue'
-import { TABLE_CONFIG_KEY, headerCellProps } from './tables'
+import type { HeaderCellProps } from '../../component'
+import { TABLE_CONFIG_KEY } from './column'
 import { useResizeColumnWidth } from './resize'
 
 export default defineComponent({
@@ -23,7 +24,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-const props = defineProps(headerCellProps)
+const props = defineProps<HeaderCellProps>()
 
 const tableConfig = inject(TABLE_CONFIG_KEY, null)
 

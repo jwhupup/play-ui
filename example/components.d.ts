@@ -12,13 +12,11 @@ declare module '@vue/runtime-core' {
     Components: typeof import('./src/components/index.vue')['default']
     PlBadge: typeof import('play-ui/components')['PlBadge']
     PlButton: typeof import('play-ui/components')['PlButton']
-    PlButtonGroup: typeof import('play-ui/components')['PlButtonGroup']
     PlCheckbox: typeof import('play-ui/components')['PlCheckbox']
     PlDropdown: typeof import('play-ui/components')['PlDropdown']
     PlIcon: typeof import('play-ui/components')['PlIcon']
     PlInput: typeof import('play-ui/components')['PlInput']
-    PlTable: typeof import('play-ui/components')['PlTable']
+    PlModal: typeof import('play-ui/components')['PlModal']
     PlTables: typeof import('play-ui/components')['PlTables']
-    PlTag: typeof import('play-ui/components')['PlTag']
   }
 }

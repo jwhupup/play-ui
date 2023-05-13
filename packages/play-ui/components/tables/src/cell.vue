@@ -9,10 +9,10 @@
 </template>
 
 <script setup lang="ts">
+import type { CellProps } from '../../component'
 import { useResizeColumnWidth } from './resize'
-import { cellProps } from './tables'
 
-const props = defineProps(cellProps)
+const props = defineProps<CellProps>()
 
 const { getColumnWidthCssVar } = useResizeColumnWidth(props.content.column)
 </script>

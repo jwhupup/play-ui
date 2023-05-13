@@ -12,19 +12,25 @@
     ]"
     @click="$emit('click')"
   >
-    <PlIcon v-if="iconLeft" class="pl-button-icon--left" :name="iconLeft" />
+    <Icon v-if="iconLeft" class="pl-button-icon--left" :name="iconLeft" />
     <slot />
-    <PlIcon v-if="iconRight" class="pl-button-icon--right" :name="iconRight" />
+    <Icon v-if="iconRight" class="pl-button-icon--right" :name="iconRight" />
   </button>
 </template>
 
 <script setup lang="ts">
 import { inject, ref } from 'vue'
+import Icon from '../../icon/src/index.vue'
+import type { ButtonProps } from '../../component'
 import { GROUP_BUTTON_KEY } from '../../button-group'
-import { buttonProps } from '../src/button'
-import PlIcon from '../../icon'
 
-defineProps(buttonProps)
+withDefaults(defineProps<ButtonProps>(), {
+  type: 'solid',
+  nativeType: 'button',
+  state: 'primary',
+  size: 'medium',
+  shape: 'rounded',
+})
 
 defineEmits(['click'])
 
@@ -33,6 +39,4 @@ defineOptions({ name: 'Button' })
 const buttonEl = ref<HTMLButtonElement>()
 
 const parent = inject(GROUP_BUTTON_KEY, null)
-
-defineExpose({ el: buttonEl })
 </script>

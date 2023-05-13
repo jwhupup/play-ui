@@ -1,6 +1,6 @@
 <template>
-  <div ref="dropdownEl" class="pl-dropdown" @mouseleave="handelLeave">
-    <div class="pl-dropdown-button" :class="{ 'pl-dropdown-button--disabled': disabled }" @[trigger].prevent="handleTrigger" @click.stop="handleCustomPositionClick">
+  <div class="pl-dropdown" @mouseleave="handelMouseleave">
+    <div ref="dropdownButtonEl" class="pl-dropdown-button" :class="{ 'pl-dropdown-button--disabled': disabled }" @[trigger].prevent="handleTrigger" @click.stop="handleCustomPositionClick">
       <slot />
     </div>
     <template v-if="data.length">
@@ -11,28 +11,28 @@
               <div v-if="item.title" class="pl-dropdown-title">
                 title
               </div>
-              <PlButton type="ghost" state="info" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
+              <Button type="ghost" state="info" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
                 <div class="pl-dropdown-button-content">
                   {{ item.name }}
-                  <PlBadge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
+                  <Badge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
                 </div>
-              </PlButton>
+              </Button>
               <div v-if="item.divider" class="pl-dropdown-divider" />
             </div>
           </template>
           <template v-else>
-            <PlDropdown :data="item.children" :trigger="item.trigger" :disabled="item.disabled" class="pl-dropdown-children">
+            <Dropdown :data="item.children" :trigger="item.trigger" :disabled="item.disabled" class="pl-dropdown-children">
               <div v-if="item.title" class="pl-dropdown-title">
                 title
               </div>
-              <PlButton type="ghost" state="info" icon-right="bi-chevron-right" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
+              <Button type="ghost" state="info" icon-right="bi-chevron-right" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
                 <div class="pl-dropdown-button-content">
                   {{ item.name }}
-                  <PlBadge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
+                  <Badge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
                 </div>
-              </PlButton>
+              </Button>
               <div v-if="item.divider" class="pl-dropdown-divider" />
-            </PlDropdown>
+            </Dropdown>
           </template>
         </template>
       </div>
@@ -41,44 +41,46 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import PlButton from '../../button'
-import PlBadge from '../../badge'
-import PlDropdown from './index.vue'
-import type { DropdownData } from './dropdown'
-import { dropdownProps } from './dropdown'
-import { useOutside } from './useOutside'
+import { onMounted, ref, watchEffect } from 'vue'
+import type { DropdownData, DropdownProps } from '../../component'
+import Button from '../../button/src/index.vue'
+import Badge from '../../badge/src/index.vue'
+import Dropdown from './index.vue'
+import { withCustomPosition } from './custom-position'
+import { useOutside } from './use-outside'
 
-const props = defineProps(dropdownProps)
+const props = withDefaults(defineProps<DropdownProps>(), {
+  trigger: 'mouseenter',
+})
 defineOptions({ name: 'Dropdown' })
 
-const dropdownEl = ref<HTMLElement>()
+const dropdownButtonEl = ref<HTMLElement>()
 const visible = ref(false)
-const isOutside = useOutside(dropdownEl, [props.trigger, 'click'])
-const position = ref({ x: 0, y: 0 })
 
-const customPositionStyle = computed(() => {
-  if (props.customPosition)
-    return `position: fixed; top: ${position.value.y}px; left: ${position.value.x}px;`
+const { customPositionStyle, calcPosition, handleCustomPositionClick } = withCustomPosition(props.customPosition)
 
-  return ''
+const { listen, clean } = useOutside(dropdownButtonEl, [props.trigger, 'click'], (isOutside) => {
+  if (isOutside.value)
+    visible.value = false
 })
 
-const handleCustomPositionClick = () => {
-  if (props.customPosition)
-    document.documentElement.click()
-}
+onMounted(() => {
+  watchEffect(() => {
+    if (!visible.value)
+      clean()
+    else
+      setTimeout(() => listen(), 0)
+  })
+})
 
 const handleTrigger = (evt: MouseEvent) => {
   visible.value = !visible.value
 
-  if (props.customPosition) {
-    position.value.x = evt.clientX
-    position.value.y = evt.clientY
-  }
+  if (props.customPosition)
+    calcPosition(evt)
 }
 
-const handelLeave = () => {
+const handelMouseleave = () => {
   if (Object.is(props.trigger, 'mouseenter'))
     visible.value = false
 }
@@ -90,9 +92,4 @@ const handleCallback = (data: DropdownData) => {
   if (!data.children)
     document.documentElement.click()
 }
-
-watch(isOutside, () => {
-  if (isOutside.value)
-    visible.value = false
-})
 </script>

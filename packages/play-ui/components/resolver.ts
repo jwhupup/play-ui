@@ -29,7 +29,7 @@ function getSideEffects(
   if (!importStyle || isSSR)
     return
 
-  const noStyleComps = ['on-click-outside']
+  const noStyleComps: string[] = []
 
   if (noStyleComps.includes(dirName))
     return

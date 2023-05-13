@@ -3,4 +3,3 @@ import Modal from './src/index.vue'
 
 export const PlModal = withInstall(Modal)
 export default PlModal
-export * from './src/modal'

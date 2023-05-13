@@ -32,7 +32,7 @@ interface CssInfo {
 
 function genStyleEntry(cssInfo: CssInfo) {
   if (cssInfo.path.includes(componentsRoot)) {
-    const noStyleComps = ['on-click-outside']
+    const noStyleComps = []
 
     const compName = cssInfo.name.split(/\\|\//)[1]
 
@@ -40,7 +40,9 @@ function genStyleEntry(cssInfo: CssInfo) {
 
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
-    const importContent = (readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8').match(importReg) || [])
+    const importContent = (
+      readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8').match(importReg) || []
+    )
       .filter(path => noStyleComps.every(comp => !path.includes(comp)))
       .reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
 

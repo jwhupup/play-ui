@@ -18,9 +18,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Icon from '../../icon'
-import { tagProps } from './tag'
+import type { TagProps } from '../../component'
 
-defineProps(tagProps)
+withDefaults(defineProps<TagProps>(), {
+  type: 'solid',
+  state: 'primary',
+  shape: 'rounded',
+})
 
 const emits = defineEmits(['close'])
 
