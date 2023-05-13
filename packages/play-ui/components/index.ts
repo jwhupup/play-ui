@@ -10,3 +10,5 @@ export * from './tables'
 export * from './checkbox'
 export * from './input'
 export * from './dropdown'
+
+export * from './component'
