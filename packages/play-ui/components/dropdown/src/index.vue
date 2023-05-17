@@ -1,41 +1,43 @@
 <template>
   <div class="pl-dropdown" @mouseleave="handelMouseleave">
-    <div ref="dropdownButtonEl" class="pl-dropdown-button" :class="{ 'pl-dropdown-button--disabled': disabled }" @[trigger].prevent="handleTrigger" @click.stop="handleCustomPositionClick">
+    <div ref="buttonEl" class="pl-dropdown-button" :class="{ 'pl-dropdown-button--disabled': disabled }" @[trigger].prevent="handleTrigger" @click.stop="handleCustomPositionClick">
       <slot />
     </div>
     <template v-if="data.length">
-      <div :style="customPositionStyle" class="pl-dropdown-menu" :class="{ 'pl-dropdown-menu--open': visible }">
-        <template v-for="item in data" :key="item.name">
-          <template v-if="!item.children">
-            <div class="pl-dropdown-button">
+      <Transition name="fade" @before-enter="onBeforeEnter">
+        <div v-show="visible" ref="menuEl" :style="customPositionStyle" class="pl-dropdown-menu">
+          <template v-for="item in data" :key="item.name">
+            <template v-if="!item.children">
               <div v-if="item.title" class="pl-dropdown-title">
                 title
               </div>
-              <Button type="ghost" state="info" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
-                <div class="pl-dropdown-button-content">
-                  {{ item.name }}
-                  <Badge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
-                </div>
-              </Button>
+              <div class="pl-dropdown-button">
+                <Button type="ghost" state="info" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
+                  <div class="pl-dropdown-button-content">
+                    {{ item.name }}
+                    <Badge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
+                  </div>
+                </Button>
+              </div>
               <div v-if="item.divider" class="pl-dropdown-divider" />
-            </div>
-          </template>
-          <template v-else>
-            <Dropdown :data="item.children" :trigger="item.trigger" :disabled="item.disabled" class="pl-dropdown-children">
+            </template>
+            <template v-else>
               <div v-if="item.title" class="pl-dropdown-title">
                 title
               </div>
-              <Button type="ghost" state="info" icon-right="bi-chevron-right" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
-                <div class="pl-dropdown-button-content">
-                  {{ item.name }}
-                  <Badge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
-                </div>
-              </Button>
+              <Dropdown :data="item.children" :disabled="item.disabled" class="pl-dropdown-children">
+                <Button type="ghost" state="info" icon-right="bi-chevron-right" :disabled="item.disabled" v-bind="item.menuButton" @click="handleCallback(item)">
+                  <div class="pl-dropdown-button-content">
+                    {{ item.name }}
+                    <Badge v-if="item.menuButton?.badge" v-bind="item.menuButton.badge" />
+                  </div>
+                </Button>
+              </Dropdown>
               <div v-if="item.divider" class="pl-dropdown-divider" />
-            </Dropdown>
+            </template>
           </template>
-        </template>
-      </div>
+        </div>
+      </Transition>
     </template>
   </div>
 </template>
@@ -45,21 +47,22 @@ import { onMounted, ref, watchEffect } from 'vue'
 import type { DropdownData, DropdownProps } from '../../component'
 import Button from '../../button/src/index.vue'
 import Badge from '../../badge/src/index.vue'
+import { useOutside } from '../../composables/use-outside'
 import Dropdown from './index.vue'
 import { withCustomPosition } from './custom-position'
-import { useOutside } from './use-outside'
 
 const props = withDefaults(defineProps<DropdownProps>(), {
   trigger: 'mouseenter',
 })
 defineOptions({ name: 'Dropdown' })
 
-const dropdownButtonEl = ref<HTMLElement>()
+const buttonEl = ref<HTMLElement>()
+const menuEl = ref<HTMLElement>()
 const visible = ref(false)
 
 const { customPositionStyle, calcPosition, handleCustomPositionClick } = withCustomPosition(props.customPosition)
 
-const { listen, clean } = useOutside(dropdownButtonEl, [props.trigger, 'click'], (isOutside) => {
+const { listen, clean } = useOutside(buttonEl, [props.trigger, 'click'], (isOutside) => {
   if (isOutside.value)
     visible.value = false
 })
@@ -74,10 +77,26 @@ onMounted(() => {
 })
 
 const handleTrigger = (evt: MouseEvent) => {
-  visible.value = !visible.value
+  if (visible.value)
+    visible.value = false
 
-  if (props.customPosition)
-    calcPosition(evt)
+  visible.value = !visible.value
+  calcPosition(evt)
+
+  // setTimeout(() => {
+  //   if (menuEl.value) {
+  //     if (window.innerWidth - evt.clientX <= menuEl.value.clientWidth) {
+  //       menuEl.value.style.left = ''
+  //       if (menuEl.value.closest('.pl-dropdown-children'))
+  //         menuEl.value.style.setProperty('right', `${menuEl.value.clientWidth - 12}px`)
+  //       else
+  //         menuEl.value.style.setProperty('right', '12px')
+  //     }
+  //     else if (menuEl.value.closest('.pl-dropdown-children')) {
+  //       menuEl.value.style.setProperty('left', '100%')
+  //     }
+  //   }
+  // }, 0)
 }
 
 const handelMouseleave = () => {

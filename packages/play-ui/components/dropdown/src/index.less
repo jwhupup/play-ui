@@ -22,13 +22,12 @@
   }
 
   &-divider {
-    width: calc(100% - 20px);
+    width: 95%;
+    margin: auto;
     border-top: 1px solid var(--pl-dropdown-divider-color);
   }
 
   &-button {
-    width: calc(100% + 20px);
-
     &-content {
       display: flex;
       justify-content: space-between;
@@ -43,8 +42,6 @@
   }
 
   &-menu {
-    opacity: 0;
-    pointer-events: none;
     display: inline-flex;
     flex-direction: column;
     position: absolute;
@@ -52,34 +49,39 @@
     width: 218px;
     height: fit-content;
     padding: 8px;
-    transform: translateY(-10px);
     background-color: var(--pl-dropdown-bg-color);
     border-radius: 8px;
     border: 1px solid var(--pl-dropdown-bg-color);
     box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.04), 0px 4px 3px rgba(0, 0, 0, 0.1);
-    transition: opacity 200ms ease-in-out, transform 200ms ease-in-out;
 
     &--open {
-      opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
 
     }
+
+    .pl-button {
+      width: 100%;
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .pl-button {
+    margin-bottom: 10px;
   }
 
   &-children &-menu {
     top: 0;
-    left: calc(100% + 10px);
-    margin-top: -8px;
-    margin-left: 4px;
-  }
-
-  .pl-button {
-    width: calc(100% - 20px);
+    // left: 100%;
   }
 }
 
-#app>.pl-dropdown>.pl-dropdown-button {
-  margin-bottom: 10px;
-  padding: 0px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

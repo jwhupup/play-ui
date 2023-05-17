@@ -10,7 +10,7 @@
       `pl-button--${parent?.size || size}`,
       disabled && 'is-disabled',
     ]"
-    @click="$emit('click')"
+    @click="$emit('click', $event)"
   >
     <Icon v-if="iconLeft" class="pl-button-icon--left" :name="iconLeft" />
     <slot />

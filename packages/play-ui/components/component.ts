@@ -113,26 +113,40 @@ export interface ModalProps {
 }
 
 // table
-export interface TablesProps {
-  header: TableColumnConfig[]
+export interface TableProps {
+  width?: number
+  header: TableHeaderCell[]
   data: Record<string, any>[]
-  columnResizable?: boolean
   fixedHeader?: boolean
+  striped?: boolean
+  border?: boolean
 }
 
-export interface TableColumnConfig {
+export interface TableConfig {
+  striped: boolean
+  width: number
+  columns: TableHeaderCell[]
+  data: Record<string, any>[]
+}
+
+export interface TableHeaderCell {
   name: string
   key?: string
   width?: number
-  children?: TableColumnConfig[]
+  index?: number
+  children?: TableHeaderCell[]
 }
 
-export interface HeaderCellProps {
-  content: TableColumnConfig
+export interface TableHeaderCellProps {
+  data: TableHeaderCell
 }
 
-export interface CellProps {
-  content: { column: TableColumnConfig; row: Record<string, any> }
+export interface TableCellProps {
+  data: any
+}
+
+export interface TableRowProps {
+  data: Record<string, any>[]
 }
 
 // tag

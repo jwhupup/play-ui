@@ -1,49 +1,32 @@
 <template>
-  <div ref="tableEl" class="pl-table">
-    <div class="pl-table-header" :class="{ 'pl-table-header--fixed': fixedHeader }">
-      <HeaderCell v-for="cell in header" :key="cell.name" :content="cell" />
+  <div ref="tableEl" class="pl-table" :class="{ 'pl-table--border': !border }">
+    <div
+      class="pl-table-header"
+      :class="{ 'pl-table-header--fixed': fixedHeader }"
+    >
+      <HeaderCell v-for="(cell, index) in header" :key="index" :data="cell" />
     </div>
-    <PlDropdown :data="menus" trigger="contextmenu" custom-position>
+    <Dropdown :data="dropdownData" trigger="contextmenu" custom-position>
       <div class="pl-table-body">
-        <Row v-for="(row, index) in data" :key="index">
-          <Cell v-for="column in columnConfig" :key="column.name" :content="{ row, column }" />
-        </Row>
+        <Row :data="data" />
       </div>
-    </PlDropdown>
+    </Dropdown>
   </div>
 </template>
 
 <script setup lang="ts">
-import { provide } from 'vue'
-import PlDropdown from '../../dropdown'
-import type { DropdownData, TablesProps } from '../../component'
-import { TABLE_CONFIG_KEY, columnConfig, genColumnConfig } from './column'
+import { ref } from 'vue'
+import Dropdown from '../../dropdown/src/index.vue'
+import type { TableProps } from '../../component'
+import { dropdownData, genTableConfig } from './table'
 import HeaderCell from './header-cell.vue'
-import Cell from './cell.vue'
 import Row from './row.vue'
 
-const props = defineProps<TablesProps>()
+const props = defineProps<TableProps>()
 
 defineOptions({ name: 'Tables' })
 
-genColumnConfig(props.header)
+const tableEl = ref<HTMLElement>()
 
-provide(TABLE_CONFIG_KEY, props)
-
-const menus: DropdownData[] = [
-  {
-    name: '复制',
-    children: [
-      { name: '复制行' },
-      { name: '复制列' },
-    ],
-  },
-  {
-    name: '编辑',
-    children: [
-      { name: '编辑行' },
-      { name: '编辑列' },
-    ],
-  },
-]
+genTableConfig(props, tableEl)
 </script>

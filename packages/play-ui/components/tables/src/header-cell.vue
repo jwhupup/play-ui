@@ -1,34 +1,31 @@
 <template>
-  <div class="pl-table-cell">
-    <div class="pl-table-cell-content" :class="{ 'pl-table-cell-parent': content.children }" :style="getColumnWidthCssVar">
-      <span>
-        {{ content.name }}
-      </span>
-      <div v-if="!content.children && tableConfig?.columnResizable" class="pl-table-column--resize" @mousedown="handleResizeColumnWidth($event, content.key!)" />
+  <div class="pl-table-header-cell" :style="columnWidth">
+    <div class="pl-table-cell">
+      {{ data.name }}
     </div>
-    <div v-if="content.children" class="pl-table-cell-children">
-      <HeaderCell v-for="childCell in content.children" :key="childCell.name" :content="childCell" />
+    <div v-if="data.children" class="pl-table-header-cell-children">
+      <HeaderCell
+        v-for="childCell in data.children"
+        :key="childCell.name"
+        :data="childCell"
+      />
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, inject } from 'vue'
-import type { HeaderCellProps } from '../../component'
-import { TABLE_CONFIG_KEY } from './column'
-import { useResizeColumnWidth } from './resize'
-
-export default defineComponent({
-  name: 'HeaderCell',
-})
-</script>
-
 <script setup lang="ts">
-const props = defineProps<HeaderCellProps>()
+import { computed } from 'vue'
+import type { TableHeaderCellProps } from '../../component'
+import HeaderCell from './header-cell.vue'
 
-const tableConfig = inject(TABLE_CONFIG_KEY, null)
+const props = defineProps<TableHeaderCellProps>()
 
-const { setColumnWidthCssVar, getColumnWidthCssVar, handleResizeColumnWidth } = useResizeColumnWidth(props.content)
+defineOptions({ name: 'HeaderCell' })
 
-setColumnWidthCssVar()
+const columnWidth = computed(() => {
+  if (!props.data.children)
+    return `width: var(--pl-table-column-${props.data.index}-width);`
+
+  return ''
+})
 </script>

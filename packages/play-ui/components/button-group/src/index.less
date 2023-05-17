@@ -1,15 +1,15 @@
 [data-theme='light'] .pl-button-group {
-  --pl-button-group-solid-border-color: var(--pl-bd-light-bg);
+  --pl-button-group-solid-border-color: white;
 }
 
 [data-theme='dark'] .pl-button-group {
-  --pl-button-group-solid-border-color: var(--pl-bd-dark-bg);
+  --pl-button-group-solid-border-color: var(--pl-slate-800);
 }
 
 .pl-button-group {
   display: inline-flex;
 
-  & > .pl-button {
+  &>.pl-button {
     margin-left: 0;
 
     &:first-child {
@@ -51,7 +51,7 @@
 .is-vertical {
   flex-direction: column;
 
-  & > .pl-button {
+  &>.pl-button {
     &:first-child {
       border-bottom-left-radius: 0;
       border-top-right-radius: var(--pl-border-radius);

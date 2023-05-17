@@ -31,6 +31,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   nativeType: 'text',
 })
 const emit = defineEmits(['update:modelValue', 'blur'])
+
 defineOptions({ name: 'Input' })
 
 const inputEl = ref<HTMLInputElement>()
@@ -49,8 +50,4 @@ const handleBlur = (evt: Event) => {
   if (props.rule?.pattern && props.modelValue)
     isShowTip.value = !props.rule?.pattern.test(String(props.modelValue))
 }
-
-defineExpose({
-  el: inputEl,
-})
 </script>

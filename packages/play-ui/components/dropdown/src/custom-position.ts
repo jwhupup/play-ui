@@ -4,10 +4,20 @@ const position = ref({ x: 0, y: 0 })
 
 export function withCustomPosition(customPosition: boolean) {
   const customPositionStyle = computed(() => {
-    if (customPosition)
-      return `position: fixed; top: ${position.value.y}px; left: ${position.value.x}px;`
+    const styleMap = new Map()
+    let style = ''
 
-    return ''
+    if (customPosition) {
+      styleMap.set('position', 'fixed')
+      styleMap.set('top', `${position.value.y}px`)
+      styleMap.set('left', `${position.value.x}px`)
+    }
+
+    styleMap.forEach((value, key) => {
+      style += `${key}:${value};`
+    })
+
+    return style
   })
 
   const handleCustomPositionClick = () => {
@@ -16,8 +26,10 @@ export function withCustomPosition(customPosition: boolean) {
   }
 
   const calcPosition = (evt: MouseEvent) => {
-    position.value.x = evt.clientX
-    position.value.y = evt.clientY
+    if (customPosition) {
+      position.value.x = evt.clientX
+      position.value.y = evt.clientY
+    }
   }
 
   return {

@@ -1,93 +1,105 @@
+[data-theme="light"] .pl-table {
+    --pl-table-text-color: var(--pl-gray-800);
+    --pl-table-border: 1px solid var(--pl-gray-200);
+    --pl-table-header-text-color: var(--pl-gray-500);
+    --pl-table-header-bg-color: white;
+    --pl-table-striped-row-color: var(--pl-gray-100);
+    --pl-table-row-hover-bg: var(--pl-gray-300);
+    --pl-scrollbar-thumb-color: var(--pl-gray-200);
+}
+
+[data-theme="dark"] .pl-table {
+    --pl-table-text-color: var(--pl-gray-400);
+    --pl-table-border: 1px solid var(--pl-gray-700);
+    --pl-table-header-text-color: var(--pl-gray-300);
+    --pl-table-header-bg-color: var(--pl-slate-900);
+    --pl-table-striped-row-color: var(--pl-slate-800);
+    --pl-table-row-hover-bg: var(--pl-slate-600);
+    --pl-scrollbar-thumb-color: var(--pl-gray-600);
+}
+
 .pl-table {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 800px;
-    color: #000000D9;
-    overflow: auto;
-    border-left: 1px solid #f0f0f0;
+    height: 600px;
+    font-size: 14px;
+    overflow: hidden;
+    color: var(--pl-table-text-color);
 
-    &-menu {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        width: 200px;
-        height: 200px;
-        background-color: red;
+    &--border div {
+        border-left: none;
+        border-right: none;
+    }
+
+    &:hover {
+        overflow: auto;
+    }
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: var(--pl-scrollbar-thumb-color);
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
     }
 
     &-header {
         display: inline-flex;
         width: fit-content;
-        border-top: 1px solid #f0f0f0;
-        background-color: #302e2e;
+        border-top: var(--pl-table-border);
+        border-left: var(--pl-table-border);
         position: sticky;
         top: 0;
         z-index: 100;
-    }
+        font-weight: 600;
+        color: var(--pl-table-header-text-color);
+        background-color: var(--pl-table-header-bg-color);
 
-    &-column {
-        &--resize {
-            position: absolute;
-            right: 0;
-            width: 0;
-            height: 100%;
-            border: 1px solid greenyellow;
-            cursor: col-resize;
-        }
-    }
-
-    &-cell {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-bottom: 1px solid #f0f0f0;
-        border-right: 1px solid #f0f0f0;
-
-        &-content {
-            position: relative;
+        &-cell {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-        }
+            flex-direction: column;
 
-        &-content:last-child {
-            color: red;
-            min-width: 100px;
-            max-width: 500px;
-        }
-
-        &-children {
-            display: flex;
-            width: 100%;
-
-            &>div {
-                border-bottom: none;
-
+            &-children {
+                display: flex;
             }
-
-            &>div:last-child {
-                border-right: none;
-            }
-        }
-
-        &-parent {
-            border-bottom: 1px solid #f0f0f0;
         }
     }
 
     &-body {
         width: fit-content;
-
+        border-left: var(--pl-table-border);
     }
 
+    &-cell {
+        height: 100%;
+        padding: 8px 12px;
+        line-height: 23px;
+        border-bottom: var(--pl-table-border);
+        border-right: var(--pl-table-border);
+        word-break: break-all;
+    }
 
     &-row {
         display: flex;
+
+        div {
+            height: auto;
+        }
+
+        &:hover {
+            background-color: var(--pl-table-row-hover-bg) !important;
+        }
+
+        &--striped:nth-child(odd) {
+            background-color: var(--pl-table-striped-row-color);
+        }
     }
 }

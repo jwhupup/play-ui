@@ -30,8 +30,8 @@ import { onMounted, ref, watchEffect } from 'vue'
 import Button from '../../button/src/index.vue'
 import Icon from '../../icon/src/index.vue'
 import Mask from '../../mask/src/index.vue'
-import { useOutside } from '../../dropdown/src/use-outside'
 import type { ModalProps } from '../../component'
+import { useOutside } from '../../composables/use-outside'
 
 const props = withDefaults(defineProps<ModalProps>(), {
   mask: true,

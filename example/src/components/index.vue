@@ -1,5 +1,5 @@
 <template>
-  <PlTables :header="tableHead" :data="tableData" column-resizable fixed-header />
+  <PlTables :header="tableHead" :data="tableData" fixed-header striped border />
   <PlCheckbox
     v-for="item in checkboxData" :key="item.lable" v-model="item.isChecked" :lable="item.lable"
     type="checkbox"
@@ -16,8 +16,8 @@
   <PlBadge>11+</PlBadge>
   <br>
 
-  <PlDropdown trigger="contextmenu" :data="menus">
-    <PlButton icon-left="bi-airplane" icon-right="bi-airplane">
+  <PlDropdown trigger="mouseenter" :data="menus">
+    <PlButton icon-left="bi-airplane">
       dropdown1
     </PlButton>
   </PlDropdown>
@@ -75,7 +75,6 @@ const menus: DropdownData[] = [
     // trigger: 'contextmenu',
     divider: true,
     title: 'title',
-    disabled: true,
     menuButton: {
       iconRight: 'bi-airplane',
       badge: {
@@ -148,8 +147,9 @@ const mock = (colCount = 10, rowCount = 20) => {
   for (let i = 0; i < colCount; i++)
     head.push({ name: `column${i}`, key: `key${i}` })
 
-  // head[0].group = 'aaa'
-  // head[0].children = [{ name: 'aaa', key: 'key000', children: [{ name: 'c1-1', children: [{ name: 'b-1', key: 'b1' }, { name: 'b-2', key: 'b2' }], key: 'key1111', width: 120 }, { name: 'c1-2', key: 'key2222' }] }, { name: 'bbb', key: 'key111' }]
+  head[0].children = [{ name: 'aaa', key: 'key000', children: [{ name: 'c1-1', children: [{ name: 'b-1', width: 400, key: 'b1' }, { name: 'b-2', key: 'b2', children: [{ name: 'b-1', key: 'b1' }, { name: 'b-2', key: 'b2' }] }], key: 'key1111', width: 120 }, { name: 'c1-2', key: 'key2222' }] }, { name: 'bbb', key: 'key111' }]
+  //
+  head[3].children = [{ name: 'aaa', key: 'key000', children: [{ name: 'c1-1', children: [{ name: 'b-1', key: 'b1' }, { name: 'b-2', key: 'b2' }], key: 'key1111', width: 120 }, { name: 'c1-2', key: 'key2222' }] }, { name: 'bbb', key: 'key111' }]
 
   for (let i = 0; i < rowCount; i++) {
     const obj: Record<string, unknown> = {}
