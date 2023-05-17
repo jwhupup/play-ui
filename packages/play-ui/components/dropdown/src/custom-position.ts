@@ -4,15 +4,15 @@ const position = ref({ x: 0, y: 0 })
 
 export function withCustomPosition(customPosition: boolean) {
   const customPositionStyle = computed(() => {
-    const styleMap = new Map()
     let style = ''
+    const styleMap = new Map()
 
+    styleMap.set('left', '100%')
     if (customPosition) {
       styleMap.set('position', 'fixed')
       styleMap.set('top', `${position.value.y}px`)
       styleMap.set('left', `${position.value.x}px`)
     }
-
     styleMap.forEach((value, key) => {
       style += `${key}:${value};`
     })

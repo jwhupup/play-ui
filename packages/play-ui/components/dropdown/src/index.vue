@@ -4,8 +4,8 @@
       <slot />
     </div>
     <template v-if="data.length">
-      <Transition name="fade" @before-enter="onBeforeEnter">
-        <div v-show="visible" ref="menuEl" :style="customPositionStyle" class="pl-dropdown-menu">
+      <Transition name="fade">
+        <div ref="menuEl" :style="customPositionStyle" class="pl-dropdown-menu" :class="{ 'pl-dropdown-menu--open': visible }">
           <template v-for="item in data" :key="item.name">
             <template v-if="!item.children">
               <div v-if="item.title" class="pl-dropdown-title">
@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from 'vue'
+import { nextTick, onMounted, ref, watchEffect } from 'vue'
 import type { DropdownData, DropdownProps } from '../../component'
 import Button from '../../button/src/index.vue'
 import Badge from '../../badge/src/index.vue'
@@ -68,6 +68,8 @@ const { listen, clean } = useOutside(buttonEl, [props.trigger, 'click'], (isOuts
 })
 
 onMounted(() => {
+  console.log(2312312)
+
   watchEffect(() => {
     if (!visible.value)
       clean()
@@ -77,26 +79,30 @@ onMounted(() => {
 })
 
 const handleTrigger = (evt: MouseEvent) => {
-  if (visible.value)
-    visible.value = false
+  visible.value = true
 
-  visible.value = !visible.value
   calcPosition(evt)
 
-  // setTimeout(() => {
-  //   if (menuEl.value) {
-  //     if (window.innerWidth - evt.clientX <= menuEl.value.clientWidth) {
-  //       menuEl.value.style.left = ''
-  //       if (menuEl.value.closest('.pl-dropdown-children'))
-  //         menuEl.value.style.setProperty('right', `${menuEl.value.clientWidth - 12}px`)
-  //       else
-  //         menuEl.value.style.setProperty('right', '12px')
-  //     }
-  //     else if (menuEl.value.closest('.pl-dropdown-children')) {
-  //       menuEl.value.style.setProperty('left', '100%')
-  //     }
-  //   }
-  // }, 0)
+  nextTick(() => {
+    if (menuEl.value) {
+      if (menuEl.value.style.right) {
+        menuEl.value.style.setProperty('right', '')
+        menuEl.value.style.setProperty('left', '100%')
+      }
+
+      const { right, width } = menuEl.value.getBoundingClientRect() as DOMRect
+      // console.log(menuEl.value.style.right)
+      // console.log(window.innerWidth, right, width)
+      if (window.innerWidth - right <= 20) {
+        menuEl.value.style.setProperty('left', '')
+
+        if (menuEl.value.closest('.pl-dropdown-children'))
+          menuEl.value.style.setProperty('right', `${width - 20}px`)
+        else
+          menuEl.value.style.setProperty('right', '20px')
+      }
+    }
+  })
 }
 
 const handelMouseleave = () => {

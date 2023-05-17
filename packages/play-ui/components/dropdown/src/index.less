@@ -28,6 +28,8 @@
   }
 
   &-button {
+    width: 100%;
+
     &-content {
       display: flex;
       justify-content: space-between;
@@ -43,6 +45,8 @@
 
   &-menu {
     display: inline-flex;
+    opacity: 0;
+    pointer-events: none;
     flex-direction: column;
     position: absolute;
     z-index: 100;
@@ -53,10 +57,11 @@
     border-radius: 8px;
     border: 1px solid var(--pl-dropdown-bg-color);
     box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.04), 0px 4px 3px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
 
     &--open {
+      opacity: 1;
       pointer-events: auto;
-      transform: translateY(0);
 
     }
 
