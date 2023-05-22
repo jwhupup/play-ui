@@ -6,6 +6,7 @@
   "rules": {
     "react/display-name": "off",
     "react-hooks/rules-of-hooks": "off",
+    "vue/no-reserved-component-names": "off",
     "no-sequences": "off",
     "no-alert": "off",
     "no-console": [

@@ -5,7 +5,7 @@
     </div>
     <template v-if="data.length">
       <Transition name="fade">
-        <div ref="menuEl" :style="customPositionStyle" class="pl-dropdown-menu" :class="{ 'pl-dropdown-menu--open': visible }">
+        <div v-show="visible" ref="menuEl" :style="customPositionStyle" class="pl-dropdown-menu">
           <template v-for="item in data" :key="item.name">
             <template v-if="!item.children">
               <div v-if="item.title" class="pl-dropdown-title">
@@ -68,8 +68,6 @@ const { listen, clean } = useOutside(buttonEl, [props.trigger, 'click'], (isOuts
 })
 
 onMounted(() => {
-  console.log(2312312)
-
   watchEffect(() => {
     if (!visible.value)
       clean()
@@ -90,9 +88,25 @@ const handleTrigger = (evt: MouseEvent) => {
         menuEl.value.style.setProperty('left', '100%')
       }
 
-      const { right, width } = menuEl.value.getBoundingClientRect() as DOMRect
-      // console.log(menuEl.value.style.right)
+      const { right, width, bottom, height } = menuEl.value.getBoundingClientRect() as DOMRect
+      console.log(window.innerHeight, bottom, height, window.screenY)
+
+      // if (!menuEl.value.closest('.pl-dropdown-children')) {
+      // if (window.innerHeight - bottom <= 20) {
+      //   console.log('小于20了！！！')
+      //   menuEl.value.style.setProperty('top', '')
+      //   menuEl.value.style.setProperty('bottom', '100%')
+      // }
+      // else if (window.innerHeight - bottom > height) {
+      //   console.log('大于height了！！！')
+
+      //   menuEl.value.style.setProperty('top', '100%')
+      //   menuEl.value.style.setProperty('bottom', '-9px')
+      // }
+      // }
+
       // console.log(window.innerWidth, right, width)
+
       if (window.innerWidth - right <= 20) {
         menuEl.value.style.setProperty('left', '')
 
@@ -100,6 +114,9 @@ const handleTrigger = (evt: MouseEvent) => {
           menuEl.value.style.setProperty('right', `${width - 20}px`)
         else
           menuEl.value.style.setProperty('right', '20px')
+      }
+      else if (menuEl.value.closest('.pl-dropdown-children')) {
+        menuEl.value.style.setProperty('left', '100%')
       }
     }
   })

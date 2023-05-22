@@ -7,7 +7,6 @@ export function withCustomPosition(customPosition: boolean) {
     let style = ''
     const styleMap = new Map()
 
-    styleMap.set('left', '100%')
     if (customPosition) {
       styleMap.set('position', 'fixed')
       styleMap.set('top', `${position.value.y}px`)

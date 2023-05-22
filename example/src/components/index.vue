@@ -21,7 +21,35 @@
       dropdown1
     </PlButton>
   </PlDropdown>
-
+  <br>
+  <pl-modal
+    v-model:visible="visible"
+    @cancel="handleCancel"
+    @confirm="handleConfirm"
+  >
+    <span>
+      This is a wider card with supporting text below as a natural lead-into
+      additional content.
+    </span>
+  </pl-modal>
+  <pl-button @click="handelButtonClick">
+    open modal
+  </pl-button>
+  <br>
+  <pl-modal
+    v-model:visible="visible"
+    @cancel="handleCancel"
+    @confirm="handleConfirm"
+  >
+    <span>
+      This is a wider card with supporting text below as a natural lead-into
+      additional content.
+    </span>
+  </pl-modal>
+  <pl-button @click="handelButtonClick">
+    open modal
+  </pl-button>
+  <br>
   <pl-modal
     v-model:visible="visible"
     @cancel="handleCancel"

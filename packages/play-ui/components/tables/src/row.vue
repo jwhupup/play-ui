@@ -1,5 +1,5 @@
 <template>
-  <template v-for="(row, rowIndex) in data" :key="rowIndex">
+  <template v-for="row in data" :key="row[key]">
     <div
       class="pl-table-row"
       :class="{ 'pl-table-row--striped': config.striped }"
