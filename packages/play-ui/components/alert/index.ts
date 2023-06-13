@@ -1,4 +1,4 @@
-import { withInstall } from '../install'
+import { withInstall } from '../../utils'
 import Alert from './src/index.vue'
 
 export const PlAlert = withInstall(Alert)

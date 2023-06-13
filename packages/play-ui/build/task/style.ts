@@ -4,7 +4,7 @@ import gulpLess from 'gulp-less'
 import gulpImportLess from 'gulp-import-less'
 import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
-import { outputFileSync, readFileSync } from 'fs-extra'
+import { existsSync, outputFileSync, readFileSync } from 'fs-extra'
 import { buildOutput, componentsRoot, stylesRoot } from '../path'
 
 export async function buildStyle() {
@@ -40,8 +40,10 @@ function genStyleEntry(cssInfo: CssInfo) {
 
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
+    const isExist = existsSync(resolve(componentsRoot, compName, 'src/index.vue'))
+
     const importContent = (
-      readFileSync(resolve(componentsRoot, compName, 'src/index.vue'), 'utf-8').match(importReg) || []
+      readFileSync(resolve(componentsRoot, compName, `src/index.${isExist ? 'vue' : 'tsx'}`), 'utf-8').match(importReg) || []
     )
       .filter(path => noStyleComps.every(comp => !path.includes(comp)))
       .reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)

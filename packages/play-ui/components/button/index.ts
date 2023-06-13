@@ -1,4 +1,4 @@
-import { withInstall } from '../install'
+import { withInstall } from '../../utils'
 import Button from './src/index.vue'
 
 export const PlButton = withInstall(Button)

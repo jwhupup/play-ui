@@ -1,4 +1,4 @@
-import { withInstall } from '../install'
+import { withInstall } from '../../utils'
 import Input from './src/index.vue'
 
 export const PlInput = withInstall(Input)

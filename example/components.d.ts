@@ -11,12 +11,13 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
     PlBadge: typeof import('play-ui/components')['PlBadge']
-    PlButton: typeof import('play-ui/components')['PlButton']
+    PlButton: typeof import('play-ui/index')['PlButton']
     PlCheckbox: typeof import('play-ui/components')['PlCheckbox']
     PlDropdown: typeof import('play-ui/components')['PlDropdown']
-    PlIcon: typeof import('play-ui/components')['PlIcon']
+    PlIcon: typeof import('play-ui/index')['PlIcon']
     PlInput: typeof import('play-ui/components')['PlInput']
-    PlModal: typeof import('play-ui/components')['PlModal']
+    PlModal: typeof import('play-ui/index')['PlModal']
+    PlPrompt: typeof import('play-ui')['PlPrompt']
     PlTables: typeof import('play-ui/components')['PlTables']
   }
 }

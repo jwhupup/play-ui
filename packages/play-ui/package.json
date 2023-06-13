@@ -19,8 +19,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf dist && vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts",
-    "build:vite": "vue-tsc && vite build"
+    "build": "rimraf dist && vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts"
   },
   "peerDependencies": {
     "vue": "^3.3.0-beta.5"

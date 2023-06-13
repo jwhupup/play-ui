@@ -1,33 +1,7 @@
 import type { Ref } from 'vue'
 import { onMounted, ref, watchEffect } from 'vue'
 
-import type { DropdownData, TableConfig, TableHeaderCell, TableProps } from '../../component'
-import { copyCell, copyColumn, copyRow } from './copy'
-
-export const dropdownData: DropdownData[] = [
-  {
-    name: '复制',
-    children: [
-      {
-        name: '复制行',
-        callback: () => copyRow(),
-        children: [
-          { name: '编辑行' },
-          { name: '编辑列' },
-        ],
-      },
-      { name: '复制列', callback: () => copyColumn() },
-      { name: '复制单元格', callback: () => copyCell() },
-    ],
-  },
-  {
-    name: '编辑',
-    children: [
-      { name: '编辑行' },
-      { name: '编辑列' },
-    ],
-  },
-]
+import type { TableConfig, TableHeaderCell, TableProps } from '../../component'
 
 export const config = ref<TableConfig>({
   striped: false,

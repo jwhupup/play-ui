@@ -6,19 +6,16 @@
     >
       <HeaderCell v-for="(cell, index) in header" :key="index" :data="cell" />
     </div>
-    <Dropdown :data="dropdownData" trigger="contextmenu" custom-position>
-      <div class="pl-table-body">
-        <Row :data="data" />
-      </div>
-    </Dropdown>
+    <div class="pl-table-body">
+      <Row :data="data" />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Dropdown from '../../dropdown/src/index.vue'
 import type { TableProps } from '../../component'
-import { dropdownData, genTableConfig } from './table'
+import { genTableConfig } from './table'
 import HeaderCell from './header-cell.vue'
 import Row from './row.vue'
 

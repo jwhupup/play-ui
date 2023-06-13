@@ -1,5 +1,5 @@
 import type { InjectionKey } from 'vue'
-import { withInstall } from '../install'
+import { withInstall } from '../../utils'
 import type { ButtonGroupProps } from '../component'
 import ButtonGroup from './src/index.vue'
 

@@ -3,12 +3,11 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { build } from 'vite'
 import consola from 'consola'
-import { buildOutput, componentsRoot } from '../path'
+import { buildOutput, projectRoot } from '../path'
 
 export async function buildBundled() {
   consola.info('Start building bundle...')
-
-  const input = resolve(componentsRoot, 'index.ts')
+  const input = resolve(projectRoot, 'index.ts')
   await build({
     plugins: [vue(), vueJsx()],
     build: {

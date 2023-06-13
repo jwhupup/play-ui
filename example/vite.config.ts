@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-ui/dist/lib/resolver'
+import { PlayResolver } from 'play-ui/dist/lib/components/resolver'
 import Unocss from 'unocss/vite'
 import { presetAttributify, presetUno } from 'unocss'
 
@@ -23,7 +23,7 @@ export default defineConfig({
       resolvers: [
         PlayResolver({
           importStyle: 'less',
-          from: 'play-ui/components',
+          from: 'play-ui/index',
         }),
       ],
     }),
