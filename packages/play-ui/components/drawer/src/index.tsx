@@ -1,7 +1,7 @@
 import { type ExtractPropTypes, type PropType, Teleport, Transition, computed, defineComponent } from 'vue'
 import { type ToggleHandler } from '../../../composables'
 import { useModal } from '../../../composables'
-import { animation, first2UpperCase } from '../../../utils'
+import { animation, uppercaseFirstWord } from '../../../utils'
 import Button from '../../button'
 
 export interface DarwerInstance extends ToggleHandler, HTMLElement {}
@@ -52,13 +52,13 @@ export default defineComponent({
     })
 
     const animate = computed(() => {
-      const inSuffix = first2UpperCase(props.placement === 'top'
+      const inSuffix = uppercaseFirstWord(props.placement === 'top'
         ? 'down'
         : props.placement === 'bottom'
           ? 'up'
           : props.placement,
       )
-      const outSuffix = first2UpperCase(props.placement === 'top'
+      const outSuffix = uppercaseFirstWord(props.placement === 'top'
         ? 'up'
         : props.placement === 'bottom'
           ? 'down'

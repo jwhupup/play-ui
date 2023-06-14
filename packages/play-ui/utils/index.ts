@@ -8,7 +8,7 @@ export function runAsync(cb: () => any) {
   }, 0)
 }
 
-export function first2UpperCase(word?: string) {
+export function uppercaseFirstWord(word?: string) {
   if (!word)
     return word
 
