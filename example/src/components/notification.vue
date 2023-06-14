@@ -12,7 +12,6 @@ import 'play-ui/components/alert/src/index.less'
 import { PlNotification } from 'play-ui/index'
 
 const handleClick = () => {
-  console.log(21321)
   PlNotification({
     title: 'App notifications',
     content: 'Notifications may include alerts, sounds and icon badges.',
