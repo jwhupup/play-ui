@@ -28,7 +28,7 @@ export function range(start: number, stop: number, step: number) {
  * only animation.css
  */
 export function animation(
-  name: string,
+  name: string | undefined,
   speed: 'slow' | 'slower' | 'fast' | 'faster' = 'faster',
   repeat: 1 | 2 | 3 | 'infinite' = 1,
 ) {
