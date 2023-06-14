@@ -102,14 +102,6 @@ export interface InputProps {
   disabled?: boolean
 }
 
-// modal
-export interface ModalProps {
-  title?: string
-  mask?: boolean
-  showClose?: boolean
-  visible?: boolean
-}
-
 // table
 export interface TableProps {
   width?: number

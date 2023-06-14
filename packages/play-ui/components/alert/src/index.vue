@@ -15,12 +15,13 @@
         {{ description }}
       </div>
     </div>
-    <Icon v-if="closable" name="bi-x-lg" @click="handleClose" />
+    <Button v-if="closable" type="link" state="info" icon-left="x-lg" @click="handleClose" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import Button from '../../button/src/index.vue'
 import Icon from '../../icon/src/index.vue'
 import type { AlertProps } from '../../component'
 

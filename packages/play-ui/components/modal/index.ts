@@ -3,4 +3,4 @@ import Modal from './src/index'
 
 export const PlModal = withInstall(Modal)
 export default PlModal
-export type { ModalInstance } from './src/index'
+export * from './src/index'

@@ -2,11 +2,10 @@ import { type ExtractPropTypes, type PropType, Teleport, Transition, computed, d
 import { type ToggleHandler, useDraggable, useModal } from '../../../composables'
 import { animation } from '../../../utils'
 import Button from '../../button/src/index.vue'
-import Icon from '../../icon/src/index.vue'
 
 export interface ModalInstance extends ToggleHandler, HTMLElement {}
 export type ModalProps = ExtractPropTypes<typeof modalProps>
-export type ShakeOffProp = 'X-button' | 'confirm-button' | 'cancel-button' | 'mask' | 'header' | 'footer'
+type ShakeOffProp = 'x-button' | 'confirm-button' | 'cancel-button' | 'mask' | 'header' | 'footer'
 
 const modalProps = {
   shakeOff: {
@@ -70,18 +69,17 @@ export default defineComponent({
       <>
         {isShake('mask') || <div class={'pl-mask'} />}
         <div
-          ref={modal}
           class="pl-modal"
+          ref={modal}
           draggable={props.draggable}
         >
-          {isShake('X-button') || <Icon name="x-lg" onClick={onClose} />}
+          {isShake('x-button') || <Button type='link' state='info' icon-left={'x-lg'} onClick={onClose} />}
           {isShake('header') || (props.title && renderHeader())}
           <section>{slots.default?.()}</section>
           {isShake('footer') || renderFooter()}
         </div>
       </>
     )
-
     const renderHeadless = () => (
       <div ref={modal}>
         {slots.headless?.()}

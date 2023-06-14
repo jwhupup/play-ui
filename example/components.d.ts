@@ -10,14 +10,25 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
+    copy: typeof import('./src/components/tooltip copy.vue')['default']
+    Drawer: typeof import('./src/components/drawer.vue')['default']
+    Modal: typeof import('./src/components/modal.vue')['default']
+    Notification: typeof import('./src/components/notification.vue')['default']
+    PlAlert: typeof import('play-ui/index')['PlAlert']
     PlBadge: typeof import('play-ui/components')['PlBadge']
+    Plbutton: typeof import('play-ui/index')['Plbutton']
     PlButton: typeof import('play-ui/index')['PlButton']
     PlCheckbox: typeof import('play-ui/components')['PlCheckbox']
+    PlDrawer: typeof import('play-ui/index')['PlDrawer']
     PlDropdown: typeof import('play-ui/components')['PlDropdown']
     PlIcon: typeof import('play-ui/index')['PlIcon']
     PlInput: typeof import('play-ui/components')['PlInput']
     PlModal: typeof import('play-ui/index')['PlModal']
+    PlPopover: typeof import('play-ui/index')['PlPopover']
     PlPrompt: typeof import('play-ui')['PlPrompt']
     PlTables: typeof import('play-ui/components')['PlTables']
+    PlTooltip: typeof import('play-ui/index')['PlTooltip']
+    Popover: typeof import('./src/components/popover.vue')['default']
+    Tooltip: typeof import('./src/components/tooltip.vue')['default']
   }
 }

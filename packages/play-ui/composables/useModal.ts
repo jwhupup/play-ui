@@ -14,6 +14,5 @@ export const useModal = (
 
   return {
     modal: Object.assign(modal, toggle),
-    toggle,
   }
 }

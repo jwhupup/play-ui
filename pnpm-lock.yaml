@@ -4,6 +4,9 @@ importers:
 
   .:
     dependencies:
+      '@popperjs/core':
+        specifier: npm:@sxzz/popperjs-es@^2.11.7
+        version: /@sxzz/popperjs-es@2.11.7
       '@vueuse/core':
         specifier: ^9.1.1
         version: 9.1.1(vue@3.3.0-beta.5)
@@ -59,6 +62,9 @@ importers:
       '@vue/compiler-core':
         specifier: ^3.2.47
         version: 3.2.47
+      '@vue/shared':
+        specifier: ^3.3.4
+        version: 3.3.4
       '@vue/test-utils':
         specifier: ^2.2.10
         version: 2.2.10(vue@3.3.0-beta.5)
@@ -1374,6 +1380,10 @@ packages:
       rollup: 3.15.0
     dev: true
 
+  /@sxzz/popperjs-es@2.11.7:
+    resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
+    dev: false
+
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
     engines: {node: '>= 10'}
@@ -1954,7 +1964,7 @@ packages:
       '@vue/compiler-dom': 3.3.1
       '@vue/compiler-sfc': 3.3.1
       '@vue/reactivity': 3.3.1
-      '@vue/shared': 3.3.1
+      '@vue/shared': 3.3.4
       minimatch: 9.0.0
       muggle-string: 0.2.2
       vue-template-compiler: 2.7.14
@@ -2162,6 +2172,10 @@ packages:
 
   /@vue/shared@3.3.1:
     resolution: {integrity: sha512-ybDBtQ+479HL/bkeIOIAwgpeAEACzztkvulJLbK3JMFuTOv4qDivmV3AIsR8RHYJ+RD9tQxcHWBsX4GqEcYrfw==}
+    dev: true
+
+  /@vue/shared@3.3.4:
+    resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
     dev: true
 
   /@vue/test-utils@2.2.10(vue@3.3.0-beta.5):

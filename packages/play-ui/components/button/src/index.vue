@@ -12,9 +12,9 @@
     ]"
     @click="$emit('click', $event)"
   >
-    <Icon v-if="iconLeft" class="pl-button-icon--left" :name="iconLeft" />
+    <Icon v-if="iconLeft" :class="{ 'icon-left': $slots.default }" :name="iconLeft" />
     <slot />
-    <Icon v-if="iconRight" class="pl-button-icon--right" :name="iconRight" />
+    <Icon v-if="iconRight" :class="{ 'icon-righ': $slots.default }" :name="iconRight" />
   </button>
 </template>
 

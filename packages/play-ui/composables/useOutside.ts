@@ -12,7 +12,6 @@ export function useOutside(target: Ref<HTMLElement | undefined>, watcher: Ref<bo
   watchPostEffect(() => {
     if (watcher.value)
       runAsync(() => document.addEventListener('click', listener))
-
     else
       document.removeEventListener('click', listener)
   })
