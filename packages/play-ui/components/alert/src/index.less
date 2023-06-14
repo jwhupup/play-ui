@@ -43,12 +43,20 @@
     --pl-alert-soft-border-color: var(--pl-teal-200);
   }
 
-  &--info {
+  &--primary {
     --pl-alert-solid-bg-color: var(--pl-blue-500);
     --pl-alert-soft-bg-color: var(--pl-blue-50);
     --pl-alert-text-color: var(--pl-blue-700);
     --pl-alert-soft-title-color: var(--pl-blue-800);
     --pl-alert-soft-border-color: var(--pl-blue-200);
+  }
+
+  &--info {
+    --pl-alert-solid-bg-color: var(--pl-gray-400);
+    --pl-alert-soft-bg-color: var(--pl-gray-50);
+    --pl-alert-text-color: white;
+    --pl-alert-soft-title-color: var(--pl-gray-800);
+    --pl-alert-soft-border-color: var(--pl-gray-200);
   }
 
   &--danger {
@@ -111,8 +119,8 @@
 
   &>.pl-button {
     position: absolute;
-    top: 5px;
-    right: 12px;
+    top: 0;
+    right: 0;
     cursor: pointer;
   }
 }

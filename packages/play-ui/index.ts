@@ -12,5 +12,6 @@ export * from './components/drawer'
 export * from './components/popover'
 export * from './components/tooltip'
 export * from './components/notification'
+export * from './components/message'
 
 export * from './components/component'

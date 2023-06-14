@@ -10,8 +10,9 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
-    copy: typeof import('./src/components/tooltip copy.vue')['default']
+    copy: typeof import('./src/components/notification copy.vue')['default']
     Drawer: typeof import('./src/components/drawer.vue')['default']
+    Message: typeof import('./src/components/message.vue')['default']
     Modal: typeof import('./src/components/modal.vue')['default']
     Notification: typeof import('./src/components/notification.vue')['default']
     PlAlert: typeof import('play-ui/index')['PlAlert']

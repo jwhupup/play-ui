@@ -2,7 +2,6 @@ import { Transition, computed, createVNode, defineComponent, isVNode, render } f
 import { type ExtractPropTypes, type PropType } from 'vue'
 import { isFunction, isObject } from '@vue/shared'
 import { animation, uppercaseFirstWord } from '../../../utils'
-import { type ComponentState } from '../../component'
 import { type ToggleHandler } from '../../../composables'
 import { useToggle } from '../../../composables'
 import { globalVars } from '../../globalVars'
@@ -20,7 +19,6 @@ const notificationProps = {
   confirmButtonText: String,
   onCancel: Function as PropType<(handler: NotificationHandler) => any>,
   onConfirm: Function as PropType<(handler: NotificationHandler) => any>,
-  state: String as PropType<Exclude<ComponentState, 'primary'>>,
   autoClose: {
     type: Boolean,
     default: true,

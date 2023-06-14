@@ -1,0 +1,29 @@
+[data-theme="light"] .pl-notification {
+    --pl-notification-bg-color: white;
+    --pl-notification-border-color: var(--pl-gray-200);
+    --pl-notification-content-color: var(--pl-gray-600);
+    --pl-notification-header-color: var(--pl-gray-800);
+    --pl-notification-border: 1px solid var(--pl-gray-200);
+}
+
+[data-theme="dark"] .pl-notification {
+    --pl-notification-bg-color: var(--pl-gray-800);
+    --pl-notification-border-color: var(--pl-gray-700);
+    --pl-notification-content-color: var(--pl-gray-400);
+    --pl-notification-header-color: white;
+    --pl-notification-border: 1px solid var(--pl-gray-700);
+}
+
+.pl-message {
+    width: 475px;
+
+    &-container {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        gap: 20px;
+        transform: translateX(-50%);
+    }
+}

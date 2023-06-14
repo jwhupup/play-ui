@@ -1,5 +1,5 @@
 <template>
-  <NotificationDemo />
+  <MessageDemo />
 </template>
 
 <script setup lang="ts">
@@ -7,5 +7,6 @@
 // import DrawerDemo from './drawer.vue'
 // import PopoverDemo from './popover.vue'
 // import TooltipDemo from './tooltip.vue'
-import NotificationDemo from './notification.vue'
+// import NotificationDemo from './notification.vue'
+import MessageDemo from './message.vue'
 </script>
