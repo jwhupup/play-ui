@@ -10,15 +10,15 @@ import Icon from '../../icon'
 
 type ShakeOffProp = 'x-button' | 'icon' | 'title'
 export type NotificationProps = Partial<ExtractPropTypes<typeof notificationProps>>
-export type NotificationHandler = Pick<ToggleHandler, 'state' | 'open' | 'close'>
+export type NotificationInstance = Pick<ToggleHandler, 'state' | 'open' | 'close'>
 
 const notificationProps = {
   title: String,
   content: String,
   cancelButtonText: String,
   confirmButtonText: String,
-  onCancel: Function as PropType<(handler: NotificationHandler) => any>,
-  onConfirm: Function as PropType<(handler: NotificationHandler) => any>,
+  onCancel: Function as PropType<(handler: NotificationInstance) => any>,
+  onConfirm: Function as PropType<(handler: NotificationInstance) => any>,
   autoClose: {
     type: Boolean,
     default: true,
@@ -37,7 +37,7 @@ export const NotificationConstructor = defineComponent({
   name: 'Notification',
   props: notificationProps,
   setup(props, { slots }) {
-    const notify = useToggle() as NotificationHandler
+    const notify = useToggle() as NotificationInstance
 
     notify.open()
 
