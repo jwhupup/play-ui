@@ -72,7 +72,10 @@ export default defineComponent({
 
     const isShake = (prop: ShakeOffProp) => props.shakeOff.includes(prop)
 
-    const onClose = () => modal.close()
+    const renderMask = () => {
+      if (!isShake('mask'))
+        return <div class='pl-mask' v-show={modal.state.value} />
+    }
 
     const renderDrawer = () => {
       const renderHeader = () => {
@@ -86,11 +89,12 @@ export default defineComponent({
                 type='link'
                 state='info'
                 icon-left='x-lg'
-                onClick={onClose}
+                onClick={modal.close}
               />
             )
           }
         }
+
         return (
           <header>
             <h3>Darwer header</h3>
@@ -110,16 +114,16 @@ export default defineComponent({
 
     return () => (
       <Teleport to='body'>
-        {isShake('mask') || <div class='pl-mask' v-show={modal.state.value} />}
+        {renderMask()}
         <Transition
           enter-active-class={animation(animate.value.enter)}
           leave-active-class={animation(animate.value.leave)}
           appear
         >
           <div
+            ref={modal}
             class='pl-darwer'
             style={style.value}
-            ref={modal}
             v-show={modal.state.value}
           >
             {slots.headless?.() || renderDrawer()}

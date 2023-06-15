@@ -1,6 +1,7 @@
 import { type ExtractPropTypes, type PropType, Transition, computed, defineComponent, onMounted, ref, watchEffect } from 'vue'
 import { type Instance, type Placement, createPopper } from '@popperjs/core'
 import { useOutside } from '../../../composables'
+import { animation } from '../../../utils'
 
 export type PopoverProps = ExtractPropTypes<typeof popoverProps>
 
@@ -98,13 +99,13 @@ export default defineComponent({
 
     return () => (
       <div
-        class={'pl-popover'}
+        class='pl-popover'
         ref={popoverContainer}
         {...eventProps.value}
       >
         <Transition
-          enter-active-class="animate__animated animate__fadeIn animate__faster"
-          leave-active-class="animate__animated animate__fadeOut animate__faster"
+          enter-active-class={animation('fadeIn')}
+          leave-active-class={animation('fadeOut')}
           appear
         >
           <div
@@ -114,11 +115,15 @@ export default defineComponent({
             class={!slots.headless && 'pl-popover-content'}
           >
             {slots.headless?.() || slots.default?.() || renderPopover()}
-            {slots.headless ? null : <div id="pl-popover-arrow" data-popper-arrow />}
+            {
+              slots.headless
+                ? null
+                : <div id="pl-popover-arrow" data-popper-arrow />
+            }
           </div>
         </Transition>
         <div
-          class={'pl-popover-reference'}
+          class='pl-popover-reference'
           ref={popoverBtn}
           onClick={onBtnClick}
         >
