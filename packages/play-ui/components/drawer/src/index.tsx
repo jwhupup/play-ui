@@ -15,7 +15,7 @@ const darwerProps = {
   },
   placement: {
     type: String as PropType<'top' | 'bottom' | 'left' | 'right'>,
-    default: 'bottom',
+    default: 'left',
   },
   fullscreen: Boolean,
 }
@@ -74,31 +74,50 @@ export default defineComponent({
 
     const onClose = () => modal.close()
 
-    const renderDrawer = () => (
-      <div class={'pl-darwer-default'}>
-        {
-          isShake('header')
-          || <header>
-              <h3>Darwer header</h3>
-              {isShake('x-button') || <Button type='link' state='info' icon-left={'x-lg'} onClick={onClose} />}
-            </header>
+    const renderDrawer = () => {
+      const renderHeader = () => {
+        if (isShake('header'))
+          return
+
+        const renderXButton = () => {
+          if (!isShake('x-button')) {
+            return (
+              <Button
+                type='link'
+                state='info'
+                icon-left='x-lg'
+                onClick={onClose}
+              />
+            )
+          }
         }
-        <section>
-          {slots.default?.()}
-        </section>
-      </div>
-    )
+        return (
+          <header>
+            <h3>Darwer header</h3>
+            {renderXButton()}
+          </header>
+        )
+      }
+      return (
+        <div class='pl-darwer-default'>
+          {renderHeader()}
+          <section>
+            {slots.default?.()}
+          </section>
+        </div>
+      )
+    }
 
     return () => (
-      <Teleport to={'body'}>
-        {isShake('mask') || <div class={'pl-mask'} v-show={modal.state.value} />}
+      <Teleport to='body'>
+        {isShake('mask') || <div class='pl-mask' v-show={modal.state.value} />}
         <Transition
           enter-active-class={animation(animate.value.enter)}
           leave-active-class={animation(animate.value.leave)}
           appear
         >
           <div
-            class={'pl-darwer'}
+            class='pl-darwer'
             style={style.value}
             ref={modal}
             v-show={modal.state.value}
