@@ -35,21 +35,26 @@ export const MessageConstructor = defineComponent({
 
     message.open()
 
-    const icon = computed(() => {
-      if (props.state === 'success')
-        return 'check-circle'
-      else if (props.state === 'warning')
-        return 'exclamation-triangle'
-      else if (props.state === 'danger')
-        return 'x-circle'
-
-      return 'info-circle'
-    })
-
     props.autoClose && message.close({ delay: 3000 })
 
+    const icon = computed(() => {
+      const icons = {
+        info: 'info-circle',
+        success: 'check-circle',
+        warning: 'exclamation-triangle',
+        danger: 'x-circle',
+      }
+      return icons[props.state]
+    })
+
     const renderNotification = () => (
-      <Alert type='solid' state={props.state} icon={icon.value} description={props.content} closable />
+      <Alert
+        type='solid'
+        icon={icon.value}
+        state={props.state}
+        description={props.content}
+        closable
+      />
     )
 
     return () => (
@@ -58,7 +63,12 @@ export const MessageConstructor = defineComponent({
         leave-active-class={animation('slideOutUp')}
         appear
       >
-        {message.state.value ? slots.headless?.()[0] ?? renderNotification() : null}
+        {
+          message.state.value
+            ? slots.headless?.()[0]
+              ?? renderNotification()
+            : null
+        }
       </Transition>
     )
   },

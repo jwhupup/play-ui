@@ -51,20 +51,69 @@ export const NotificationConstructor = defineComponent({
 
     const onConfirm = () => props.onConfirm?.(notify)
 
-    const renderNotification = () => (
-      <div
-        class={'pl-notification'}
-      >
-        {isShake('icon') || <Icon name='bell' />}
-        <main>
-          {isShake('x-button') || <Button class={'pl-notification-close'} type='link' state='info' icon-left={'x-lg'} onClick={notify.close} />}
-          {isShake('title') || <h3 class={'pl-notification-title'}>{props.title}</h3>}
-          <div class={'pl-notification-content'}>{props.content}</div>
-          {props.cancelButtonText && <Button type='link' onClick={onCancel}>{props.cancelButtonText}</Button>}
-          {props.confirmButtonText && <Button type='link' onClick={onConfirm}>{props.confirmButtonText}</Button>}
-        </main>
-      </div>
-    )
+    const renderNotification = () => {
+      const renderIcon = () => {
+        if (!isShake('icon'))
+          return <Icon name='bell' />
+      }
+      const renderTitleContent = () => {
+        const renderFn = [<div class='pl-notification-content'>{props.content}</div>]
+        if (!isShake('title'))
+          renderFn.unshift(<h3 class='pl-notification-title'>{props.title}</h3>)
+
+        return renderFn
+      }
+      const renderXButton = () => {
+        if (!isShake('x-button')) {
+          return (
+            <Button
+              class='pl-notification-close'
+              type='link'
+              state='info'
+              icon-left='x-lg'
+              onClick={notify.close}
+            />
+          )
+        }
+      }
+      const renderButton = () => {
+        const renderFn = []
+        if (props.cancelButtonText) {
+          renderFn.push(
+            <Button
+              type='link'
+              onClick={onCancel}
+              v-slots={{
+                default: props.cancelButtonText,
+              }}
+            />,
+          )
+        }
+        if (props.confirmButtonText) {
+          renderFn.push(
+            <Button
+              type='link'
+              onClick={onConfirm}
+              v-slots={{
+                default: props.confirmButtonText,
+              }}
+            />,
+          )
+        }
+        return renderFn
+      }
+
+      return (
+        <div class='pl-notification'>
+          {renderIcon()}
+          <main>
+            {renderXButton()}
+            {renderTitleContent()}
+            {renderButton()}
+          </main>
+        </div>
+      )
+    }
 
     return () => (
       <Transition
@@ -72,7 +121,12 @@ export const NotificationConstructor = defineComponent({
         leave-active-class={animation(`zoomOut${animate.value}`)}
         appear
       >
-        {notify.state.value ? slots.headless?.()[0] ?? renderNotification() : null}
+        {
+          notify.state.value
+            ? slots.headless?.()[0]
+              ?? renderNotification()
+            : null
+        }
       </Transition>
     )
   },

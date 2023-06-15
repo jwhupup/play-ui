@@ -40,7 +40,11 @@ export default defineComponent({
     const { modal } = useModal(emit)
 
     useDraggable(modal, {
-      translateX: computed(() => modal.state.value ? modal.value!.clientWidth / 2 : 0),
+      translateX: computed(
+        () => modal.state.value
+          ? modal.value!.clientWidth / 2
+          : 0,
+      ),
     })
     const isShake = (prop: ShakeOffProp) => props.shakeOff.includes(prop)
 
@@ -50,36 +54,91 @@ export default defineComponent({
 
     const onClose = () => modal.close()
 
-    const renderHeader = () => (
-      <header>
-        <h3>{ props.title }</h3>
-      </header>
-    )
-    const renderFooter = () => (
-      <footer>
-        <div class="pl-modal-button">
-          {isShake('cancel-button')
-            || <Button type="outline" onClick={onCancel}>{props.cancelText}</Button>}
-          {isShake('confirm-button')
-            || <Button type="solid" onClick={onConfirm}>{props.confirmText}</Button>}
-        </div>
-      </footer>
-    )
-    const renderModal = () => (
-      <>
-        {isShake('mask') || <div class={'pl-mask'} />}
-        <div
-          class="pl-modal"
-          ref={modal}
-          draggable={props.draggable}
-        >
-          {isShake('x-button') || <Button type='link' state='info' icon-left={'x-lg'} onClick={onClose} />}
-          {isShake('header') || (props.title && renderHeader())}
-          <section>{slots.default?.()}</section>
-          {isShake('footer') || renderFooter()}
-        </div>
-      </>
-    )
+    const renderHeader = () => {
+      if (!isShake('header') && props.title) {
+        return (
+          <header>
+            <h3>{ props.title }</h3>
+          </header>
+        )
+      }
+    }
+
+    const renderFooter = () => {
+      if (isShake('footer'))
+        return
+
+      const renderButtons = []
+      if (!isShake('cancel-button')) {
+        renderButtons.push(
+          <Button
+            type="outline"
+            onClick={onCancel}
+            v-slots={{
+              default: props.cancelText,
+            }}
+          />,
+        )
+      }
+      if (!isShake('confirm-button')) {
+        renderButtons.push(
+          <Button
+            type="solid"
+            onClick={onConfirm}
+            v-slots={{
+              default: props.confirmText,
+            }}
+          />,
+        )
+      }
+
+      return (
+        <footer>
+          <div class="pl-modal-button">
+            {renderButtons}
+          </div>
+        </footer>
+      )
+    }
+
+    const renderModal = () => {
+      const renderMask = () => {
+        if (!isShake('mask'))
+          return <div class={'pl-mask'} />
+      }
+
+      const renderXButton = () => {
+        if (!isShake('x-button')) {
+          return (
+            <Button
+              class='pl-modal-x'
+              type='link'
+              state='info'
+              icon-left='x-lg'
+              onClick={onClose}
+            />
+          )
+        }
+      }
+
+      return (
+        <>
+          {renderMask()}
+          <div
+            ref={modal}
+            class="pl-modal"
+            draggable={props.draggable}
+          >
+            {renderXButton()}
+            {renderHeader()}
+            <section>
+              {slots.default?.()}
+            </section>
+            {renderFooter()}
+          </div>
+        </>
+      )
+    }
     const renderHeadless = () => (
       <div ref={modal}>
         {slots.headless?.()}

@@ -13,9 +13,9 @@ const handleClick = () => {
   PlNotification({
     title: 'App notifications',
     content: 'Notifications may include alerts, sounds and icon badges.',
-    // cancelButtonText: 'Cancel',
-    // confirmButtonText: 'Ok',
-    autoClose: false,
+    cancelButtonText: 'Cancel',
+    confirmButtonText: 'Ok',
+    autoClose: true,
     onCancel() {
       alert('Cancel')
     },
