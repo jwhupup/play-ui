@@ -28,7 +28,7 @@ export default defineComponent({
   },
   setup(props, { slots }) {
     const renderTooptip = () => (
-      <div class={'pl-tooltip'}>
+      <div class='pl-tooltip'>
         {props.content}
       </div>
     )
