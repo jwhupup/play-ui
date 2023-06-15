@@ -28,6 +28,7 @@
     "@commitlint/types": "^17.4.4",
     "@ctrl/tinycolor": "^3.5.0",
     "@esbuild-kit/cjs-loader": "^2.4.2",
+    "@faker-js/faker": "^8.0.2",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/fs-extra": "^9.0.13",
@@ -70,7 +71,6 @@
     "vitepress": "1.0.0-alpha.59",
     "vitest": "^0.28.5",
     "vue-tsc": "^1.6.4"
-
   },
   "lint-staged": {
     "*.{vue,js,ts,jsx,tsx,md,json}": "eslint --fix"

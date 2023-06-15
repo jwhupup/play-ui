@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { BadgeProps } from '../../component'
+import type { BadgeProps } from '../src/type'
 
 const props = withDefaults(defineProps<BadgeProps>(), {
   state: 'primary',

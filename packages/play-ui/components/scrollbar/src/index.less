@@ -1,0 +1,55 @@
+[data-theme="light"] .pl-scrollbar {
+    --pl-scrollbar-thumb-color: var(--pl-gray-300);
+}
+
+[data-theme="dark"] .pl-scrollbar {
+    --pl-scrollbar-thumb-color: var(--pl-slate-500);
+}
+
+
+.pl-scrollbar {
+    position: relative;
+    width: 100%;
+
+    &-wrpper {
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &-bar {
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        z-index: 1000;
+        border-radius: 4px;
+
+        &--x {
+            width: 100%;
+            height: 6px;
+        }
+
+        &--y {
+            width: 6px;
+            height: 100%;
+        }
+
+        &-thumb {
+            border-radius: 4px;
+            background-color: var(--pl-scrollbar-thumb-color);
+            cursor: pointer;
+
+            &--x {
+                height: 100%;
+            }
+
+            &--y {
+                width: 100%;
+            }
+        }
+    }
+}

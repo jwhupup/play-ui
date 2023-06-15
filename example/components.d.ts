@@ -10,8 +10,9 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
-    copy: typeof import('./src/components/notification copy.vue')['default']
+    copy: typeof import('./src/components/tooltip copy.vue')['default']
     Drawer: typeof import('./src/components/drawer.vue')['default']
+    Dropdown: typeof import('./src/components/dropdown.vue')['default']
     Message: typeof import('./src/components/message.vue')['default']
     Modal: typeof import('./src/components/modal.vue')['default']
     Notification: typeof import('./src/components/notification.vue')['default']
@@ -21,15 +22,18 @@ declare module '@vue/runtime-core' {
     PlButton: typeof import('play-ui/index')['PlButton']
     PlCheckbox: typeof import('play-ui/components')['PlCheckbox']
     PlDrawer: typeof import('play-ui/index')['PlDrawer']
-    PlDropdown: typeof import('play-ui/components')['PlDropdown']
+    PlDropdown: typeof import('play-ui/index')['PlDropdown']
     PlIcon: typeof import('play-ui/index')['PlIcon']
     PlInput: typeof import('play-ui/components')['PlInput']
     PlModal: typeof import('play-ui/index')['PlModal']
     PlPopover: typeof import('play-ui/index')['PlPopover']
     PlPrompt: typeof import('play-ui')['PlPrompt']
+    PlScroll: typeof import('play-ui/index')['PlScroll']
+    PlScrollbar: typeof import('play-ui/index')['PlScrollbar']
     PlTables: typeof import('play-ui/components')['PlTables']
     PlTooltip: typeof import('play-ui/index')['PlTooltip']
     Popover: typeof import('./src/components/popover.vue')['default']
+    Scrollbar: typeof import('./src/components/scrollbar.vue')['default']
     Tooltip: typeof import('./src/components/tooltip.vue')['default']
   }
 }

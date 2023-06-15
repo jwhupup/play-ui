@@ -11,43 +11,34 @@ export interface AlertProps {
   closable?: boolean
 }
 
-// badge
-export interface BadgeProps {
-  state?: ComponentState
-  max?: number
-  value?: number | string
-  dot?: boolean
-  hidden?: boolean
-}
+// // button
+// export type ButtonNativeType = 'button' | 'reset' | 'submit'
+// export type ButtonShape = 'rounded' | 'pilled' | 'circle' | 'plain'
+// export type ButtonType = 'solid' | 'outline' | 'ghost' | 'white' | 'link'
 
-// button
-export type ButtonNativeType = 'button' | 'reset' | 'submit'
-export type ButtonShape = 'rounded' | 'pilled' | 'circle' | 'plain'
-export type ButtonType = 'solid' | 'outline' | 'ghost' | 'white' | 'link'
-
-export interface ButtonProps {
-  type?: ButtonType
-  nativeType?: ButtonNativeType
-  state?: ComponentState
-  size?: ComponentSize
-  shape?: ButtonShape
-  iconLeft?: string
-  iconRight?: string
-  disabled?: boolean
-}
+// export interface ButtonProps {
+//   type?: ButtonType
+//   nativeType?: ButtonNativeType
+//   state?: ComponentState
+//   size?: ComponentSize
+//   shape?: ButtonShape
+//   iconLeft?: string
+//   iconRight?: string
+//   disabled?: boolean
+// }
 
 // button group
-export type ButtonGroupType = UnionPick<ButtonType, 'solid' | 'outline' | 'white'>
-export type ButtonGroupShape = UnionPick<ButtonShape, 'rounded' | 'pilled'>
+// export type ButtonGroupType = UnionPick<ButtonType, 'solid' | 'outline' | 'white'>
+// export type ButtonGroupShape = UnionPick<ButtonShape, 'rounded' | 'pilled'>
 
-export interface ButtonGroupProps {
-  type?: ButtonGroupType
-  state?: ComponentState
-  size?: ComponentSize
-  shape?: ButtonGroupShape
-  vertical?: boolean
-  disabled?: boolean
-}
+// export interface ButtonGroupProps {
+//   type?: ButtonGroupType
+//   state?: ComponentState
+//   size?: ComponentSize
+//   shape?: ButtonGroupShape
+//   vertical?: boolean
+//   disabled?: boolean
+// }
 
 // checkbox
 export interface CheckboxProps {
@@ -59,25 +50,13 @@ export interface CheckboxProps {
 }
 
 // dropdown
-export type DropdownTrigger = 'mouseenter' | 'click' | 'contextmenu'
 
-export interface DropdownData {
-  name: string
-  title?: string
-  divider?: boolean
-  disabled?: boolean
-  trigger?: DropdownTrigger
-  menuButton?: Partial<Pick<ButtonProps, 'state' | 'type' | 'iconLeft' | 'iconRight'> & { badge: Partial<BadgeProps> }>
-  callback?: () => void
-  children?: DropdownData[]
-}
-
-export interface DropdownProps {
-  data: DropdownData[]
-  trigger?: DropdownTrigger
-  disabled?: boolean
-  customPosition?: boolean
-}
+// export interface DropdownProps {
+//   data: DropdownData[]
+//   trigger?: DropdownTrigger
+//   disabled?: boolean
+//   customPosition?: boolean
+// }
 
 // icon
 export interface IconProps {

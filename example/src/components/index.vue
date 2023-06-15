@@ -1,5 +1,5 @@
 <template>
-  <MessageDemo />
+  <ScrollbarDemo />
 </template>
 
 <script setup lang="ts">
@@ -8,5 +8,7 @@
 // import PopoverDemo from './popover.vue'
 // import TooltipDemo from './tooltip.vue'
 // import NotificationDemo from './notification.vue'
-import MessageDemo from './message.vue'
+// import MessageDemo from './message.vue'
+// import DropdownDemo from './dropdown.vue'
+import ScrollbarDemo from './scrollbar.vue'
 </script>

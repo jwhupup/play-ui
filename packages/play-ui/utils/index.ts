@@ -1,5 +1,6 @@
 export * from './install'
 export * from './types'
+export * from './is'
 
 export function runAsync(cb: () => any) {
   const timer = setTimeout(() => {

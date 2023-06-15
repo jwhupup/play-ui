@@ -13,5 +13,7 @@ export * from './components/popover'
 export * from './components/tooltip'
 export * from './components/notification'
 export * from './components/message'
+export * from './components/dropdown'
+export * from './components/scrollbar'
 
 export * from './components/component'

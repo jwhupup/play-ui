@@ -21,8 +21,8 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue'
 import Icon from '../../icon/src/index.vue'
-import type { ButtonProps } from '../../component'
 import { GROUP_BUTTON_KEY } from '../../button-group'
+import type { ButtonProps } from './type'
 
 withDefaults(defineProps<ButtonProps>(), {
   type: 'solid',
