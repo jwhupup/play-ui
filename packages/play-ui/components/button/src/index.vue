@@ -22,15 +22,9 @@
 import { inject, ref } from 'vue'
 import Icon from '../../icon/src/index.vue'
 import { GROUP_BUTTON_KEY } from '../../button-group'
-import type { ButtonProps } from './type'
+import { buttonProps } from './type'
 
-withDefaults(defineProps<ButtonProps>(), {
-  type: 'solid',
-  nativeType: 'button',
-  state: 'primary',
-  size: 'medium',
-  shape: 'rounded',
-})
+defineProps(buttonProps)
 
 defineEmits(['click'])
 

@@ -29,13 +29,17 @@ function getSideEffects(
   if (!importStyle || isSSR)
     return
 
-  const noStyleComps: string[] = []
+  const noStyleComps: string[] = ['tab-pane']
 
   if (noStyleComps.includes(dirName))
     return
 
-  if (importStyle === 'less')
-    return ['play-ui/styles/base.less', `play-ui/components/${dirName}/src/index.less`]
+  if (importStyle === 'less') {
+    return [
+      'play-ui/styles/base.less',
+      `play-ui/components/${dirName}/src/index.less`,
+    ]
+  }
 
   return [`play-ui/dist/styles/${dirName}/src/index.js`]
 }

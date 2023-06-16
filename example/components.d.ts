@@ -10,7 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Components: typeof import('./src/components/index.vue')['default']
-    copy: typeof import('./src/components/tooltip copy.vue')['default']
+    copy: typeof import('./src/components/drawer copy.vue')['default']
     Drawer: typeof import('./src/components/drawer.vue')['default']
     Dropdown: typeof import('./src/components/dropdown.vue')['default']
     Message: typeof import('./src/components/message.vue')['default']
@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     PlBadge: typeof import('play-ui/components')['PlBadge']
     Plbutton: typeof import('play-ui/index')['Plbutton']
     PlButton: typeof import('play-ui/index')['PlButton']
+    PlButtonGroup: typeof import('play-ui/index')['PlButtonGroup']
     PlCheckbox: typeof import('play-ui/components')['PlCheckbox']
     PlDrawer: typeof import('play-ui/index')['PlDrawer']
     PlDropdown: typeof import('play-ui/index')['PlDropdown']
@@ -31,9 +32,12 @@ declare module '@vue/runtime-core' {
     PlScroll: typeof import('play-ui/index')['PlScroll']
     PlScrollbar: typeof import('play-ui/index')['PlScrollbar']
     PlTables: typeof import('play-ui/components')['PlTables']
+    PlTabPane: typeof import('play-ui/index')['PlTabPane']
+    PlTabs: typeof import('play-ui/index')['PlTabs']
     PlTooltip: typeof import('play-ui/index')['PlTooltip']
     Popover: typeof import('./src/components/popover.vue')['default']
     Scrollbar: typeof import('./src/components/scrollbar.vue')['default']
+    Tabs: typeof import('./src/components/tabs.vue')['default']
     Tooltip: typeof import('./src/components/tooltip.vue')['default']
   }
 }
