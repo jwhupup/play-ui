@@ -65,7 +65,11 @@ export default defineComponent({
                 shape='circle'
                 size='small'
               >
-                {step.icon ? <Icon name={step.icon} /> : index + 1}
+                {
+                  step.icon
+                    ? <Icon name={step.icon} />
+                    : index + 1
+                }
               </Button>
               <div class='pl-steps-content'>
                 <div class='pl-steps-item-name'>{step.name}</div>
