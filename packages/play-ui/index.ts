@@ -16,5 +16,6 @@ export * from './components/message'
 export * from './components/dropdown'
 export * from './components/scrollbar'
 export * from './components/tabs'
+export * from './components/steps'
 
 export * from './components/component'

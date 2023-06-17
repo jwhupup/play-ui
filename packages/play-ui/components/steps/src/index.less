@@ -1,0 +1,45 @@
+[data-theme="light"] .pl-steps {
+    --pl-steps-name-color: var(--pl-gray-800);
+    --pl-steps-description-color: var(--pl-gray-500);
+    --pl-steps-pipe-color: var(--pl-gray-100);
+}
+
+[data-theme="dark"] .pl-steps {
+    --pl-steps-name-color: var(--pl-gray-300);
+    --pl-steps-description-color: var(--pl-gray-500);
+    --pl-steps-pipe-color: var(--pl-gray-800);
+}
+
+.pl-steps {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    &-content {
+        margin-top: 8px;
+    }
+
+    &-item {
+        min-width: 150px;
+        text-align: center;
+
+        &-name {
+            font-weight: bold;
+            color: var(--pl-steps-name-color);
+        }
+
+        &-description {
+            font-size: 14px;
+            color: var(--pl-steps-description-color);
+        }
+
+        &-pipe {
+            width: 100%;
+            height: 2px;
+            margin-top: 15px;
+            border-radius: 2px;
+            background: var(--pl-steps-pipe-color);
+        }
+
+    }
+}

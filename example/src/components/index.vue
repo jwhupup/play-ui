@@ -1,5 +1,5 @@
 <template>
-  <TabsDemo />
+  <StepsDemo />
 </template>
 
 <script setup lang="ts">
@@ -11,5 +11,6 @@
 // import MessageDemo from './message.vue'
 // import DropdownDemo from './dropdown.vue'
 // import ScrollbarDemo from './scrollbar.vue'
-import TabsDemo from './tabs.vue'
+// import TabsDemo from './tabs.vue'
+import StepsDemo from './steps.vue'
 </script>

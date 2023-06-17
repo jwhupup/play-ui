@@ -1,14 +1,5 @@
-import { type Ref, computed } from 'vue'
-import { useCount, useExpose } from '.'
-
-export interface ControlInstance<T> {
-  current: Ref<number>
-  next: (step?: number) => any
-  prev: (step?: number) => any
-  toggle: (value: number) => any
-  add: (value: T) => any
-  sub: (value: number) => any
-}
+import { computed } from 'vue'
+import { useCount } from '.'
 
 export const useStep = <T>(
   modelValue: T[],
@@ -28,7 +19,10 @@ export const useStep = <T>(
     add: next,
     sub: prev,
     update: toggle,
-  } = useCount({ min: 0, max: computed(() => steps.value.length - 1) })
+  } = useCount({
+    min: 0,
+    max: computed(() => steps.value.length - 1),
+  })
 
   const add = (step: T) => {
     steps.value?.push(step)
@@ -38,7 +32,7 @@ export const useStep = <T>(
     steps.value?.splice(stepIndex, 1)
   }
 
-  const instance = {
+  return {
     steps,
     current,
     next,
@@ -47,7 +41,4 @@ export const useStep = <T>(
     add,
     sub,
   }
-  useExpose(instance)
-
-  return instance
 }

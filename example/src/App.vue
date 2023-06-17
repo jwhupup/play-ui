@@ -18,7 +18,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <PlButton class="absolute top-3 right-3" size="mini" shape="circle" type="ghost" @click="isDark = !isDark">
+  <PlButton class="absolute top-3 right-3" size="medium" shape="circle" type="ghost" @click="isDark = !isDark">
     <PlIcon v-if="isDark" name="sun" />
     <PlIcon v-else name="moon" />
   </PlButton>

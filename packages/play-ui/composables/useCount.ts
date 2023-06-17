@@ -1,4 +1,5 @@
 import { type Ref, ref, toValue } from 'vue'
+import { isNumber } from '../utils'
 
 export interface CountOptions {
   initial?: number
@@ -6,43 +7,30 @@ export interface CountOptions {
   max?: number | Ref<number>
 }
 
-export const useCount = (options?: CountOptions) => {
-  const count = ref(options?.initial || 0)
+export const useCount = (options: CountOptions = {}) => {
+  const {
+    min = -Infinity,
+    max = Infinity,
+    initial = 0,
+  } = options
 
-  const gtMax = () => {
-    return (
-      options?.max
-      && toValue(options.max) !== undefined
-      && toValue(options.max) !== null
-      && toValue(options.max) <= count.value
-    )
-  }
-
-  const ltMin = () => {
-    return (
-      options?.min
-      && toValue(options.min) !== undefined
-      && toValue(options.min) !== null
-      && toValue(options.min) >= count.value
-    )
-  }
+  const _max = toValue(max)
+  const _min = toValue(min)
+  const count = ref(initial)
 
   const add = (step = 1) => {
-    if (gtMax())
-      return
-    count.value = count.value + step
+    if (isNumber(_max) && count.value < _max)
+      count.value += step
   }
 
   const sub = (step = 1) => {
-    if (ltMin())
-      return
-    count.value = count.value - step
+    if (isNumber(_min) && count.value > _min)
+      count.value -= step
   }
 
   const update = (value: number) => {
-    if (gtMax() && ltMin())
-      return
-    count.value = value
+    if (value >= _min && value <= _max)
+      count.value = value
   }
 
   return {
