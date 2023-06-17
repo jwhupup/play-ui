@@ -52,7 +52,7 @@ export default defineComponent({
                     : step.state === 'done'
                       ? 'solid'
                       : 'white'
-              }
+                }
                 state={
                   step.state === 'done'
                     ? step.result === 'success'
@@ -62,8 +62,8 @@ export default defineComponent({
                         : 'warning'
                     : 'primary'
                 }
-                shape='circle'
                 size='small'
+                shape='circle'
               >
                 {
                   step.icon
