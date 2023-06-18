@@ -2,7 +2,6 @@ import { type ExtractPropTypes, type PropType } from 'vue'
 
 import { Transition, computed, createVNode, defineComponent, isVNode, render } from 'vue'
 import { isFunction, isObject } from '@vue/shared'
-import { globalVars } from '../../globalVars'
 import { useToggle } from '../../../composables'
 import { animation } from '../../../utils'
 import { type ComponentState } from '../../component'
@@ -74,11 +73,13 @@ export const MessageConstructor = defineComponent({
   },
 })
 
+let messagesContainer: HTMLDivElement | null = null
+
 export default (options?: MessageProps) => {
-  if (!globalVars.messagesContainer) {
-    globalVars.messagesContainer = document.createElement('div')
-    globalVars.messagesContainer.className = 'pl-message-container'
-    document.body.appendChild(globalVars.messagesContainer)
+  if (!messagesContainer) {
+    messagesContainer = document.createElement('div')
+    messagesContainer.className = 'pl-message-container'
+    document.body.appendChild(messagesContainer)
   }
   const vm = createVNode(
     MessageConstructor,
@@ -93,5 +94,5 @@ export default (options?: MessageProps) => {
   )
   const container = document.createElement('div')
   render(vm, container)
-  globalVars.messagesContainer.appendChild(container.firstChild!)
+  messagesContainer.appendChild(container.firstChild!)
 }

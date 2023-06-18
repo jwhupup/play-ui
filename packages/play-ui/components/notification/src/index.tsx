@@ -4,7 +4,6 @@ import { isFunction, isObject } from '@vue/shared'
 import { animation, uppercaseFirstWord } from '../../../utils'
 import { type ToggleHandler } from '../../../composables'
 import { useToggle } from '../../../composables'
-import { globalVars } from '../../globalVars'
 import Button from '../../button'
 import Icon from '../../icon'
 
@@ -57,7 +56,9 @@ export const NotificationConstructor = defineComponent({
           return <Icon name='bell' />
       }
       const renderTitleContent = () => {
-        const renderFn = [<div class='pl-notification-content'>{props.content}</div>]
+        const renderFn = [
+          <div class='pl-notification-content'>{props.content}</div>,
+        ]
         if (!isShake('title'))
           renderFn.unshift(<h3 class='pl-notification-title'>{props.title}</h3>)
 
@@ -132,11 +133,13 @@ export const NotificationConstructor = defineComponent({
   },
 })
 
+let notificationsContainer: HTMLDivElement | null = null
+
 export default (options?: NotificationProps) => {
-  if (!globalVars.notificationsContainer) {
-    globalVars.notificationsContainer = document.createElement('div')
-    globalVars.notificationsContainer.className = 'pl-notification-container'
-    document.body.appendChild(globalVars.notificationsContainer)
+  if (!notificationsContainer) {
+    notificationsContainer = document.createElement('div')
+    notificationsContainer.className = 'pl-notification-container'
+    document.body.appendChild(notificationsContainer)
   }
   const props = isObject(options) ? { ...options } : null
   const child = (isFunction(options) || isVNode(options))
@@ -150,6 +153,6 @@ export default (options?: NotificationProps) => {
   const container = document.createElement('div')
   const notification = createVNode(NotificationConstructor, props, child)
   render(notification, container)
-  globalVars.notificationsContainer.classList.add(`__${options?.placement || 'left'}`)
-  globalVars.notificationsContainer.appendChild(container.firstChild!)
+  notificationsContainer.classList.add(`__${options?.placement || 'left'}`)
+  notificationsContainer.appendChild(container.firstChild!)
 }
