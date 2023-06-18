@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sources":["../../../../src/components/modal/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Modal from './src/index'\r\n\r\nexport const PlModal = withInstall(Modal)\r\nexport default PlModal\r\nexport * from './src/index'\r\n"],"names":["withInstall","Modal"],"mappings":";;;;AAGa,MAAA,UAAUA,oBAAYC,MAAK,OAAA;;;"}

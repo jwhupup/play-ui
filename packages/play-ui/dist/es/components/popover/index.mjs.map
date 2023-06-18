@@ -1,1 +1,0 @@
-{"version":3,"file":"index.mjs","sources":["../../../../src/components/popover/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Popover from './src/index'\r\n\r\nexport const PlPopover: typeof Popover = withInstall(Popover)\r\nexport default PlPopover\r\nexport * from './src/index'\r\n"],"names":[],"mappings":";;AAGa,MAAA,YAA4B,YAAY,OAAO;"}

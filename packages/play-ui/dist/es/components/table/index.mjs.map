@@ -1,1 +1,0 @@
-{"version":3,"file":"index.mjs","sources":["../../../../src/components/table/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Table from './src/index.vue'\r\n\r\nexport const PlTable = withInstall(Table)\r\nexport default PlTable\r\n"],"names":["Table"],"mappings":";;AAGa,MAAA,UAAU,YAAYA,SAAK;"}
