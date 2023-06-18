@@ -1,16 +1,6 @@
 <template>
   <div style="height: 500px; padding: 30px;">
     <PlBreadcrumb ref="breadcrumb" v-model="steps" />
-
-    <button @click="handlePrevClick">
-      prev
-    </button>
-    <button @click="handleNextClick">
-      next
-    </button>
-    <button @click="handleToggleClick">
-      toggle
-    </button>
   </div>
 </template>
 
@@ -22,24 +12,14 @@ const breadcrumb = ref()
 const steps = ref([
   {
     name: 'page1',
+    icon: 'basket2',
   },
   {
     name: 'page2',
+    icon: 'bandaid',
   },
   {
     name: 'page3',
   },
 ])
-
-const handlePrevClick = () => {
-  breadcrumb.value?.prev()
-}
-
-const handleNextClick = () => {
-  breadcrumb.value?.next()
-}
-
-const handleToggleClick = () => {
-  breadcrumb.value?.toggle(2)
-}
 </script>

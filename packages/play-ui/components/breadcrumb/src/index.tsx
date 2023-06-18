@@ -1,34 +1,56 @@
 import type { PropType } from 'vue'
-import { defineComponent } from 'vue'
+import { defineComponent, getCurrentInstance } from 'vue'
+import type { RouteLocationRaw } from 'vue-router'
 import { useStep } from '../../../composables'
 import Button from '../../button'
 
 export interface BreadcrumbItem {
   name: string
   separator?: String
+  to: RouteLocationRaw
+  icon: string
 }
 export default defineComponent({
   name: 'Breadcrumb',
   props: {
     modelValue: Array as PropType<BreadcrumbItem[]>,
+    replace: Boolean,
     separator: {
-      type: String as PropType<'/' | '>'>,
+      type: String,
       default: '/',
     },
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const { steps, current } = useStep<BreadcrumbItem>(props.modelValue!, emit)
+    const { steps, current, toggle } = useStep<BreadcrumbItem>(props.modelValue!, emit)
+
+    const instance = getCurrentInstance()
+    const router = instance?.appContext.config.globalProperties.$router
+
+    const onClick = (index: number, breadcrumb: BreadcrumbItem) => () => {
+      toggle(index)
+      if (!breadcrumb.to || !router)
+        return
+      props.replace ? router.replace(breadcrumb.to) : router.push(breadcrumb.to)
+    }
 
     return () => (
-      <div style={'display: flex;'}>
+      <>
         {steps.value?.map((step, index) => (
-            <>
-              <div v-show={index !== 0}>{props.separator}</div>
-              <Button size='mini' type='link' state={current.value === index ? 'primary' : 'info'}>{step.name}</Button>
-            </>
+          <>
+            <span v-show={index !== 0}>{props.separator}</span>
+            <Button
+              size='mini'
+              type='link'
+              iconLeft={step.icon}
+              state={current.value === index ? 'primary' : 'info'}
+              onClick={onClick(index, step)}
+            >
+              {step.name}
+            </Button>
+          </>
         ))}
-      </div>
+      </>
     )
   },
 })
