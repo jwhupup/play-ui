@@ -1,0 +1,1 @@
+{"version":3,"file":"index.mjs","sources":["../../../../src/components/badge/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Badge from './src/index.vue'\r\n\r\nexport const PlBadge = withInstall(Badge)\r\nexport default PlBadge\r\nexport * from './src/type'\r\n"],"names":["Badge"],"mappings":";;AAGa,MAAA,UAAU,YAAYA,SAAK;"}

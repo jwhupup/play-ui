@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../../../src/components/input/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Input from './src/index.vue'\r\n\r\nexport const PlInput = withInstall(Input)\r\nexport default PlInput\r\n"],"names":["withInstall","Input"],"mappings":";;;;AAGa,MAAA,UAAUA,oBAAYC,0CAAK,OAAA;;;"}

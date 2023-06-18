@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../../../src/components/tag/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Tag from './src/index.vue'\r\n\r\nexport const PlTag = withInstall(Tag)\r\nexport default PlTag\r\n"],"names":["withInstall","Tag"],"mappings":";;;;AAGa,MAAA,QAAQA,oBAAYC,0CAAG,OAAA;;;"}

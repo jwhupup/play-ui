@@ -1,0 +1,1 @@
+{"version":3,"file":"index.mjs","sources":["../../../../src/components/tooltip/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Tooltip from './src/index'\r\n\r\nexport const PlTooltip: typeof Tooltip = withInstall(Tooltip)\r\nexport default PlTooltip\r\nexport * from './src/index'\r\n"],"names":[],"mappings":";;AAGa,MAAA,YAA4B,YAAY,OAAO;"}

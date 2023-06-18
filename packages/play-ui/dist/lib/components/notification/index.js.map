@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../../../src/components/notification/index.ts"],"sourcesContent":["import Notification from './src/index'\r\n\r\nexport const PlNotification = Notification\r\nexport default PlNotification\r\nexport * from './src/index'\r\n"],"names":["Notification"],"mappings":";;;AAEO,MAAM,iBAAiBA,MAAAA;;;;"}

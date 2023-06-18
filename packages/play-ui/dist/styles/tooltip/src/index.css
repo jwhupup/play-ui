@@ -1,0 +1,1 @@
+[data-theme=light] .pl-tooltip{--pl-tooltip-text-color:white;--pl-tooltip-bg-color:var(--pl-slate-800)}[data-theme=dark] .pl-tooltip{--pl-tooltip-text-color:white;--pl-tooltip-bg-color:var(--pl-slate-700)}.pl-tooltip{min-width:200px;padding:12px 16px;font-size:13px;font-weight:700;border-radius:4px;color:var(--pl-tooltip-text-color);background:var(--pl-tooltip-bg-color)}

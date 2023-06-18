@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../../../src/components/icon/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Icon from './src/index.vue'\r\n\r\nexport const PlIcon = withInstall(Icon)\r\nexport default PlIcon\r\n"],"names":["withInstall","Icon"],"mappings":";;;;AAGa,MAAA,SAASA,oBAAYC,0CAAI,OAAA;;;"}

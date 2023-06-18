@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../../../src/components/alert/index.ts"],"sourcesContent":["import { withInstall } from '../../utils'\r\nimport Alert from './src/index.vue'\r\n\r\nexport const PlAlert = withInstall(Alert)\r\nexport default PlAlert\r\n"],"names":["withInstall","Alert"],"mappings":";;;;AAGa,MAAA,UAAUA,oBAAYC,0CAAK,OAAA;;;"}
