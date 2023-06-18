@@ -9,7 +9,6 @@ import {
   ref,
   watchEffect,
 } from 'vue'
-
 import Scrollbar from '../../scrollbar'
 import { range } from '../../../utils'
 
@@ -38,8 +37,8 @@ export default defineComponent({
     const end = ref(0)
     const step = ref(0)
     const translate = ref(0)
-    const scrollbarEl = ref<HTMLElement>()
     const listHeight = ref(0)
+    const scrollbarEl = ref<HTMLElement>()
 
     const itemInfos = computed(() =>
       range(1, props.listItemCount, 1).map((_, index) => ({
@@ -57,13 +56,6 @@ export default defineComponent({
 
     const getStart = (scrollTop = 0) => {
       return itemInfos.value.find(item => item.bottom > scrollTop)?.index
-    }
-
-    const onScroll = (evt: UIEvent) => {
-      const scrollTop = (evt.target as HTMLElement).scrollTop
-      start.value = getStart(scrollTop)!
-      end.value = start.value + step.value
-      updateTranslate()
     }
 
     const virtualAreaStyle = computed(() => ({
@@ -109,6 +101,13 @@ export default defineComponent({
       updateTranslate()
     })
 
+    const onScroll = (evt: UIEvent) => {
+      const scrollTop = (evt.target as HTMLElement).scrollTop
+      start.value = getStart(scrollTop)!
+      end.value = start.value + step.value
+      updateTranslate()
+    }
+
     const renderVirtualList = () => (
       <>
         <div style={virtualAreaStyle.value} />
@@ -126,10 +125,9 @@ export default defineComponent({
         ref={scrollbarEl}
         height={props.listHeight}
         onScroll={onScroll}
-        v-slots={{
-          default: renderVirtualList(),
-        }}
-      />
+      >
+        {renderVirtualList()}
+      </Scrollbar>
     )
   },
 })
