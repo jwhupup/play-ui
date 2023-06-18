@@ -1,3 +1,4 @@
+import type { UnionPick } from '../../../utils'
 import type { ButtonShape, ButtonType } from '../../button/src/type'
 import type { ComponentSize, ComponentState } from '../../component'
 

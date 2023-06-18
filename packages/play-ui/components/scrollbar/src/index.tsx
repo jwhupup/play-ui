@@ -149,7 +149,7 @@ export default defineComponent({
     }
 
     const onScroll = (evt: UIEvent) => {
-      const target = evt.target
+      const target = evt.target as HTMLElement
       if (beforeScrollTop !== target.scrollTop) {
         translateY.value
           = (target.scrollTop * target.clientHeight) / target.scrollHeight
