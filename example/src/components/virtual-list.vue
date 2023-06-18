@@ -12,12 +12,12 @@
       </PlVirtualListItem>
     </PlVirtualList>
   </div>
+  <PlScrollbar v-show="false" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { faker } from '@faker-js/faker'
-import 'play-ui/components/scrollbar/src/index.less'
 
 const list = ref(
   Array(1000)

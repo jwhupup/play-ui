@@ -33,6 +33,7 @@ function getSideEffects(
     'tab-pane',
     'pagination',
     'breadcrumb',
+    'virtual-list',
     'virtual-list-item',
   ]
 
@@ -41,8 +42,8 @@ function getSideEffects(
 
   if (importStyle === 'less') {
     return [
-      'play-ui/styles/base.less',
-      `play-ui/components/${dirName}/src/index.less`,
+      'play-ui/src/styles/base.less',
+      `play-ui/src/components/${dirName}/src/index.less`,
     ]
   }
 

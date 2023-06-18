@@ -24,7 +24,7 @@ export default defineConfig({
       resolvers: [
         PlayResolver({
           importStyle: 'less',
-          from: 'play-ui/index',
+          from: 'play-ui/src/index',
         }),
       ],
     }),
