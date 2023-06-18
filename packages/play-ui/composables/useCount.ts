@@ -14,22 +14,26 @@ export const useCount = (options: CountOptions = {}) => {
     initial = 0,
   } = options
 
-  const _max = toValue(max)
-  const _min = toValue(min)
   const count = ref(initial)
 
   const add = (step = 1) => {
-    if (isNumber(_max) && count.value < _max)
+    if (isNumber(toValue(max)) && count.value < toValue(max)) {
+      if (count.value + step > toValue(max))
+        return count.value = toValue(max)
       count.value += step
+    }
   }
 
   const sub = (step = 1) => {
-    if (isNumber(_min) && count.value > _min)
+    if (isNumber(toValue(min)) && count.value > toValue(min)) {
+      if (count.value - step < toValue(min))
+        return count.value = toValue(min)
       count.value -= step
+    }
   }
 
   const update = (value: number) => {
-    if (value >= _min && value <= _max)
+    if (value >= toValue(min) && value <= toValue(max))
       count.value = value
   }
 

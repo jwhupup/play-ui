@@ -1,6 +1,7 @@
 <template>
-  <div style="padding: 300px;">
+  <div style="height: 500px; padding: 30px;">
     <PlSteps ref="stepsEl" v-model="steps" />
+    <PlSteps ref="stepsEl" v-model="steps" vertical />
     <br>
     <br>
     <button @click="handleToggleClick">

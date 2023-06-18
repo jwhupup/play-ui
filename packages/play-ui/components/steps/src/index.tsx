@@ -32,6 +32,14 @@ export default defineComponent({
 
     const toggle = (stepIndex: number, options: StepsToggleOptions) => {
       steps.value[stepIndex] = Object.assign(steps.value[stepIndex], options)
+      if (steps.value[stepIndex].state !== 'pending') {
+        steps.value[stepIndex - 1].state = 'done'
+        steps.value[stepIndex - 1].result = 'success'
+      }
+
+      if (steps.value[stepIndex].result === 'success' || !steps.value[stepIndex].result)
+        steps.value[stepIndex + 1].state = 'processing'
+
       _toggle(stepIndex)
     }
 
@@ -41,10 +49,10 @@ export default defineComponent({
     })
 
     return () => (
-      <div class='pl-steps'>
+      <div class={['pl-steps', props.vertical && '__vertical']}>
         {steps.value?.map((step, index) => (
           <>
-            <div class='pl-steps-item'>
+            <div class={['pl-steps-item', props.vertical && '__vertical']}>
               <Button
                 type={
                   step.state === 'processing'
@@ -55,11 +63,11 @@ export default defineComponent({
                 }
                 state={
                   step.state === 'done'
-                    ? step.result === 'success'
-                      ? 'success'
+                    ? step.result === 'exception'
+                      ? 'warning'
                       : step.result === 'fail'
                         ? 'danger'
-                        : 'warning'
+                        : 'success'
                     : 'primary'
                 }
                 size='small'
@@ -71,12 +79,12 @@ export default defineComponent({
                     : index + 1
                 }
               </Button>
-              <div class='pl-steps-content'>
+              <div class={['pl-steps-content', props.vertical && '__vertical']}>
                 <div class='pl-steps-item-name'>{step.name}</div>
                 <div class='pl-steps-item-description'>{step.description}</div>
               </div>
             </div>
-            {index + 1 !== steps.value?.length && <div class='pl-steps-item-pipe' />}
+            {index + 1 !== steps.value?.length && <div class={['pl-steps-item-pipe', props.vertical && '__vertical']} />}
           </>
         ))}
       </div>
