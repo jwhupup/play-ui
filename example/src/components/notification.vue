@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import 'play-ui/styles/base.less'
 import 'play-ui/components/notification/src/index.less'
-import { PlNotification } from 'play-ui/index'
+import { PlNotification } from 'play-ui'
 
 const handleClick = () => {
   PlNotification({

@@ -8,7 +8,7 @@
 import 'play-ui/styles/base.less'
 import 'play-ui/components/alert/src/index.less'
 import 'play-ui/components/message/src/index.less'
-import { PlMessage } from 'play-ui/index'
+import { PlMessage } from 'play-ui'
 
 const handleClick = () => {
   ['info', 'success', 'warning', 'danger'].forEach((item) => {

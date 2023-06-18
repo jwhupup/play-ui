@@ -20,6 +20,7 @@ export default defineConfig({
       ],
     }),
     Components({
+      dts: false,
       resolvers: [
         PlayResolver({
           importStyle: 'less',
