@@ -3,11 +3,11 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { build } from 'vite'
 import consola from 'consola'
-import { buildOutput, projectRoot } from '../path'
+import { distPath, srcPath } from '../path'
 
 export async function buildBundled() {
   consola.info('Start building bundle...')
-  const input = resolve(projectRoot, 'index.ts')
+  const input = resolve(srcPath, 'index.ts')
   await build({
     plugins: [vue(), vueJsx()],
     build: {
@@ -19,12 +19,12 @@ export async function buildBundled() {
       },
       rollupOptions: {
         output: {
-          dir: resolve(buildOutput, 'bundle'),
+          dir: resolve(distPath, 'bundle'),
           globals: {
             vue: 'Vue',
           },
         },
-        external: ['vue', /\.less/],
+        external: ['vue'],
       },
     },
   })

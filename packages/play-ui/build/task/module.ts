@@ -6,24 +6,24 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { build } from 'vite'
 import type { OutputOptions } from 'rollup'
 import { excludeFiles } from '../utils'
-import { buildOutput, projectRoot } from '../path'
+import { distPath, srcPath } from '../path'
 
 const output: OutputOptions[] = [
   {
     format: 'es',
-    dir: resolve(buildOutput, 'es'),
+    dir: resolve(distPath, 'es'),
     exports: undefined,
     preserveModules: true,
-    preserveModulesRoot: projectRoot,
+    preserveModulesRoot: srcPath,
     sourcemap: true,
     entryFileNames: '[name].mjs',
   },
   {
     format: 'cjs',
-    dir: resolve(buildOutput, 'lib'),
+    dir: resolve(distPath, 'lib'),
     exports: 'named',
     preserveModules: true,
-    preserveModulesRoot: projectRoot,
+    preserveModulesRoot: srcPath,
     sourcemap: true,
     entryFileNames: '[name].js',
   },
@@ -33,11 +33,13 @@ export async function buildModule() {
   consola.info('Start building modules...')
   const input = excludeFiles(
     await glob('**/*.{ts,tsx,vue}', {
-      cwd: projectRoot,
+      cwd: srcPath,
       absolute: true,
       onlyFiles: true,
     }),
   )
+  console.log(input)
+
   await build({
     plugins: [vue(), vueJsx()],
     build: {
@@ -45,7 +47,7 @@ export async function buildModule() {
         input,
         output,
         preserveEntrySignatures: 'allow-extension',
-        external: ['vue', /\.less/],
+        external: ['vue'],
       },
       minify: false,
     },

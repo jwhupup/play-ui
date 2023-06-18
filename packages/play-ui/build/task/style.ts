@@ -5,14 +5,14 @@ import gulpImportLess from 'gulp-import-less'
 import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import { existsSync, outputFileSync, readFileSync } from 'fs-extra'
-import { buildOutput, componentsRoot, stylesRoot } from '../path'
+import { componentsPath, distPath, stylesPath } from '../path'
 
 export async function buildStyle() {
-  const stylePath = resolve(buildOutput, 'styles')
+  const stylePath = resolve(distPath, 'styles')
 
   return src([
-    resolve(stylesRoot, '**/*.less'),
-    resolve(componentsRoot, '**/*.less'),
+    resolve(stylesPath, '**/*.less'),
+    resolve(componentsPath, '**/*.less'),
   ])
     .pipe(gulpImportLess())
     .pipe(gulpLess())
@@ -31,7 +31,7 @@ interface CssInfo {
 }
 
 function genStyleEntry(cssInfo: CssInfo) {
-  if (cssInfo.path.includes(componentsRoot)) {
+  if (cssInfo.path.includes(componentsPath)) {
     const noStyleComps = []
 
     const compName = cssInfo.name.split(/\\|\//)[1]
@@ -40,14 +40,14 @@ function genStyleEntry(cssInfo: CssInfo) {
 
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
-    const isExist = existsSync(resolve(componentsRoot, compName, 'src/index.vue'))
+    const isExist = existsSync(resolve(componentsPath, compName, 'src/index.vue'))
 
     const importContent = (
-      readFileSync(resolve(componentsRoot, compName, `src/index.${isExist ? 'vue' : 'tsx'}`), 'utf-8').match(importReg) || []
+      readFileSync(resolve(componentsPath, compName, `src/index.${isExist ? 'vue' : 'tsx'}`), 'utf-8').match(importReg) || []
     )
       .filter(path => noStyleComps.every(comp => !path.includes(comp)))
       .reduce((prev, curr) => prev += curr.replace(importReg, 'import \'$1.css\'\n'), importCommon)
 
-    outputFileSync(resolve(buildOutput, 'styles', `${cssInfo.name.split('.')[0].slice(1)}.js`), importContent)
+    outputFileSync(resolve(distPath, 'styles', `${cssInfo.name.split('.')[0].slice(1)}.js`), importContent)
   }
 }

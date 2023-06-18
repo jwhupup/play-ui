@@ -6,7 +6,7 @@ export function useOutside(target: Ref<HTMLElement | undefined>, watcher: Ref<bo
 
   const listener = (evt: MouseEvent) => {
     isOutside.value = false
-    isOutside.value = !target.value!.contains(evt.target)
+    isOutside.value = !target.value!.contains(evt.target as HTMLElement)
   }
 
   watchPostEffect(() => {
