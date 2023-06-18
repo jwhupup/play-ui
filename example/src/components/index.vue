@@ -1,5 +1,5 @@
 <template>
-  <PaginationDemo />
+  <BreadcrumbDemo />
 </template>
 
 <script setup lang="ts">
@@ -13,5 +13,6 @@
 // import ScrollbarDemo from './scrollbar.vue'
 // import TabsDemo from './tabs.vue'
 // import StepsDemo from './steps.vue'
-import PaginationDemo from './pagination.vue'
+// import PaginationDemo from './pagination.vue'
+import BreadcrumbDemo from './breadcrumb.vue'
 </script>

@@ -9,8 +9,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Breadcrumb: typeof import('./src/components/breadcrumb.vue')['default']
     Components: typeof import('./src/components/index.vue')['default']
-    copy: typeof import('./src/components/steps copy.vue')['default']
+    copy: typeof import('./src/components/pagination copy.vue')['default']
     Drawer: typeof import('./src/components/drawer.vue')['default']
     Dropdown: typeof import('./src/components/dropdown.vue')['default']
     Message: typeof import('./src/components/message.vue')['default']
@@ -20,6 +21,7 @@ declare module '@vue/runtime-core' {
     Papergation: typeof import('./src/components/papergation.vue')['default']
     PlAlert: typeof import('play-ui/index')['PlAlert']
     PlBadge: typeof import('play-ui/components')['PlBadge']
+    PlBreadcrumb: typeof import('play-ui/index')['PlBreadcrumb']
     Plbutton: typeof import('play-ui/index')['Plbutton']
     PlButton: typeof import('play-ui/index')['PlButton']
     PlButtonGroup: typeof import('play-ui/index')['PlButtonGroup']

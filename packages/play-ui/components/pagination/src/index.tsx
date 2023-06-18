@@ -1,11 +1,16 @@
-import type { PropType } from 'vue'
+import type { PropType, Ref } from 'vue'
 import { computed, defineComponent, ref, watchEffect } from 'vue'
 import { useCount, useExpose } from '../../../composables'
 import { range } from '../../../utils'
 import type { ButtonShape, ButtonType } from '../../button'
 import Button from '../../button'
 
-export type PaginationInstance = HTMLElement
+export type PaginationInstance = HTMLElement & {
+  current: Ref<number>
+  prev: (step?: number) => any
+  next: (step?: number) => any
+  toggle: (value?: number) => any
+}
 
 export default defineComponent({
   name: 'Pagination',

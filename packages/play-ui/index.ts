@@ -18,5 +18,6 @@ export * from './components/scrollbar'
 export * from './components/tabs'
 export * from './components/steps'
 export * from './components/pagination'
+export * from './components/breadcrumb'
 
 export * from './components/component'
