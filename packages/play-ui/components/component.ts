@@ -11,35 +11,6 @@ export interface AlertProps {
   closable?: boolean
 }
 
-// // button
-// export type ButtonNativeType = 'button' | 'reset' | 'submit'
-// export type ButtonShape = 'rounded' | 'pilled' | 'circle' | 'plain'
-// export type ButtonType = 'solid' | 'outline' | 'ghost' | 'white' | 'link'
-
-// export interface ButtonProps {
-//   type?: ButtonType
-//   nativeType?: ButtonNativeType
-//   state?: ComponentState
-//   size?: ComponentSize
-//   shape?: ButtonShape
-//   iconLeft?: string
-//   iconRight?: string
-//   disabled?: boolean
-// }
-
-// button group
-// export type ButtonGroupType = UnionPick<ButtonType, 'solid' | 'outline' | 'white'>
-// export type ButtonGroupShape = UnionPick<ButtonShape, 'rounded' | 'pilled'>
-
-// export interface ButtonGroupProps {
-//   type?: ButtonGroupType
-//   state?: ComponentState
-//   size?: ComponentSize
-//   shape?: ButtonGroupShape
-//   vertical?: boolean
-//   disabled?: boolean
-// }
-
 // checkbox
 export interface CheckboxProps {
   modelValue: boolean
@@ -48,15 +19,6 @@ export interface CheckboxProps {
   indeterminate?: boolean
   disabled?: boolean
 }
-
-// dropdown
-
-// export interface DropdownProps {
-//   data: DropdownData[]
-//   trigger?: DropdownTrigger
-//   disabled?: boolean
-//   customPosition?: boolean
-// }
 
 // icon
 export interface IconProps {

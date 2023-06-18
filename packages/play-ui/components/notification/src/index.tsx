@@ -1,9 +1,7 @@
-import { Transition, computed, createVNode, defineComponent, isVNode, render } from 'vue'
-import { type ExtractPropTypes, type PropType } from 'vue'
+import { type ExtractPropTypes, type PropType, Transition, computed, createVNode, defineComponent, isVNode, render } from 'vue'
 import { isFunction, isObject } from '@vue/shared'
+import { type ToggleHandler, useToggle } from '../../../composables'
 import { animation, uppercaseFirstWord } from '../../../utils'
-import { type ToggleHandler } from '../../../composables'
-import { useToggle } from '../../../composables'
 import Button from '../../button'
 import Icon from '../../icon'
 

@@ -1,5 +1,4 @@
 import { type ExtractPropTypes, type PropType } from 'vue'
-
 import { Transition, computed, createVNode, defineComponent, isVNode, render } from 'vue'
 import { isFunction, isObject } from '@vue/shared'
 import { useToggle } from '../../../composables'
