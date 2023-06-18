@@ -16,7 +16,6 @@ export async function buildModule() {
       onlyFiles: true,
     }),
   )
-  console.log(input)
 
   await build({
     plugins: [vue(), vueJsx()],
