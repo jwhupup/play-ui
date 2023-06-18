@@ -43,6 +43,8 @@ declare module '@vue/runtime-core' {
     PlTabs: typeof import('play-ui/index')['PlTabs']
     PlTooltip: typeof import('play-ui/index')['PlTooltip']
     Popover: typeof import('./src/components/popover.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     Scrollbar: typeof import('./src/components/scrollbar.vue')['default']
     Steps: typeof import('./src/components/steps.vue')['default']
     Tabs: typeof import('./src/components/tabs.vue')['default']

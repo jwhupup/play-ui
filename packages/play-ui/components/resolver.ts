@@ -29,7 +29,11 @@ function getSideEffects(
   if (!importStyle || isSSR)
     return
 
-  const noStyleComps: string[] = ['tab-pane', 'pagination']
+  const noStyleComps: string[] = [
+    'tab-pane',
+    'pagination',
+    'breadcrumb',
+  ]
 
   if (noStyleComps.includes(dirName))
     return

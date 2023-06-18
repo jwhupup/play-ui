@@ -22,16 +22,22 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const { steps, current, toggle } = useStep<BreadcrumbItem>(props.modelValue!, emit)
-
+    const { steps, current, toggle } = useStep<BreadcrumbItem>(
+      props.modelValue!,
+      emit,
+    )
     const instance = getCurrentInstance()
     const router = instance?.appContext.config.globalProperties.$router
 
-    const onClick = (index: number, breadcrumb: BreadcrumbItem) => () => {
-      toggle(index)
-      if (!breadcrumb.to || !router)
-        return
-      props.replace ? router.replace(breadcrumb.to) : router.push(breadcrumb.to)
+    const onClick = (index: number, breadcrumb: BreadcrumbItem) => {
+      return () => {
+        toggle(index)
+        if (!breadcrumb.to || !router)
+          return
+        props.replace
+          ? router.replace(breadcrumb.to)
+          : router.push(breadcrumb.to)
+      }
     }
 
     return () => (

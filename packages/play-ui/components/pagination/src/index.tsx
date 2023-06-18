@@ -85,22 +85,74 @@ export default defineComponent({
     })
 
     return () => (
-      <div style='display: flex; gap: 5px;' v-show={props.count > 1}>
-        <Button shape={props.shape} size='mini' type={props.type} state='info' iconLeft='chevron-left' onClick={onPrev} />
-        <Button shape={props.shape} size='mini' type={props.type} state={current.value === 1 ? 'primary' : 'info'} onClick={onPageNo(1)}>1</Button>
-        <Button shape={props.shape} v-show={isShowLeftFold.value} size='mini' type={props.type} state='info' iconLeft='three-dots' onClick={onStepPrev} />
+      <div v-show={props.count > 1}>
+        <Button
+          size='mini'
+          state='info'
+          iconLeft='chevron-left'
+          type={props.type}
+          shape={props.shape}
+          onClick={onPrev}
+        />
+        <Button
+          size='mini'
+          type={props.type}
+          shape={props.shape}
+          state={current.value === 1 ? 'primary' : 'info'}
+          onClick={onPageNo(1)}
+        >
+          1
+        </Button>
+        <Button
+          size='mini'
+          state='info'
+          iconLeft='three-dots'
+          type={props.type}
+          shape={props.shape}
+          v-show={isShowLeftFold.value}
+          onClick={onStepPrev}
+        />
         {
           count.value
             ?.slice(start.value, end.value)
             .map(pageNo => (
-              <div style='display: flex; align-items: center;'>
-                <Button shape={props.shape} size='mini' type={props.type} state={current.value === pageNo ? 'primary' : 'info'} onClick={onPageNo(pageNo)}>{pageNo}</Button>
-              </div>
+              <Button
+                size='mini'
+                type={props.type}
+                shape={props.shape}
+                state={current.value === pageNo ? 'primary' : 'info'}
+                onClick={onPageNo(pageNo)}
+              >
+                {pageNo}
+              </Button>
             ))
         }
-        <Button shape={props.shape} v-show={isShowRightFold.value} size='mini' type={props.type} state='info' iconLeft='three-dots' onClick={onStepNext} />
-        <Button shape={props.shape} size='mini' type={props.type} state={current.value === props.count ? 'primary' : 'info'} onClick={onPageNo(props.count)}>{props.count}</Button>
-        <Button shape={props.shape} size='mini' type={props.type} state='info' iconLeft='chevron-right' onClick={onNext} />
+        <Button
+          size='mini'
+          state='info'
+          iconLeft='three-dots'
+          type={props.type}
+          shape={props.shape}
+          v-show={isShowRightFold.value}
+          onClick={onStepNext}
+        />
+        <Button
+          size='mini'
+          type={props.type}
+          shape={props.shape}
+          state={current.value === props.count ? 'primary' : 'info'}
+          onClick={onPageNo(props.count)}
+        >
+          {props.count}
+        </Button>
+        <Button
+          size='mini'
+          state='info'
+          iconLeft='chevron-right'
+          type={props.type}
+          shape={props.shape}
+          onClick={onNext}
+        />
         to <input type="number" onBlur={onToggle} />
       </div>
     )
