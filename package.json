@@ -16,10 +16,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.7",
     "@vueuse/core": "^9.1.1",
     "play-ui": "workspace:*",
-    "vue": "^3.3.0-beta.5"
+    "vue": "^v3.3.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",

@@ -22,6 +22,9 @@
     "build": "rimraf dist && vue-tsc && gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts"
   },
   "peerDependencies": {
-    "vue": "^3.3.0-beta.5"
+    "vue": "^v3.3.4"
+  },
+  "dependencies": {
+    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.7"
   }
 }
