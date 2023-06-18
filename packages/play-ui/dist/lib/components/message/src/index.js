@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
 const vue = require("vue");
-const shared_esmBundler = require("../../../node_modules/.pnpm/@vue_shared@3.3.4/node_modules/@vue/shared/dist/shared.esm-bundler.js");
+const shared = require("@vue/shared");
 const useToggle = require("../../../composables/useToggle.js");
 const index = require("../../../utils/index.js");
 const index$1 = require("../../alert/index.js");
@@ -66,10 +66,10 @@ const Message = (options) => {
     messagesContainer.className = "pl-message-container";
     document.body.appendChild(messagesContainer);
   }
-  const vm = vue.createVNode(MessageConstructor, shared_esmBundler.isObject(options) ? {
+  const vm = vue.createVNode(MessageConstructor, shared.isObject(options) ? {
     ...options
-  } : null, shared_esmBundler.isFunction(options) || vue.isVNode(options) ? {
-    headless: shared_esmBundler.isFunction(options) ? options : () => options
+  } : null, shared.isFunction(options) || vue.isVNode(options) ? {
+    headless: shared.isFunction(options) ? options : () => options
   } : null);
   const container = document.createElement("div");
   vue.render(vm, container);

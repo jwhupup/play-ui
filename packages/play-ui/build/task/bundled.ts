@@ -24,7 +24,7 @@ export async function buildBundled() {
             vue: 'Vue',
           },
         },
-        external: ['vue'],
+        external: ['vue', '@vue/shared'],
       },
     },
   })

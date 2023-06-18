@@ -1,5 +1,5 @@
 import { isVNode, createVNode, render, defineComponent, computed, Transition } from "vue";
-import { isObject, isFunction } from "../../../node_modules/.pnpm/@vue_shared@3.3.4/node_modules/@vue/shared/dist/shared.esm-bundler.mjs";
+import { isObject, isFunction } from "@vue/shared";
 import { useToggle } from "../../../composables/useToggle.mjs";
 import { uppercaseFirstWord, animation } from "../../../utils/index.mjs";
 import { PlButton } from "../../button/index.mjs";

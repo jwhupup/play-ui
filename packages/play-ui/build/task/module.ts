@@ -47,7 +47,7 @@ export async function buildModule() {
         input,
         output,
         preserveEntrySignatures: 'allow-extension',
-        external: ['vue'],
+        external: ['vue', '@vue/shared'],
       },
       minify: false,
     },

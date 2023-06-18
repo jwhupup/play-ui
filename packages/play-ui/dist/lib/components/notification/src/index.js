@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: "Module" } });
 const vue = require("vue");
-const shared_esmBundler = require("../../../node_modules/.pnpm/@vue_shared@3.3.4/node_modules/@vue/shared/dist/shared.esm-bundler.js");
+const shared = require("@vue/shared");
 const useToggle = require("../../../composables/useToggle.js");
 const index = require("../../../utils/index.js");
 const index$2 = require("../../button/index.js");
@@ -118,11 +118,11 @@ const Notification = (options) => {
     notificationsContainer.className = "pl-notification-container";
     document.body.appendChild(notificationsContainer);
   }
-  const props = shared_esmBundler.isObject(options) ? {
+  const props = shared.isObject(options) ? {
     ...options
   } : null;
-  const child = shared_esmBundler.isFunction(options) || vue.isVNode(options) ? {
-    headless: shared_esmBundler.isFunction(options) ? options : () => options
+  const child = shared.isFunction(options) || vue.isVNode(options) ? {
+    headless: shared.isFunction(options) ? options : () => options
   } : null;
   const container = document.createElement("div");
   const notification = vue.createVNode(NotificationConstructor, props, child);
