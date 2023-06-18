@@ -33,6 +33,7 @@ function getSideEffects(
     'tab-pane',
     'pagination',
     'breadcrumb',
+    'virtual-list-item',
   ]
 
   if (noStyleComps.includes(dirName))

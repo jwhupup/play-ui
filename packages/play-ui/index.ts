@@ -19,5 +19,6 @@ export * from './components/tabs'
 export * from './components/steps'
 export * from './components/pagination'
 export * from './components/breadcrumb'
+export * from './components/virtual-list'
 
 export * from './components/component'

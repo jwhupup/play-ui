@@ -1,18 +1,19 @@
 <template>
-  <PaginationDemo />
+  <Demo />
 </template>
 
 <script setup lang="ts">
-// import ModalDemo from './modal.vue'
-// import DrawerDemo from './drawer.vue'
-// import PopoverDemo from './popover.vue'
-// import TooltipDemo from './tooltip.vue'
-// import NotificationDemo from './notification.vue'
-// import MessageDemo from './message.vue'
-// import DropdownDemo from './dropdown.vue'
-// import ScrollbarDemo from './scrollbar.vue'
-// import TabsDemo from './tabs.vue'
-// import StepsDemo from './steps.vue'
-import PaginationDemo from './pagination.vue'
-// import BreadcrumbDemo from './breadcrumb.vue'
+// import Demo from './modal.vue'
+// import Demo from './drawer.vue'
+// import Demo from './popover.vue'
+// import Demo from './tooltip.vue'
+// import Demo from './notification.vue'
+// import Demo from './message.vue'
+// import Demo from './dropdown.vue'
+// import Demo from './scrollbar.vue'
+// import Demo from './tabs.vue'
+// import Demo from './steps.vue'
+// import Demo from './pagination.vue'
+// import Demo from './breadcrumb.vue'
+import Demo from './virtual-list.vue'
 </script>

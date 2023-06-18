@@ -42,6 +42,8 @@ declare module '@vue/runtime-core' {
     PlTabPane: typeof import('play-ui/index')['PlTabPane']
     PlTabs: typeof import('play-ui/index')['PlTabs']
     PlTooltip: typeof import('play-ui/index')['PlTooltip']
+    PlVirtualList: typeof import('play-ui/index')['PlVirtualList']
+    PlVirtualListItem: typeof import('play-ui/index')['PlVirtualListItem']
     Popover: typeof import('./src/components/popover.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
@@ -49,5 +51,6 @@ declare module '@vue/runtime-core' {
     Steps: typeof import('./src/components/steps.vue')['default']
     Tabs: typeof import('./src/components/tabs.vue')['default']
     Tooltip: typeof import('./src/components/tooltip.vue')['default']
+    VirtualList: typeof import('./src/components/virtual-list.vue')['default']
   }
 }
