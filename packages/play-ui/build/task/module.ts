@@ -4,30 +4,8 @@ import consola from 'consola'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { build } from 'vite'
-import type { OutputOptions } from 'rollup'
 import { excludeFiles } from '../utils'
 import { distPath, srcPath } from '../path'
-
-const output: OutputOptions[] = [
-  {
-    format: 'es',
-    dir: resolve(distPath, 'es'),
-    exports: undefined,
-    preserveModules: true,
-    preserveModulesRoot: srcPath,
-    sourcemap: true,
-    entryFileNames: '[name].mjs',
-  },
-  {
-    format: 'cjs',
-    dir: resolve(distPath, 'lib'),
-    exports: 'named',
-    preserveModules: true,
-    preserveModulesRoot: srcPath,
-    sourcemap: true,
-    entryFileNames: '[name].js',
-  },
-]
 
 export async function buildModule() {
   consola.info('Start building modules...')
@@ -45,7 +23,26 @@ export async function buildModule() {
     build: {
       rollupOptions: {
         input,
-        output,
+        output: [
+          {
+            format: 'es',
+            dir: resolve(distPath, 'es'),
+            exports: undefined,
+            preserveModules: true,
+            preserveModulesRoot: srcPath,
+            sourcemap: true,
+            entryFileNames: '[name].mjs',
+          },
+          {
+            format: 'cjs',
+            dir: resolve(distPath, 'lib'),
+            exports: 'named',
+            preserveModules: true,
+            preserveModulesRoot: srcPath,
+            sourcemap: true,
+            entryFileNames: '[name].js',
+          },
+        ],
         preserveEntrySignatures: 'allow-extension',
         external: ['vue', '@vue/shared'],
       },
