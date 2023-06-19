@@ -1,7 +1,7 @@
 <template>
   <PlDropdown
     ref="dropdown"
-    trigger="click"
+    trigger="hover"
     :data="list"
     style="position: absolute; top: 50%; left: 50%;"
   >
@@ -15,9 +15,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import 'play-ui/components/badge/src/index.less'
-import 'play-ui/components/Popover/src/index.less'
-import type { DropdownData } from 'play-ui/components/dropdown'
+import 'play-ui/src/components/badge/src/index.less'
+import 'play-ui/src/components/Popover/src/index.less'
+import type { DropdownData } from 'play-ui'
 
 const dropdown = ref()
 

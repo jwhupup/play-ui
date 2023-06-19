@@ -1,5 +1,5 @@
 import { type ExtractPropTypes, type PropType, defineComponent } from 'vue'
-import { type Placement } from '@popperjs/core'
+import type { Placement } from '@floating-ui/vue'
 import Dropdown from '..'
 import Button from '../../button'
 import Badge from '../../badge'
@@ -83,9 +83,9 @@ export default defineComponent({
                   class="pl-dropdown-child"
                   data={item.children}
                   trigger={props.trigger}
-                  placement="right"
+                  placement='right-start'
                   v-slots={{
-                    reference: renderMenuButton(item),
+                    reference: () => renderMenuButton(item),
                   }}
                 />
               )

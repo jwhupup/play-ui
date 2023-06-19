@@ -1,7 +1,9 @@
-import { type ExtractPropTypes, type PropType, Transition, computed, defineComponent, onMounted, ref, watchEffect } from 'vue'
-import { type Instance, type Placement, createPopper } from '@popperjs/core'
-import { useOutside } from '../../../composables'
+import type { ExtractPropTypes, PropType } from 'vue'
+import { Transition, computed, defineComponent, ref, watch, watchEffect } from 'vue'
+import type { Placement } from '@floating-ui/vue'
+import { arrow, autoUpdate, flip, inline, offset, shift, useFloating } from '@floating-ui/vue'
 import { animation } from '../../../utils'
+import { useOutside } from '../../../composables'
 
 export type PopoverProps = ExtractPropTypes<typeof popoverProps>
 
@@ -10,7 +12,7 @@ const popoverProps = {
   content: String,
   placement: {
     type: String as PropType<Placement>,
-    default: 'auto',
+    default: 'right',
   },
   trigger: {
     type: String as PropType<'hover' | 'click'>,
@@ -22,72 +24,100 @@ export default defineComponent({
   name: 'Popover',
   props: popoverProps,
   setup(props, { slots }) {
-    let timer: NodeJS.Timeout
     let flag = true
-    let popperInstance: Instance
+    let timer: NodeJS.Timeout
+    const popperPlacement = ref('')
     const visible = ref(false)
+    const reference = ref<HTMLElement>()
     const popover = ref<HTMLElement>()
-    const popoverBtn = ref<HTMLElement>()
+    const popoverArrow = ref<HTMLElement>()
     const popoverContainer = ref<HTMLElement>()
 
-    onMounted(() => {
-      popperInstance = createPopper(popoverBtn.value!, popover.value!, {
-        placement: props.placement,
-        modifiers: [
-          {
-            name: 'offset',
-            options: {
-              offset: [0, 8],
-            },
-          },
-        ],
-      })
+    const { floatingStyles, middlewareData, placement } = useFloating(reference, popover, {
+      placement: props.placement,
+      middleware: [
+        inline(),
+        offset(8),
+        flip(),
+        shift({ crossAxis: true }),
+        arrow({ element: popoverArrow }),
+      ],
+      whileElementsMounted(...args) {
+        const cleanup = autoUpdate(...args, { animationFrame: true })
+        return cleanup
+      },
     })
 
-    const visibleControl = (enabled: boolean) => {
-      visible.value = enabled
-      popperInstance.setOptions(options => ({
-        ...options,
-        modifiers: [
-          ...options.modifiers!,
-          { name: 'eventListeners', enabled },
-        ],
-      }))
-      enabled && popperInstance.update()
-    }
+    watch(middlewareData, () => {
+      if (middlewareData.value.arrow && popoverContainer.value && popoverArrow.value) {
+        const { x, y } = middlewareData.value.arrow
+
+        let arrowPlacement = {}
+        switch (placement.value) {
+          case 'top':
+            popperPlacement.value = placement.value
+            arrowPlacement = { bottom: '-4px' }
+            break
+          case 'bottom':
+            popperPlacement.value = placement.value
+            arrowPlacement = { top: '-4px' }
+            break
+          case 'left':
+            popperPlacement.value = placement.value
+            arrowPlacement = { right: '-4px' }
+            break
+          case 'right':
+            popperPlacement.value = placement.value
+            arrowPlacement = { left: '-4px' }
+            break
+          default:
+            break
+        }
+        Object.assign(popoverArrow.value.style, {
+          left: x != null ? `${x}px` : '',
+          top: y != null ? `${y}px` : '',
+          ...arrowPlacement,
+        })
+      }
+    })
 
     const onClick = () => {
       if (!visible.value)
-        visibleControl(!visible.value)
-    }
-
-    const onBtnClick = (evt: MouseEvent) => {
-      if (props.trigger === 'click') {
-        evt.stopPropagation()
-        visibleControl(!visible.value)
-      }
+        visible.value = true
     }
 
     const onMouseenter = () => {
       flag = false
-      visibleControl(true)
+      visible.value = true
     }
 
     const onMouseleave = () => {
       flag = true
       timer = setTimeout(() => {
         clearTimeout(timer)
-        flag && visibleControl(false)
+        visible.value = !flag
       }, 300)
     }
 
-    const eventProps = computed(() => {
-      if (props.trigger === 'hover')
-        return { onMouseenter, onMouseleave }
+    const onReferenceClick = (evt: MouseEvent) => {
+      if (props.trigger === 'click') {
+        evt.stopPropagation()
+        visible.value = !visible.value
+      }
+    }
 
+    const eventProps = computed(() => {
+      if (props.trigger === 'hover') {
+        return {
+          onMouseenter,
+          onMouseleave,
+        }
+      }
       const { isOutside } = useOutside(popoverContainer, visible)
       watchEffect(() => isOutside.value && (visible.value = false))
-      return { onClick }
+      return {
+        onClick,
+      }
     })
 
     const renderPopover = () => (
@@ -108,24 +138,25 @@ export default defineComponent({
           leave-active-class={animation('fadeOut')}
           appear
         >
-          <div
+          {visible.value && <div
             id="pl-popover"
             ref={popover}
-            v-show={visible.value}
+            style={floatingStyles.value}
+            data-popper-placement={popperPlacement.value}
             class={!slots.headless && 'pl-popover-content'}
           >
             {slots.headless?.() || slots.default?.() || renderPopover()}
             {
               slots.headless
                 ? null
-                : <div id="pl-popover-arrow" data-popper-arrow />
+                : <div id="pl-popover-arrow" ref={popoverArrow} data-popper-arrow />
             }
-          </div>
+          </div>}
         </Transition>
         <div
           class='pl-popover-reference'
-          ref={popoverBtn}
-          onClick={onBtnClick}
+          ref={reference}
+          onClick={onReferenceClick}
         >
           {slots.reference?.()}
         </div>

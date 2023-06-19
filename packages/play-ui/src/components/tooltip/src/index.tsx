@@ -1,5 +1,5 @@
 import { type ExtractPropTypes, type PropType, defineComponent } from 'vue'
-import { type Placement } from '@popperjs/core'
+import type { Placement } from '@floating-ui/vue'
 import Popover from '../../popover'
 
 export type TooltipProps = ExtractPropTypes<typeof tooltipProps>

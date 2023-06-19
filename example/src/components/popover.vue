@@ -10,9 +10,9 @@
         popover
       </PlButton>
     </template>
-    <template #default>
+    <!-- <template #default>
       This is popover!
-    </template>
+    </template> -->
   </PlPopover>
 </template>
 
