@@ -23,8 +23,5 @@
   },
   "peerDependencies": {
     "vue": "^v3.3.4"
-  },
-  "dependencies": {
-    "@floating-ui/vue": "^1.0.1"
   }
 }

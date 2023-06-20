@@ -23,13 +23,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { InputProps } from '../../component'
+import type { Rules } from 'async-validator'
+import Schema from 'async-validator'
+import { inputProps } from '.'
 
-const props = withDefaults(defineProps<InputProps>(), {
-  type: 'bordered',
-  size: 'medium',
-  nativeType: 'text',
-})
+const props = defineProps(inputProps)
 const emit = defineEmits(['update:modelValue', 'blur'])
 
 defineOptions({ name: 'Input' })
@@ -38,16 +36,25 @@ const inputEl = ref<HTMLInputElement>()
 const isShowTip = ref(false)
 const tipMessage = ref('Please enter a valid value.')
 
+const descriptor: Rules = {
+  value: {
+    type: 'string',
+    required: true,
+    message: 'This is error message!',
+    validator: (rule, value) => value === 'muji',
+  },
+}
+const validator = new Schema(descriptor)
+
 const handleBlur = (evt: Event) => {
   emit('blur', evt)
 
-  if (props.rule?.message)
-    tipMessage.value = props.rule?.message
-
-  if (props.rule?.require && !props.modelValue)
-    isShowTip.value = !props.modelValue
-
-  if (props.rule?.pattern && props.modelValue)
-    isShowTip.value = !props.rule?.pattern.test(String(props.modelValue))
+  validator.validate({ value: props.modelValue }, (errors) => {
+    if (errors) {
+      tipMessage.value = errors.find(error => error.field === 'value')?.message ?? 'This is default message!'
+      return isShowTip.value = true
+    }
+    isShowTip.value = false
+  })
 }
 </script>
