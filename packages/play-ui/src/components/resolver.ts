@@ -30,6 +30,7 @@ function getSideEffects(
     return
 
   const noStyleComps: string[] = [
+    'select',
     'tab-pane',
     'pagination',
     'breadcrumb',

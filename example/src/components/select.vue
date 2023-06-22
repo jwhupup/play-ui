@@ -7,7 +7,6 @@
       info-tip="哈喽！"
       clearable
       multiple
-      prefix-icon="chevron-down"
       placeholder="this is select"
       :pattern="/^\d+$/"
       error-tip="错了"

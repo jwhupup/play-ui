@@ -79,10 +79,7 @@ export default defineComponent({
 
     const renderDropdown = () => (
       <>
-        <div
-          class="pl-dropdown-menu"
-          v-show={props.data.length}
-        >
+        <div class="pl-dropdown-menu" v-show={props.data.length}>
           {
             props.data.map((item) => {
               if (item.children) {
@@ -102,7 +99,7 @@ export default defineComponent({
             })
           }
         </div>
-        <div v-show={!props.data.length} class="pl-dropdown-menu">No Data</div>
+        <div class="pl-dropdown-menu" v-show={!props.data.length}>No Data</div>
       </>
     )
 

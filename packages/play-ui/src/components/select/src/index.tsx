@@ -1,8 +1,10 @@
-import { defineComponent, ref, watch, watchEffect } from 'vue'
+import type { StyleValue } from 'vue'
+import { computed, defineComponent, ref, watch, watchEffect } from 'vue'
 import Input from '../../input/src/base.vue'
 import Dropdown from '../../dropdown'
 import { useExpose, useOutside } from '../../../composables'
 import Tag from '../../tag'
+import { unrepeatObjectArray } from '../../../utils'
 import type { SelectOption } from './select'
 import { selectProps } from './select'
 
@@ -10,12 +12,12 @@ export default defineComponent({
   name: 'Select',
   props: selectProps,
   emits: ['update:modelValue'],
-  setup(props, { slots, emit }) {
+  setup(props, { slots }) {
     const visible = ref(false)
     const inputValue = ref('')
     const selectEl = ref<HTMLElement>()
     const crrentValue = ref<SelectOption>()
-    const selectValue = ref<Map<string, SelectOption>>(new Map())
+    const selectValue = ref<SelectOption[]>([])
 
     useExpose({
       selectValue,
@@ -26,12 +28,7 @@ export default defineComponent({
 
     watch(inputValue, (value) => {
       if (!value)
-        selectValue.value.clear()
-    })
-
-    watch(selectValue.value, (value) => {
-      inputValue.value = Array.from(value.keys()).join()
-      emit('update:modelValue', Array.from(value.values()))
+        selectValue.value.length = 0
     })
 
     const onSelectClick = () => {
@@ -39,17 +36,25 @@ export default defineComponent({
     }
 
     const onSelectOptionClick = (option: SelectOption) => {
-      selectValue.value.set(option.name, option)
-    }
-
-    const onTagClose = (name: string) => {
-      return (evt: MouseEvent) => {
-        evt.stopPropagation()
-        selectValue.value.delete(name)
+      if (props.multiple) {
+        selectValue.value.push(option)
+        selectValue.value = unrepeatObjectArray(selectValue.value, 'name')
+        inputValue.value = selectValue.value.map(option => option.name).join()
+      }
+      else {
+        selectValue.value = [option]
+        inputValue.value = option.name
       }
     }
 
-    const _props = {
+    const onTagClose = (index: number) => {
+      return (evt: MouseEvent) => {
+        evt.stopPropagation()
+        selectValue.value.splice(index, 1)
+      }
+    }
+
+    const resolveProps = ref({
       mode: props.mode,
       size: props.size,
       infoTip: props.infoTip,
@@ -58,7 +63,43 @@ export default defineComponent({
       placeholder: props.placeholder,
       disabled: props.disabled,
       clearable: props.clearable,
-    }
+    })
+
+    const resolveSlots = computed(() => {
+      if (!props.multiple)
+        return slots
+
+      const wrapperStyle = {
+        display: 'inline-flex',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        padding: '5px 10px',
+        gap: '5px',
+        width: '100%',
+        height: '100%',
+        cursor: 'pointer',
+      } as StyleValue
+
+      return {
+        ...slots,
+        selectWrapper() {
+          return (
+            <div style={wrapperStyle}>
+              {
+                selectValue.value.map((option, index) => (
+                  <Tag
+                    closable
+                    onClose={onTagClose(index)}
+                  >
+                    {option.name}
+                  </Tag>
+                ))
+              }
+            </div>
+          )
+        },
+      }
+    })
 
     return () => (
       <Dropdown
@@ -71,28 +112,10 @@ export default defineComponent({
             return (
               <div ref={selectEl} onClick={onSelectClick}>
                 <Input
-                  {..._props}
+                  {...resolveProps.value}
                   v-model={inputValue.value}
+                  v-slots={resolveSlots.value}
                   suffix-icon='chevron-down'
-                  v-slots={{
-                    ...slots,
-                    selectWrapper() {
-                      return (
-                        <div class='pl-select-wrapper'>
-                          {
-                            Array.from(selectValue.value.values()).map(item => (
-                              <Tag
-                                closable
-                                onClose={onTagClose(item.name)}
-                              >
-                                {item.name}
-                              </Tag>
-                            ))
-                          }
-                        </div>
-                      )
-                    },
-                  }}
                 />
               </div>
             )

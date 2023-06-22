@@ -38,3 +38,11 @@ export function animation(
   animate__${speed} \
   animate__${repeat === 'infinite' ? 'infinite' : `__repeat-${repeat}`}`
 }
+
+export function unrepeatObjectArray<T extends { [key: string]: unknown }>(array: T[], key: string) {
+  const unrepeat = new Map()
+  for (const item of array)
+    unrepeat.set(item[key], item)
+
+  return Array.from(unrepeat.values())
+}
