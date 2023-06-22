@@ -9,5 +9,5 @@ defineProps<IconProps>()
 const emit = defineEmits(['click'])
 defineOptions({ name: 'Icon' })
 
-const onClick = () => emit('click')
+const onClick = (evt: MouseEvent) => emit('click', evt)
 </script>

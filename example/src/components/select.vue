@@ -38,12 +38,8 @@ const select = ref()
 const value = ref([])
 
 watchEffect(() => {
-  console.log(value.value)
+  console.log(value.value.length)
 })
-
-// setInterval(() => {
-//   console.log(select.value?.selectValue)
-// }, 2000)
 
 const options = ref([
   { name: 'btn 1' },

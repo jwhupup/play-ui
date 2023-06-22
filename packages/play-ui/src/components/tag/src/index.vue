@@ -1,6 +1,5 @@
 <template>
   <div
-    ref="tagEl"
     class="pl-tag"
     :class="[`pl-tag--${type}`, `pl-tag--${shape}`, `pl-tag--${state}`]"
   >
@@ -16,7 +15,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import Icon from '../../icon'
 import type { TagProps } from '../../component'
 
@@ -30,10 +28,7 @@ const emits = defineEmits(['close'])
 
 defineOptions({ name: 'Tag' })
 
-const tagEl = ref<HTMLDivElement>()
-
 const handleClose = (evt: MouseEvent) => {
-  tagEl.value?.parentNode?.removeChild(tagEl.value)
   emits('close', evt)
 }
 </script>

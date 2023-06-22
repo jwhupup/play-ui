@@ -21,10 +21,6 @@ export interface DropdownData {
 }
 
 const dropdownProps = {
-  modelValue: {
-    type: Object as PropType<DropdownData>,
-    default: () => ({}),
-  },
   placement: {
     type: String as PropType<Placement>,
     default: 'bottom',
@@ -42,11 +38,11 @@ const dropdownProps = {
 export default defineComponent({
   name: 'Dropdown',
   props: dropdownProps,
-  emits: ['update:modelValue'],
+  emits: ['click'],
   setup(props, { slots, emit }) {
     const onClick = (item: DropdownData) => {
       return (evt: MouseEvent) => {
-        emit('update:modelValue', item)
+        emit('click', item)
         if (item.callback)
           item.callback()
 

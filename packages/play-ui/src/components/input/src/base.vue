@@ -20,6 +20,7 @@
         <Icon :name="prefixIcon" />
       </div>
       <input
+        v-if="!$slots.selectWrapper"
         ref="inputEl"
         class="pl-input"
         :type="type"
@@ -31,6 +32,7 @@
         @blur="handleBlur"
         @input="handleInput"
       >
+      <slot v-else name="selectWrapper" />
       <div
         v-if="suffixIcon || clearable"
         class="__suffix"

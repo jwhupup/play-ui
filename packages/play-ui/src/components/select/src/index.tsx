@@ -1,7 +1,8 @@
-import { defineComponent, ref, watchEffect } from 'vue'
+import { defineComponent, ref, watch, watchEffect } from 'vue'
 import Input from '../../input/src/base.vue'
 import Dropdown from '../../dropdown'
 import { useExpose, useOutside } from '../../../composables'
+import Tag from '../../tag'
 import type { SelectOption } from './select'
 import { selectProps } from './select'
 
@@ -10,11 +11,11 @@ export default defineComponent({
   props: selectProps,
   emits: ['update:modelValue'],
   setup(props, { slots, emit }) {
-    const crrentValue = ref<SelectOption>()
-    const selectValue = ref<SelectOption[]>([])
-    const inputValue = ref('')
     const visible = ref(false)
+    const inputValue = ref('')
     const selectEl = ref<HTMLElement>()
+    const crrentValue = ref<SelectOption>()
+    const selectValue = ref<Map<string, SelectOption>>(new Map())
 
     useExpose({
       selectValue,
@@ -23,27 +24,29 @@ export default defineComponent({
     const { isOutside } = useOutside(selectEl, visible)
     watchEffect(() => isOutside.value && (visible.value = false))
 
-    watchEffect(() => {
-      if (!inputValue.value)
-        selectValue.value.length = 0
-
-      if (!crrentValue.value)
-        return
-
-      if (props.multiple) {
-        selectValue.value.push(crrentValue.value)
-        inputValue.value = selectValue.value.map(item => item.name).join()
-      }
-      else {
-        selectValue.value = [crrentValue.value]
-        inputValue.value = crrentValue.value.name
-      }
-      crrentValue.value = undefined
-      emit('update:modelValue', selectValue.value)
+    watch(inputValue, (value) => {
+      if (!value)
+        selectValue.value.clear()
     })
 
-    const onClick = () => {
+    watch(selectValue.value, (value) => {
+      inputValue.value = Array.from(value.keys()).join()
+      emit('update:modelValue', Array.from(value.values()))
+    })
+
+    const onSelectClick = () => {
       visible.value = true
+    }
+
+    const onSelectOptionClick = (option: SelectOption) => {
+      selectValue.value.set(option.name, option)
+    }
+
+    const onTagClose = (name: string) => {
+      return (evt: MouseEvent) => {
+        evt.stopPropagation()
+        selectValue.value.delete(name)
+      }
     }
 
     const _props = {
@@ -62,15 +65,34 @@ export default defineComponent({
         trigger={visible.value}
         data={props.options}
         v-model={crrentValue.value}
+        onClick={onSelectOptionClick}
         v-slots={{
           reference() {
             return (
-              <div ref={selectEl} onClick={onClick}>
+              <div ref={selectEl} onClick={onSelectClick}>
                 <Input
                   {..._props}
                   v-model={inputValue.value}
-                  v-slots={slots}
                   suffix-icon='chevron-down'
+                  v-slots={{
+                    ...slots,
+                    selectWrapper() {
+                      return (
+                        <div class='pl-select-wrapper'>
+                          {
+                            Array.from(selectValue.value.values()).map(item => (
+                              <Tag
+                                closable
+                                onClose={onTagClose(item.name)}
+                              >
+                                {item.name}
+                              </Tag>
+                            ))
+                          }
+                        </div>
+                      )
+                    },
+                  }}
                 />
               </div>
             )
