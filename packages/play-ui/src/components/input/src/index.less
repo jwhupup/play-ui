@@ -1,48 +1,114 @@
-[data-theme='light'] .pl-input {
+[data-theme='light'] .pl-input-container {
     --pl-input-text-color: var(--pl-gray-500);
-    --pl-input-bd-color: var(--pl-gray-200);
+    --pl-input-border-color: var(--pl-gray-200);
     --pl-input-bg-color: white;
     --pl-input-ph-text-color: var(--pl-gray-400);
 }
 
-[data-theme='dark'] .pl-input {
+[data-theme='dark'] .pl-input-container {
     --pl-input-text-color: var(--pl-gray-400);
-    --pl-input-bd-color: var(--pl-gray-700);
+    --pl-input-border-color: var(--pl-gray-700);
     --pl-input-bg-color: var(--pl-gray-800);
     --pl-input-ph-text-color: var(--pl-gray-500);
 }
 
 .pl-input {
     width: 100%;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 6px;
-    color: var(--pl-input-text-color);
+    height: 100%;
+    padding: 0 10px;
     background-color: transparent;
+
+    color: var(--pl-input-text-color);
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+
+    &-wrapper {
+        display: inline-flex;
+        width: 100%;
+        border: 1px solid var(--pl-input-border-color);
+        border-radius: 6px;
+
+        &:focus {
+            border-color: var(--pl-blue-500);
+        }
+
+        &.is-focus {
+            border-color: var(--pl-blue-500);
+        }
+    }
+
+    &-container {
+        display: flex;
+        position: relative;
+
+        .__prefix,
+        .__suffix {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .__prefix {
+            padding-left: 10px;
+        }
+
+        .__suffix {
+            padding-right: 10px;
+        }
+
+        .__prepend,
+        .__append {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 0 8px;
+            border: 1px solid var(--pl-input-border-color);
+        }
+
+        .__prepend {
+            border-right: none;
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
+
+        .__append {
+            border-left: none;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+    }
+
+    &-border {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 1px solid var(--pl-input-border-color);
+        border-radius: 6px;
+        color: var(--pl-input-text-color);
+    }
 
     &::placeholder {
         color: var(--pl-input-ph-text-color);
     }
 
     &-tip {
-        margin-top: 5px;
+        position: absolute;
+        bottom: -25px;
         font-size: 14px;
-        color: var(--pl-red-500);
     }
 
     &--mini+&-tip {
         font-size: 12px;
     }
 
-    // type
-    &--default {
-        border-color: var(--pl-input-bd-color);
-    }
-
     &--underline {
         border-radius: 0 !important;
         border: none;
-        border-bottom: 1px solid var(--pl-input-bd-color);
+        border-bottom: 1px solid var(--pl-input-border-color);
 
         &:focus {
             box-shadow: none !important;
@@ -50,47 +116,39 @@
     }
 
     &--light {
-        border-color: var(--pl-input-bd-color);
+        border-color: var(--pl-input-border-color);
         background-color: var(--pl-input-bg-color);
     }
 
     // size
     &--mini {
+        min-height: 18px;
         border-radius: 4px;
-        padding: 4px 6px;
         font-size: 12px;
     }
 
     &--small {
-        padding: 4px 6px;
+        min-height: 26px;
     }
 
     &--medium {
-        padding: 6px 8px;
+        min-height: 36px;
     }
 
     &--large {
-        padding: 10px 12px;
+        min-height: 42px;
     }
 
     // state
-    &:focus {
-        border-color: var(--pl-blue-500);
-        box-shadow: 0px 0px 0px 4px #3B82F640;
+    &--primary+&-tip {
+        color: var(--pl-blue-500);
     }
 
-    // &--success:focus {
-    //     border-color: var(--pl-green-500);
-    //     box-shadow: 0px 0px 0px 4px #22C55E40;
-    // }
+    &--success+&-tip {
+        color: var(--pl-teal-500);
+    }
 
-    // &--warning:focus {
-    //     border-color: var(--pl-orange-500);
-    //     box-shadow: 0px 0px 0px 4px #f9731640;
-    // }
-
-    // &--danger:focus {
-    //     border-color: var(--pl-red-500);
-    //     box-shadow: 0px 0px 0px 4px #EF444440;
-    // }
+    &--error+&-tip {
+        color: var(--pl-red-500);
+    }
 }

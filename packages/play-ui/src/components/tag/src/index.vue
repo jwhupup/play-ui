@@ -9,7 +9,7 @@
     <Icon
       v-if="closable"
       class="is-closable"
-      name="bi-x-lg"
+      name="x-lg"
       @click="handleClose"
     />
   </div>

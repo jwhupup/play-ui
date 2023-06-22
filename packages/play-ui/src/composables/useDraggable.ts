@@ -10,10 +10,10 @@ export interface DraggableOptions {
   translateY?: MaybeRef<number>
 }
 
-export const useDraggable = (
+export function useDraggable(
   handle: MaybeRef<HTMLElement | undefined>,
   options: DraggableOptions = {},
-) => {
+) {
   const {
     target = document.documentElement,
     translateX = 0,

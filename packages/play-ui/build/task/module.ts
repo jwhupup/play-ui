@@ -43,7 +43,12 @@ export async function buildModule() {
           },
         ],
         preserveEntrySignatures: 'allow-extension',
-        external: ['vue', 'async-validator', '@vue/shared', '@floating-ui/vue'],
+        external: [
+          'vue',
+          'async-validator',
+          '@vue/shared',
+          '@floating-ui/vue',
+        ],
       },
       minify: false,
     },

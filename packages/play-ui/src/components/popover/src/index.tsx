@@ -2,7 +2,7 @@ import type { ExtractPropTypes, PropType } from 'vue'
 import { Transition, computed, defineComponent, ref, watch, watchEffect } from 'vue'
 import type { Placement } from '@floating-ui/vue'
 import { arrow, autoUpdate, flip, inline, offset, shift, useFloating } from '@floating-ui/vue'
-import { animation } from '../../../utils'
+import { animation, isBoolean } from '../../../utils'
 import { useOutside } from '../../../composables'
 
 export type PopoverProps = ExtractPropTypes<typeof popoverProps>
@@ -15,7 +15,7 @@ const popoverProps = {
     default: 'right',
   },
   trigger: {
-    type: String as PropType<'hover' | 'click'>,
+    type: [String, Boolean] as PropType<'hover' | 'click' | boolean>,
     default: 'hover',
   },
 }
@@ -46,6 +46,18 @@ export default defineComponent({
         const cleanup = autoUpdate(...args, { animationFrame: true })
         return cleanup
       },
+    })
+
+    const style = computed(() => {
+      return Object.assign(floatingStyles.value, {
+        width: '100%',
+        zIndex: 999,
+      })
+    })
+
+    watchEffect(() => {
+      if (isBoolean(props.trigger))
+        visible.value = props.trigger
     })
 
     watch(middlewareData, () => {
@@ -82,7 +94,7 @@ export default defineComponent({
     })
 
     const onClick = () => {
-      if (!visible.value)
+      if (!isBoolean(props.trigger) && !visible.value)
         visible.value = true
     }
 
@@ -129,7 +141,7 @@ export default defineComponent({
 
     return () => (
       <div
-        class='pl-popover'
+        style='position: relative'
         ref={popoverContainer}
         {...eventProps.value}
       >
@@ -141,7 +153,7 @@ export default defineComponent({
           {visible.value && <div
             id="pl-popover"
             ref={popover}
-            style={floatingStyles.value}
+            style={style.value}
             data-popper-placement={popperPlacement.value}
             class={!slots.headless && 'pl-popover-content'}
           >
@@ -149,7 +161,11 @@ export default defineComponent({
             {
               slots.headless
                 ? null
-                : <div id="pl-popover-arrow" ref={popoverArrow} data-popper-arrow />
+                : <div
+                    id="pl-popover-arrow"
+                    ref={popoverArrow}
+                    data-popper-arrow
+                  />
             }
           </div>}
         </Transition>

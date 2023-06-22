@@ -7,7 +7,7 @@ export interface CountOptions {
   max?: number | Ref<number>
 }
 
-export const useCount = (options: CountOptions = {}) => {
+export function useCount(options: CountOptions = {}) {
   const {
     min = -Infinity,
     max = Infinity,

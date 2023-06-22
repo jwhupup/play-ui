@@ -11,6 +11,7 @@ export type DropdownProps = ExtractPropTypes<typeof dropdownProps>
 
 export interface DropdownData {
   name: string
+  value?: any
   title?: string
   divider?: boolean
   disabled?: boolean
@@ -20,12 +21,16 @@ export interface DropdownData {
 }
 
 const dropdownProps = {
+  modelValue: {
+    type: Object as PropType<DropdownData>,
+    default: () => ({}),
+  },
   placement: {
     type: String as PropType<Placement>,
     default: 'bottom',
   },
   trigger: {
-    type: String as PropType<'hover' | 'click'>,
+    type: [String, Boolean] as PropType<'hover' | 'click' | boolean>,
     default: 'hover',
   },
   data: {
@@ -37,9 +42,11 @@ const dropdownProps = {
 export default defineComponent({
   name: 'Dropdown',
   props: dropdownProps,
-  setup(props, { slots }) {
+  emits: ['update:modelValue'],
+  setup(props, { slots, emit }) {
     const onClick = (item: DropdownData) => {
       return (evt: MouseEvent) => {
+        emit('update:modelValue', item)
         if (item.callback)
           item.callback()
 
@@ -53,6 +60,7 @@ export default defineComponent({
     const renderMenuButton = (item: DropdownData) => (
       <Button
         type="ghost"
+        size='small'
         state="info"
         disabled={item.disabled}
         onClick={onClick(item)}
@@ -74,26 +82,32 @@ export default defineComponent({
     )
 
     const renderDropdown = () => (
-      <div class="pl-dropdown-menu">
-        {
-          props.data.map((item) => {
-            if (item.children) {
-              return (
-                <Dropdown
-                  class="pl-dropdown-child"
-                  data={item.children}
-                  trigger={props.trigger}
-                  placement='right-start'
-                  v-slots={{
-                    reference: () => renderMenuButton(item),
-                  }}
-                />
-              )
-            }
-            return renderNormalMenuButton(item)
-          })
-        }
-      </div>
+      <>
+        <div
+          class="pl-dropdown-menu"
+          v-show={props.data.length}
+        >
+          {
+            props.data.map((item) => {
+              if (item.children) {
+                return (
+                  <Dropdown
+                    class="pl-dropdown-child"
+                    data={item.children}
+                    trigger={props.trigger}
+                    placement='right-start'
+                    v-slots={{
+                      reference: () => renderMenuButton(item),
+                    }}
+                  />
+                )
+              }
+              return renderNormalMenuButton(item)
+            })
+          }
+        </div>
+        <div v-show={!props.data.length} class="pl-dropdown-menu">No Data</div>
+      </>
     )
 
     return () => (

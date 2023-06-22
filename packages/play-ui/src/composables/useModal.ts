@@ -1,9 +1,7 @@
 import { ref, watch, watchEffect } from 'vue'
 import { useExpose, useOutside, useToggle } from '.'
 
-export const useModal = (
-  emit: (event: 'open' | 'close') => void,
-) => {
+export function useModal(emit: (event: 'open' | 'close') => void) {
   const modal = ref<HTMLElement>()
   const toggle = useToggle()
   const { isOutside } = useOutside(modal, toggle.state)

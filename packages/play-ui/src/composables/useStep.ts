@@ -1,10 +1,10 @@
 import { computed } from 'vue'
 import { useCount } from '.'
 
-export const useStep = <T>(
+export function useStep<T>(
   modelValue: T[],
   emit: (event: 'update:modelValue', ...args: any[]) => void,
-) => {
+) {
   const steps = computed({
     get() {
       return modelValue
