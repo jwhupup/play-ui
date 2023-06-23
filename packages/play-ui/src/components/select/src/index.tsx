@@ -88,6 +88,8 @@ export default defineComponent({
               {
                 selectValue.value.map((option, index) => (
                   <Tag
+                    type='outline'
+                    state='info'
                     closable
                     onClose={onTagClose(index)}
                   >
