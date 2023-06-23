@@ -42,6 +42,6 @@ watchEffect(() => {
 })
 
 const options = ref<any[]>([])
-for (let i = 0; i < 100; i++)
+for (let i = 0; i < 6; i++)
   options.value.push({ name: `option-${i}` })
 </script>

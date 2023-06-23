@@ -84,11 +84,10 @@ export default defineComponent({
           v-show={props.data.length}
           class="pl-dropdown-menu"
           estimatedListItemHeight={40}
-          listHeight={300}
           listItemCount={props.data.length}
         >
           {
-            props.data.map((item, index) => {
+            props.data.map((item) => {
               if (item.children) {
                 return (
                   <Dropdown

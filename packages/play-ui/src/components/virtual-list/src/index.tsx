@@ -12,12 +12,10 @@ import Scrollbar from '../../scrollbar'
 import { range } from '../../../utils'
 
 export type VirtualListProps = ExtractPropTypes<typeof virtualListProps>
+export type HTMLElementWithEl = HTMLElement & { $el: HTMLElement }
 
 const virtualListProps = {
-  listHeight: {
-    type: Number,
-    default: 400,
-  },
+  listHeight: Number,
   listItemCount: {
     type: Number,
     default: 0,
@@ -73,14 +71,17 @@ export default defineComponent({
     onMounted(() => {
       if (!scrollbarEl.value)
         return
-      step.value = Math.ceil(
-        props.listHeight / props.estimatedListItemHeight!,
-      )
+
+      const height = props.listHeight
+        ? props.listHeight
+        : (scrollbarEl.value as HTMLElementWithEl).$el.offsetHeight
+
+      step.value = Math.ceil(height / props.estimatedListItemHeight!)
     })
 
     onUpdated(() => {
-      const items = Array.from(realAreaEl.value?.children as unknown as HTMLElement[])
       let index = start.value
+      const items = [...realAreaEl.value!.children]
       items.forEach((item) => {
         const rect = item.getBoundingClientRect()
         const height = rect.height

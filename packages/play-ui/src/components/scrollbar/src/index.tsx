@@ -1,4 +1,4 @@
-import { defineComponent, ref, watchEffect } from 'vue'
+import { computed, defineComponent, ref, watchEffect } from 'vue'
 import type { ExtractPropTypes, PropType } from 'vue'
 import { useExpose } from '../../../composables'
 
@@ -8,10 +8,7 @@ export interface ScrollbarInstance extends HTMLElement {
 }
 
 const scrollbarProps = {
-  height: {
-    type: Number,
-    default: 400,
-  },
+  height: Number,
   minThumbSize: {
     type: Number,
     default: 20,
@@ -43,6 +40,17 @@ export default defineComponent({
       scrollto(options: ScrollToOptions) {
         wrpperEl.value?.scrollTo(options)
       },
+    })
+
+    const scrollbarHeight = computed(() => {
+      if (props.height) {
+        return {
+          height: `${props.height}px`,
+        }
+      }
+      return {
+        height: '100%',
+      }
     })
 
     const updateThumb = () => {
@@ -175,7 +183,7 @@ export default defineComponent({
     return () => (
       <div
         class="pl-scrollbar"
-        style={`height: ${props.height}px`}
+        style={scrollbarHeight.value}
         onMouseenter={onMouseenter}
         onMouseleave={onMouseleave}
       >
