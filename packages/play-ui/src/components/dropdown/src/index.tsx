@@ -6,6 +6,7 @@ import Badge from '../../badge'
 import Popover from '../../popover'
 import type { ButtonProps } from '../../button'
 import type { BadgeProps } from '../../badge'
+import { PlVirtualList, PlVirtualListItem } from '../../virtual-list'
 
 export type DropdownProps = ExtractPropTypes<typeof dropdownProps>
 
@@ -70,18 +71,24 @@ export default defineComponent({
     )
 
     const renderNormalMenuButton = (item: DropdownData) => (
-      <>
+      <PlVirtualListItem>
         {item.title && <div class="pl-dropdown-title">{item.title}</div>}
           {renderMenuButton(item)}
         {item.divider && <div class="pl-dropdown-divider" />}
-      </>
+      </PlVirtualListItem>
     )
 
     const renderDropdown = () => (
       <>
-        <div class="pl-dropdown-menu" v-show={props.data.length}>
+        <PlVirtualList
+          v-show={props.data.length}
+          class="pl-dropdown-menu"
+          estimatedListItemHeight={40}
+          listHeight={300}
+          listItemCount={props.data.length}
+        >
           {
-            props.data.map((item) => {
+            props.data.map((item, index) => {
               if (item.children) {
                 return (
                   <Dropdown
@@ -98,8 +105,13 @@ export default defineComponent({
               return renderNormalMenuButton(item)
             })
           }
+        </PlVirtualList>
+        <div
+          v-show={!props.data.length}
+          class="pl-dropdown-menu"
+        >
+          No Data
         </div>
-        <div class="pl-dropdown-menu" v-show={!props.data.length}>No Data</div>
       </>
     )
 

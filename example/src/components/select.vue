@@ -32,6 +32,7 @@ import { ref, watchEffect } from 'vue'
 import 'play-ui/src/components/input/src/index.less'
 import 'play-ui/src/components/tag/src/index.less'
 import 'play-ui/src/components/dropdown/src/index.less'
+import 'play-ui/src/components/scrollbar/src/index.less'
 
 const select = ref()
 const value = ref([])
@@ -40,9 +41,7 @@ watchEffect(() => {
   console.log(value.value.length)
 })
 
-const options = ref([
-  { name: 'btn 1' },
-  { name: 'btn 2' },
-  { name: 'btn 3' },
-])
+const options = ref<any[]>([])
+for (let i = 0; i < 100; i++)
+  options.value.push({ name: `option-${i}` })
 </script>

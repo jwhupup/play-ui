@@ -5,7 +5,7 @@ export default defineComponent({
   setup(_, { slots }) {
     return () => (
         <div class='pl-virtual-list-item'>
-            {slots.default?.()}
+          {slots.default?.()}
         </div>
     )
   },

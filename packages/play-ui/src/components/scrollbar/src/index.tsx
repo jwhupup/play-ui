@@ -50,25 +50,25 @@ export default defineComponent({
         return
 
       thumbHeight.value = Math.max(
-        wrpperEl.value.clientHeight ** 2 / wrpperEl.value.scrollHeight,
+        wrpperEl.value.offsetHeight ** 2 / wrpperEl.value.scrollHeight,
         props.minThumbSize,
       )
       thumbWidth.value = Math.max(
-        wrpperEl.value.clientWidth ** 2 / wrpperEl.value.scrollWidth,
+        wrpperEl.value.offsetWidth ** 2 / wrpperEl.value.scrollWidth,
         props.minThumbSize,
       )
     }
 
     const scrollX = () => {
       wrpperEl.value?.scrollTo({
-        left: wrpperEl.value.scrollWidth * (translateX.value / wrpperEl.value.clientWidth),
+        left: wrpperEl.value.scrollWidth * (translateX.value / wrpperEl.value.offsetWidth),
         behavior: props.behavior,
       })
     }
 
     const scrollY = () => {
       wrpperEl.value?.scrollTo({
-        top: wrpperEl.value.scrollHeight * (translateY.value / wrpperEl.value.clientHeight),
+        top: wrpperEl.value.scrollHeight * (translateY.value / wrpperEl.value.offsetHeight) - 20,
         behavior: props.behavior,
       })
     }
@@ -78,9 +78,9 @@ export default defineComponent({
         return
 
       isShowBarY.value
-        = wrpperEl.value.clientHeight < wrpperEl.value.scrollHeight
+        = wrpperEl.value.offsetHeight < wrpperEl.value.scrollHeight
       isShowBarX.value
-        = wrpperEl.value.clientWidth < wrpperEl.value.scrollWidth
+        = wrpperEl.value.offsetWidth < wrpperEl.value.scrollWidth
       updateThumb()
     })
 
@@ -120,7 +120,7 @@ export default defineComponent({
             translateY.value = Math.max(
               Math.min(
                 currentTranslate + moveEnd - moveStart,
-                wrpperEl.value.clientHeight - thumbHeight.value,
+                wrpperEl.value.offsetHeight - thumbHeight.value,
               ),
               0,
             )
@@ -129,7 +129,7 @@ export default defineComponent({
           translateX.value = Math.max(
             Math.min(
               currentTranslate + moveEnd - moveStart,
-              wrpperEl.value.clientWidth - thumbWidth.value,
+              wrpperEl.value.offsetWidth - thumbWidth.value,
             ),
             0,
           )
@@ -152,12 +152,12 @@ export default defineComponent({
       const target = evt.target as HTMLElement
       if (beforeScrollTop !== target.scrollTop) {
         translateY.value
-          = (target.scrollTop * target.clientHeight) / target.scrollHeight
+          = (target.scrollTop * target.offsetHeight) / target.scrollHeight
         beforeScrollTop = target.scrollTop
       }
       if (beforeScrollLeft !== target.scrollLeft) {
         translateX.value
-          = (target.scrollLeft * target.clientWidth) / target.scrollWidth
+          = (target.scrollLeft * target.offsetWidth) / target.scrollWidth
         beforeScrollLeft = target.scrollLeft
       }
       updateThumb()

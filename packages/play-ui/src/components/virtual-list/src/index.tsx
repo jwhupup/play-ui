@@ -7,7 +7,6 @@ import {
   onMounted,
   onUpdated,
   ref,
-  watchEffect,
 } from 'vue'
 import Scrollbar from '../../scrollbar'
 import { range } from '../../../utils'
@@ -34,11 +33,12 @@ export default defineComponent({
   props: virtualListProps,
   setup(props, { slots }) {
     const start = ref(0)
-    const end = ref(0)
     const step = ref(0)
+    const end = computed(() => start.value + step.value)
     const translate = ref(0)
-    const listHeight = ref(0)
+    const listHeight = ref(props.estimatedListItemHeight! * props.listItemCount)
     const scrollbarEl = ref<HTMLElement>()
+    const realAreaEl = ref<HTMLElement>()
 
     const itemInfos = computed(() =>
       range(1, props.listItemCount, 1).map((_, index) => ({
@@ -70,32 +70,31 @@ export default defineComponent({
       transform: `translateY(${translate.value}px)`,
     }))
 
-    watchEffect(() => {
-      listHeight.value = props.estimatedListItemHeight! * props.listItemCount
-    })
-
     onMounted(() => {
       if (!scrollbarEl.value)
         return
-      step.value = end.value = Math.ceil(
+      step.value = Math.ceil(
         props.listHeight / props.estimatedListItemHeight!,
       )
     })
 
     onUpdated(() => {
-      const items = document.querySelectorAll('.pl-virtual-list-item')
-      items.forEach((item, index) => {
+      const items = Array.from(realAreaEl.value?.children as unknown as HTMLElement[])
+      let index = start.value
+      items.forEach((item) => {
         const rect = item.getBoundingClientRect()
         const height = rect.height
         const diff = itemInfos.value[index].height! - height
         if (diff) {
           itemInfos.value[index].height = height
-          itemInfos.value[index].bottom = rect.bottom - diff
+          itemInfos.value[index].bottom = itemInfos.value[index].bottom - diff
           for (let j = index + 1; j < itemInfos.value.length; j++) {
             itemInfos.value[j].top = itemInfos.value[j - 1].bottom
             itemInfos.value[j].bottom = itemInfos.value[j].bottom - diff
           }
         }
+        if (index < itemInfos.value.length - 1)
+          index++
       })
       listHeight.value = itemInfos.value[itemInfos.value.length - 1].bottom
       updateTranslate()
@@ -104,14 +103,15 @@ export default defineComponent({
     const onScroll = (evt: UIEvent) => {
       const scrollTop = (evt.target as HTMLElement).scrollTop
       start.value = getStart(scrollTop)!
-      end.value = start.value + step.value
-      updateTranslate()
     }
 
     const renderVirtualList = () => (
       <>
         <div style={virtualAreaStyle.value} />
-        <div style={realAreaStyle.value}>
+        <div
+          ref={realAreaEl}
+          style={realAreaStyle.value}
+        >
           {(slots.default?.()[0].children as VNode[])?.slice(
             start.value,
             end.value,

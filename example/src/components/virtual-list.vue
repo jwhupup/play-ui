@@ -1,5 +1,5 @@
 <template>
-  <div style="position: relative; top: 100px; left: 100px; width: 800px;">
+  <div style="position: relative; width: 800px;">
     <PlVirtualList
       :list-height="800"
       :list-item-count="list.length"
