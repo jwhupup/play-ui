@@ -5,18 +5,19 @@
       :pattern="/^\d+$/"
       error-tip="错了"
       success-tip="对了"
-      suffix-icon="badge-cc"
       prefix-icon="badge-cc"
       clearable
-      preset="number"
+      type="number"
+      :step="2"
+      :max="10"
       @input="handleInput"
     >
-      <template #prepend>
+      <!-- <template #prepend>
         231
       </template>
       <template #append>
         231
-      </template>
+      </template> -->
     </PlInput>
   </div>
 </template>

@@ -16,6 +16,6 @@
 // import Demo from './pagination.vue'
 // import Demo from './breadcrumb.vue'
 // import Demo from './virtual-list.vue'
-// import Demo from './input.vue'
-import Demo from './select.vue'
+import Demo from './input.vue'
+// import Demo from './select.vue'
 </script>
