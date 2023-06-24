@@ -82,10 +82,9 @@ export const NotificationConstructor = defineComponent({
             <Button
               type='link'
               onClick={onCancel}
-              v-slots={{
-                default: props.cancelButtonText,
-              }}
-            />,
+            >
+              {props.cancelButtonText}
+            </Button>,
           )
         }
         if (props.confirmButtonText) {
@@ -93,10 +92,9 @@ export const NotificationConstructor = defineComponent({
             <Button
               type='link'
               onClick={onConfirm}
-              v-slots={{
-                default: props.confirmButtonText,
-              }}
-            />,
+            >
+              {props.confirmButtonText}
+            </Button>,
           )
         }
         return renderFn
