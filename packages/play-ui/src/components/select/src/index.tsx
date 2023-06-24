@@ -51,6 +51,7 @@ export default defineComponent({
       return (evt: MouseEvent) => {
         evt.stopPropagation()
         selectValue.value.splice(index, 1)
+        inputValue.value = selectValue.value.map(option => option.name).join()
       }
     }
 
