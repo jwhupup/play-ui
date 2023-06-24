@@ -48,7 +48,7 @@ export default defineComponent({
     const renderHeaderButton = (hd: TabHeader) => (
       <Button
         {...hd}
-        type='link'
+        mode='link'
         state={currentPaneId.value === hd.id ? 'primary' : 'info'}
         onClick={onClick(hd.id)}
       >

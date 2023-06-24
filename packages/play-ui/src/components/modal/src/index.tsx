@@ -72,7 +72,7 @@ export default defineComponent({
       if (!isShake('cancel-button')) {
         renderButtons.push(
           <Button
-            type="outline"
+            mode="outline"
             onClick={onCancel}
             v-slots={{
               default: props.cancelText,
@@ -83,7 +83,7 @@ export default defineComponent({
       if (!isShake('confirm-button')) {
         renderButtons.push(
           <Button
-            type="solid"
+            mode="solid"
             onClick={onConfirm}
             v-slots={{
               default: props.confirmText,
@@ -112,7 +112,7 @@ export default defineComponent({
           return (
             <Button
               class='pl-modal-x'
-              type='link'
+              mode='link'
               state='info'
               icon-left='x-lg'
               onClick={onClose}

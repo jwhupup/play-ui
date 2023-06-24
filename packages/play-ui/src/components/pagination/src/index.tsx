@@ -23,7 +23,7 @@ export default defineComponent({
       type: Number,
       default: 7,
     },
-    type: {
+    mode: {
       type: String as PropType<ButtonType>,
       default: 'ghost',
     },
@@ -90,13 +90,13 @@ export default defineComponent({
           size='mini'
           state='info'
           iconLeft='chevron-left'
-          type={props.type}
+          mode={props.mode}
           shape={props.shape}
           onClick={onPrev}
         />
         <Button
           size='mini'
-          type={props.type}
+          mode={props.mode}
           shape={props.shape}
           state={current.value === 1 ? 'primary' : 'info'}
           onClick={onPageNo(1)}
@@ -107,7 +107,7 @@ export default defineComponent({
           size='mini'
           state='info'
           iconLeft='three-dots'
-          type={props.type}
+          mode={props.mode}
           shape={props.shape}
           v-show={isShowLeftFold.value}
           onClick={onStepPrev}
@@ -118,7 +118,7 @@ export default defineComponent({
             .map(pageNo => (
               <Button
                 size='mini'
-                type={props.type}
+                mode={props.mode}
                 shape={props.shape}
                 state={current.value === pageNo ? 'primary' : 'info'}
                 onClick={onPageNo(pageNo)}
@@ -131,14 +131,14 @@ export default defineComponent({
           size='mini'
           state='info'
           iconLeft='three-dots'
-          type={props.type}
+          mode={props.mode}
           shape={props.shape}
           v-show={isShowRightFold.value}
           onClick={onStepNext}
         />
         <Button
           size='mini'
-          type={props.type}
+          mode={props.mode}
           shape={props.shape}
           state={current.value === props.count ? 'primary' : 'info'}
           onClick={onPageNo(props.count)}
@@ -149,7 +149,7 @@ export default defineComponent({
           size='mini'
           state='info'
           iconLeft='chevron-right'
-          type={props.type}
+          mode={props.mode}
           shape={props.shape}
           onClick={onNext}
         />

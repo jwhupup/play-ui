@@ -1,16 +1,6 @@
 export type ComponentState = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 export type ComponentSize = 'mini' | 'small' | 'medium' | 'large'
 
-// alert
-export interface AlertProps {
-  type?: 'solid' | 'soft' | 'outline'
-  state?: ComponentState
-  title?: string
-  description?: string
-  icon?: string
-  closable?: boolean
-}
-
 // checkbox
 export interface CheckboxProps {
   modelValue: boolean
@@ -35,8 +25,8 @@ export interface InputRule {
 
 export interface InputProps {
   modelValue: string | number
-  type?: InputType
-  nativeType?: string
+  mode?: InputType
+  type?: string
   size?: ComponentSize
   placeholder?: string
   rule?: InputRule

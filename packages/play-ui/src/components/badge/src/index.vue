@@ -19,12 +19,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { BadgeProps } from '../src/type'
+import { badgeProps } from '../src'
 
-const props = withDefaults(defineProps<BadgeProps>(), {
-  state: 'primary',
-  max: 99,
-})
+const props = defineProps(badgeProps)
 
 defineOptions({ name: 'Badge' })
 

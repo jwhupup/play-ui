@@ -4,10 +4,10 @@
       <pl-tag closable>
         tag
       </pl-tag>
-      <pl-tag closable type="outline">
+      <pl-tag closable mode="outline">
         tag
       </pl-tag>
-      <pl-tag closable type="soft">
+      <pl-tag closable mode="soft">
         tag
       </pl-tag>
     </div>

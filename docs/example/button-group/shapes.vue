@@ -11,7 +11,7 @@
       </pl-button-group>
     </div>
     <div fscw gap-2>
-      <pl-button-group type="white" shape="plain">
+      <pl-button-group mode="white" shape="plain">
         <pl-button>
           button
         </pl-button>
@@ -24,7 +24,7 @@
       </pl-button-group>
     </div>
     <div fscw gap-2>
-      <pl-button-group type="outline" shape="pilled">
+      <pl-button-group mode="outline" shape="pilled">
         <pl-button>
           button
         </pl-button>

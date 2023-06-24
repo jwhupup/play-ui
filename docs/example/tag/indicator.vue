@@ -4,10 +4,10 @@
       <pl-tag indicator>
         tag
       </pl-tag>
-      <pl-tag indicator type="outline">
+      <pl-tag indicator mode="outline">
         tag
       </pl-tag>
-      <pl-tag indicator type="soft">
+      <pl-tag indicator mode="soft">
         tag
       </pl-tag>
     </div>

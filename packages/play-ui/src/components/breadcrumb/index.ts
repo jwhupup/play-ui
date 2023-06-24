@@ -3,4 +3,4 @@ import Breadcrumb from './src/index'
 
 export const PlBreadcrumb = withInstall(Breadcrumb)
 export default PlBreadcrumb
-export * from './src/index'
+export { BreadcrumbProps, BreadcrumbItem } from './src/index'

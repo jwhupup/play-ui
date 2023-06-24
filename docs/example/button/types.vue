@@ -1,19 +1,19 @@
 <template>
   <div space-y-2>
     <div fscw gap-2>
-      <pl-button type="solid">
+      <pl-button mode="solid">
         solid
       </pl-button>
-      <pl-button type="outline">
+      <pl-button mode="outline">
         outline
       </pl-button>
-      <pl-button type="ghost">
+      <pl-button mode="ghost">
         ghost
       </pl-button>
-      <pl-button type="link">
+      <pl-button mode="link">
         link
       </pl-button>
-      <pl-button type="white">
+      <pl-button mode="white">
         white
       </pl-button>
     </div>

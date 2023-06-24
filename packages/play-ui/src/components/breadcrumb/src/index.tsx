@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 import { defineComponent, getCurrentInstance } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
 import { useStep } from '../../../composables'
@@ -10,16 +10,20 @@ export interface BreadcrumbItem {
   to: RouteLocationRaw
   icon: string
 }
+
+export type BreadcrumbProps = ExtractPropTypes<typeof breadcrumbProps>
+
+const breadcrumbProps = {
+  modelValue: Array as PropType<BreadcrumbItem[]>,
+  replace: Boolean,
+  separator: {
+    type: String,
+    default: '/',
+  },
+}
 export default defineComponent({
   name: 'Breadcrumb',
-  props: {
-    modelValue: Array as PropType<BreadcrumbItem[]>,
-    replace: Boolean,
-    separator: {
-      type: String,
-      default: '/',
-    },
-  },
+  props: breadcrumbProps,
   emits: ['update:modelValue'],
   setup(props, { emit }) {
     const { steps, current, toggle } = useStep<BreadcrumbItem>(
@@ -47,7 +51,7 @@ export default defineComponent({
             <span v-show={index !== 0}>{props.separator}</span>
             <Button
               size='mini'
-              type='link'
+              mode='link'
               iconLeft={step.icon}
               state={current.value === index ? 'primary' : 'info'}
               onClick={onClick(index, step)}

@@ -4,7 +4,7 @@
       v-if="visible"
       ref="alertEl"
       class="pl-alert"
-      :class="[`pl-alert--${type}`, `pl-alert--${state}`]"
+      :class="[`pl-alert--${mode}`, `pl-alert--${state}`]"
     >
       <Icon v-if="icon" :name="icon" />
       <div>
@@ -17,7 +17,7 @@
           {{ description }}
         </div>
       </div>
-      <Button v-if="closable" type="link" state="info" icon-left="x-lg" @click="handleClose" />
+      <Button v-if="closable" mode="link" state="info" icon-left="x-lg" @click="handleClose" />
     </div>
   </Transition>
 </template>
@@ -26,13 +26,10 @@
 import { ref } from 'vue'
 import Button from '../../button/src/index.vue'
 import Icon from '../../icon/src/index.vue'
-import { type AlertProps } from '../../component'
 import { animation } from '../../../utils'
+import { alertProps } from '.'
 
-withDefaults(defineProps<AlertProps>(), {
-  type: 'solid',
-  state: 'info',
-})
+defineProps(alertProps)
 const emits = defineEmits(['close'])
 defineOptions({ name: 'Alert' })
 

@@ -1,6 +1,6 @@
 <template>
   <div style="height: 500px; padding: 30px;">
-    <PlPagination ref="paginations" :count="count" type="ghost" shape="circle" />
+    <PlPagination ref="paginations" :count="count" mode="ghost" shape="circle" />
 
     <button @click="handlePrevClick">
       prev

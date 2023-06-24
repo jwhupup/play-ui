@@ -86,7 +86,7 @@ export default defineComponent({
           if (!isShake('x-button')) {
             return (
               <Button
-                type='link'
+                mode='link'
                 state='info'
                 icon-left='x-lg'
                 onClick={modal.close}

@@ -47,7 +47,7 @@ export const MessageConstructor = defineComponent({
 
     const renderNotification = () => (
       <Alert
-        type='solid'
+        mode='solid'
         icon={icon.value}
         state={props.state}
         description={props.content}

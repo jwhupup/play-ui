@@ -54,7 +54,7 @@ export default defineComponent({
           <>
             <div class={['pl-steps-item', props.vertical && '__vertical']}>
               <Button
-                type={
+                mode={
                   step.state === 'processing'
                     ? 'outline'
                     : step.state === 'done'

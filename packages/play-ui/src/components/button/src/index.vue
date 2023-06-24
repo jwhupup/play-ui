@@ -1,10 +1,10 @@
 <template>
   <button
     ref="buttonEl"
-    :type="nativeType"
+    :type="type"
     class="pl-button"
     :class="[
-      `pl-button--${parent?.type || type}`,
+      `pl-button--${parent?.mode || mode}`,
       `pl-button--${parent?.state || state}`,
       `pl-button--${parent?.shape || shape}`,
       `pl-button--${parent?.size || size}`,
@@ -22,7 +22,7 @@
 import { inject, ref } from 'vue'
 import Icon from '../../icon/src/index.vue'
 import { GROUP_BUTTON_KEY } from '../../button-group'
-import { buttonProps } from './type'
+import { buttonProps } from '.'
 
 defineProps(buttonProps)
 

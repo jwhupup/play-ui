@@ -7,10 +7,10 @@
 <script setup lang="ts">
 import { provide } from 'vue'
 import { GROUP_BUTTON_KEY } from '..'
-import type { ButtonGroupProps } from './type'
+import type { ButtonGroupProps } from '.'
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {
-  type: 'solid',
+  mode: 'solid',
   state: 'info',
   size: 'medium',
   shape: 'rounded',

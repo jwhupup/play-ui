@@ -67,7 +67,7 @@ export const NotificationConstructor = defineComponent({
           return (
             <Button
               class='pl-notification-close'
-              type='link'
+              mode='link'
               state='info'
               icon-left='x-lg'
               onClick={notify.close}
@@ -80,7 +80,7 @@ export const NotificationConstructor = defineComponent({
         if (props.cancelButtonText) {
           renderFn.push(
             <Button
-              type='link'
+              mode='link'
               onClick={onCancel}
             >
               {props.cancelButtonText}
@@ -90,7 +90,7 @@ export const NotificationConstructor = defineComponent({
         if (props.confirmButtonText) {
           renderFn.push(
             <Button
-              type='link'
+              mode='link'
               onClick={onConfirm}
             >
               {props.confirmButtonText}

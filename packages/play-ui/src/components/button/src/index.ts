@@ -6,11 +6,11 @@ export type ButtonShape = 'rounded' | 'pilled' | 'circle' | 'plain'
 export type ButtonType = 'solid' | 'outline' | 'ghost' | 'white' | 'link'
 
 export const buttonProps = {
-  type: {
+  mode: {
     type: String as PropType<ButtonType>,
     default: 'solid',
   },
-  nativeType: {
+  type: {
     type: String as PropType<ButtonNativeType>,
     default: 'button',
   },

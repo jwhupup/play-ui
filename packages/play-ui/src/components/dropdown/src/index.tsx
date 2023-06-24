@@ -16,7 +16,7 @@ export interface DropdownData {
   title?: string
   divider?: boolean
   disabled?: boolean
-  button?: Partial<Pick<ButtonProps, 'state' | 'type' | 'iconLeft' | 'iconRight'> & { badge: BadgeProps }>
+  button?: Partial<Pick<ButtonProps, 'state' | 'mode' | 'iconLeft' | 'iconRight'> & { badge: BadgeProps }>
   callback?: () => void
   children?: DropdownData[]
 }
@@ -56,7 +56,7 @@ export default defineComponent({
 
     const renderMenuButton = (item: DropdownData) => (
       <Button
-        type="ghost"
+        mode="ghost"
         size='small'
         state="info"
         disabled={item.disabled}

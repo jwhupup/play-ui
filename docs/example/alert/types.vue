@@ -4,11 +4,11 @@
       description="Predefined the description of the alert."
     />
     <pl-alert
-      type="soft"
+      mode="soft"
       description="Predefined the description of the alert."
     />
     <pl-alert
-      type="outline"
+      mode="outline"
       description="Predefined the description of the alert."
     />
   </div>
