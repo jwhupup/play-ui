@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import type { IconProps } from '../../component'
+import type { IconProps } from '.'
 
 defineProps<IconProps>()
 const emit = defineEmits(['click'])

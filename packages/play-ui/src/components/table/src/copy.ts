@@ -1,5 +1,5 @@
 import { toRaw } from 'vue'
-import { config } from './table'
+import { config } from '.'
 
 let cellData = ''
 let columnKey = ''

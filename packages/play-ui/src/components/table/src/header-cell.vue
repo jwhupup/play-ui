@@ -15,8 +15,8 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TableHeaderCellProps } from '../../component'
 import HeaderCell from './header-cell.vue'
+import type { TableHeaderCellProps } from '.'
 
 const props = defineProps<TableHeaderCellProps>()
 

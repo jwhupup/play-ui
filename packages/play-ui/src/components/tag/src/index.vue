@@ -1,7 +1,7 @@
 <template>
   <div
     class="pl-tag"
-    :class="[`pl-tag--${type}`, `pl-tag--${shape}`, `pl-tag--${state}`]"
+    :class="[`pl-tag--${mode}`, `pl-tag--${shape}`, `pl-tag--${state}`]"
   >
     <i v-if="indicator" class="is-indicator" />
     <slot />
@@ -16,10 +16,10 @@
 
 <script setup lang="ts">
 import Icon from '../../icon'
-import type { TagProps } from '../../component'
+import type { TagProps } from '.'
 
 withDefaults(defineProps<TagProps>(), {
-  type: 'solid',
+  mode: 'solid',
   state: 'primary',
   shape: 'rounded',
 })

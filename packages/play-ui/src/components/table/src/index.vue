@@ -14,10 +14,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { TableProps } from '../../component'
-import { genTableConfig } from './table'
 import HeaderCell from './header-cell.vue'
 import Row from './row.vue'
+import type { TableProps } from '.'
+import { genTableConfig } from '.'
 
 const props = defineProps<TableProps>()
 

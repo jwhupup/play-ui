@@ -1,4 +1,4 @@
-import type { PropType } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
 import type { ComponentSize } from '../../component'
 
 export type InputMode = 'bordered' | 'underline' | 'light'
@@ -31,3 +31,5 @@ export const inputProps = {
   pattern: RegExp,
   preset: String,
 }
+
+export type InputProps = ExtractPropTypes<typeof inputProps>

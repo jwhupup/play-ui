@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TableCellProps } from '../../component'
+import type { TableCellProps } from '.'
 
 defineProps<TableCellProps>()
 </script>

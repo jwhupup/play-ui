@@ -1,7 +1,41 @@
 import type { Ref } from 'vue'
 import { onMounted, ref, watchEffect } from 'vue'
 
-import type { TableConfig, TableHeaderCell, TableProps } from '../../component'
+export interface TableProps {
+  width?: number
+  header: TableHeaderCell[]
+  data: Record<string, any>[]
+  fixedHeader?: boolean
+  striped?: boolean
+  border?: boolean
+}
+
+export interface TableConfig {
+  striped: boolean
+  width: number
+  columns: TableHeaderCell[]
+  data: Record<string, any>[]
+}
+
+export interface TableHeaderCell {
+  name: string
+  key?: string
+  width?: number
+  index?: number
+  children?: TableHeaderCell[]
+}
+
+export interface TableHeaderCellProps {
+  data: TableHeaderCell
+}
+
+export interface TableCellProps {
+  data: any
+}
+
+export interface TableRowProps {
+  data: Record<string, any>[]
+}
 
 export const config = ref<TableConfig>({
   striped: false,

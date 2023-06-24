@@ -19,11 +19,11 @@
 </template>
 
 <script setup lang="ts">
-import type { TableRowProps } from '../../component'
 import { handelCopy } from './copy'
-import { config } from './table'
 import Cell from './cell.vue'
 import Row from './row.vue'
+import type { TableRowProps } from '.'
+import { config } from '.'
 
 defineProps<TableRowProps>()
 
