@@ -1,6 +1,6 @@
 import type { StyleValue } from 'vue'
 import { computed, defineComponent, ref, watch, watchEffect } from 'vue'
-import Input from '../../input/src/base.vue'
+import Input from '../../input'
 import Dropdown from '../../dropdown'
 import { useExpose, useOutside } from '../../../composables'
 import Tag from '../../tag'
