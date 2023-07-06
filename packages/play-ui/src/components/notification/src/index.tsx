@@ -1,11 +1,13 @@
-import { type ExtractPropTypes, type PropType, Transition, computed, createVNode, defineComponent, isVNode, render } from 'vue'
+import { Transition, computed, createVNode, defineComponent, isVNode, render } from 'vue'
+import type { ExtractPropTypes, PropType } from 'vue'
+
 import { isFunction, isObject } from '@vue/shared'
 import { type ToggleHandler, useToggle } from '../../../composables'
 import { animation, uppercaseFirstWord } from '../../../utils'
 import Button from '../../button'
 import Icon from '../../icon'
 
-type ShakeOffProp = 'x-button' | 'icon' | 'title'
+type ShakeOffProp = 'x-button' | 'icon' | 'title' | 'confirm-button' | 'cancel-button'
 export type NotificationProps = Partial<ExtractPropTypes<typeof notificationProps>>
 export type NotificationInstance = Pick<ToggleHandler, 'state' | 'open' | 'close'>
 
@@ -16,13 +18,13 @@ const notificationProps = {
   confirmButtonText: String,
   onCancel: Function as PropType<(handler: NotificationInstance) => any>,
   onConfirm: Function as PropType<(handler: NotificationInstance) => any>,
-  autoClose: {
-    type: Boolean,
-    default: true,
-  },
   shakeOff: {
     type: Array as PropType<ShakeOffProp[]>,
     default: () => [],
+  },
+  autoClose: {
+    type: Boolean,
+    default: true,
   },
   placement: {
     type: String as PropType<'left' | 'right'>,
@@ -77,7 +79,7 @@ export const NotificationConstructor = defineComponent({
       }
       const renderButton = () => {
         const renderFn = []
-        if (props.cancelButtonText) {
+        if (!isShake('cancel-button') && props.cancelButtonText) {
           renderFn.push(
             <Button
               mode='link'
@@ -87,7 +89,7 @@ export const NotificationConstructor = defineComponent({
             </Button>,
           )
         }
-        if (props.confirmButtonText) {
+        if (!isShake('confirm-button') && props.confirmButtonText) {
           renderFn.push(
             <Button
               mode='link'
@@ -131,7 +133,7 @@ export const NotificationConstructor = defineComponent({
 
 let notificationsContainer: HTMLDivElement | null = null
 
-export default (options?: NotificationProps) => {
+export default (options?: NotificationProps | Function) => {
   if (!notificationsContainer) {
     notificationsContainer = document.createElement('div')
     notificationsContainer.className = 'pl-notification-container'
@@ -147,8 +149,8 @@ export default (options?: NotificationProps) => {
     : null
 
   const container = document.createElement('div')
-  const notification = createVNode(NotificationConstructor, props, child)
+  const notification = createVNode(NotificationConstructor, props as NotificationProps, child)
   render(notification, container)
-  notificationsContainer.classList.add(`__${options?.placement || 'left'}`)
+  notificationsContainer.classList.add(`__${(options as NotificationProps)?.placement || 'left'}`)
   notificationsContainer.appendChild(container.firstChild!)
 }

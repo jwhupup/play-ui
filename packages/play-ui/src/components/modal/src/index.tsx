@@ -8,23 +8,14 @@ export type ModalProps = ExtractPropTypes<typeof modalProps>
 type ShakeOffProp = 'x-button' | 'confirm-button' | 'cancel-button' | 'mask' | 'header' | 'footer'
 
 const modalProps = {
+  title: String,
+  cancelButtonText: String,
+  confirmButtonText: String,
+  draggable: Boolean,
   shakeOff: {
     type: Array as PropType<ShakeOffProp[]>,
     default: () => [],
   },
-  title: {
-    type: String,
-    default: '',
-  },
-  cancelText: {
-    type: String,
-    default: 'Cancel',
-  },
-  confirmText: {
-    type: String,
-    default: 'Confirm',
-  },
-  draggable: Boolean,
 }
 
 export default defineComponent({
@@ -69,26 +60,24 @@ export default defineComponent({
         return
 
       const renderButtons = []
-      if (!isShake('cancel-button')) {
+      if (!isShake('cancel-button') && props.cancelButtonText) {
         renderButtons.push(
           <Button
             mode="outline"
             onClick={onCancel}
-            v-slots={{
-              default: props.cancelText,
-            }}
-          />,
+          >
+            {props.cancelButtonText}
+          </Button>,
         )
       }
-      if (!isShake('confirm-button')) {
+      if (!isShake('confirm-button') && props.confirmButtonText) {
         renderButtons.push(
           <Button
             mode="solid"
             onClick={onConfirm}
-            v-slots={{
-              default: props.confirmText,
-            }}
-          />,
+          >
+            {props.confirmButtonText}
+          </Button>,
         )
       }
 
@@ -152,7 +141,7 @@ export default defineComponent({
           leave-active-class={animation('fadeOut')}
           appear
         >
-          <div v-show={modal.state.value}>
+          <div class='pl-modal-container' v-show={modal.state.value}>
             {slots.headless ? renderHeadless() : renderModal()}
           </div>
         </Transition>

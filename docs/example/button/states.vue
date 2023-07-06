@@ -1,6 +1,9 @@
 <template>
   <div space-y-2>
     <div fscw gap-2>
+      <pl-button state="primary">
+        primary
+      </pl-button>
       <pl-button state="info">
         info
       </pl-button>

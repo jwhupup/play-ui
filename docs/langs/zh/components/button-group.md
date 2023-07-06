@@ -41,7 +41,6 @@ lang: zh
 
 ### disabled
 
-You can use the disabled attribute to define whether the button-group is disabled.
 您可以使用`disabled`设置按钮组的禁用状态。
 
 <demo src="../../../example/button-group/disabled.vue"></demo>

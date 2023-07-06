@@ -1,6 +1,7 @@
 <template>
   <PlPopover
     ref="popover"
+    trigger="click"
     title="Popover Title"
     content="This is popover content!"
     style="position: absolute; top: 50%; left: 50%;"

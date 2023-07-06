@@ -5,7 +5,7 @@ lang: zh
 
 # Icon
 
-图标使用 [Bootstrap Icons](https://icons.getbootstrap.com/)的图标字体。图标名称可以在他们的网站上找到。
+图标使用 [Bootstrap Icons](https://icons.getbootstrap.com/) 的图标字体。图标名称可以在他们的网站上找到。
 
 ::: tip TODO
 由于字体图标的限制，未来将使用更全面、更容易的方式进行重构。

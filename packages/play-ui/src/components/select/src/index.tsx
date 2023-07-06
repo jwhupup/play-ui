@@ -81,11 +81,18 @@ export default defineComponent({
         cursor: 'pointer',
       } as StyleValue
 
+      const placeholderStyle = {
+        color: 'var(--pl-input-ph-text-color)',
+      }
+
       return {
         ...slots,
         selectWrapper() {
           return (
             <div style={wrapperStyle}>
+              <div v-show={!selectValue.value.length && props.placeholder} style={placeholderStyle}>
+                {props.placeholder}
+              </div>
               {
                 selectValue.value.map((option, index) => (
                   <Tag

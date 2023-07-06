@@ -29,7 +29,6 @@ export const inputProps = {
   disabled: Boolean,
   clearable: Boolean,
   pattern: RegExp,
-  preset: String,
 }
 
 export type InputProps = ExtractPropTypes<typeof inputProps>

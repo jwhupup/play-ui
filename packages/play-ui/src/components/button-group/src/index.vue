@@ -11,7 +11,7 @@ import type { ButtonGroupProps } from '.'
 
 const props = withDefaults(defineProps<ButtonGroupProps>(), {
   mode: 'solid',
-  state: 'info',
+  state: 'primary',
   size: 'medium',
   shape: 'rounded',
 })

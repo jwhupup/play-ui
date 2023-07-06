@@ -6,18 +6,17 @@ import { animation } from '../../../utils'
 import { type ComponentState } from '../../component'
 import Alert from '../../alert'
 
-type ShakeOffProp = 'x-button'
 export type MessageProps = Partial<ExtractPropTypes<typeof messageProps>>
 
 const messageProps = {
   content: String,
-  shakeOff: {
-    type: Array as PropType<ShakeOffProp[]>,
-    default: () => [],
-  },
   state: {
     type: String as PropType<Exclude<ComponentState, 'primary'>>,
     default: 'info',
+  },
+  closable: {
+    type: Boolean,
+    default: true,
   },
   autoClose: {
     type: Boolean,
@@ -51,7 +50,7 @@ export const MessageConstructor = defineComponent({
         icon={icon.value}
         state={props.state}
         description={props.content}
-        closable
+        closable={props.closable}
       />
     )
 
@@ -74,7 +73,7 @@ export const MessageConstructor = defineComponent({
 
 let messagesContainer: HTMLDivElement | null = null
 
-export default (options?: MessageProps) => {
+export default (options?: MessageProps | Function) => {
   if (!messagesContainer) {
     messagesContainer = document.createElement('div')
     messagesContainer.className = 'pl-message-container'

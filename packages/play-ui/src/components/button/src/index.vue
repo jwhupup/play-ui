@@ -8,13 +8,13 @@
       `pl-button--${parent?.state || state}`,
       `pl-button--${parent?.shape || shape}`,
       `pl-button--${parent?.size || size}`,
-      disabled && 'is-disabled',
+      (parent?.disabled || disabled) && 'is-disabled',
     ]"
     @click="$emit('click', $event)"
   >
     <Icon v-if="iconLeft" :class="{ 'icon-left': $slots.default }" :name="iconLeft" />
     <slot />
-    <Icon v-if="iconRight" :class="{ 'icon-righ': $slots.default }" :name="iconRight" />
+    <Icon v-if="iconRight" :class="{ 'icon-right': $slots.default }" :name="iconRight" />
   </button>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <PlDrawer ref="darwer" :shake-off="[]">
+  <PlDrawer ref="drawer" :shake-off="[]">
     This is drawer default.
     <!-- <template #headless>
       <div style="width: 100%; height: 100vh; background: red;">
@@ -8,16 +8,16 @@
     </template> -->
   </PlDrawer>
   <PlButton style="margin-left: 500px; margin-top: 500px;" @click="handleClick">
-    open darwer
+    open drawer
   </PlButton>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const darwer = ref()
+const drawer = ref()
 
 const handleClick = () => {
-  darwer.value?.open()
+  drawer.value?.open()
 }
 </script>

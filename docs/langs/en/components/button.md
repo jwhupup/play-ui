@@ -9,11 +9,11 @@ Common operation buttons.
 
 ## Usage
 
-### type
+### mode
 
 The most commonly used button styles.
 
-<demo src="../../../example/button/types.vue"></demo>
+<demo src="../../../example/button/mode.vue"></demo>
 
 ### size
 
@@ -33,6 +33,12 @@ Predefined the shape of the button.
 
 <demo src="../../../example/button/shapes.vue"></demo>
 
+### icon
+
+Predefined the icon of the button.
+
+<demo src="../../../example/button/icon.vue"></demo>
+
 ### disabled
 
 You can use the disabled attribute to define whether the button is disabled.
@@ -43,11 +49,13 @@ You can use the disabled attribute to define whether the button is disabled.
 
 | Name        | Type                                                 | Default   | Description                |
 | ----------- | ---------------------------------------------------- | --------- | -------------------------- |
-| type        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | Set custom type attribute. |
-| native-type | `button` \| `reset` \| `submit`                      | `button`  | Set native type attribute. |
+| mode        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | Set custom type attribute. |
+| type        | `button` \| `reset` \| `submit`                      | `button`  | Set native type attribute. |
 | shape       | `rounded` \| `pilled` \| `circle` \| `plain`         | `rounded` | Set button shape.          |
 | size        | `small` \| `medium` \| `large`                       | `medium`  | Set button size.           |
 | state       | `info` \| `success` \| `warning` \| `danger`         | `info`    | Set button state.          |
+| iconLeft    | [Bootstrap Icons](https://icons.getbootstrap.com/)   | `''`      | Set button left icon.      |
+| iconRight   | [Bootstrap Icons](https://icons.getbootstrap.com/)   | `''`      | Set button right icon.     |
 | disabled    | `boolean`                                            | `false`   | Disable the button.        |
 
 ## Slots

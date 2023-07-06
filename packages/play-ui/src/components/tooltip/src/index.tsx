@@ -5,11 +5,10 @@ import Popover from '../../popover'
 export type TooltipProps = ExtractPropTypes<typeof tooltipProps>
 
 const tooltipProps = {
-  title: String,
   content: String,
   placement: {
     type: String as PropType<Placement>,
-    default: 'auto',
+    default: 'right',
   },
   trigger: {
     type: String as PropType<'hover' | 'click'>,
@@ -19,13 +18,7 @@ const tooltipProps = {
 
 export default defineComponent({
   name: 'Tooltip',
-  props: {
-    content: String,
-    placement: {
-      type: String as PropType<Placement>,
-      default: 'auto',
-    },
-  },
+  props: tooltipProps,
   setup(props, { slots }) {
     const renderTooptip = () => (
       <div class='pl-tooltip'>
@@ -35,12 +28,10 @@ export default defineComponent({
 
     return () => (
       <Popover
-        v-slots={
-          {
-            headless: slots.headless || renderTooptip,
-            reference: slots.reference,
-          }
-        }
+        v-slots={{
+          headless: slots.headless || renderTooptip,
+          reference: slots.reference,
+        }}
         {...props}
       />
     )

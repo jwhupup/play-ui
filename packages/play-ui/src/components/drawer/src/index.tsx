@@ -103,7 +103,7 @@ export default defineComponent({
         )
       }
       return (
-        <div class='pl-darwer-default'>
+        <div class='pl-drawer-default'>
           {renderHeader()}
           <section>
             {slots.default?.()}
@@ -122,7 +122,7 @@ export default defineComponent({
         >
           <div
             ref={modal}
-            class='pl-darwer'
+            class='pl-drawer'
             style={style.value}
             v-show={modal.state.value}
           >

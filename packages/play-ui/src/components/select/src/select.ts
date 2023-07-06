@@ -1,7 +1,7 @@
 import type { PropType } from 'vue'
 import type { ComponentSize } from '../../component'
+import type { InputMode } from '../../input/src/input'
 
-export type InputMode = 'bordered' | 'underline' | 'light'
 export interface SelectOption {
   name: string
   value?: any
@@ -20,17 +20,13 @@ export const selectProps = {
     type: String as PropType<InputMode>,
     default: 'bordered',
   },
-  type: {
-    type: String,
-    default: 'text',
-  },
   size: {
     type: String as PropType<ComponentSize>,
     default: 'medium',
   },
   infoTip: {
     type: String,
-    default: 'this is warm tip.',
+    default: '',
   },
   prefixIcon: String,
   suffixIcon: String,

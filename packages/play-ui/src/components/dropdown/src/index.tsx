@@ -6,7 +6,6 @@ import Badge from '../../badge'
 import Popover from '../../popover'
 import type { ButtonProps } from '../../button'
 import type { BadgeProps } from '../../badge'
-import { PlVirtualList, PlVirtualListItem } from '../../virtual-list'
 
 export type DropdownProps = ExtractPropTypes<typeof dropdownProps>
 
@@ -16,7 +15,7 @@ export interface DropdownData {
   title?: string
   divider?: boolean
   disabled?: boolean
-  button?: Partial<Pick<ButtonProps, 'state' | 'mode' | 'iconLeft' | 'iconRight'> & { badge: BadgeProps }>
+  button?: Partial<Pick<ButtonProps, 'state' | 'mode' | 'iconLeft' | 'iconRight'> & { badge: Partial<BadgeProps> }>
   callback?: () => void
   children?: DropdownData[]
 }
@@ -55,36 +54,32 @@ export default defineComponent({
     }
 
     const renderMenuButton = (item: DropdownData) => (
-      <Button
-        mode="ghost"
-        size='small'
-        state="info"
-        disabled={item.disabled}
-        onClick={onClick(item)}
-        {...item.button}
-      >
-        <div class="pl-dropdown-button">
-          {item.name}
-          {item.button?.badge && <Badge {...item.button.badge} />}
-        </div>
-      </Button>
-    )
-
-    const renderNormalMenuButton = (item: DropdownData) => (
-      <PlVirtualListItem>
+      <>
         {item.title && <div class="pl-dropdown-title">{item.title}</div>}
-          {renderMenuButton(item)}
+        {
+          <Button
+            mode="ghost"
+            size='small'
+            state="info"
+            disabled={item.disabled}
+            onClick={onClick(item)}
+            {...item.button}
+          >
+            <div class="pl-dropdown-button">
+              {item.name}
+              {item.button?.badge && <Badge {...item.button.badge} />}
+            </div>
+          </Button>
+        }
         {item.divider && <div class="pl-dropdown-divider" />}
-      </PlVirtualListItem>
+      </>
     )
 
     const renderDropdown = () => (
       <>
-        <PlVirtualList
+        <div
           v-show={props.data.length}
           class="pl-dropdown-menu"
-          estimatedListItemHeight={40}
-          listItemCount={props.data.length}
         >
           {
             props.data.map((item) => {
@@ -101,10 +96,10 @@ export default defineComponent({
                   />
                 )
               }
-              return renderNormalMenuButton(item)
+              return renderMenuButton(item)
             })
           }
-        </PlVirtualList>
+        </div>
         <div
           v-show={!props.data.length}
           class="pl-dropdown-menu"

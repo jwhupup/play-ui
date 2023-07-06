@@ -14,6 +14,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
+[data-theme="light"] body {
+  background-color: white;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--pl-slate-900);
+}
+
 a {
   font-weight: 500;
   color: #646cff;

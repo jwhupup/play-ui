@@ -22,6 +22,14 @@ export const enComponents = [
         text: 'Icon',
         link: '/langs/en/components/icon',
       },
+      {
+        text: 'Input',
+        link: '/langs/en/components/input',
+      },
+      {
+        text: 'Select',
+        link: '/langs/en/components/select',
+      },
     ],
   },
   {
@@ -32,8 +40,49 @@ export const enComponents = [
         link: '/langs/en/components/alert',
       },
       {
+        text: 'Drawer',
+        link: '/langs/en/components/drawer',
+      },
+      {
         text: 'Modal',
         link: '/langs/en/components/modal',
+      },
+      {
+        text: 'Message',
+        link: '/langs/en/components/message',
+      },
+      {
+        text: 'Notification',
+        link: '/langs/en/components/notification',
+      },
+      {
+        text: 'Popover',
+        link: '/langs/en/components/popover',
+      },
+      {
+        text: 'Tooltip',
+        link: '/langs/en/components/tooltip',
+      },
+    ],
+  },
+  {
+    text: 'Navigation',
+    items: [
+      {
+        text: 'Breadcrumb',
+        link: '/langs/en/components/breadcrumb',
+      },
+      {
+        text: 'Dropdown',
+        link: '/langs/en/components/dropdown',
+      },
+      {
+        text: 'Steps',
+        link: '/langs/en/components/steps',
+      },
+      {
+        text: 'Tabs',
+        link: '/langs/en/components/tabs',
       },
     ],
   },
@@ -72,6 +121,14 @@ export const zhComponents = [
         text: 'Icon',
         link: '/langs/zh/components/icon',
       },
+      {
+        text: 'Input',
+        link: '/langs/zh/components/input',
+      },
+      {
+        text: 'Select',
+        link: '/langs/zh/components/select',
+      },
     ],
   },
   {
@@ -82,13 +139,54 @@ export const zhComponents = [
         link: '/langs/zh/components/alert',
       },
       {
+        text: 'Drawer',
+        link: '/langs/zh/components/drawer',
+      },
+      {
         text: 'Modal',
         link: '/langs/zh/components/modal',
+      },
+      {
+        text: 'Message',
+        link: '/langs/zh/components/message',
+      },
+      {
+        text: 'Notification',
+        link: '/langs/zh/components/notification',
+      },
+      {
+        text: 'Popover',
+        link: '/langs/zh/components/popover',
+      },
+      {
+        text: 'Tooltip',
+        link: '/langs/zh/components/tooltip',
       },
     ],
   },
   {
-    text: '数据组件',
+    text: '导航组件',
+    items: [
+      {
+        text: 'Breadcrumb',
+        link: '/langs/zh/components/breadcrumb',
+      },
+      {
+        text: 'Dropdown',
+        link: '/langs/zh/components/dropdown',
+      },
+      {
+        text: 'Steps',
+        link: '/langs/zh/components/steps',
+      },
+      {
+        text: 'Tabs',
+        link: '/langs/zh/components/tabs',
+      },
+    ],
+  },
+  {
+    text: '数据展示组件',
     items: [
       {
         text: 'Table',
