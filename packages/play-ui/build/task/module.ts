@@ -17,6 +17,8 @@ export async function buildModule() {
     }),
   )
 
+  console.log(input, '///input///')
+
   await build({
     plugins: [vue(), vueJsx()],
     build: {
