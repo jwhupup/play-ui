@@ -1,5 +1,6 @@
 {
   "name": "play-ui",
+  "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@7.5.2",
   "scripts": {
