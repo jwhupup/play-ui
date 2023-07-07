@@ -1,49 +1,19 @@
 ---
-title: Tooltip
-lang: en-US
+title: Steps
+lang: zh
 ---
 
-# Tooltip <sup><PlBadge value="New" /></sup>
+# Steps <sup><PlBadge value="New" /></sup>
 
-Commonly used to display prompt information when the mouse hovers.
+一个循序渐进的导航栏，引导用户根据流程完成任务。
 
 ## Usage
 
-### title | content
-
-Set tooltip `title` `content`.
-
-<demo src="../../../example/tooltip/usage.vue"></demo>
-
-### trigger
-
-Set tooltip trigger methods.
-
-<demo src="../../../example/tooltip/trigger.vue"></demo>
-
-### placement
-
-Set tooltip placement.
-
-<demo src="../../../example/tooltip/placement.vue"></demo>
-
-### headless
-
-Custom tooltip.
-
-<demo src="../../../example/tooltip/headless.vue"></demo>
+<demo src="../../../example/steps/usage.vue"></demo>
 
 ## Props
 
-| Name        | Type       | Default     | Description                           |
-| ------      | ---------- | ----------- | ------------------------------------- |
-| title   | `string`  | `''`  | set tooltip title. |
-| content   | `string`  | `''`  | set tooltip content. |
-| placement    | `<'top' \| 'right' \| 'bottom' \| 'left' \| 'top-start' \| 'top-end' \| 'right-start' \| 'right-end' \| 'bottom-start' \| 'bottom-end' \| 'left-start' \| 'left-end'>[]` | `'right'` | set tooltip placement. |
-| trigger    | `hover' \| 'click'` | `'hover'` | set tooltip trigger methods. |
-
-## Slots
-
-| Name     | Parameters | Description      |
-| -------  | ---------- | ---------------- |
-| headless | `()`       | Custom Popover.    |
+| Name       | Type          | Default     | Description      |
+| ---------- | ------------- | ----------- | ---------------- |
+| modelValue | `StepsItem[]` | `[]`        | 绑定步骤条列表。  |
+| vertical   | `boolean`     | `false`     | 是否垂直方向显示。|

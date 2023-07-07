@@ -1,49 +1,32 @@
 ---
-title: Tooltip
+title: Tabs
 lang: en-US
 ---
 
-# Tooltip <sup><PlBadge value="New" /></sup>
+# Tabs <sup><PlBadge value="New" /></sup>
 
-Commonly used to display prompt information when the mouse hovers.
+选项卡可以方便地在不同的视图之间切换。
 
 ## Usage
 
-### title | content
+<demo src="../../../example/tabs/usage.vue"></demo>
 
-Set tooltip `title` `content`.
+## Tabs Props
 
-<demo src="../../../example/tooltip/usage.vue"></demo>
+| Name       | Type      | Default | Description           |
+| ------     | --------- | ------- | ----------------------|
+| defaultTab | `选项卡的名字`  | `第一个选项卡的名字`    | 默认选中的选项卡。 |
+| placement  | `'left' \| 'right' \| 'top'`  | `'top'` | 选项卡的位置。    |
 
-### trigger
+## TabPane Props
 
-Set tooltip trigger methods.
+| Name   | Type       | Default | Description |
+| ------ | ---------- | ------- | ----------- |
+| name   | `string`   | `''`    | 选项卡的名字。|
+| ...    | [Button Props](https://playui.netlify.app/langs/en/components/button.html#props) | ... | 继承按钮组件的属性。|
 
-<demo src="../../../example/tooltip/trigger.vue"></demo>
+## Tabs Slots
 
-### placement
-
-Set tooltip placement.
-
-<demo src="../../../example/tooltip/placement.vue"></demo>
-
-### headless
-
-Custom tooltip.
-
-<demo src="../../../example/tooltip/headless.vue"></demo>
-
-## Props
-
-| Name        | Type       | Default     | Description                           |
-| ------      | ---------- | ----------- | ------------------------------------- |
-| title   | `string`  | `''`  | set tooltip title. |
-| content   | `string`  | `''`  | set tooltip content. |
-| placement    | `<'top' \| 'right' \| 'bottom' \| 'left' \| 'top-start' \| 'top-end' \| 'right-start' \| 'right-end' \| 'bottom-start' \| 'bottom-end' \| 'left-start' \| 'left-end'>[]` | `'right'` | set tooltip placement. |
-| trigger    | `hover' \| 'click'` | `'hover'` | set tooltip trigger methods. |
-
-## Slots
-
-| Name     | Parameters | Description      |
-| -------  | ---------- | ---------------- |
-| headless | `()`       | Custom Popover.    |
+| Name    | Parameters | Description        |
+| ------- | ---------- | ----------------   |
+| default | `()`       | 放置选项卡面板组件。 |

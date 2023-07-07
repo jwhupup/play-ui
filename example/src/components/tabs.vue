@@ -1,6 +1,6 @@
 <template>
-  <div style="position: absolute; width: 800px; height: 400px; top: 300px; left: 200px;">
-    <PlTabs position="left">
+  <div style="placement: absolute; width: 800px; height: 400px; top: 300px; left: 200px;">
+    <PlTabs placement="left">
       <PlTabPane name="tab 1" icon-left="airplane-engines-fill">
         <div>
           This is tab 1111.
@@ -8,7 +8,7 @@
         </div>
       </PlTabPane>
       <PlTabPane name="tab 2" disabled>
-        <PlTabs position="top">
+        <PlTabs placement="top">
           <PlTabPane name="tab 2-1">
             This is tab 2-1.
           </PlTabPane>

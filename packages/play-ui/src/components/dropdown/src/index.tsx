@@ -30,7 +30,7 @@ const dropdownProps = {
     default: 'hover',
   },
   data: {
-    type: Array as PropType<any[]>,
+    type: Array as PropType<DropdownData[]>,
     default: () => [],
   },
 }

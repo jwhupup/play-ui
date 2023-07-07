@@ -1,14 +1,12 @@
 <template>
-  <div style="height: 500px; padding: 30px;">
+  <div class="w-full">
     <PlSteps ref="stepsEl" v-model="steps" />
-    <!-- <PlSteps ref="stepsEl" v-model="steps" vertical /> -->
-    <br>
-    <br>
-    <button @click="handleToggleClick">
-      toggle
-    </button>
-    <br>
-    <br>
+    <div class="h-sm my-12">
+      <PlSteps ref="stepsEl" v-model="steps" vertical />
+    </div>
+    <pl-button @click="handleToggleClick">
+      toggle to step 2
+    </pl-button>
   </div>
 </template>
 
@@ -28,7 +26,7 @@ const handleToggleClick = () => {
 const steps = ref<StepsItem[]>([
   {
     name: 'Step 1',
-    description: 'This is Step 1, This is Step 1',
+    description: 'This is Step 1',
     icon: 'activity',
     state: 'processing',
   },

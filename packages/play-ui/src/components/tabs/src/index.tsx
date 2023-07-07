@@ -7,14 +7,14 @@ export type TabsPosition = 'top' | 'left' | 'right'
 
 export const PL_TAB_KEY = Symbol('pl-tabs') as InjectionKey<{
   paneId: Ref<number>
-  position: Ref<TabsPosition>
+  placement: Ref<TabsPosition>
   headers: Ref<TabHeader[]>
   currentPaneId: Ref<number>
 }>
 
 const tabsProps = {
   defaultTab: String,
-  position: String as PropType<TabsPosition>,
+  placement: String as PropType<TabsPosition>,
 }
 
 export default defineComponent({
@@ -32,11 +32,11 @@ export default defineComponent({
       headers,
       paneId,
       currentPaneId,
-      position: computed(() => props.position || 'top'),
+      placement: computed(() => props.placement || 'top'),
     })
 
     return () => (
-      <div class={['pl-tabs', `${props.position}`]}>
+      <div class={['pl-tabs', `${props.placement}`]}>
         <Header />
         {slots.default?.()}
       </div>

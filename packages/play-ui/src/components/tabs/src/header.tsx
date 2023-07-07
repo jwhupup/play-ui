@@ -10,7 +10,7 @@ export interface TabHeader extends ButtonProps {
 
 export default defineComponent({
   setup() {
-    const { currentPaneId, headers, position } = inject(PL_TAB_KEY)!
+    const { currentPaneId, headers, placement } = inject(PL_TAB_KEY)!
     const btnsWrpper = ref<HTMLElement>()
     const btns = ref<HTMLElement[]>()
 
@@ -18,7 +18,7 @@ export default defineComponent({
       if (!btns.value)
         return
 
-      if (position.value === 'top') {
+      if (placement.value === 'top') {
         const width = `${btns.value[currentPaneId.value].clientWidth}px`
         const transform = `translateX(${btns.value[currentPaneId.value].offsetLeft}px)`
         return {
@@ -57,14 +57,14 @@ export default defineComponent({
     )
 
     return () => (
-      <div class={['pl-tabs-header', position.value]}>
+      <div class={['pl-tabs-header', placement.value]}>
         <div
           ref={btnsWrpper}
-          class={['pl-tabs-button', position.value]}
+          class={['pl-tabs-button', placement.value]}
         >
           {headers.value.map(hd => renderHeaderButton(hd))}
         </div>
-        <div class={['pl-tabs-slideway', position.value]}>
+        <div class={['pl-tabs-slideway', placement.value]}>
           <div class='pl-tabs-thumb' style={thumbStyle.value}/>
         </div>
       </div>

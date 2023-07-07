@@ -5,7 +5,7 @@ lang: en-US
 
 # Dropdown <sup><PlBadge value="New" /></sup>
 
-Breadcrumbs are a navigation system used to show a user's location in a site or app.
+A dropdown menu displays a list of actions and more with JavaScript dropdown plugin.
 
 ## Usage
 
@@ -15,6 +15,6 @@ Breadcrumbs are a navigation system used to show a user's location in a site or 
 
 | Name       | Type       | Default     | Description                           |
 | ------     | ---------- | ----------- | ------------------------------------- |
-| modelValue | `<{ name: string separator?: String to: RouteLocationRaw icon: string }>[]`  | `[]`  | bind breadcrumb options. |
-| replace    | `boolean`  | `false` | equivalent to `replace` in vue router. |
-| separator  | `string`   | `'/'`   | set toolseparator. |
+| placement    | `<'top' \| 'right' \| 'bottom' \| 'left' \| 'top-start' \| 'top-end' \| 'right-start' \| 'right-end' \| 'bottom-start' \| 'bottom-end' \| 'left-start' \| 'left-end'>[]` | `'right'` | set dropdown placement. |
+| trigger    | `hover' \| 'click' \| boolean` | `'hover'` | set dropdown trigger methods. |
+| data  | `DropdownData[]`   | `[]`   | set toolseparator. |

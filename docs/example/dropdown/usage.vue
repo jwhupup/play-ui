@@ -22,8 +22,7 @@ const dropdown = ref()
 
 const list = ref<DropdownData[]>([
   {
-    name: 'btn 1',
-    divider: true,
+    name: 'has children',
     children: [
       { name: 'btn 1 1' },
       {
@@ -37,16 +36,20 @@ const list = ref<DropdownData[]>([
     ],
   },
   {
-    name: 'btn 2',
+    name: 'with title,icon,badge,divider',
     title: 'Title',
+    divider: true,
     button: {
       iconLeft: 'airplane',
       badge: {
         state: 'success',
       },
     },
+  },
+  {
+    name: 'with callback',
     callback() {
-      alert('invoke callback!')
+      alert('with callback!')
     },
   },
 ])

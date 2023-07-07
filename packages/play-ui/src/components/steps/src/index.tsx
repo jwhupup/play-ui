@@ -1,4 +1,4 @@
-import type { PropType, Ref } from 'vue'
+import type { ExtractPropTypes, PropType, Ref } from 'vue'
 import { defineComponent } from 'vue'
 import { useExpose, useStep } from '../../../composables'
 import Button from '../../button'
@@ -11,21 +11,24 @@ export interface StepsItem {
   state?: 'pending' | 'processing' | 'done'
   result?: 'success' | 'fail' | 'exception'
 }
+export type StepsProps = ExtractPropTypes<typeof stepsProps>
 export type StepsToggleOptions = Pick<StepsItem, 'state' | 'result'>
 export type StepsInstance = HTMLElement & {
   current: Ref<number>
   toggle: (stepIndex: number, options: StepsToggleOptions) => any
 }
 
+const stepsProps = {
+  modelValue: {
+    type: Array as PropType<StepsItem[]>,
+    require: true,
+  },
+  vertical: Boolean,
+}
+
 export default defineComponent({
   name: 'Steps',
-  props: {
-    modelValue: {
-      type: Array as PropType<StepsItem[]>,
-      require: true,
-    },
-    vertical: Boolean,
-  },
+  props: stepsProps,
   emits: ['update:modelValue'],
   setup(props, { emit }) {
     const { steps, current, toggle: _toggle } = useStep<StepsItem>(props.modelValue!, emit)
