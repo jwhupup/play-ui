@@ -21,7 +21,13 @@ export async function buildModule() {
     plugins: [vue(), vueJsx()],
     build: {
       rollupOptions: {
-        input,
+        input: excludeFiles(
+          await glob('**/*.{ts,tsx,vue}', {
+            cwd: srcPath,
+            absolute: true,
+            onlyFiles: true,
+          }),
+        ),
         output: [
           {
             format: 'es',
