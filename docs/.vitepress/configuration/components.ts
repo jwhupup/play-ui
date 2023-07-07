@@ -90,8 +90,16 @@ export const enComponents = [
     text: 'Data',
     items: [
       {
-        text: 'Table',
-        link: '/langs/en/components/table',
+        text: 'Pagination',
+        link: '/langs/en/components/pagination',
+      },
+      {
+        text: 'Scrollbar',
+        link: '/langs/en/components/scrollbar',
+      },
+      {
+        text: 'VirtualList',
+        link: '/langs/en/components/virtual-list',
       },
     ],
   },
@@ -189,8 +197,16 @@ export const zhComponents = [
     text: '数据展示组件',
     items: [
       {
-        text: 'Table',
-        link: '/langs/zh/components/table',
+        text: 'Pagination',
+        link: '/langs/zh/components/pagination',
+      },
+      {
+        text: 'Scrollbar',
+        link: '/langs/zh/components/scrollbar',
+      },
+      {
+        text: 'VirtualList',
+        link: '/langs/zh/components/virtual-list',
       },
     ],
   },

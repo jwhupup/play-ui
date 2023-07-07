@@ -1,10 +1,12 @@
-import type { PropType, Ref } from 'vue'
+import type { ExtractPropTypes, PropType, Ref } from 'vue'
 import { computed, defineComponent, ref, watchEffect } from 'vue'
 import { useCount, useExpose } from '../../../composables'
 import { range } from '../../../utils'
 import type { ButtonShape, ButtonType } from '../../button'
 import Button from '../../button'
+import Input from '../../input'
 
+export type PaginationProps = ExtractPropTypes<typeof paginationProps>
 export type PaginationInstance = HTMLElement & {
   current: Ref<number>
   prev: (step?: number) => any
@@ -12,26 +14,28 @@ export type PaginationInstance = HTMLElement & {
   toggle: (value?: number) => any
 }
 
+const paginationProps = {
+  count: {
+    type: Number,
+    default: 0,
+  },
+  showCount: {
+    type: Number,
+    default: 7,
+  },
+  mode: {
+    type: String as PropType<ButtonType>,
+    default: 'ghost',
+  },
+  shape: {
+    type: String as PropType<ButtonShape>,
+    default: 'rounded',
+  },
+}
+
 export default defineComponent({
   name: 'Pagination',
-  props: {
-    count: {
-      type: Number,
-      default: 0,
-    },
-    showCount: {
-      type: Number,
-      default: 7,
-    },
-    mode: {
-      type: String as PropType<ButtonType>,
-      default: 'ghost',
-    },
-    shape: {
-      type: String as PropType<ButtonShape>,
-      default: 'rounded',
-    },
-  },
+  props: paginationProps,
   setup(props) {
     const count = computed(() => range(2, props.count - 1, 1))
     const max = computed(() => count.value.length + 2)
@@ -85,7 +89,7 @@ export default defineComponent({
     })
 
     return () => (
-      <div v-show={props.count > 1}>
+      <div class='pl-pagination' v-show={props.count > 1}>
         <Button
           size='mini'
           state='info'
@@ -153,7 +157,7 @@ export default defineComponent({
           shape={props.shape}
           onClick={onNext}
         />
-        to <input type="number" onBlur={onToggle} />
+        to <Input style='width: 56px' type="number" size='small' onBlur={onToggle} />
       </div>
     )
   },

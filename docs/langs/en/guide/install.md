@@ -31,7 +31,7 @@ Then add the code below into your Vite config file.
 // vite.config.ts
 import { defineConfig } from 'vite'
 import Components from 'unplugin-vue-components/vite'
-import { PlayResolver } from 'play-ui/dist/lib/resolver'
+import { PlayResolver } from 'play-ui/dist/lib/components/resolver'
 
 export default defineConfig({
   // ...
@@ -40,20 +40,9 @@ export default defineConfig({
     Components({
       resolvers: [PlayResolver()],
     }),
+    AutoImport({
+      resolvers: [PlayResolver()],
+    }),
   ],
 })
 ```
-
-<!-- ## Get Volar Typescript support
-
-You can add the `OnuUI` global component type definition to `compilerOptions.types` in your project's `tsconfig.json`. Then [volar](https://github.com/johnsoncodehk/volar) will help you have a better experience while developing.
-
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    // ...
-    "types": ["onu-ui/volar"]
-  }
-}
-``` -->

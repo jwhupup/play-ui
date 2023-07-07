@@ -7,11 +7,11 @@ lang: zh
 
 Displays important alert messages.
 
-## type
+## mode
 
-Use the type attribute to define Alert's type.
+Use the mode attribute to define Alert's mode.
 
-<demo src="../../../example/alert/types.vue"></demo>
+<demo src="../../../example/alert/mode.vue"></demo>
 
 ## state
 
@@ -45,14 +45,14 @@ Use the closable attribute to define a removable alert.
 
 ## Alert Props
 
-| Name        | Type                                                          | Default | Description                |
-| ----------- | ------------------------------------------------------------- | ------- | -------------------------- |
-| type        | `solid` \| `soft`                                             | `solid` | Set custom type attribute. |
-| description | `string`                                                      | `''`    | Set alert description.     |
-| title       | `string`                                                      | `''`    | Set alert title.           |
-| icon        | `string`                                                      | `''`    | Set alert icon.            |
-| closable    | `boolean`                                                     | `false` | Set alert closable.        |
-| color       | `blue` \| `teal` \| `red` \| `yellow` \| `gray` \| `deepGray` | `teal`  | Set alert color.           |
+| Name        | Type                                                          | Default   | Description                |
+| ----------- | ------------------------------------------------------------- | -------   | -------------------------- |
+| mode        | `'solid'` \| `'soft'`                                             | `'solid'`   | Set custom type attribute. |
+| state       | `'primary'` \| `'info'` \| `'success'` \| `'warning'` \| `'danger'`     | `'primary'` | Set alert state.           |
+| description | `string`                                                      | `''`      | Set alert description.     |
+| title       | `string`                                                      | `''`      | Set alert title.           |
+| icon        | `string`                                                      | `''`      | Set alert icon.            |
+| closable    | `boolean`                                                     | `false`   | Set alert closable.        |
 
 ## Button Slots
 

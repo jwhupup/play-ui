@@ -1,14 +1,15 @@
 <template>
-  <div style="position: relative; width: 800px; height: 80%; border: 1px solid #4c4e50;">
-    <PlScrollbar ref="scrollbar">
+  <div class="block dark:text-white">
+    <PlScrollbar ref="scrollbar" :height="400">
       <div v-for="(item, index) in list" :key="index">
         {{ `${index + 1}. ${item}` }}
       </div>
     </PlScrollbar>
+    <br>
+    <PlButton @click="handleScroll">
+      smooth scroll
+    </PlButton>
   </div>
-  <PlButton @click="handleScroll">
-    scroll
-  </PlButton>
 </template>
 
 <script setup lang="ts">
@@ -17,11 +18,11 @@ import { faker } from '@faker-js/faker'
 import type { ScrollbarInstance } from 'play-ui'
 
 const scrollbar = ref<ScrollbarInstance>()
-const list = ref(Array(100).fill(null).map(_ => faker.lorem.sentences()))
+const list = ref(Array(50).fill(null).map(_ => faker.lorem.sentences()))
 
 const handleScroll = () => {
   scrollbar.value?.scrollto({
-    top: 1000,
+    top: 300,
     behavior: 'smooth',
   })
 }

@@ -49,7 +49,7 @@ You can use the disabled attribute to define whether the button is disabled.
 
 | Name        | Type                                                 | Default   | Description                |
 | ----------- | ---------------------------------------------------- | --------- | -------------------------- |
-| mode        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | Set custom type attribute. |
+| mode        | `solid` \| `white` \| `outline` \| `ghost` \| `link` | `solid`   | Set button style.          |
 | type        | `button` \| `reset` \| `submit`                      | `button`  | Set native type attribute. |
 | shape       | `rounded` \| `pilled` \| `circle` \| `plain`         | `rounded` | Set button shape.          |
 | size        | `small` \| `medium` \| `large`                       | `medium`  | Set button size.           |
