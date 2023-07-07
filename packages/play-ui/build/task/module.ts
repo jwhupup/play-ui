@@ -17,6 +17,7 @@ export async function buildModule() {
     }),
   )
 
+  console.log(srcPath, '///srcPath///')
   console.log(input, '///input///')
 
   await build({

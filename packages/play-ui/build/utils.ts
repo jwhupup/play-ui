@@ -1,4 +1,6 @@
 export const excludeFiles = (files: string[]) => {
+  console.log(files, '///files///')
+
   const excludes = ['node_modules', 'test', 'gulpfile', 'dist', 'build']
   return files.filter(
     path => !excludes.some(exclude => path.includes(exclude)),
