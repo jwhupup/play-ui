@@ -44,18 +44,19 @@ async function genStyleEntry(cssInfo: CssInfo) {
     )
     const components = componentPaths.map(comp => comp.split('components/')[1])
 
-    const compName = cssInfo.name.split(/\\/)[1]
+    const componentName = cssInfo.name.split(/\\/)[1]
+    console.log(componentName === undefined, '///')
 
     const importReg = /import\s+(?:(?!type\s+\{)\w+\s+)*?(?<!{)(\w+)\s+from/g
 
     const importCommon = 'import \'../../base.css\'\nimport \'./index.css\'\n'
 
-    const isExist = existsSync(resolve(componentsPath, compName, 'src/index.vue'))
+    const isExist = existsSync(resolve(componentsPath, componentName, 'src/index.vue'))
 
     const importContent = (
       readFileSync(
         resolve(
-          componentsPath, compName,
+          componentsPath, componentName,
           `src/index.${isExist ? 'vue' : 'tsx'}`,
         ),
         'utf-8',
