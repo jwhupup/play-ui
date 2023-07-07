@@ -1,7 +1,6 @@
 {
   "name": "@play-ui/docs",
-  "type": "module",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "private": true,
   "description": "play-ui docs",
   "keywords": [
@@ -16,10 +15,10 @@
     "serve": "vitepress serve"
   },
   "dependencies": {
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.1",
+    "vue": "^v3.3.4"
   },
   "devDependencies": {
-    "@play-ui/docs": "workspace:*",
     "@types/markdown-it": "^12.2.3"
   }
 }
