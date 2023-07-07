@@ -44,9 +44,7 @@ async function genStyleEntry(cssInfo: CssInfo) {
     )
     const components = componentPaths.map(comp => comp.split('components/')[1])
 
-    const componentName = cssInfo.name.split(/\\/)[1]
-    if (componentName === undefined)
-      console.log(cssInfo.name, '//////')
+    const componentName = cssInfo.name.split(/[\\|\/]/)[1]
 
     const importReg = /import\s+(?:(?!type\s+\{)\w+\s+)*?(?<!{)(\w+)\s+from/g
 
