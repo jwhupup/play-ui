@@ -16,12 +16,7 @@ The starting point of this project is personal learning, but not limited to it. 
 
 ## Todo
 
-- Chinese documents
 - New components
-- CDN
-- Playground
-- 3D logo
-- Find partners, Excited! 🤪
 
 ## Features
 

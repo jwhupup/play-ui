@@ -5,6 +5,7 @@
 </p>
 <p align="center">
   <a href="https://www.npmjs.com/package/play-ui"><img src="https://img.shields.io/npm/v/play-ui" alt="NPM version"></a>
+  <a href="https://vuejs.org/"><img src="https://img.shields.io/npm/dependency-version/play-ui/peer/vue" alt="peer dependency"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/github/license/jwhupup/play-ui" alt="license"></a>
   <p align="center">
 </p>
